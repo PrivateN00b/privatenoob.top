@@ -1,0 +1,15 @@
+.navbar {
+  border: solid;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 10px;
+  background-color: #7eb1e4; /* Optional: Add a background color */
+}
+
+.navlink {
+  color: aqua;
+  background-color: blueviolet;
+  padding: 10px 30px 10px 30px;
+  border-radius: 20%;
+}
