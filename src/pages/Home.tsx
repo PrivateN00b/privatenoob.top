@@ -59,6 +59,14 @@ const StyledParagraph = styled.p`
   margin: 0 20px 0 20px;
 `;
 
+const ToDoItem = styled.h3`
+  text-align: center;
+  background-color: ${({ theme }) => theme.colors.tertiary};
+  border-radius: 20px;
+  margin: 0 200px 20px 200px;
+  padding: 10px 0 10px 0;
+`;
+
 function Home() {
   return (
     <Container>
@@ -80,7 +88,12 @@ function Home() {
           favorite games each year or something. Yes, I use SystemD, why do you
           ask? :3
         </StyledParagraph>
-        <CenteredH1>Introduction</CenteredH1>
+        <CenteredH1>To-do list</CenteredH1>
+        <ToDoItem>Create the base layout</ToDoItem>
+        <ToDoItem>Listing my projects in the Projects page</ToDoItem>
+        <ToDoItem>Creating my webserver to do funny API calls</ToDoItem>
+        <ToDoItem>Light and dark theme switcher</ToDoItem>
+        <ToDoItem>Create webring</ToDoItem>
       </MainDiv>
       <RightSideDiv>
         <h1>Home</h1>
