@@ -14,8 +14,11 @@
 }
 
 header,
-main,
 footer {
   border: solid;
+  margin-bottom: 10px;
+}
+
+main {
   margin-bottom: 10px;
 }
