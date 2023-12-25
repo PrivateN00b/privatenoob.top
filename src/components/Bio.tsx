@@ -4,7 +4,7 @@ const AvatarCard = styled.div`
   background-color: #43f9ff;
   display: grid;
   max-width: 200px;
-  margin: 10px auto 10px auto;
+  margin: 10px auto 0px auto;
   border-radius: 20%;
   border: solid;
 `;
@@ -35,6 +35,10 @@ const OfflineIndicator = styled.span`
   margin-right: 8px;
 `;
 
+const BioList = styled.div`
+  text-align: center;
+`;
+
 function Bio() {
   return (
     <>
@@ -55,6 +59,11 @@ function Bio() {
           <h4>PrivateNoob</h4>
         </div>
       </AvatarCard>
+      <BioList>
+        <h3>♂️ 23, he/him</h3>
+        <h3>🇭🇺 Hungarian</h3>
+        <h3>Idunno</h3>
+      </BioList>
     </>
   );
 }
