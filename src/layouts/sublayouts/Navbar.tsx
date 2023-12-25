@@ -8,13 +8,14 @@ const Nav = styled.div`
   padding: 10px;
   background-color: ${(props) =>
     props.theme.colors.tertiary}; /* Optional: Add a background color */
+  border-radius: 0px 0px 20px 20px;
 `;
 
 const StyledNavLink = styled(NavLink)`
   color: ${(props) => props.theme.colors.text2};
   background-color: ${(props) => props.theme.colors.secondary};
   padding: 10px 30px 10px 30px;
-  border-radius: 20%;
+  border-radius: 20px;
 `;
 
 function Navbar() {

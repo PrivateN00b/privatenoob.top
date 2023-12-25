@@ -7,19 +7,21 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const SideDiv = styled.div`
-  border: solid ${({ theme }) => theme.colors.primary};
+const BaseDiv = styled.div`
+  border: double ${({ theme }) => theme.colors.primary};
+  border-radius: 20px;
+`;
+
+const SideDiv = styled(BaseDiv)`
   width: 20%;
 `;
 
-const MainDiv = styled.div`
-  border: solid ${({ theme }) => theme.colors.primary};
+const MainDiv = styled(BaseDiv)`
   width: 60%;
-  margin: 0 10px 0 10px;
+  margin: 0 20px 0 20px;
 `;
 
-const RightSideDiv = styled.div`
-  border: solid ${({ theme }) => theme.colors.primary};
+const RightSideDiv = styled(BaseDiv)`
   width: 20%;
 `;
 

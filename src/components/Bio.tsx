@@ -16,7 +16,7 @@ const AvatarCard = styled.div`
   max-width: 200px;
   margin: 10px auto 0px auto;
   border-radius: 20% 20% 0% 0%;
-  border: solid;
+  border: double;
 
   &:hover {
     animation: ${avatarAnimation} 1s forwards;
@@ -41,8 +41,8 @@ const BioInfo = styled.div`
   background-color: #4a4c51;
   max-width: 200px;
   margin: 5px auto 0px auto;
-  border: solid ${({ theme }) => theme.colors.primary};
-  border-radius: 0 0 50% 50%;
+  border: double ${({ theme }) => theme.colors.primary};
+  border-radius: 0 0 50px 50px;
 
   &:hover {
     animation: ${avatarAnimation} 1s forwards;

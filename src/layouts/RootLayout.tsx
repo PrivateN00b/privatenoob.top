@@ -4,18 +4,19 @@ import Navbar from "./sublayouts/Navbar";
 import styled from "styled-components";
 
 const Header = styled.header`
-  border: solid;
-  margin-bottom: 10px;
+  border: double;
+  margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 20px;
 `;
 
 const Main = styled.main`
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const Footer = styled.footer`
-  border: solid;
-  margin-bottom: 10px;
+  border: double;
+  margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};
 `;
 
