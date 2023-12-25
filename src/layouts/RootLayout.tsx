@@ -1,19 +1,35 @@
 import { Outlet } from "react-router-dom";
 import Banner from "../components/ui/Banner";
-import "./RootLayout.css";
 import Navbar from "./sublayouts/Navbar";
+import styled from "styled-components";
+
+const Header = styled.header`
+  border: solid;
+  margin-bottom: 10px;
+  border-color: ${({ theme }) => theme.colors.primary};
+`;
+
+const Main = styled.main`
+  margin-bottom: 10px;
+`;
+
+const Footer = styled.footer`
+  border: solid;
+  margin-bottom: 10px;
+  border-color: ${({ theme }) => theme.colors.primary};
+`;
 
 export default function RootLayout() {
   return (
-    <div className="root-layout">
-      <header>
+    <div>
+      <Header>
         <Banner />
         <Navbar />
-      </header>
-      <main>
+      </Header>
+      <Main>
         <Outlet />
-      </main>
-      <footer></footer>
+      </Main>
+      <Footer></Footer>
     </div>
   );
 }

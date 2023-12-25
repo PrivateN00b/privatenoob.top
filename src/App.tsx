@@ -6,13 +6,14 @@ import Home from "./pages/Home";
 import {
   createBrowserRouter,
   RouterProvider,
-  Link,
-  NavLink,
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
 import Projects from "./pages/Projects";
 import RootLayout from "./layouts/RootLayout";
+import { ThemeProvider } from "styled-components";
+import theme from "./styles/theme";
+import GlobalStyle from "./styles/global";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +25,12 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }
 
 export default App;

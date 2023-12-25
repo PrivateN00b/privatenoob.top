@@ -1,18 +1,41 @@
+import styled from "styled-components";
 import Bio from "../components/Bio";
+import theme from "../styles/theme";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const SideDiv = styled.div`
+  border: solid ${({ theme }) => theme.colors.primary};
+  width: 20%;
+`;
+
+const MainDiv = styled.div`
+  border: solid ${({ theme }) => theme.colors.primary};
+  width: 60%;
+  margin: 0 10px 0 10px;
+`;
+
+const RightSideDiv = styled.div`
+  border: solid ${({ theme }) => theme.colors.primary};
+  width: 20%;
+`;
 
 function Home() {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div style={{ border: "solid", width: "20%" }}>
+    <Container>
+      <SideDiv>
         <Bio />
-      </div>
-      <div style={{ border: "solid", width: "60%", margin: "0 10px 0 10px" }}>
+      </SideDiv>
+      <MainDiv>
         <h1>Home</h1>
-      </div>
-      <div style={{ border: "solid", width: "20%" }}>
+      </MainDiv>
+      <RightSideDiv>
         <h1>Home</h1>
-      </div>
-    </div>
+      </RightSideDiv>
+    </Container>
   );
 }
 

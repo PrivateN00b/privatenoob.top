@@ -1,12 +1,26 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const avatarAnimation = keyframes`   
+  from {
+    transform: scale(1.0)
+  }
+  to {
+    transform: scale(1.05)
+  }
+`;
 
 const AvatarCard = styled.div`
-  background-color: #43f9ff;
+  color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.bg};
   display: grid;
   max-width: 200px;
   margin: 10px auto 0px auto;
-  border-radius: 20%;
+  border-radius: 20% 20% 0% 0%;
   border: solid;
+
+  &:hover {
+    animation: ${avatarAnimation} 1s forwards;
+  }
 `;
 
 const AvatarImg = styled.img`
@@ -15,8 +29,24 @@ const AvatarImg = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 22% 22% 0% 0%;
+  border-radius: inherit;
   object-fit: cover;
+`;
+
+const BioInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${(props) => props.theme.colors.text2};
+  background-color: #4a4c51;
+  max-width: 200px;
+  margin: 5px auto 0px auto;
+  border: solid ${({ theme }) => theme.colors.primary};
+  border-radius: 0 0 50% 50%;
+
+  &:hover {
+    animation: ${avatarAnimation} 1s forwards;
+  }
 `;
 
 const OnlineIndicator = styled.span`
@@ -45,20 +75,23 @@ function Bio() {
       <AvatarCard>
         <AvatarImg
           src="https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
+          onClick={() =>
+            window.open(
+              "https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
+            )
+          }
           alt="Avatar"
         />
         {/* <OnlineIndicator /> */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <OnlineIndicator />
-          <h4>PrivateNoob</h4>
-        </div>
       </AvatarCard>
+      <BioInfo
+        onClick={() =>
+          window.open("https://discordapp.com/users/334419819627675648")
+        }
+      >
+        <OnlineIndicator />
+        <h4>PrivateNoob</h4>
+      </BioInfo>
       <BioList>
         <h3>♂️ 23, he/him</h3>
         <h3>🇭🇺 Hungarian</h3>
