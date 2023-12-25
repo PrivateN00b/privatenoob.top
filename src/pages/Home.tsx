@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <div style={{ border: "solid" }}>
+    <div>
       <h1>Home</h1>
     </div>
   );

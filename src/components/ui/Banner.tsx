@@ -3,8 +3,7 @@ function Banner() {
     <div
       style={{
         overflow: "hidden",
-        border: "solid",
-        marginBottom: "10px",
+        // border: "solid",
       }}
     >
       <img

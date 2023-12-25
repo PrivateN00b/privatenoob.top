@@ -6,9 +6,14 @@ import Navbar from "./sublayouts/Navbar";
 export default function RootLayout() {
   return (
     <div className="root-layout">
-      <Banner />
-      <Navbar />
-      <Outlet />
+      <header>
+        <Banner />
+        <Navbar />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer></footer>
     </div>
   );
 }

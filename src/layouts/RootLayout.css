@@ -1,5 +1,4 @@
 .navbar {
-  border: solid;
   display: flex;
   justify-content: space-evenly;
   text-align: center;
@@ -12,4 +11,11 @@
   background-color: blueviolet;
   padding: 10px 30px 10px 30px;
   border-radius: 20%;
+}
+
+header,
+main,
+footer {
+  border: solid;
+  margin-bottom: 10px;
 }
