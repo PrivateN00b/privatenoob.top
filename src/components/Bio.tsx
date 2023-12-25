@@ -72,26 +72,28 @@ const BioList = styled.div`
 function Bio() {
   return (
     <>
-      <AvatarCard>
-        <AvatarImg
-          src="https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
+      <div>
+        <AvatarCard>
+          <AvatarImg
+            src="https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
+            onClick={() =>
+              window.open(
+                "https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
+              )
+            }
+            alt="Avatar"
+          />
+          {/* <OnlineIndicator /> */}
+        </AvatarCard>
+        <BioInfo
           onClick={() =>
-            window.open(
-              "https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
-            )
+            window.open("https://discordapp.com/users/334419819627675648")
           }
-          alt="Avatar"
-        />
-        {/* <OnlineIndicator /> */}
-      </AvatarCard>
-      <BioInfo
-        onClick={() =>
-          window.open("https://discordapp.com/users/334419819627675648")
-        }
-      >
-        <OnlineIndicator />
-        <h4>PrivateNoob</h4>
-      </BioInfo>
+        >
+          <OnlineIndicator />
+          <h4>PrivateNoob</h4>
+        </BioInfo>
+      </div>
       <BioList>
         <h3>♂️ 23, he/him</h3>
         <h3>🇭🇺 Hungarian</h3>
