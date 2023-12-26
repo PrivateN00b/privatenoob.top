@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Bio from "../layouts/sublayouts/Bio";
 import BaseContentDiv from "../components/ui/BaseContentDiv";
+import Socials from "../layouts/sublayouts/Socials";
 
 // Encapsulating components
 
@@ -79,7 +80,6 @@ function Home() {
     <Container>
       <LeftSideDiv>
         <Bio />
-        <Bio isLast={true} />
       </LeftSideDiv>
       <MainDiv>
         <CenteredH1>Introduction</CenteredH1>

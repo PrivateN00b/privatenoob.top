@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
+import BaseProps from "../../utils/interfaces";
 
 const avatarAnimation = keyframes`   
   from {
@@ -79,11 +80,7 @@ const BioList = styled.div`
   text-align: center;
 `;
 
-interface BioProps {
-  isLast?: boolean;
-}
-
-function Bio({ isLast = false }: BioProps) {
+function Bio({ isLast = false }: BaseProps) {
   return (
     <BaseContentDiv isLast={isLast}>
       <div>
