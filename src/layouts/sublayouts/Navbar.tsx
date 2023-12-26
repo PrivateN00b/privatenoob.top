@@ -38,12 +38,21 @@ const LeftDiv = styled(BaseDiv)`
   align-items: center;
   margin: 0;
   padding-right: 10px;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const CenterDiv = styled(BaseDiv)`
   width: 60%;
   padding: 0 20px 0 20px;
   border-left: solid 3px ${({ theme }) => theme.colors.primary};
+
+  @media (max-width: 900px) {
+    border-left: 0;
+    justify-content: space-between;
+  }
 `;
 
 const RightDiv = styled(BaseDiv)`
