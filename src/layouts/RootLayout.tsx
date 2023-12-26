@@ -4,6 +4,7 @@ import Navbar from "./sublayouts/Navbar";
 import styled from "styled-components";
 
 const Header = styled.header`
+  background-color: ${({ theme }) => theme.colors.bg};
   border: double;
   margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};
@@ -15,6 +16,7 @@ const Main = styled.main`
 `;
 
 const Footer = styled.footer`
+  background-color: ${({ theme }) => theme.colors.bg};
   border: double;
   margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};

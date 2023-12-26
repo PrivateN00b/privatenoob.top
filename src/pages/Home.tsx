@@ -14,6 +14,7 @@ const Container = styled.div`
 `;
 
 const BaseDiv = styled.div`
+  background-color: ${({ theme }) => theme.colors.bg};
   border: double ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
 `;
