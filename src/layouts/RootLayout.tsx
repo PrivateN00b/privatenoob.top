@@ -10,6 +10,7 @@ const Header = styled.header`
   margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
+  box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
 `;
 
 const Main = styled.main`
@@ -21,6 +22,7 @@ const Footer = styled.footer`
   border: double;
   margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};
+  box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
 `;
 
 export default function RootLayout() {
