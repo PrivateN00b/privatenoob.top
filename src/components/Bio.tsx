@@ -21,6 +21,15 @@ const AvatarCard = styled.div`
   &:hover {
     animation: ${avatarAnimation} 1s forwards;
   }
+
+  @media (max-width: 1140px) {
+    margin: 0px auto 0px auto;
+    border-radius: 20px 20px 0% 0%;
+  }
+
+  @media (max-width: 900px) {
+    margin: 10px auto 0px auto;
+  }
 `;
 
 const AvatarImg = styled.img`
@@ -46,6 +55,10 @@ const BioInfo = styled.div`
 
   &:hover {
     animation: ${avatarAnimation} 1s forwards;
+  }
+
+  @media (max-width: 900px) {
+    margin: 5px auto 10px auto;
   }
 `;
 
