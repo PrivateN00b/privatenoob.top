@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Bio from "../layouts/sublayouts/Bio";
 import BaseContentDiv from "../components/ui/BaseContentDiv";
 import Socials from "../layouts/sublayouts/Socials";
+import CenteredH1 from "../components/ui/CenteredH1";
+import StyledParagraph from "../components/ui/StyledParagraph";
+import ToDoItem from "../components/ui/ToDoItem";
 
 // Encapsulating components
 
@@ -54,26 +57,6 @@ const RightSideDiv = styled(BaseContentDiv)`
 `;
 
 // Other attributes
-
-const CenteredH1 = styled.h1`
-  text-align: center;
-`;
-
-const StyledParagraph = styled.p`
-  margin: 0 20px 0 20px;
-`;
-
-const ToDoItem = styled.h3`
-  text-align: center;
-  background-color: ${({ theme }) => theme.colors.tertiary};
-  border-radius: 20px;
-  margin: 0 15% 20px 15%;
-  padding: 10px 0 10px 0;
-
-  @media (max-width: 1140px) {
-    margin: 0 5% 20px 5%;
-  }
-`;
 
 function Home() {
   return (
