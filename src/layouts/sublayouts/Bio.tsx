@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import BaseContentDiv from "./ui/BaseContentDiv";
+import BaseContentDiv from "../../components/ui/BaseContentDiv";
 
 const avatarAnimation = keyframes`   
   from {

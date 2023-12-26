@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Bio from "../components/Bio";
+import Bio from "../layouts/sublayouts/Bio";
 import BaseContentDiv from "../components/ui/BaseContentDiv";
 
 // Encapsulating components
