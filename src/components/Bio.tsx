@@ -38,7 +38,7 @@ const BioInfo = styled.div`
   align-items: center;
   justify-content: center;
   color: ${(props) => props.theme.colors.text2};
-  background-color: #4a4c51;
+  background-color: ${({ theme }) => theme.colors.primary};
   max-width: 200px;
   margin: 5px auto 0px auto;
   border: double ${({ theme }) => theme.colors.primary};

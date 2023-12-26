@@ -7,15 +7,17 @@ const Nav = styled.div`
   text-align: center;
   padding: 10px;
   background-color: ${(props) =>
-    props.theme.colors.tertiary}; /* Optional: Add a background color */
+    props.theme.colors.quarteriary}; /* Optional: Add a background color */
   border-radius: 0px 0px 20px 20px;
 `;
 
 const StyledNavLink = styled(NavLink)`
   color: ${(props) => props.theme.colors.text2};
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.primary};
   padding: 10px 30px 10px 30px;
   border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
 `;
 
 function Navbar() {

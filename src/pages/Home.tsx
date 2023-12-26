@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Bio from "../components/Bio";
-import theme from "../styles/theme";
+import { rgba } from "polished";
 
 // Encapsulating components
 
@@ -11,10 +11,15 @@ const Container = styled.div`
   @media (max-width: 900px) {
     display: block;
   }
+
+  h1 {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
 const BaseDiv = styled.div`
-  background-color: ${({ theme }) => theme.colors.bg};
+  background-color: ${({ theme }) =>
+    rgba(theme.colors.bg, 0.9)}; // Apply 50% transparency
   border: double ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
 `;

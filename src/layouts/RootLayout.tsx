@@ -2,9 +2,10 @@ import { Outlet } from "react-router-dom";
 import Banner from "../components/ui/Banner";
 import Navbar from "./sublayouts/Navbar";
 import styled from "styled-components";
+import { rgba } from "polished";
 
 const Header = styled.header`
-  background-color: ${({ theme }) => theme.colors.bg};
+  background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
   border: double;
   margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};
