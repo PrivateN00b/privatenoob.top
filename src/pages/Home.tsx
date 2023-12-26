@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Bio from "../components/Bio";
 import { rgba } from "polished";
+import BaseContentDiv from "../components/ui/BaseContentDiv";
 
 // Encapsulating components
 
@@ -17,15 +18,7 @@ const Container = styled.div`
   }
 `;
 
-const BaseDiv = styled.div`
-  background-color: ${({ theme }) =>
-    rgba(theme.colors.bg, 0.9)}; // Apply 50% transparency
-  border: double ${({ theme }) => theme.colors.primary};
-  border-radius: 20px;
-  box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
-`;
-
-const LeftSideDiv = styled(BaseDiv)`
+const LeftSideDiv = styled(BaseContentDiv)`
   width: 20%;
   max-height: 100%;
   height: 100%;
@@ -39,7 +32,7 @@ const LeftSideDiv = styled(BaseDiv)`
   }
 `;
 
-const MainDiv = styled(BaseDiv)`
+const MainDiv = styled(BaseContentDiv)`
   width: 60%;
   margin: 0 20px 0 20px;
 
@@ -49,7 +42,7 @@ const MainDiv = styled(BaseDiv)`
   }
 `;
 
-const RightSideDiv = styled(BaseDiv)`
+const RightSideDiv = styled(BaseContentDiv)`
   width: 20%;
   max-height: 100%;
   height: 100%;
