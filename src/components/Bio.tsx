@@ -79,9 +79,13 @@ const BioList = styled.div`
   text-align: center;
 `;
 
-function Bio() {
+interface BioProps {
+  isLast?: boolean;
+}
+
+function Bio({ isLast = false }: BioProps) {
   return (
-    <BaseContentDiv>
+    <BaseContentDiv isLast={isLast}>
       <div>
         <AvatarCard>
           <AvatarImg

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Bio from "../components/Bio";
-import { rgba } from "polished";
 import BaseContentDiv from "../components/ui/BaseContentDiv";
 
 // Encapsulating components
@@ -80,7 +79,7 @@ function Home() {
     <Container>
       <LeftSideDiv>
         <Bio />
-        <Bio />
+        <Bio isLast={true} />
       </LeftSideDiv>
       <MainDiv>
         <CenteredH1>Introduction</CenteredH1>
