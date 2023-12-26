@@ -25,8 +25,10 @@ const BaseDiv = styled.div`
   box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
 `;
 
-const SideDiv = styled(BaseDiv)`
+const LeftSideDiv = styled(BaseDiv)`
   width: 20%;
+  max-height: 100%;
+  height: 100%;
 
   @media (max-width: 900px) {
     display: flex;
@@ -49,6 +51,8 @@ const MainDiv = styled(BaseDiv)`
 
 const RightSideDiv = styled(BaseDiv)`
   width: 20%;
+  max-height: 100%;
+  height: 100%;
 
   @media (max-width: 900px) {
     width: 100%;
@@ -81,9 +85,9 @@ const ToDoItem = styled.h3`
 function Home() {
   return (
     <Container>
-      <SideDiv>
+      <LeftSideDiv>
         <Bio />
-      </SideDiv>
+      </LeftSideDiv>
       <MainDiv>
         <CenteredH1>Introduction</CenteredH1>
         <StyledParagraph>
