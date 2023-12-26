@@ -7,6 +7,7 @@ const BaseContentDiv = styled.div`
   border: double ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
   box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
+  margin-bottom: 20px;
 `;
 
 export default BaseContentDiv;

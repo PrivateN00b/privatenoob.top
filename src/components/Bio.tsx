@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import BaseContentDiv from "./ui/BaseContentDiv";
 
 const avatarAnimation = keyframes`   
   from {
@@ -25,10 +26,6 @@ const AvatarCard = styled.div`
   @media (max-width: 1140px) {
     margin: 0px auto 0px auto;
     border-radius: 20px 20px 0% 0%;
-  }
-
-  @media (max-width: 900px) {
-    margin: 10px auto 0px auto;
   }
 `;
 
@@ -84,7 +81,7 @@ const BioList = styled.div`
 
 function Bio() {
   return (
-    <>
+    <BaseContentDiv>
       <div>
         <AvatarCard>
           <AvatarImg
@@ -112,7 +109,7 @@ function Bio() {
         <h3>🇭🇺 Hungarian</h3>
         <h3>Idunno</h3>
       </BioList>
-    </>
+    </BaseContentDiv>
   );
 }
 

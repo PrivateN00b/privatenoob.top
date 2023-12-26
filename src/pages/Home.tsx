@@ -18,7 +18,7 @@ const Container = styled.div`
   }
 `;
 
-const LeftSideDiv = styled(BaseContentDiv)`
+const LeftSideDiv = styled.div`
   width: 20%;
   max-height: 100%;
   height: 100%;
@@ -79,6 +79,7 @@ function Home() {
   return (
     <Container>
       <LeftSideDiv>
+        <Bio />
         <Bio />
       </LeftSideDiv>
       <MainDiv>
