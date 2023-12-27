@@ -17,6 +17,10 @@ const globalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  h2 {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 }
 
 html {

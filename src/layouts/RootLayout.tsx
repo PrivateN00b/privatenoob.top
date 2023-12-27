@@ -3,6 +3,7 @@ import Banner from "../components/ui/Banner";
 import Navbar from "./sublayouts/Navbar";
 import styled from "styled-components";
 import { rgba } from "polished";
+import Footer from "./sublayouts/Footer";
 
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
@@ -17,14 +18,6 @@ const Main = styled.main`
   margin-bottom: 20px;
 `;
 
-const Footer = styled.footer`
-  background-color: ${({ theme }) => theme.colors.bg};
-  border: double;
-  margin-bottom: 20px;
-  border-color: ${({ theme }) => theme.colors.primary};
-  box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
-`;
-
 export default function RootLayout() {
   return (
     <div>
@@ -35,7 +28,7 @@ export default function RootLayout() {
       <Main>
         <Outlet />
       </Main>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
