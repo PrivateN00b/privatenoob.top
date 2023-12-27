@@ -22,7 +22,7 @@ const Container = styled.div`
 `;
 
 const LeftSideDiv = styled.div`
-  width: 20%;
+  width: 30%;
   max-height: 100%;
   height: 100%;
 
@@ -36,8 +36,8 @@ const LeftSideDiv = styled.div`
 `;
 
 const MainDiv = styled(BaseContentDiv)`
-  width: 60%;
-  margin: 0 20px 0 20px;
+  width: 70%;
+  margin: 0 0 0 20px;
 
   @media (max-width: 900px) {
     width: 100%;
@@ -46,7 +46,7 @@ const MainDiv = styled(BaseContentDiv)`
 `;
 
 const RightSideDiv = styled(BaseContentDiv)`
-  width: 20%;
+  width: 25%;
   max-height: 100%;
   height: 100%;
 
@@ -56,13 +56,12 @@ const RightSideDiv = styled(BaseContentDiv)`
   }
 `;
 
-// Other attributes
-
 function Home() {
   return (
     <Container>
       <LeftSideDiv>
         <Bio />
+        <Socials isLast={true} />
       </LeftSideDiv>
       <MainDiv>
         <CenteredH1>Introduction</CenteredH1>
@@ -86,9 +85,6 @@ function Home() {
         <ToDoItem>Light and dark theme switcher</ToDoItem>
         <ToDoItem>Create webring</ToDoItem>
       </MainDiv>
-      <RightSideDiv>
-        <h1>Home</h1>
-      </RightSideDiv>
     </Container>
   );
 }
