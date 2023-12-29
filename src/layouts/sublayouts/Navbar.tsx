@@ -7,7 +7,10 @@ import {
   faHouseChimney,
   faLightbulb,
   faNewspaper,
+  faAngleDown,
 } from "@fortawesome/free-solid-svg-icons";
+import BaseContentDiv from "../../components/ui/BaseContentDiv";
+import { useState } from "react";
 
 const Nav = styled.div`
   display: flex;
@@ -72,6 +75,74 @@ const NavbarImg = styled.img`
   max-height: 70px;
 `;
 
+const OuterDropDownMenu = styled.div`
+  display: flex;
+  margin-top: 10px;
+  position: absolute;
+  left: 0;
+  top: calc(100% - 40px);
+  padding: 20px 30px 0px 30px;
+  height: 200px;
+  width: 300px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  justify-content: center;
+  border-radius: 20px;
+`;
+
+const InnerDropDownMenu = styled(BaseContentDiv)`
+  display: flex;
+  max-height: inherit;
+  max-width: inherit;
+  padding: 20px 20px 20px 10px;
+`;
+
+const DropDown = styled.div`
+  margin-top: 10px;
+  position: relative;
+
+  &:hover ${OuterDropDownMenu}, ${InnerDropDownMenu} {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+`;
+
+const DropDownLink = styled.a`
+  color: ${(props) => props.theme.colors.text2};
+  background-color: ${(props) => props.theme.colors.primary};
+  padding: 10px 30px 10px 30px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
+  transition: all 0.2 ease;
+  cursor: pointer;
+
+  &:active {
+    box-shadow: none;
+    transform: translateY(10px);
+  }
+`;
+
+const MenuItem = styled(NavLink)`
+  color: ${(props) => props.theme.colors.text2};
+  background-color: ${(props) => props.theme.colors.primary};
+  padding: 10px 30px 10px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 5px;
+`;
+
+const MenuBorder = styled.div`
+  border-left: 3px solid ${({ theme }) => theme.colors.primary};
+  max-height: 200px;
+  margin: 0 10px 0 10px;
+`;
+
 function Navbar() {
   return (
     <>
@@ -82,18 +153,37 @@ function Navbar() {
         </LeftDiv>
         <CenterDiv>
           <StyledNavLink to="/">
-            Home <FontAwesomeIcon icon={faHouseChimney} />
+            <FontAwesomeIcon icon={faHouseChimney} /> Home
           </StyledNavLink>
+          <DropDown>
+            <DropDownLink>
+              <FontAwesomeIcon icon={faNewspaper} /> Blogs{" "}
+              <FontAwesomeIcon icon={faAngleDown} />
+            </DropDownLink>
+            <OuterDropDownMenu>
+              <InnerDropDownMenu>
+                <div>
+                  <img
+                    style={{ maxWidth: "100px" }}
+                    src="src/assets/dakooters-dkooters.gif"
+                  />
+                </div>{" "}
+                <MenuBorder />
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <MenuItem to="/blog/post1">Programming</MenuItem>
+                  <MenuItem to="/blog/post2">Recipes</MenuItem>
+                  <MenuItem to="/blog/post2">Personal</MenuItem>
+                </div>
+              </InnerDropDownMenu>
+            </OuterDropDownMenu>
+          </DropDown>
           <StyledNavLink to="projects">
-            Blog <FontAwesomeIcon icon={faNewspaper} />
-          </StyledNavLink>
-          <StyledNavLink to="projects">
-            Projects <FontAwesomeIcon icon={faLightbulb} />
+            <FontAwesomeIcon icon={faLightbulb} /> Projects
           </StyledNavLink>
         </CenterDiv>
         <RightDiv>
           <StyledNavLink to="projects">
-            Login <FontAwesomeIcon icon={faSkull} />
+            <FontAwesomeIcon icon={faSkull} /> Login
           </StyledNavLink>
         </RightDiv>
       </Nav>
