@@ -103,7 +103,7 @@ const DropDown = styled.div`
   margin-top: 10px;
   position: relative;
 
-  &:hover ${OuterDropDownMenu}, ${InnerDropDownMenu} {
+  &:hover ${OuterDropDownMenu} {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
