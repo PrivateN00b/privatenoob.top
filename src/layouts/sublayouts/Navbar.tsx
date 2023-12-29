@@ -79,9 +79,9 @@ const OuterDropDownMenu = styled.div`
   display: flex;
   margin-top: 10px;
   position: absolute;
-  left: 0;
+  left: -40%;
   top: calc(100% - 40px);
-  padding: 20px 30px 0px 30px;
+  padding: 50px 30px 0px 30px;
   height: 200px;
   width: 300px;
   opacity: 0;
