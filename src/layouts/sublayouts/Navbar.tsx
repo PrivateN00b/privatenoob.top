@@ -174,19 +174,19 @@ function Navbar() {
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <MenuItem to="/blog/post1">Programming</MenuItem>
-                  <MenuItem to="/blog/post2">Recipes</MenuItem>
-                  <MenuItem to="/blog/post2">Personal</MenuItem>
+                  <MenuItem to="404">Programming</MenuItem>
+                  <MenuItem to="404">Recipes</MenuItem>
+                  <MenuItem to="404">Personal</MenuItem>
                 </div>
               </InnerDropDownMenu>
             </OuterDropDownMenu>
           </DropDown>
-          <StyledNavLink to="projects">
+          <StyledNavLink to="404">
             <FontAwesomeIcon icon={faLightbulb} /> Projects
           </StyledNavLink>
         </CenterDiv>
         <RightDiv>
-          <StyledNavLink to="projects">
+          <StyledNavLink to="404">
             <FontAwesomeIcon icon={faSkull} /> Login
           </StyledNavLink>
         </RightDiv>

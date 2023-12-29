@@ -5,21 +5,9 @@ import Socials from "../layouts/sublayouts/Socials";
 import CenteredH1 from "../components/ui/CenteredH1";
 import StyledParagraph from "../components/ui/StyledParagraph";
 import ToDoItem from "../components/ui/ToDoItem";
+import Container from "../components/ui/Container";
 
 // Encapsulating components
-
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  @media (max-width: 900px) {
-    display: block;
-  }
-
-  h1 {
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
 
 const LeftSideDiv = styled.div`
   width: 30%;
