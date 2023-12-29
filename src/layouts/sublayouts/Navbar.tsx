@@ -31,6 +31,11 @@ const StyledNavLink = styled(NavLink)`
   box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
   transition: all 0.2 ease;
 
+  &:hover {
+    box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
+    transform: translateY(2px);
+  }
+
   &:active {
     box-shadow: none;
     transform: translateY(5px);
@@ -112,18 +117,16 @@ const DropDown = styled.div`
 
 const DropDownLink = styled.a`
   color: ${(props) => props.theme.colors.text2};
-  background-color: ${(props) => props.theme.colors.primary};
   padding: 10px 30px 10px 30px;
   border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
-  transition: all 0.2 ease;
-  cursor: pointer;
+  outline-style: inset;
+  outline-color: ${(props) => props.theme.colors.primary};
 
-  &:active {
-    box-shadow: none;
-    transform: translateY(10px);
+  &:hover {
+    box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
+    transform: translateY(2px);
   }
 `;
 
