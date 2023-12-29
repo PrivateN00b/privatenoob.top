@@ -1,13 +1,15 @@
 import styled, { keyframes } from "styled-components";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
 import BaseProps from "../../utils/interfaces";
+import { NavLink } from "react-router-dom";
+import socialLinks from "../../utils/socialLinks";
 
 const avatarAnimation = keyframes`   
   from {
     transform: scale(1.0)
   }
   to {
-    transform: scale(1.05)
+    transform: scale(1.03)
   }
 `;
 
@@ -21,7 +23,8 @@ const AvatarCard = styled.div`
   border: double;
 
   &:hover {
-    animation: ${avatarAnimation} 1s forwards;
+    cursor: pointer;
+    animation: ${avatarAnimation} 0.4s forwards;
   }
 
   @media (max-width: 1140px) {
@@ -40,7 +43,7 @@ const AvatarImg = styled.img`
   object-fit: cover;
 `;
 
-const BioInfo = styled.div`
+const BioInfo = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,9 +53,12 @@ const BioInfo = styled.div`
   margin: 5px auto 0px auto;
   border: double ${({ theme }) => theme.colors.primary};
   border-radius: 0 0 50px 50px;
+  box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
+  transition: all 0.2 ease;
 
-  &:hover {
-    animation: ${avatarAnimation} 1s forwards;
+  &:active {
+    box-shadow: none;
+    transform: translateY(5px);
   }
 
   @media (max-width: 900px) {
@@ -96,11 +102,7 @@ function Bio({ isLast = false }: BaseProps) {
           />
           {/* <OnlineIndicator /> */}
         </AvatarCard>
-        <BioInfo
-          onClick={() =>
-            window.open("https://discordapp.com/users/334419819627675648")
-          }
-        >
+        <BioInfo to={socialLinks.discord.url}>
           <OnlineIndicator />
           <h4>PrivateNoob</h4>
         </BioInfo>
