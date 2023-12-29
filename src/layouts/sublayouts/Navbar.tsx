@@ -129,18 +129,19 @@ const DropDownLink = styled.a`
 
 const MenuItem = styled(NavLink)`
   color: ${(props) => props.theme.colors.text2};
-  background-color: ${(props) => props.theme.colors.primary};
-  padding: 10px 30px 10px 30px;
+  padding: 5px 30px 5px 30px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
-  margin-top: 5px;
+  margin-top: 10px;
+  outline-style: outset;
+  outline-color: ${(props) => props.theme.colors.primary};
 `;
 
 const MenuBorder = styled.div`
   border-left: 3px solid ${({ theme }) => theme.colors.primary};
   max-height: 200px;
-  margin: 0 10px 0 10px;
+  margin: 0 15px 0 15px;
 `;
 
 function Navbar() {
