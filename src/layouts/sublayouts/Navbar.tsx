@@ -25,6 +25,13 @@ const StyledNavLink = styled(NavLink)`
   border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
+  box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
+  transition: all 0.2 ease;
+
+  &:active {
+    box-shadow: none;
+    transform: translateY(5px);
+  }
 `;
 
 const BaseDiv = styled.div`
