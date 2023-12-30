@@ -8,3 +8,12 @@
 #root {
   margin: 20px 10px 20px 10px;
 }
+
+@font-face {
+  font-family: "Magistech";
+  src: url("src/assets/fonts/Magistech.woff2") format("woff2"),
+    url("src/assets/fonts/Magistech.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

@@ -3,9 +3,10 @@ import theme from "./theme";
 
 const globalStyle = createGlobalStyle`
   :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Magistech, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400; */
+  font-weight: 400;
+  font-size: ${theme.fontSize.medium};
 
   color-scheme: dark;
   color: ${theme.colors.text1};

@@ -55,15 +55,19 @@ function Home() {
         <CenteredH1>Introduction</CenteredH1>
         <StyledParagraph>
           Sup! This is your average personal website mostly, just as the other
-          ones over at <a href="https://neocities.org/browse">Neocities</a>,
-          except this site has been made via React (sorry noJS chads, I have
-          failed you :( )
+          ones over at <a href="https://neocities.org/browse">Neocities</a> to
+          resurrect the{" "}
+          <a href="https://youtu.be/00qwzmMrtok?si=PZJxoE06oZcuAMDP">
+            Indie Web / Early Internet
+          </a>{" "}
+          atmosphere, except this site has been made via React (sorry noJS and
+          static HTML chads, I have failed you :( )
         </StyledParagraph>
         <br />
         <StyledParagraph>
           I plan to list my projects here, create my own webring, do some API
           calling to my homeserver to display some unnecessary stuffs, like my
-          favorite games each year or something. Yes, I use SystemD, why do you
+          favorite games each year or something. Yes, I use Systemd, why do you
           ask? :3
         </StyledParagraph>
         <CenteredH1>To-do list</CenteredH1>
