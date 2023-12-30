@@ -8,7 +8,7 @@ function Banner() {
       }}
     >
       <img
-        src="src/assets/banner-image-2.png"
+        src="/banner-image-2.png"
         alt="Banner image"
         style={{
           display: "block", // Make the image take up the full width

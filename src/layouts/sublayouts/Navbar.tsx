@@ -174,7 +174,7 @@ function Navbar() {
                 <div>
                   <img
                     style={{ maxWidth: "100px" }}
-                    src="src/assets/dakooters-dkooters.gif"
+                    src="/dakooters-dkooters.gif"
                   />
                 </div>{" "}
                 <MenuBorder />
@@ -194,10 +194,7 @@ function Navbar() {
             <OuterDropDownMenu>
               <InnerDropDownMenu>
                 <div>
-                  <img
-                    style={{ maxWidth: "100px" }}
-                    src="src/assets/bocchi-rotate.gif"
-                  />
+                  <img style={{ maxWidth: "100px" }} src="/bocchi-rotate.gif" />
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
