@@ -28,6 +28,11 @@ function Socials({ isLast = false }: BaseProps) {
         </Link>
       </div>
       <div>
+        <Link to={socialLinks.vrchat.url}>
+          <Icon src={socialLinks.vrchat.icon} text={socialLinks.vrchat.name} />
+        </Link>
+      </div>
+      <div>
         <Link to={socialLinks.email.url}>
           <Icon src={socialLinks.email.icon} text={socialLinks.email.name} />
         </Link>

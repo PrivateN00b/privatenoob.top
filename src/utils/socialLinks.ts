@@ -9,6 +9,11 @@ const socialLinks = {
     icon: "https://upload.wikimedia.org/wikipedia/commons/5/52/Lemmy_logo.svg",
     name: "@PrivateNoob@sopuli.xyz",
   },
+  vrchat: {
+    url: "https://vrchat.com/home/user/usr_2202e075-9a9a-48f1-965c-9e2a79e22fdc",
+    icon: "https://asset.brandfetch.io/id_v0vCj-M/idgaEpCEOx.png",
+    name: "PrivateNoob",
+  },
   email: {
     url: "mailto:toth00peter@gmail.com",
     icon: "📨",
