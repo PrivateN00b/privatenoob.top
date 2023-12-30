@@ -10,7 +10,7 @@ function Socials({ isLast = false }: BaseProps) {
       isLast={isLast}
       style={{
         textAlign: "center",
-        paddingBottom: "20px",
+        padding: "0 20px 20px 20px",
       }}
     >
       <h1>Socials</h1>
