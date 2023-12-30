@@ -11,6 +11,14 @@ const Container = styled.div`
   h1 {
     color: ${({ theme }) => theme.colors.primary};
   }
+
+  a:link {
+    color: ${({ theme }) => theme.colors.link};
+  }
+
+  a:visited {
+    color: ${({ theme }) => theme.colors.linkVisited};
+  }
 `;
 
 export default Container;

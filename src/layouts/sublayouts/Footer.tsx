@@ -13,6 +13,14 @@ const FooterStyle = styled.footer`
   display: flex;
   text-align: center;
   justify-content: space-between;
+
+  a:link {
+    color: ${({ theme }) => theme.colors.link};
+  }
+
+  a:visited {
+    color: ${({ theme }) => theme.colors.linkVisited};
+  }
 `;
 
 const StyledLink = styled(Link)`

@@ -7,6 +7,8 @@ const theme = {
     bg: "#01000e",
     text1: "white",
     text2: "white",
+    link: " #27deff  ",
+    linkVisited: "#a5e2ee ",
   },
   fontSize: {
     small: "12px",
