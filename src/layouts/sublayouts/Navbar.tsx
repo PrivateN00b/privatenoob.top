@@ -8,6 +8,8 @@ import {
   faLightbulb,
   faNewspaper,
   faAngleDown,
+  faAddressCard,
+  faPaperclip,
 } from "@fortawesome/free-solid-svg-icons";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
 import { useState } from "react";
@@ -28,6 +30,7 @@ const StyledNavLink = styled(NavLink)`
   border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
+  max-height: 22px;
   box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
   transition: all 0.2 ease;
 
@@ -45,7 +48,7 @@ const StyledNavLink = styled(NavLink)`
 const BaseDiv = styled.div`
   display: flex;
   justify-content: space-evenly;
-  margin: 20px;
+  margin: 20px 0 20px 0;
 `;
 
 const LeftDiv = styled(BaseDiv)`
@@ -60,9 +63,11 @@ const LeftDiv = styled(BaseDiv)`
 `;
 
 const CenterDiv = styled(BaseDiv)`
-  width: 60%;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 80%;
   padding: 0 20px 0 20px;
-  border-left: solid 3px ${({ theme }) => theme.colors.primary};
+  /* border-left: solid 3px ${({ theme }) => theme.colors.primary}; */
 
   @media (max-width: 900px) {
     border-left: 0;
@@ -105,7 +110,7 @@ const InnerDropDownMenu = styled(BaseContentDiv)`
 `;
 
 const DropDown = styled.div`
-  margin-top: 10px;
+  margin: 10px 0 0 0;
   position: relative;
 
   &:hover ${OuterDropDownMenu} {
@@ -151,13 +156,19 @@ function Navbar() {
   return (
     <>
       <Nav>
-        <LeftDiv>
+        {/* <LeftDiv>
           <NavbarImg src="src/assets/venti.webp" />
           <NavbarImg src="src/assets/yoimiya.webp" />
-        </LeftDiv>
+        </LeftDiv> */}
         <CenterDiv>
           <StyledNavLink to="/">
             <FontAwesomeIcon icon={faHouseChimney} /> Home
+          </StyledNavLink>
+          <StyledNavLink to="/">
+            <FontAwesomeIcon icon={faAddressCard} /> About
+          </StyledNavLink>
+          <StyledNavLink to="404">
+            <FontAwesomeIcon icon={faLightbulb} /> Projects
           </StyledNavLink>
           <DropDown>
             <DropDownLink>
@@ -181,9 +192,28 @@ function Navbar() {
               </InnerDropDownMenu>
             </OuterDropDownMenu>
           </DropDown>
-          <StyledNavLink to="404">
-            <FontAwesomeIcon icon={faLightbulb} /> Projects
-          </StyledNavLink>
+          <DropDown>
+            <DropDownLink>
+              <FontAwesomeIcon icon={faPaperclip} /> Others{" "}
+              <FontAwesomeIcon icon={faAngleDown} />
+            </DropDownLink>
+            <OuterDropDownMenu>
+              <InnerDropDownMenu>
+                <div>
+                  <img
+                    style={{ maxWidth: "100px" }}
+                    src="src/assets/bocchi-rotate.gif"
+                  />
+                </div>{" "}
+                <MenuBorder />
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <MenuItem to="404">Links</MenuItem>
+                  <MenuItem to="404">Blinkies</MenuItem>
+                  <MenuItem to="404">Guestbook</MenuItem>
+                </div>
+              </InnerDropDownMenu>
+            </OuterDropDownMenu>
+          </DropDown>
         </CenterDiv>
         <RightDiv>
           <StyledNavLink to="404">
