@@ -164,7 +164,7 @@ function Navbar() {
           <StyledNavLink to="/">
             <FontAwesomeIcon icon={faHouseChimney} /> Home
           </StyledNavLink>
-          <StyledNavLink to="/">
+          <StyledNavLink to="404">
             <FontAwesomeIcon icon={faAddressCard} /> About
           </StyledNavLink>
           <StyledNavLink to="404">
