@@ -18,13 +18,10 @@ export function PageNotFound() {
             paddingBottom: "20px",
           }}
         >
+          <img src="/im-sorry-ena-ena.gif" style={{ maxHeight: "270px" }} />
+          <img src="/under-construction.gif" />
           <img
-            src="src/assets/im-sorry-ena-ena.gif"
-            style={{ maxHeight: "270px" }}
-          />
-          <img src="src/assets/under-construction.gif" />
-          <img
-            src="src/assets/erratically-spinning-rat-erratic.gif"
+            src="/erratically-spinning-rat-erratic.gif"
             style={{ maxHeight: "270px" }}
           />
         </div>
