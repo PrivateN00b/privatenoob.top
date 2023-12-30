@@ -4,7 +4,7 @@ import BaseContentDiv from "../components/ui/BaseContentDiv";
 import Socials from "../layouts/sublayouts/Socials";
 import CenteredH1 from "../components/ui/CenteredH1";
 import StyledParagraph from "../components/ui/StyledParagraph";
-import ToDoItem from "../components/ui/ToDoItem";
+import StyledItem from "../components/ui/StyledItem";
 import Container from "../components/ui/Container";
 
 // Encapsulating components
@@ -65,17 +65,30 @@ function Home() {
         </StyledParagraph>
         <br />
         <StyledParagraph>
-          I plan to list my projects here, create my own webring, do some API
-          calling to my homeserver to display some unnecessary stuffs, like my
-          favorite games each year or something. Yes, I use Systemd, why do you
-          ask? :3
+          This site will host EVERYTHING I find informative, funny or just
+          making unnecessary features, like login (I won't ever disturb you with
+          it via popups, don't worry ^^) because it seems fun. Yes, I use
+          Systemd, why do you ask? :3
         </StyledParagraph>
+
+        <CenteredH1>What will this site offer?</CenteredH1>
+        <StyledItem>List of my projects (yes it's a portfolio)</StyledItem>
+        <StyledItem>Some personal blogs (check out the types)</StyledItem>
+        <StyledItem>Links to webrings and other cool sites</StyledItem>
+        <StyledItem>Guestbook!</StyledItem>
+        <StyledItem>Other stuffs which resemble the Indie Web vibe</StyledItem>
+        <StyledItem>Infos about me ^^</StyledItem>
+
         <CenteredH1>To-do list</CenteredH1>
-        <ToDoItem>Create the base layout</ToDoItem>
-        <ToDoItem>Listing my projects in the Projects page</ToDoItem>
-        <ToDoItem>Creating my webserver to do funny API calls</ToDoItem>
-        <ToDoItem>Light and dark theme switcher</ToDoItem>
-        <ToDoItem>Create webring</ToDoItem>
+        <ul>
+          <li>
+            Leftover pages: About, Projects, Blog posts, Links, Blinkies,
+            Questbook
+          </li>
+          <li>Song selector</li>
+          <li>Light and dark theme switcher</li>
+          <li>THERE'S TOO MANY STUFFS TO DO AAAAAHHHH</li>
+        </ul>
       </MainDiv>
     </Container>
   );
