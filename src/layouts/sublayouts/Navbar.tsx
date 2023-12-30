@@ -1,4 +1,3 @@
-import { rgb } from "polished";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +11,6 @@ import {
   faPaperclip,
 } from "@fortawesome/free-solid-svg-icons";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
-import { useState } from "react";
 
 const Nav = styled.div`
   display: flex;
@@ -51,16 +49,16 @@ const BaseDiv = styled.div`
   margin: 20px 0 20px 0;
 `;
 
-const LeftDiv = styled(BaseDiv)`
-  width: 20%;
-  align-items: center;
-  margin: 0;
-  padding-right: 10px;
+// const LeftDiv = styled(BaseDiv)`
+//   width: 20%;
+//   align-items: center;
+//   margin: 0;
+//   padding-right: 10px;
 
-  @media (max-width: 900px) {
-    display: none;
-  }
-`;
+//   @media (max-width: 900px) {
+//     display: none;
+//   }
+// `;
 
 const CenterDiv = styled(BaseDiv)`
   flex-wrap: wrap;
@@ -79,10 +77,6 @@ const RightDiv = styled(BaseDiv)`
   border-left: solid 3px ${({ theme }) => theme.colors.primary};
   width: 20%;
   padding-left: 10px;
-`;
-
-const NavbarImg = styled.img`
-  max-height: 70px;
 `;
 
 const OuterDropDownMenu = styled.div`

@@ -33,16 +33,16 @@ const MainDiv = styled(BaseContentDiv)`
   }
 `;
 
-const RightSideDiv = styled(BaseContentDiv)`
-  width: 25%;
-  max-height: 100%;
-  height: 100%;
+// const RightSideDiv = styled(BaseContentDiv)`
+//   width: 25%;
+//   max-height: 100%;
+//   height: 100%;
 
-  @media (max-width: 900px) {
-    width: 100%;
-    margin: 20px 0 0 0;
-  }
-`;
+//   @media (max-width: 900px) {
+//     width: 100%;
+//     margin: 20px 0 0 0;
+//   }
+// `;
 
 function Home() {
   return (

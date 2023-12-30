@@ -79,13 +79,13 @@ const OnlineIndicator = styled.span`
   margin-right: 8px;
 `;
 
-const OfflineIndicator = styled.span`
-  height: 20px;
-  width: 20px;
-  background-color: #dc143c;
-  border-radius: 50%;
-  margin-right: 8px;
-`;
+// const OfflineIndicator = styled.span`
+//   height: 20px;
+//   width: 20px;
+//   background-color: #dc143c;
+//   border-radius: 50%;
+//   margin-right: 8px;
+// `;
 
 const BioList = styled.div`
   text-align: center;
