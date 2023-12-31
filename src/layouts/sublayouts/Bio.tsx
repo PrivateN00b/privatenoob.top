@@ -3,6 +3,7 @@ import BaseContentDiv from "../../components/ui/BaseContentDiv";
 import BaseProps from "../../utils/interfaces";
 import { NavLink } from "react-router-dom";
 import socialLinks from "../../utils/socialLinks";
+import { rgba } from "polished";
 
 const avatarAnimation = keyframes`   
   from {
@@ -15,7 +16,7 @@ const avatarAnimation = keyframes`
 
 const AvatarCard = styled.div`
   color: ${(props) => props.theme.colors.primary};
-  background-color: ${(props) => props.theme.colors.bg};
+  background-color: ${(props) => rgba(props.theme.colors.bg, 0.9)};
   display: grid;
   max-width: 200px;
   margin: 10px auto 0px auto;

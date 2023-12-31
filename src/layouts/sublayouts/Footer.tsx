@@ -4,7 +4,7 @@ import CenteredH2 from "../../components/ui/CenteredH2";
 import { Link } from "react-router-dom";
 
 const FooterStyle = styled.footer`
-  background-color: ${({ theme }) => theme.colors.bg};
+  background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
   border: double;
   margin-bottom: 20px;
   border-color: ${({ theme }) => theme.colors.primary};
