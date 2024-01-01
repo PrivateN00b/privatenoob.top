@@ -8,7 +8,10 @@ const BaseContentDiv = styled.div<{ isLast?: boolean }>`
   border-radius: 20px;
   box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
   margin-bottom: ${(props) => (props.isLast ? 0 : 20)}px;
-  width: 100%;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 export default BaseContentDiv;
