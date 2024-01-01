@@ -105,7 +105,7 @@ const OuterDropDownMenuInfos = styled(OuterDropDownMenu)`
   width: 260px;
 
   @media (max-width: 420px) {
-    left: -${window.innerWidth / 2}px;
+    left: -${window.innerWidth / 2.2}px;
   }
 
   @media (min-width: 420px) and (max-width: 900px) {
@@ -115,6 +115,11 @@ const OuterDropDownMenuInfos = styled(OuterDropDownMenu)`
 
 const OuterDropDownMenuBlogs = styled(OuterDropDownMenu)`
   border-radius: 250px 50px 50px 50px / 70px 25px 25px 25px;
+
+  @media (max-width: 420px) {
+    left: -${window.innerWidth / 8.5}px;
+  }
+
   @media (min-width: 545px) {
     left: -126%;
   }
