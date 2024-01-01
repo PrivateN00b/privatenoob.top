@@ -14,6 +14,11 @@ const LeftSideDiv = styled.div`
   max-height: 100%;
   height: 100%;
 
+  @media (max-width: 680px) {
+    display: flex;
+    flex-direction: column;
+  }
+
   @media (max-width: 900px) {
     display: flex;
     width: 100%;
