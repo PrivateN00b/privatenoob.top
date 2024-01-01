@@ -11,6 +11,8 @@ import {
   faPaperclip,
 } from "@fortawesome/free-solid-svg-icons";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
+import { useEffect, useRef, useState } from "react";
+import getPosition from "../../utils/helpers/getPosition";
 
 const Nav = styled.div`
   display: flex;
@@ -41,6 +43,10 @@ const StyledNavLink = styled(NavLink)`
     box-shadow: none;
     transform: translateY(5px);
   }
+
+  @media (max-width: 420px) {
+    padding: 10px 20px 10px 20px;
+  }
 `;
 
 const BaseDiv = styled.div`
@@ -63,27 +69,25 @@ const BaseDiv = styled.div`
 const CenterDiv = styled(BaseDiv)`
   flex-wrap: wrap;
   gap: 20px;
-  width: 80%;
+  width: 100%;
   padding: 0 20px 0 20px;
   /* border-left: solid 3px ${({ theme }) => theme.colors.primary}; */
 
   @media (max-width: 900px) {
-    border-left: 0;
-    justify-content: space-between;
   }
 `;
 
-const RightDiv = styled(BaseDiv)`
-  border-left: solid 3px ${({ theme }) => theme.colors.primary};
-  width: 20%;
-  padding-left: 10px;
-`;
+// const RightDiv = styled(BaseDiv)`
+//   border-left: solid 3px ${({ theme }) => theme.colors.primary};
+//   width: 20%;
+//   padding-left: 10px;
+// `;
 
 const OuterDropDownMenu = styled.div`
   display: flex;
   margin-top: 10px;
   position: absolute;
-  left: -40%;
+  left: -100%;
   top: calc(100% - 40px);
   padding: 50px 30px 0px 30px;
   height: 200px;
@@ -94,6 +98,43 @@ const OuterDropDownMenu = styled.div`
   transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
   justify-content: center;
   border-radius: 20px;
+`;
+
+const OuterDropDownMenuInfos = styled(OuterDropDownMenu)`
+  /* top: -230px;
+  padding: 20px 30px 30px 30px; */
+  border-radius: 250px 50px 50px 50px / 80px 25px 25px 25px;
+  height: 200px;
+  width: 260px;
+
+  @media (max-width: 420px) {
+    left: -${window.innerWidth / 2}px;
+  }
+
+  @media (min-width: 420px) and (max-width: 900px) {
+    left: -${window.innerWidth / 2.65}px;
+  }
+`;
+
+const OuterDropDownMenuBlogs = styled(OuterDropDownMenu)`
+  border-radius: 250px 50px 50px 50px / 70px 25px 25px 25px;
+  @media (min-width: 545px) {
+    left: -126%;
+  }
+`;
+
+const OuterDropDownMenuOthers = styled(OuterDropDownMenu)`
+  border-radius: 250px 50px 50px 50px / 80px 25px 25px 25px;
+  height: 200px;
+  width: 280px;
+
+  @media (max-width: 420px) {
+    left: -${window.innerWidth / 2}px;
+  }
+
+  @media (min-width: 545px) and (max-width: 720px) {
+    left: -65%;
+  }
 `;
 
 const InnerDropDownMenu = styled(BaseContentDiv)`
@@ -108,6 +149,7 @@ const DropDown = styled.div`
   position: relative;
 
   &:hover ${OuterDropDownMenu} {
+    z-index: 1;
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
@@ -126,6 +168,10 @@ const DropDownLink = styled.a`
   &:hover {
     box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
     transform: translateY(2px);
+  }
+
+  @media (max-width: 420px) {
+    padding: 10px 20px 10px 20px;
   }
 `;
 
@@ -146,6 +192,12 @@ const MenuBorder = styled.div`
   margin: 0 15px 0 15px;
 `;
 
+const StyledFAIcon = styled(FontAwesomeIcon)`
+  @media (max-width: 420px) {
+    display: none;
+  }
+`;
+
 function Navbar() {
   return (
     <>
@@ -156,20 +208,38 @@ function Navbar() {
         </LeftDiv> */}
         <CenterDiv>
           <StyledNavLink to="/">
-            <FontAwesomeIcon icon={faHouseChimney} /> Home
+            <StyledFAIcon icon={faHouseChimney} /> Home
           </StyledNavLink>
-          <StyledNavLink to="404">
-            <FontAwesomeIcon icon={faAddressCard} /> About
-          </StyledNavLink>
-          <StyledNavLink to="404">
-            <FontAwesomeIcon icon={faLightbulb} /> Projects
-          </StyledNavLink>
+
           <DropDown>
             <DropDownLink>
-              <FontAwesomeIcon icon={faNewspaper} /> Blogs{" "}
+              <StyledFAIcon icon={faAddressCard} /> Infos{" "}
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
-            <OuterDropDownMenu>
+            <OuterDropDownMenuInfos>
+              <InnerDropDownMenu>
+                <div>
+                  <img
+                    style={{ maxWidth: "100px" }}
+                    src="/dakooters-dkooters.gif"
+                  />
+                </div>{" "}
+                <MenuBorder />
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <MenuItem to="404">About</MenuItem>
+                  <MenuItem to="404">Projects</MenuItem>
+                  <MenuItem to="404">Uses</MenuItem>
+                </div>
+              </InnerDropDownMenu>
+            </OuterDropDownMenuInfos>
+          </DropDown>
+
+          <DropDown>
+            <DropDownLink>
+              <StyledFAIcon icon={faNewspaper} /> Blogs{" "}
+              <FontAwesomeIcon icon={faAngleDown} />
+            </DropDownLink>
+            <OuterDropDownMenuBlogs>
               <InnerDropDownMenu>
                 <div>
                   <img
@@ -184,14 +254,15 @@ function Navbar() {
                   <MenuItem to="404">Personal</MenuItem>
                 </div>
               </InnerDropDownMenu>
-            </OuterDropDownMenu>
+            </OuterDropDownMenuBlogs>
           </DropDown>
+
           <DropDown>
             <DropDownLink>
-              <FontAwesomeIcon icon={faPaperclip} /> Others{" "}
+              <StyledFAIcon icon={faPaperclip} /> Others{" "}
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
-            <OuterDropDownMenu>
+            <OuterDropDownMenuOthers>
               <InnerDropDownMenu>
                 <div>
                   <img style={{ maxWidth: "100px" }} src="/bocchi-rotate.gif" />
@@ -203,14 +274,13 @@ function Navbar() {
                   <MenuItem to="404">Guestbook</MenuItem>
                 </div>
               </InnerDropDownMenu>
-            </OuterDropDownMenu>
+            </OuterDropDownMenuOthers>
           </DropDown>
-        </CenterDiv>
-        <RightDiv>
+
           <StyledNavLink to="404">
-            <FontAwesomeIcon icon={faSkull} /> Login
+            <StyledFAIcon icon={faSkull} /> Login
           </StyledNavLink>
-        </RightDiv>
+        </CenterDiv>
       </Nav>
     </>
   );
