@@ -19,6 +19,11 @@ const socialLinks = {
     icon: "📨",
     name: "toth00peter@gmail.com",
   },
+  github: {
+    url: "https://github.com/NoobKozlegeny",
+    icon: "/github-mark-white.svg",
+    name: "NoobKozlegeny",
+  },
   linkedin: {
     url: "https://www.linkedin.com/in/p%C3%A9ter-t%C3%B3th-5072b7243/",
     icon: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",

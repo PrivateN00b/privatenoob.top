@@ -38,6 +38,11 @@ function Socials({ isLast = false }: BaseProps) {
         </Link>
       </div>
       <div>
+        <Link to={socialLinks.github.url}>
+          <Icon src={socialLinks.github.icon} text={socialLinks.github.name} />
+        </Link>
+      </div>
+      <div>
         <Link to={socialLinks.linkedin.url}>
           <Icon
             src={socialLinks.linkedin.icon}
