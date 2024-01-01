@@ -7,6 +7,10 @@
 
 #root {
   margin: 20px 10px 20px 10px;
+
+  @media (max-width: 680px) {
+    margin: 5px 0px 5px 0px;
+  }
 }
 
 @font-face {
