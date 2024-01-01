@@ -4,15 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSkull,
   faHouseChimney,
-  faLightbulb,
   faNewspaper,
   faAngleDown,
   faAddressCard,
   faPaperclip,
 } from "@fortawesome/free-solid-svg-icons";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
-import { useEffect, useRef, useState } from "react";
-import getPosition from "../../utils/helpers/getPosition";
 
 const Nav = styled.div`
   display: flex;
