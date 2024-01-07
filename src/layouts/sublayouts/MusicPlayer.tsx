@@ -1,12 +1,8 @@
-import useSound from "use-sound";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
-
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import StyledParagraph from "../../components/ui/StyledParagraph";
-import CenteredH2 from "../../components/ui/CenteredH2";
 
-const useAudio = (url: string) => {
+const useAudio = (url: string): [boolean, () => void] => {
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(false);
 
@@ -26,11 +22,10 @@ const useAudio = (url: string) => {
   return [playing, toggle];
 };
 
-const PlayerImg = styled.img<{ $playing?: boolean | (() => void) }>`
+const PlayerImg = styled.img<{ $playing?: boolean }>`
   width: 200px;
   animation: spin 5s linear infinite;
-  animation-play-state: ${({ $playing }) =>
-    $playing == true ? "running" : "paused"};
+  animation-play-state: ${({ $playing }) => ($playing ? "running" : "paused")};
 
   @keyframes spin {
     0% {
@@ -90,7 +85,7 @@ function MusicPlayer() {
         {/* Artist's name */}
         {Array.from("🧑 Een Glish 🎨").map((char, i) => (
           <>
-            <span key={i} style={{ "--i": i + 1 }}>
+            <span key={i} style={{ "--i": i + 1 } as React.CSSProperties}>
               {char}
             </span>
             {char == " " ? " " : ""}
@@ -100,7 +95,7 @@ function MusicPlayer() {
         {/* Song name */}
         {Array.from("🎶 Jet Set Ratio 🎶").map((char, i) => (
           <>
-            <span key={i} style={{ "--i": i + 1 }}>
+            <span key={i} style={{ "--i": i + 1 } as React.CSSProperties}>
               {char}
             </span>
             {char == " " ? " " : ""}
