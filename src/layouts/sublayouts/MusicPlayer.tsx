@@ -75,7 +75,7 @@ function MusicPlayer() {
     <BaseContentDiv
       style={{
         textAlign: "center",
-        margin: "20px 0 20px 0",
+        margin: "20px 0 0 0",
         padding: "10px 0 10px 0",
       }}
     >
