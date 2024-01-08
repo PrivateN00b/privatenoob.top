@@ -7,37 +7,8 @@ import StyledParagraph from "../components/ui/StyledParagraph";
 import StyledItem from "../components/ui/StyledItem";
 import Container from "../components/ui/Container";
 import MusicPlayer from "../layouts/sublayouts/MusicPlayer";
-
-// Encapsulating components
-
-const LeftSideDiv = styled.div`
-  width: 30%;
-  max-height: 100%;
-  height: 100%;
-
-  @media (max-width: 680px) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media (max-width: 900px) {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    column-gap: 50px;
-  }
-`;
-
-const MainDiv = styled(BaseContentDiv)`
-  width: 70%;
-  margin: 0 0 0 20px;
-
-  @media (max-width: 900px) {
-    width: 100%;
-    margin: 20px 0 0 0;
-  }
-`;
+import LeftSideDiv from "../components/ui/LeftSideDiv";
+import MainDiv from "../components/ui/MainDiv";
 
 // const RightSideDiv = styled(BaseContentDiv)`
 //   width: 25%;

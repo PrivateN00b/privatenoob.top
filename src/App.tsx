@@ -15,11 +15,13 @@ import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/global";
 import PageNotFound from "./pages/PageNotFound";
+import About from "./pages/infos/About";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
+      <Route path="About" element={<About />} />
       <Route path="Projects" element={<Projects />} />
       <Route path="404" element={<PageNotFound />} />
     </Route>

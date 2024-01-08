@@ -228,7 +228,7 @@ function Navbar() {
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <MenuItem to="404">About</MenuItem>
+                  <MenuItem to="About">About</MenuItem>
                   <MenuItem to="404">Projects</MenuItem>
                   <MenuItem to="404">Uses</MenuItem>
                 </div>
