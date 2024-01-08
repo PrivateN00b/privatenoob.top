@@ -1,7 +1,6 @@
 import BlockList from "../../components/styled-components/block-list/BlockList";
 import BlockListDiv from "../../components/styled-components/block-list/BlockListDiv";
 import CenteredH1 from "../../components/ui/CenteredH1";
-import CenteredH2 from "../../components/ui/CenteredH2";
 import Container from "../../components/ui/Container";
 import LeftSideDiv from "../../components/ui/LeftSideDiv";
 import MainDiv from "../../components/ui/MainDiv";

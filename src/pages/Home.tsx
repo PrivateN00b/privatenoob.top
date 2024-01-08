@@ -1,6 +1,4 @@
-import styled from "styled-components";
 import Bio from "../layouts/sublayouts/Bio";
-import BaseContentDiv from "../components/ui/BaseContentDiv";
 import Socials from "../layouts/sublayouts/Socials";
 import CenteredH1 from "../components/ui/CenteredH1";
 import StyledParagraph from "../components/ui/StyledParagraph";
