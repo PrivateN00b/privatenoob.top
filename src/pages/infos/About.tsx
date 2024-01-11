@@ -39,7 +39,7 @@ function About() {
         </StyledParagraph>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           <BlockListDiv>
-            <p>Practical interests</p>
+            <p>🚴‍♂️ Hobbies</p>
             <BlockList>
               <li>Programming</li>
               <li>Biking</li>
@@ -49,11 +49,31 @@ function About() {
           </BlockListDiv>
 
           <BlockListDiv>
-            <p>Favorite games</p>
+            <p>🎮 Games</p>
             <BlockList>
               <li>Danganronpa</li>
               <li>NFS: Most Wanted 2005</li>
               <li>Cities: Skylines</li>
+              <li>This War of Mine</li>
+            </BlockList>
+          </BlockListDiv>
+
+          <BlockListDiv>
+            <p>🍿 Shows/Movies</p>
+            <BlockList>
+              <li>Silent Voice</li>
+              <li>Erased</li>
+              <li>Interstellar</li>
+              <li>Oppenheimer</li>
+            </BlockList>
+          </BlockListDiv>
+
+          <BlockListDiv>
+            <p>📕 Books</p>
+            <BlockList>
+              <li>Flowers for Algernon</li>
+              <li>1984</li>
+              <li>Lassie</li>
             </BlockList>
           </BlockListDiv>
         </div>
