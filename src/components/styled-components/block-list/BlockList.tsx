@@ -8,6 +8,8 @@ const BlockList = styled.ul`
   padding-bottom: 8px;
   border-radius: 20px;
   height: inherit;
+  outline-style: outset;
+  outline-color: ${({ theme }) => theme.colors.quarteriary};
 
   li {
     padding: 5px 0 5px 0;
