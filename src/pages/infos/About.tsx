@@ -21,8 +21,10 @@ function About() {
         <CenteredH1>Introduction</CenteredH1>
         <StyledParagraph>
           Yooo! My username is PrivateNoob, but some people may know me as Kacsa
-          ^^. I'm your (mostly) usual guy whose main personality pieces were
-          developed by the magical (and insanely chaotic) internet :3.
+          ^^. My name is just a simple combination of "Saving Private Ryan" and
+          being a noob at FPS games. I'm your (mostly) usual guy whose main
+          personality pieces were developed by the magical (and insanely
+          chaotic) internet :3.
         </StyledParagraph>
         <br />
         <StyledParagraph>
