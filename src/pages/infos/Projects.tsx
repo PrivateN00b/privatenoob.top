@@ -11,7 +11,13 @@ function Projects() {
     <Container>
       <BaseContentDiv isLast={true}>
         <CenteredH1>Some projects :3</CenteredH1>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-evenly",
+          }}
+        >
           <BlockListDiv>
             <p>🌐 User contract handler site</p>
             <BlockList>
