@@ -9,7 +9,7 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import Projects from "./pages/Projects";
+import Projects from "./pages/infos/Projects";
 import RootLayout from "./layouts/RootLayout";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/theme";
