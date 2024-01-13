@@ -1,16 +1,11 @@
-import styled from "styled-components";
 import BaseContentDiv from "../components/ui/BaseContentDiv";
 import CenteredH1 from "../components/ui/CenteredH1";
 import Container from "../components/ui/Container";
 
-const MainDiv = styled(BaseContentDiv)`
-  width: 100%;
-`;
-
 export function PageNotFound() {
   return (
     <Container>
-      <MainDiv>
+      <BaseContentDiv isLast={true}>
         <CenteredH1>UNDER CONSTRUCTION</CenteredH1>
         <div
           style={{
@@ -25,7 +20,7 @@ export function PageNotFound() {
             style={{ maxHeight: "270px" }}
           />
         </div>
-      </MainDiv>
+      </BaseContentDiv>
     </Container>
   );
 }
