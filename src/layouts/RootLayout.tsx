@@ -8,7 +8,7 @@ import Footer from "./sublayouts/Footer";
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
   border: double;
-  margin-bottom: 20px;
+  margin: 20px 10px 20px 10px;
   border-color: ${({ theme }) => theme.colors.primary};
   border-radius: 20px;
   box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
