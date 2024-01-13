@@ -15,7 +15,7 @@ const Header = styled.header`
 `;
 
 const Main = styled.main`
-  margin-bottom: 20px;
+  margin: 0 10px 20px 10px;
 `;
 
 export default function RootLayout() {

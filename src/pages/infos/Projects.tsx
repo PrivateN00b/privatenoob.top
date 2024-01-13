@@ -2,14 +2,14 @@ import BlockList from "../../components/styled-components/block-list/BlockList";
 import BlockListDiv from "../../components/styled-components/block-list/BlockListDiv";
 import CenteredH1 from "../../components/ui/CenteredH1";
 import Container from "../../components/ui/Container";
-import MainDiv from "../../components/ui/MainDiv";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import BaseContentDiv from "../../components/ui/BaseContentDiv";
 
 function Projects() {
   return (
     <Container>
-      <MainDiv>
+      <BaseContentDiv isLast={true}>
         <CenteredH1>Some projects :3</CenteredH1>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           <BlockListDiv>
@@ -79,7 +79,7 @@ function Projects() {
             </BlockList>
           </BlockListDiv>
         </div>
-      </MainDiv>
+      </BaseContentDiv>
     </Container>
   );
 }
