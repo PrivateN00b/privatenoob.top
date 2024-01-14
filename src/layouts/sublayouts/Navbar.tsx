@@ -252,7 +252,7 @@ function Navbar() {
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <MenuItem to="404">Software</MenuItem>
-                  <MenuItem to="404">Recipes</MenuItem>
+                  <MenuItem to="Recipes">Recipes</MenuItem>
                   <MenuItem to="404">Personal</MenuItem>
                 </div>
               </InnerDropDownMenu>

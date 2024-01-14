@@ -16,13 +16,20 @@ import theme from "./styles/theme";
 import GlobalStyle from "./styles/global";
 import PageNotFound from "./pages/PageNotFound";
 import About from "./pages/infos/About";
+import Recipes from "./pages/blogs/Recipes/Recipes";
+import { Bejgli } from "./pages/blogs/Recipes/pages/Bejgli";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
+
       <Route path="About" element={<About />} />
       <Route path="Projects" element={<Projects />} />
+
+      <Route path="Recipes" element={<Recipes />} />
+      <Route path="Recipes/Bejgli" element={<Bejgli />} />
+
       <Route path="404" element={<PageNotFound />} />
     </Route>
   )
