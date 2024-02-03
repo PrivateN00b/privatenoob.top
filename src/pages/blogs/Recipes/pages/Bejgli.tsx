@@ -1,8 +1,17 @@
+import styled from "styled-components";
 import BaseContentDiv from "../../../../components/ui/BaseContentDiv";
 import CenteredH1 from "../../../../components/ui/CenteredH1";
 import CenteredH2 from "../../../../components/ui/CenteredH2";
 import Container from "../../../../components/ui/Container";
 import StyledParagraph from "../../../../components/ui/StyledParagraph";
+
+const StyledUL = styled.ul`
+  margin: 0 20px 0 20px;
+`;
+
+const StyledOL = styled.ol`
+  margin: 0 20px 0 20px;
+`;
 
 export function Bejgli() {
   return (
@@ -15,7 +24,7 @@ export function Bejgli() {
         <CenteredH2>Ingredients</CenteredH2>
         <p style={{ textAlign: "center" }}>Serves = EVERYONE (4 rolls)</p>
         <StyledParagraph>Dough:</StyledParagraph>
-        <ul>
+        <StyledUL>
           <li>
             <p>1 kg grated flour</p>
           </li>
@@ -37,9 +46,9 @@ export function Bejgli() {
           <li>
             <p>1 coffespoon of salt</p>
           </li>
-        </ul>
+        </StyledUL>
         <StyledParagraph>Walnut filling for 2 rolls:</StyledParagraph>
-        <ul>
+        <StyledUL>
           <li>
             <p>3 dl milk</p>
           </li>
@@ -64,11 +73,11 @@ export function Bejgli() {
           <li>
             <p>20-30 dkg sugar</p>
           </li>
-        </ul>
+        </StyledUL>
         <StyledParagraph>
           Coconut white chocolate filling for 2 rolls:
         </StyledParagraph>
-        <ul>
+        <StyledUL>
           <li>
             <p>3 dl milk</p>
           </li>
@@ -96,9 +105,9 @@ export function Bejgli() {
           <li>
             <p>1 piece of orange skin</p>
           </li>
-        </ul>
+        </StyledUL>
         <CenteredH2>Steps</CenteredH2>
-        <ol>
+        <StyledOL>
           <li>
             <p>
               Put the yeast and yolk into a room temperature milk and stir it a
@@ -219,9 +228,9 @@ export function Bejgli() {
           <li>
             <p>TASTE THE WONDER! ^^</p>
           </li>
-        </ol>
+        </StyledOL>
         <CenteredH2>Sources</CenteredH2>
-        <ul>
+        <StyledUL style={{ marginBottom: "20px" }}>
           <li>
             <a href="https://youtu.be/rTyQWQYn318?si=qoFNhAWbbub-E9Sk">
               Bejgli Beigli Diós Mákos @Szoky konyhája.
@@ -235,7 +244,7 @@ export function Bejgli() {
             </a>{" "}
             Retrieved 2024.01.27
           </li>
-        </ul>
+        </StyledUL>
       </BaseContentDiv>
     </Container>
   );
