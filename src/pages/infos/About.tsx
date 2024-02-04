@@ -1,5 +1,6 @@
 import BlockList from "../../components/styled-components/block-list/BlockList";
 import BlockListDiv from "../../components/styled-components/block-list/BlockListDiv";
+import BlockTitle from "../../components/styled-components/block-list/BlockTitle";
 import CenteredH1 from "../../components/ui/CenteredH1";
 import Container from "../../components/ui/Container";
 import LeftSideDiv from "../../components/ui/LeftSideDiv";
@@ -41,7 +42,7 @@ function About() {
         </StyledParagraph>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           <BlockListDiv>
-            <p>🚴‍♂️ Hobbies</p>
+            <BlockTitle>🚴‍♂️ Hobbies</BlockTitle>
             <BlockList>
               <li>Programming</li>
               <li>Biking</li>
@@ -51,7 +52,7 @@ function About() {
           </BlockListDiv>
 
           <BlockListDiv>
-            <p>🎮 Games</p>
+            <BlockTitle>🎮 Games</BlockTitle>
             <BlockList>
               <li>Danganronpa</li>
               <li>NFS: Most Wanted 2005</li>
@@ -61,7 +62,7 @@ function About() {
           </BlockListDiv>
 
           <BlockListDiv>
-            <p>🍿 Shows/Movies</p>
+            <BlockTitle>🍿 Shows/Movies</BlockTitle>
             <BlockList>
               <li>Silent Voice</li>
               <li>Erased</li>
@@ -71,7 +72,7 @@ function About() {
           </BlockListDiv>
 
           <BlockListDiv>
-            <p>📕 Books</p>
+            <BlockTitle>📕 Books</BlockTitle>
             <BlockList>
               <li>Flowers for Algernon</li>
               <li>1984</li>

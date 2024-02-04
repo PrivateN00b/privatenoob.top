@@ -5,6 +5,7 @@ import Container from "../../components/ui/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
+import BlockTitle from "../../components/styled-components/block-list/BlockTitle";
 
 function Projects() {
   return (
@@ -19,13 +20,16 @@ function Projects() {
           }}
         >
           <BlockListDiv>
-            <p>🌐 User contract handler site</p>
+            <BlockTitle>🌐 User contract handler site</BlockTitle>
             <BlockList>
               <li>
-                Features: add/edit/delete contracts, login/register, social
-                login, user permissions, deployed to Azure
+                <strong>Features:</strong> add/edit/delete contracts,
+                login/register, social login, user permissions, deployed to
+                Azure
               </li>
-              <li>Tech: C#/.NET, HTML, Blazor, Azure</li>
+              <li>
+                <strong>Tech:</strong> C#/.NET, HTML, Blazor, Azure
+              </li>
               <li>Made with a team of 3 in uni</li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/G1WRGM_SOF_2022231">
@@ -36,10 +40,12 @@ function Projects() {
           </BlockListDiv>
 
           <BlockListDiv>
-            <p>🎮 2D game in WPF</p>
+            <BlockTitle>🎮 2D game in WPF</BlockTitle>
             <BlockList>
               <li>A pretty basic platformer game</li>
-              <li>Tech: C#/.NET, XAML</li>
+              <li>
+                <strong>Tech:</strong> C#/.NET, XAML
+              </li>
               <li>Made with a partner in uni</li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/GUI_20212202_G1WRGM">
@@ -50,13 +56,15 @@ function Projects() {
           </BlockListDiv>
 
           <BlockListDiv>
-            <p>🤖📱 Measuring biking intensitivity</p>
+            <BlockTitle>🤖📱 Measuring biking intensitivity</BlockTitle>
             <BlockList>
               <li>
                 A running app in your pocket will decide if you biked
                 slowly/normally/intensively in every 30/60 second time period
               </li>
-              <li>Tech: Java/Kotlin, Python, Tensorflow, XML</li>
+              <li>
+                <strong>Tech:</strong> Java/Kotlin, Python, Tensorflow, XML
+              </li>
               <li>This is my thesis 📄</li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/SensorCollector">
@@ -73,10 +81,12 @@ function Projects() {
           </BlockListDiv>
 
           <BlockListDiv>
-            <p>🌐 This site ^^</p>
+            <BlockTitle>🌐 This site ^^</BlockTitle>
             <BlockList>
               <li>A personal site with some quirky elements</li>
-              <li>Tech: React, Typescript, HTML, CSS</li>
+              <li>
+                <strong>Tech:</strong> React, Typescript, HTML, CSS
+              </li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/privatenoob.top">
                   I'm on Github! <FontAwesomeIcon icon={faGithub} />

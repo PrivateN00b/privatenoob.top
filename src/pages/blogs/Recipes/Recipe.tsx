@@ -56,7 +56,7 @@ export function Recipe({ to }: RecipeProps) {
           alt="Cinnamon rolls"
         />
         <Infos>
-          <span>pastry</span>
+          <span style={{ fontWeight: "bold" }}>pastry</span>
           <h3>Cinnamon & Coconut rolls</h3>
         </Infos>
       </CardTop>

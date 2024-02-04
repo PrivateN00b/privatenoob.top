@@ -45,7 +45,9 @@ export default function CheckBox({ name }: CheckBoxProps) {
         onChange={() => setChecked(!checked)}
         style={{ display: "none" }}
       />
-      <span className="name">{name}</span>
+      <span style={{ fontWeight: "bold" }} className="name">
+        {name}
+      </span>
       <span className="checkmark">
         <FontAwesomeIcon icon={faCheck} />
       </span>
