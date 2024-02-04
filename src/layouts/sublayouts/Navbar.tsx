@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,6 +10,7 @@ import {
   faPaperclip,
 } from "@fortawesome/free-solid-svg-icons";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
+import NavbarLink from "./components/NavbarLink";
 
 const Nav = styled.div`
   display: flex;
@@ -18,32 +19,6 @@ const Nav = styled.div`
   background-color: ${(props) =>
     props.theme.colors.quarteriary}; /* Optional: Add a background color */
   border-radius: 0px 0px 20px 20px;
-`;
-
-const StyledNavLink = styled(NavLink)`
-  color: ${(props) => props.theme.colors.text1};
-  background-color: ${(props) => props.theme.colors.primary};
-  padding: 10px 30px 10px 30px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  max-height: 22px;
-  box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
-  transition: all 0.2 ease;
-
-  &:hover {
-    box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
-    transform: translateY(2px);
-  }
-
-  &:active {
-    box-shadow: none;
-    transform: translateY(5px);
-  }
-
-  @media (max-width: 420px) {
-    padding: 10px 20px 10px 20px;
-  }
 `;
 
 const BaseDiv = styled.div`
@@ -177,17 +152,6 @@ const DropDownLink = styled.a`
   }
 `;
 
-const MenuItem = styled(NavLink)`
-  color: ${(props) => props.theme.colors.text1};
-  padding: 5px 30px 5px 30px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 10px;
-  outline-style: outset;
-  outline-color: ${(props) => props.theme.colors.primary};
-`;
-
 const MenuBorder = styled.div`
   border-left: 3px solid ${({ theme }) => theme.colors.primary};
   max-height: 200px;
@@ -209,9 +173,9 @@ function Navbar() {
           <NavbarImg src="src/assets/yoimiya.webp" />
         </LeftDiv> */}
         <CenterDiv>
-          <StyledNavLink to="/">
+          <NavbarLink to="/" component="normal">
             <StyledFAIcon icon={faHouseChimney} /> Home
-          </StyledNavLink>
+          </NavbarLink>
 
           <DropDown>
             <DropDownLink>
@@ -228,9 +192,15 @@ function Navbar() {
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <MenuItem to="About">About</MenuItem>
-                  <MenuItem to="Projects">Projects</MenuItem>
-                  <MenuItem to="404">Uses</MenuItem>
+                  <NavbarLink to="About" component="dropdown">
+                    About
+                  </NavbarLink>
+                  <NavbarLink to="Projects" component="dropdown">
+                    Projects
+                  </NavbarLink>
+                  <NavbarLink to="404" component="dropdown">
+                    Uses
+                  </NavbarLink>
                 </div>
               </InnerDropDownMenu>
             </OuterDropDownMenuInfos>
@@ -251,9 +221,15 @@ function Navbar() {
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <MenuItem to="Software">Software</MenuItem>
-                  <MenuItem to="Recipes">Recipes</MenuItem>
-                  <MenuItem to="404">Personal</MenuItem>
+                  <NavbarLink to="Software" component="dropdown">
+                    Software
+                  </NavbarLink>
+                  <NavbarLink to="Recipes" component="dropdown">
+                    Recipes
+                  </NavbarLink>
+                  <NavbarLink to="404" component="dropdown">
+                    Personal
+                  </NavbarLink>
                 </div>
               </InnerDropDownMenu>
             </OuterDropDownMenuBlogs>
@@ -271,17 +247,23 @@ function Navbar() {
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <MenuItem to="404">Links</MenuItem>
-                  <MenuItem to="404">Blinkies</MenuItem>
-                  <MenuItem to="404">Guestbook</MenuItem>
+                  <NavbarLink to="404" component="dropdown">
+                    Links
+                  </NavbarLink>
+                  <NavbarLink to="404" component="dropdown">
+                    Blinkies
+                  </NavbarLink>
+                  <NavbarLink to="404" component="dropdown">
+                    Guestbook
+                  </NavbarLink>
                 </div>
               </InnerDropDownMenu>
             </OuterDropDownMenuOthers>
           </DropDown>
 
-          <StyledNavLink to="404">
+          <NavbarLink to="404" component="normal">
             <StyledFAIcon icon={faSkull} /> Login
-          </StyledNavLink>
+          </NavbarLink>
         </CenterDiv>
       </Nav>
     </>
