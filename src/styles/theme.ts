@@ -11,8 +11,8 @@ const theme = {
     linkVisited: "#a5e2ee ",
   },
   fontSize: {
-    small: "12px",
-    medium: "16px",
+    small: "14px",
+    medium: "18px",
     large: "24px",
   },
 };

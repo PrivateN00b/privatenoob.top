@@ -8,6 +8,10 @@ const globalStyle = createGlobalStyle`
   font-weight: 400;
   font-size: ${theme.fontSize.medium};
 
+  @media (max-width: 800px) {
+    font-size: ${theme.fontSize.small};
+  }
+
   color-scheme: dark;
   color: ${theme.colors.text1};
   background-color: #121212;
