@@ -6,7 +6,7 @@ const theme = {
     quarteriary: "#00013a",
     bg: "#01000e",
     text1: "white",
-    text2: "white",
+    text2: "#26e2de",
     link: " #27deff  ",
     linkVisited: "#a5e2ee ",
   },
