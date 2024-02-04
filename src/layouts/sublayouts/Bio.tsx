@@ -56,6 +56,11 @@ const BioInfo = styled(NavLink)`
   border-radius: 0 0 50px 50px;
   box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
   transition: all 0.2 ease;
+  text-decoration: none;
+
+  h4 {
+    color: ${({ theme }) => theme.colors.text1};
+  }
 
   &:hover {
     box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
