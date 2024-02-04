@@ -18,6 +18,7 @@ import PageNotFound from "./pages/PageNotFound";
 import About from "./pages/infos/About";
 import Recipes from "./pages/blogs/Recipes/Recipes";
 import { Bejgli } from "./pages/blogs/Recipes/pages/Bejgli";
+import Software from "./pages/blogs/Software/Software";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,6 +28,8 @@ const router = createBrowserRouter(
       <Route path="About" element={<About />} />
       <Route path="Projects" element={<Projects />} />
 
+      {/* Blogs */}
+      <Route path="Software" element={<Software />} />
       <Route path="Recipes" element={<Recipes />} />
       <Route path="Recipes/Bejgli" element={<Bejgli />} />
 
