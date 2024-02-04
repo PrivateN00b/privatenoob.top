@@ -21,7 +21,7 @@ const Nav = styled.div`
 `;
 
 const StyledNavLink = styled(NavLink)`
-  color: ${(props) => props.theme.colors.text2};
+  color: ${(props) => props.theme.colors.text1};
   background-color: ${(props) => props.theme.colors.primary};
   padding: 10px 30px 10px 30px;
   border-radius: 20px;
@@ -159,7 +159,7 @@ const DropDown = styled.div`
 `;
 
 const DropDownLink = styled.a`
-  color: ${(props) => props.theme.colors.text2};
+  color: ${(props) => props.theme.colors.text1};
   padding: 10px 30px 10px 30px;
   border-radius: 20px;
   text-decoration: none;
@@ -178,7 +178,7 @@ const DropDownLink = styled.a`
 `;
 
 const MenuItem = styled(NavLink)`
-  color: ${(props) => props.theme.colors.text2};
+  color: ${(props) => props.theme.colors.text1};
   padding: 5px 30px 5px 30px;
   border-radius: 10px;
   text-decoration: none;
