@@ -8,7 +8,8 @@ const Container = styled.div`
     display: block;
   }
 
-  h1 {
+  h1,
+  h2 {
     color: ${({ theme }) => theme.colors.primary};
   }
 
