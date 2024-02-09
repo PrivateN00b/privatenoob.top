@@ -4,6 +4,7 @@ const LeftSideDiv = styled.div`
   width: 30%;
   max-height: 100%;
   height: 100%;
+  margin-right: 10px;
 
   @media (max-width: 680px) {
     display: flex;
