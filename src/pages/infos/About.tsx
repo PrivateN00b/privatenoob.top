@@ -7,7 +7,6 @@ import LeftSideDiv from "../../components/ui/LeftSideDiv";
 import MainDiv from "../../components/ui/MainDiv";
 import StyledParagraph from "../../components/ui/StyledParagraph";
 import Bio from "../../layouts/sublayouts/Bio";
-import MusicPlayer from "../../layouts/sublayouts/MusicPlayer";
 import Socials from "../../layouts/sublayouts/Socials";
 
 function About() {
@@ -16,7 +15,7 @@ function About() {
       <LeftSideDiv>
         <Bio />
         <Socials isLast={true} />
-        <MusicPlayer />
+        {/* <MusicPlayer /> */}
       </LeftSideDiv>
       <MainDiv>
         <CenteredH1>Introduction</CenteredH1>

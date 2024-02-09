@@ -4,7 +4,6 @@ import CenteredH1 from "../components/ui/CenteredH1";
 import StyledParagraph from "../components/ui/StyledParagraph";
 import StyledItem from "../components/ui/StyledItem";
 import Container from "../components/ui/Container";
-import MusicPlayer from "../layouts/sublayouts/MusicPlayer";
 import LeftSideDiv from "../components/ui/LeftSideDiv";
 import MainDiv from "../components/ui/MainDiv";
 
@@ -25,7 +24,7 @@ function Home() {
       <LeftSideDiv>
         <Bio />
         <Socials isLast={true} />
-        <MusicPlayer />
+        {/* <MusicPlayer /> */}
       </LeftSideDiv>
       <MainDiv>
         <CenteredH1>Introduction</CenteredH1>
