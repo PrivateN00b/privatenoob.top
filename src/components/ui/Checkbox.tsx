@@ -13,14 +13,27 @@ const StyledLabel = styled.label<{ $checked: boolean }>`
   padding: 12px 21.5px 12px 28px;
   outline-style: outset;
   outline-color: ${({ theme, $checked }) =>
-    $checked ? theme.colors.secondary : theme.colors.tertiary};
+    $checked ? theme.colors.link : theme.colors.tertiary};
   user-select: none;
   cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background-color: ${({ theme }) => theme.colors.quarteriary};
+    border-radius: inherit;
+  }
 
   span.name {
     display: inline-flex;
     transform: ${({ $checked }) => ($checked ? "translateX(-5px)" : "none")};
     transition: transform 0.2s ease;
+    color: ${({ theme, $checked }) =>
+      $checked ? theme.colors.link : theme.colors.text1};
+    position: relative;
+    z-index: 2;
   }
 
   span.checkmark {
@@ -28,6 +41,10 @@ const StyledLabel = styled.label<{ $checked: boolean }>`
     visibility: ${({ $checked }) => ($checked ? "visible" : "hidden")};
     transform: ${({ $checked }) => ($checked ? "translateX(5px)" : "none")};
     transition: transform 0.2s ease;
+    color: ${({ theme, $checked }) =>
+      $checked ? theme.colors.link : theme.colors.text1};
+    position: relative;
+    z-index: 2;
   }
 `;
 
