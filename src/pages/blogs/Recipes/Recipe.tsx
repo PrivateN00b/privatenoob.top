@@ -51,10 +51,7 @@ export function Recipe({ to }: RecipeProps) {
   return (
     <Card to={to}>
       <CardTop>
-        <Img
-          src="https://www.mindmegette.hu/images/209/O/dios-bejgli.jpg"
-          alt="Cinnamon rolls"
-        />
+        <Img src="/dios-bejgli.jpg" alt="Cinnamon rolls" />
         <Infos>
           <span style={{ fontWeight: "bold" }}>pastry</span>
           <h3>Cinnamon & Coconut rolls</h3>
