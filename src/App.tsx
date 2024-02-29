@@ -19,6 +19,7 @@ import About from "./pages/infos/About";
 import Recipes from "./pages/blogs/Recipes/Recipes";
 import { Bejgli } from "./pages/blogs/Recipes/pages/Bejgli";
 import Software from "./pages/blogs/Software/Software";
+import { ScrambledEggs } from "./pages/blogs/Recipes/pages/ScrambledEggs";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +32,9 @@ const router = createBrowserRouter(
       {/* Blogs */}
       <Route path="Software" element={<Software />} />
       <Route path="Recipes" element={<Recipes />} />
+      {/* This will get blown out of proportions REAL FAST */}
       <Route path="Recipes/Bejgli" element={<Bejgli />} />
+      <Route path="Recipes/ScrambledEggs" element={<ScrambledEggs />} />
 
       <Route path="404" element={<PageNotFound />} />
     </Route>

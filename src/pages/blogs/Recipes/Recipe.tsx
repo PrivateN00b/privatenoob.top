@@ -24,6 +24,7 @@ const CardTop = styled(BaseCard)`
   width: inherit;
   border-radius: 20px 20px 0 0;
   margin-bottom: 15px;
+  height: 340px;
 `;
 
 const CardBottom = styled(BaseCard)`
@@ -34,9 +35,10 @@ const CardBottom = styled(BaseCard)`
 `;
 
 const Img = styled.img`
-  width: inherit;
-  max-width: inherit;
+  aspect-ratio: 16 / 14;
+  width: 100%;
   border-radius: inherit;
+  object-fit: cover;
 `;
 
 const Infos = styled.div`
@@ -45,21 +47,40 @@ const Infos = styled.div`
 
 interface RecipeProps {
   to: string;
+  name: string;
+  type: string;
+  difficulty: number;
+  length: string;
+  imgSrc: string;
+  imgAlt: string;
 }
 
-export function Recipe({ to }: RecipeProps) {
+const RenderDifficulty = (difficulty: number) => {
+  switch (difficulty) {
+    case 1:
+      return "🟩 🔳 🔳";
+    case 2:
+      return "🟧 🟧 🔳";
+    case 3:
+      return "🟥 🟥 🟥";
+    default:
+      return "🔳 🔳 🔳";
+  }
+};
+
+export function Recipe(props: RecipeProps) {
   return (
-    <Card to={to}>
+    <Card to={props.to}>
       <CardTop>
-        <Img src="/dios-bejgli.jpg" alt="Cinnamon rolls" />
+        <Img src={props.imgSrc} alt={props.imgAlt} />
         <Infos>
-          <span style={{ fontWeight: "bold" }}>pastry</span>
-          <h3>Cinnamon & Coconut rolls</h3>
+          <span style={{ fontWeight: "bold" }}>{props.type}</span>
+          <h3>{props.name}</h3>
         </Infos>
       </CardTop>
       <CardBottom>
-        <span>🟧 🟧 🔳</span>
-        <span>3-4 hours</span>
+        {RenderDifficulty(props.difficulty)}
+        <span>{props.length}</span>
       </CardBottom>
     </Card>
   );

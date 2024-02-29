@@ -29,9 +29,33 @@ function Recipes() {
       <MainDiv isLast={true}>
         <CenteredH1>Recipes</CenteredH1>
         <RecipeList>
-          <Recipe to="Bejgli" />
-          <Recipe to="Bejgli" />
-          <Recipe to="Bejgli" />
+          <Recipe
+            to="Bejgli"
+            name="Cinnamon & Coconut rolls"
+            type="pastry"
+            difficulty={2}
+            length="4 hours"
+            imgSrc="/dios-bejgli.jpg"
+            imgAlt="Cinnamon rolls"
+          />
+          <Recipe
+            to="ScrambledEggs"
+            name="Scrambled eggs"
+            type="breakfast"
+            difficulty={1}
+            length="10-15 minutes"
+            imgSrc="/scrambled-eggs.jpg"
+            imgAlt="Scrambled eggs"
+          />
+          <Recipe
+            to="Bejgli"
+            name="Cinnamon & Coconut rolls"
+            type="pastry"
+            difficulty={2}
+            length="4 hours"
+            imgSrc="/dios-bejgli.jpg"
+            imgAlt="Cinnamon rolls"
+          />
         </RecipeList>
       </MainDiv>
     </Container>
