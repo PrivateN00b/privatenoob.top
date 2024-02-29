@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Card = styled(NavLink)`
   width: 100%;
   height: auto;
-  max-width: 320px;
+  max-width: 240px;
   text-decoration: none;
   margin: 10px;
 
@@ -24,7 +24,11 @@ const CardTop = styled(BaseCard)`
   width: inherit;
   border-radius: 20px 20px 0 0;
   margin-bottom: 15px;
-  height: 340px;
+  height: 85%;
+
+  @media (max-width: 1100px) {
+    height: 80%;
+  }
 `;
 
 const CardBottom = styled(BaseCard)`
