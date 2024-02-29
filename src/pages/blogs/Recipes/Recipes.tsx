@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import BaseContentDiv from "../../../components/ui/BaseContentDiv";
 import CenteredH1 from "../../../components/ui/CenteredH1";
 import Container from "../../../components/ui/Container";
 import { Recipe } from "./Recipe";
 import MainDiv from "../../../components/ui/MainDiv";
 import LeftSideDiv from "../../../components/ui/LeftSideDiv";
-import Bio from "../../../layouts/sublayouts/Bio";
 import Filters from "../../../layouts/sublayouts/Filters";
 
 const RecipeList = styled.div`

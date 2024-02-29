@@ -10,7 +10,6 @@ import {
   RightColumn,
   RightHeader,
   Row,
-  SubHeader,
 } from "../components/RecipeColumns";
 
 const StyledUL = styled.ul`
