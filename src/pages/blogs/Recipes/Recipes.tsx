@@ -13,7 +13,7 @@ const RecipeList = styled.div`
   padding-bottom: 40px;
   margin: 0 20px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     flex-wrap: wrap;
   }
 `;
@@ -45,7 +45,7 @@ function Recipes() {
             cost={1}
             restriction="vegetarian?"
             difficulty={1}
-            length="10-15 minutes"
+            length="10-15 min"
             imgSrc="/scrambled-eggs.jpg"
             imgAlt="Scrambled eggs"
           />
