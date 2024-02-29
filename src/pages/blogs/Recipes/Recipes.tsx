@@ -30,6 +30,8 @@ function Recipes() {
           <Recipe
             to="Bejgli"
             name="Cinnamon & Coconut rolls"
+            cost={3}
+            restriction="vegetarian"
             type="pastry"
             difficulty={2}
             length="4 hours"
@@ -40,6 +42,8 @@ function Recipes() {
             to="ScrambledEggs"
             name="Scrambled eggs"
             type="breakfast"
+            cost={1}
+            restriction="vegetarian?"
             difficulty={1}
             length="10-15 minutes"
             imgSrc="/scrambled-eggs.jpg"
@@ -49,6 +53,8 @@ function Recipes() {
             to="Bejgli"
             name="Cinnamon & Coconut rolls"
             type="pastry"
+            cost={3}
+            restriction="vegetarian"
             difficulty={2}
             length="4 hours"
             imgSrc="/dios-bejgli.jpg"

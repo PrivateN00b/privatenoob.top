@@ -24,18 +24,23 @@ const CardTop = styled(BaseCard)`
   width: inherit;
   border-radius: 20px 20px 0 0;
   margin-bottom: 15px;
-  height: 85%;
+  height: 77%;
 
   @media (max-width: 1100px) {
-    height: 80%;
+    height: 74%;
   }
 `;
 
 const CardBottom = styled(BaseCard)`
-  display: flex;
-  justify-content: space-between;
+  display: block;
   padding: 5px 10px;
   border-radius: 0 0 10px 10px;
+`;
+
+const StatsRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
 `;
 
 const Img = styled.img`
@@ -53,6 +58,8 @@ interface RecipeProps {
   to: string;
   name: string;
   type: string;
+  cost: number;
+  restriction: string;
   difficulty: number;
   length: string;
   imgSrc: string;
@@ -72,6 +79,34 @@ const RenderDifficulty = (difficulty: number) => {
   }
 };
 
+const RenderCost = (cost: number) => {
+  switch (cost) {
+    case 1:
+      return "💵 🔳 🔳";
+    case 2:
+      return "💵 💵 🔳";
+    case 3:
+      return "💵 💵 💵";
+    default:
+      return "🔳 🔳 🔳";
+  }
+};
+
+const RenderRestriction = (restriction: string) => {
+  switch (restriction) {
+    case "vegetarian":
+      return <span>🌱 🥛</span>;
+    case "vegan":
+      return <span>🌱</span>;
+    case "vegetarian?":
+      return <span>🌱 🥛 ❔</span>;
+    case "vegan?":
+      return <span>🌱 ❔</span>;
+    default:
+      return "";
+  }
+};
+
 export function Recipe(props: RecipeProps) {
   return (
     <Card to={props.to}>
@@ -83,8 +118,14 @@ export function Recipe(props: RecipeProps) {
         </Infos>
       </CardTop>
       <CardBottom>
-        {RenderDifficulty(props.difficulty)}
-        <span>{props.length}</span>
+        <StatsRow>
+          {RenderCost(props.cost)}
+          {RenderRestriction(props.restriction)}
+        </StatsRow>
+        <StatsRow>
+          {RenderDifficulty(props.difficulty)}
+          <span>{props.length}</span>
+        </StatsRow>
       </CardBottom>
     </Card>
   );
