@@ -20,7 +20,7 @@ export default function Filters({
         <CheckBox name="Breakfast" onCheckBoxChange={onFilterChange} />
         <CheckBox name="Dinner" onCheckBoxChange={onFilterChange} />
         <CheckBox name="Lunch" onCheckBoxChange={onFilterChange} />
-        <CheckBox name="Dessert" onCheckBoxChange={onFilterChange} />
+        <CheckBox name="Pastry" onCheckBoxChange={onFilterChange} />
       </div>
       <div style={{ margin: "0 0 20px 20px" }}>
         <h2>Restrictions:</h2>

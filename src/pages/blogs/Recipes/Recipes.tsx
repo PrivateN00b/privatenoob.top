@@ -25,7 +25,7 @@ function Recipes() {
     Breakfast: false,
     Dinner: false,
     Lunch: false,
-    Dessert: false,
+    Pastry: false,
     Vegetarian: false,
     Vegan: false,
     Cheap: false,
