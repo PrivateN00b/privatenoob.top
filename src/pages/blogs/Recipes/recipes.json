@@ -1,0 +1,35 @@
+[
+  {
+    "to": "Bejgli",
+    "name": "Cinnamon & Coconut rolls",
+    "type": "pastry",
+    "cost": 3,
+    "restriction": "vegetarian",
+    "difficulty": 2,
+    "length": "4 hours",
+    "imgSrc": "/dios-bejgli.jpg",
+    "imgAlt": "Cinnamon rolls"
+  },
+  {
+    "to": "ScrambledEggs",
+    "name": "Scrambled eggs",
+    "type": "pastry",
+    "cost": 1,
+    "restriction": "vegetarian",
+    "difficulty": 1,
+    "length": "10-15 min",
+    "imgSrc": "/scrambled-eggs.jpg",
+    "imgAlt": "Scrambled eggs"
+  },
+  {
+    "to": "Bejgli",
+    "name": "Cinnamon & Coconut rolls",
+    "type": "pastry",
+    "cost": 3,
+    "restriction": "vegetarian",
+    "difficulty": 2,
+    "length": "4 hours",
+    "imgSrc": "/dios-bejgli.jpg",
+    "imgAlt": "Cinnamon rolls"
+  }
+]

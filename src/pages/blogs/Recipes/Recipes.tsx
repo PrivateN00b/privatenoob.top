@@ -5,6 +5,7 @@ import { Recipe } from "./Recipe";
 import MainDiv from "../../../components/ui/MainDiv";
 import LeftSideDiv from "../../../components/ui/LeftSideDiv";
 import Filters from "../../../layouts/sublayouts/Filters";
+import recipes from "./recipes.json";
 import { useState } from "react";
 
 const RecipeList = styled.div`
