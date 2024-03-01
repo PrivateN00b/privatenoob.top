@@ -5,6 +5,7 @@ import { Recipe } from "./Recipe";
 import MainDiv from "../../../components/ui/MainDiv";
 import LeftSideDiv from "../../../components/ui/LeftSideDiv";
 import Filters from "../../../layouts/sublayouts/Filters";
+import { useState } from "react";
 
 const RecipeList = styled.div`
   display: flex;
@@ -19,10 +20,32 @@ const RecipeList = styled.div`
 `;
 
 function Recipes() {
+  const [filterValues, setFilterValues] = useState({
+    Breakfast: false,
+    Dinner: false,
+    Lunch: false,
+    Dessert: false,
+    Vegetarian: false,
+    Vegan: false,
+    Cheap: false,
+    Reasonable: false,
+    Expensive: false,
+  });
+
+  const handleFilterChange = (
+    name: string,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFilterValues({
+      ...filterValues,
+      [name]: e.target.checked,
+    });
+  };
+
   return (
     <Container>
       <LeftSideDiv>
-        <Filters isLast={true} />
+        <Filters isLast={true} onFilterChange={handleFilterChange} />
       </LeftSideDiv>
       <MainDiv isLast={true}>
         <CenteredH1>Recipes</CenteredH1>

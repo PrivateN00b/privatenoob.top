@@ -50,16 +50,23 @@ const StyledLabel = styled.label<{ $checked: boolean }>`
 
 interface CheckBoxProps {
   name: string;
+  onCheckBoxChange: (
+    name: string,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => void;
 }
 
-export default function CheckBox({ name }: CheckBoxProps) {
+export default function CheckBox({ name, onCheckBoxChange }: CheckBoxProps) {
   const [checked, setChecked] = useState(false);
 
   return (
     <StyledLabel $checked={checked}>
       <input
         type="checkbox"
-        onChange={() => setChecked(!checked)}
+        onChange={(e) => {
+          setChecked(!checked);
+          onCheckBoxChange(name, e);
+        }}
         style={{ display: "none" }}
       />
       <span style={{ fontWeight: "bold" }} className="name">
