@@ -7,6 +7,8 @@ import LeftSideDiv from "../../../components/ui/LeftSideDiv";
 import Filters from "../../../layouts/sublayouts/Filters";
 import recipes from "./recipes.json";
 import { useState } from "react";
+import { FilterDict, RecipeDict } from "./utils/RecipesTypes";
+import { Cost } from "./utils/RecipesEnums";
 
 const RecipeList = styled.div`
   display: flex;
@@ -21,26 +23,81 @@ const RecipeList = styled.div`
 `;
 
 function Recipes() {
-  const [filterValues, setFilterValues] = useState({
-    Breakfast: false,
-    Dinner: false,
-    Lunch: false,
-    Pastry: false,
-    Vegetarian: false,
-    Vegan: false,
-    Cheap: false,
-    Reasonable: false,
-    Expensive: false,
+  const [filterValues, setFilterValues] = useState<FilterDict>({
+    types: [],
+    restrictions: [],
+    costs: [],
   });
+
+  const handleFilterValues = (
+    key: keyof FilterDict,
+    name: string,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    e.target.checked
+      ? setFilterValues({
+          ...filterValues,
+          [key]: [...filterValues[key], name],
+        })
+      : setFilterValues({
+          ...filterValues,
+          [key]: filterValues[key].filter((value) => value !== name),
+        });
+    console.log("UwU");
+  };
 
   const handleFilterChange = (
     name: string,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setFilterValues({
-      ...filterValues,
-      [name]: e.target.checked,
-    });
+    if (["Breakfast", "Dinner", "Lunch", "Pastry"].includes(name)) {
+      handleFilterValues("types", name, e);
+    } else if (["Vegetarian", "Vegan"].includes(name)) {
+      handleFilterValues("restrictions", name, e);
+    } else {
+      handleFilterValues("costs", name, e);
+    }
+  };
+
+  const renderRecipes = () => {
+    let filteredRecipes: RecipeDict[] = JSON.parse(
+      JSON.stringify(recipes)
+    ) as RecipeDict[];
+
+    // Filter based on types
+    if (filterValues.types.length != 0) {
+      filteredRecipes = recipes.filter((recipe: RecipeDict) =>
+        filterValues.types.includes(recipe.type)
+      ) as RecipeDict[];
+    }
+
+    // Filter based on restrictions
+    if (filterValues.restrictions.length != 0) {
+      filteredRecipes = filteredRecipes.filter((recipe: RecipeDict) =>
+        filterValues.restrictions.includes(recipe.restriction)
+      ) as RecipeDict[];
+    }
+
+    // Filter based on costs
+    if (filterValues.costs.length != 0) {
+      filteredRecipes = filteredRecipes.filter((recipe: RecipeDict) =>
+        filterValues.costs.includes(Cost[recipe.cost])
+      ) as RecipeDict[];
+    }
+
+    return filteredRecipes.map((recipe: RecipeDict) => (
+      <Recipe
+        to={recipe.to}
+        name={recipe.name}
+        type={recipe.type}
+        cost={recipe.cost}
+        restriction={recipe.restriction}
+        difficulty={recipe.difficulty}
+        length={recipe.length}
+        imgSrc={recipe.imgSrc}
+        imgAlt={recipe.imgAlt}
+      />
+    ));
   };
 
   return (
@@ -50,41 +107,7 @@ function Recipes() {
       </LeftSideDiv>
       <MainDiv isLast={true}>
         <CenteredH1>Recipes</CenteredH1>
-        <RecipeList>
-          <Recipe
-            to="Bejgli"
-            name="Cinnamon & Coconut rolls"
-            cost={3}
-            restriction="vegetarian"
-            type="pastry"
-            difficulty={2}
-            length="4 hours"
-            imgSrc="/dios-bejgli.jpg"
-            imgAlt="Cinnamon rolls"
-          />
-          <Recipe
-            to="ScrambledEggs"
-            name="Scrambled eggs"
-            type="breakfast"
-            cost={1}
-            restriction="vegetarian?"
-            difficulty={1}
-            length="10-15 min"
-            imgSrc="/scrambled-eggs.jpg"
-            imgAlt="Scrambled eggs"
-          />
-          <Recipe
-            to="Bejgli"
-            name="Cinnamon & Coconut rolls"
-            type="pastry"
-            cost={3}
-            restriction="vegetarian"
-            difficulty={2}
-            length="4 hours"
-            imgSrc="/dios-bejgli.jpg"
-            imgAlt="Cinnamon rolls"
-          />
-        </RecipeList>
+        <RecipeList>{renderRecipes()}</RecipeList>
       </MainDiv>
     </Container>
   );
