@@ -22,14 +22,14 @@
     "imgAlt": "Scrambled eggs"
   },
   {
-    "to": "Bejgli",
-    "name": "Cinnamon & Coconut rolls",
+    "to": "Bukta",
+    "name": "Jam Filled Yeast Pastry",
     "type": "Pastry",
-    "cost": 3,
+    "cost": 2,
     "restriction": "Vegetarian",
     "difficulty": 2,
-    "length": "4 hours",
-    "imgSrc": "/dios-bejgli.jpg",
-    "imgAlt": "Cinnamon rolls"
+    "length": "3 hours",
+    "imgSrc": "/bukta.png",
+    "imgAlt": "Jam Filled Yeast Pastry"
   }
 ]
