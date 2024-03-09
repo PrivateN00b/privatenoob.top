@@ -21,6 +21,7 @@ import { Bejgli } from "./pages/blogs/Recipes/pages/Bejgli";
 import Software from "./pages/blogs/Software/Software";
 import { ScrambledEggs } from "./pages/blogs/Recipes/pages/ScrambledEggs";
 import { Bukta } from "./pages/blogs/Recipes/pages/Bukta";
+import { ChickenLoMein } from "./pages/blogs/Recipes/pages/ChickenLoMein";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="Recipes/Bejgli" element={<Bejgli />} />
       <Route path="Recipes/ScrambledEggs" element={<ScrambledEggs />} />
       <Route path="Recipes/Bukta" element={<Bukta />} />
+      <Route path="Recipes/ChickenLoMein" element={<ChickenLoMein />} />
 
       <Route path="404" element={<PageNotFound />} />
     </Route>

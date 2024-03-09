@@ -31,5 +31,16 @@
     "length": "3 hours",
     "imgSrc": "/bukta.png",
     "imgAlt": "Jam Filled Yeast Pastry"
+  },
+  {
+    "to": "ChickenLoMein",
+    "name": "Chicken Lo Mein",
+    "type": "Lunch",
+    "cost": 2,
+    "restriction": "",
+    "difficulty": 1,
+    "length": "30 min",
+    "imgSrc": "/chicken-lo-mein.jpg",
+    "imgAlt": "Chicken Lo Mein"
   }
 ]
