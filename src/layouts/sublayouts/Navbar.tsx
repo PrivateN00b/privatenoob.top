@@ -58,25 +58,20 @@ const OuterDropDownMenu = styled.div`
   display: flex;
   margin-top: 10px;
   position: absolute;
-  left: -100%;
+  left: -90%;
   top: calc(100% - 40px);
-  padding: 50px 30px 0px 30px;
-  height: 200px;
-  width: 300px;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
   transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
   justify-content: center;
-  border-radius: 20px;
-`;
+  `;
 
 const OuterDropDownMenuInfos = styled(OuterDropDownMenu)`
-  /* top: -230px;
-  padding: 20px 30px 30px 30px; */
   border-radius: 250px 50px 50px 50px / 80px 25px 25px 25px;
-  height: 200px;
+  height: 140px;
   width: 260px;
+  padding: 50px 20px 15px 20px;
 
   @media (max-width: 420px) {
     left: -${window.innerWidth / 2.2}px;
@@ -89,20 +84,25 @@ const OuterDropDownMenuInfos = styled(OuterDropDownMenu)`
 
 const OuterDropDownMenuBlogs = styled(OuterDropDownMenu)`
   border-radius: 250px 50px 50px 50px / 70px 25px 25px 25px;
+  height: 190px;
+  width: 280px;
+  padding: 50px 25px 15px 25px;
 
   @media (max-width: 420px) {
     left: -${window.innerWidth / 8.5}px;
   }
 
   @media (min-width: 545px) {
-    left: -126%;
+    left: -106%;
   }
 `;
 
 const OuterDropDownMenuOthers = styled(OuterDropDownMenu)`
   border-radius: 250px 50px 50px 50px / 80px 25px 25px 25px;
-  height: 200px;
-  width: 280px;
+  height: 140px;
+  width: 260px;
+  left: -90%;
+  padding: 50px 30px 15px 30px;
 
   @media (max-width: 420px) {
     left: -${window.innerWidth / 2}px;
@@ -117,7 +117,7 @@ const InnerDropDownMenu = styled(BaseContentDiv)`
   display: flex;
   max-height: inherit;
   max-width: inherit;
-  padding: 20px 20px 20px 10px;
+  padding: 15px 20px 10px 10px;
 `;
 
 const DropDown = styled.div`
@@ -182,11 +182,11 @@ function Navbar() {
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
             <OuterDropDownMenuInfos>
-              <InnerDropDownMenu>
+              <InnerDropDownMenu isLast={true}>
                 <div>
                   <img
-                    style={{ maxWidth: "100px" }}
-                    src="/dakooters-dkooters.gif"
+                    style={{ maxWidth: "80px" }}
+                    src="/dance-moves-monokuma.gif"
                   />
                 </div>{" "}
                 <MenuBorder />
@@ -196,9 +196,6 @@ function Navbar() {
                   </NavbarLink>
                   <NavbarLink to="Projects" component="dropdown">
                     Projects
-                  </NavbarLink>
-                  <NavbarLink to="404" component="dropdown">
-                    Uses
                   </NavbarLink>
                 </div>
               </InnerDropDownMenu>
@@ -211,7 +208,7 @@ function Navbar() {
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
             <OuterDropDownMenuBlogs>
-              <InnerDropDownMenu>
+              <InnerDropDownMenu isLast={true}>
                 <div>
                   <img
                     style={{ maxWidth: "100px" }}
@@ -240,17 +237,14 @@ function Navbar() {
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
             <OuterDropDownMenuOthers>
-              <InnerDropDownMenu>
+              <InnerDropDownMenu isLast={true} style={{ paddingRight: "27px" }}>
                 <div>
-                  <img style={{ maxWidth: "100px" }} src="/bocchi-rotate.gif" />
+                  <img style={{ maxWidth: "80px" }} src="/bocchi-rotate.gif" />
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <NavbarLink to="404" component="dropdown">
                     Links
-                  </NavbarLink>
-                  <NavbarLink to="404" component="dropdown">
-                    Blinkies
                   </NavbarLink>
                   <NavbarLink to="404" component="dropdown">
                     Guestbook
