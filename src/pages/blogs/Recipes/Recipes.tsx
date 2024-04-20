@@ -60,9 +60,21 @@ function Recipes() {
   };
 
   const renderRecipes = () => {
+    // Get the recipes from recipes.json
     let filteredRecipes: RecipeDict[] = JSON.parse(
       JSON.stringify(recipes)
     ) as RecipeDict[];
+
+    // Add the recipes from the server
+    const recipesServer = fetch(
+      `${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipe`
+    )
+      .then((res) => res.json())
+      .then((res) => res as RecipeDict[]);
+
+    recipesServer.then((res) =>
+      res.forEach((item) => filteredRecipes.push(item))
+    );
 
     // Filter based on types
     if (filterValues.types.length != 0) {
