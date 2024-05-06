@@ -12,7 +12,7 @@ import {
   Row,
   SubHeader,
 } from "../components/RecipeColumns";
-import { BaseRecipePage } from "../components/BaseRecipePage";
+import { Dict } from "styled-components/dist/types";
 
 const StyledUL = styled.ul`
   margin: 0 20px 0 20px;
@@ -23,28 +23,39 @@ const StyledOL = styled.ol`
   padding-left: 0;
 `;
 
-const infos: {[key: string] : string} = {
-  "prep": "1", "cooking": "2", "tools": "yes", "serves": "4"
-}
+type BaseRecipePageProps = {
+  title: string;
+  infos: Dict;
+  ingredients: { [key: string]: string[] };
+  // steps: React.Component,
+  // sources: React.Component
+};
 
-const ingredients: {[key: string] : string[]} = { "KEK": ["owo", "xd"], "RAWR": ["olol", "xfffd"] }
-
-export function Bejgli() {
-  return <BaseRecipePage title="KEK" infos={infos} ingredients={ingredients} />
+export function BaseRecipePage({
+  title,
+  infos,
+  ingredients,
+}: BaseRecipePageProps) {
   return (
     <Container>
       <BaseContentDiv>
-        <CenteredH1>Walnut & Coconut White Chocolate Rolls (Bejgli)</CenteredH1>
+        <CenteredH1>{title}</CenteredH1>
         <p style={{ textAlign: "center" }}>
-          <strong>Recipe:</strong> 3 hours, <strong>Cooking:</strong> 1 hours,{" "}
-          <strong>Tools:</strong> yes
+          <strong>Recipe:</strong> {infos["prep"]}, <strong>Cooking:</strong>{" "}
+          {infos["cooking"]}, <strong>Tools:</strong> {infos["tools"]}
         </p>
         <p style={{ textAlign: "center" }}>
-          <strong>Serves:</strong> EVERYONE (4 rolls)
+          <strong>Serves:</strong> {infos["serves"]}
         </p>
         <Row>
           <LeftColumn>
             <LeftHeader>Ingredients</LeftHeader>
+            {Object.entries(ingredients).map(([key, value]) => (
+              <>
+                <SubHeader>{key}</SubHeader>
+                {Object.entries(value).map(ingredient => <IngredientParagraph>{ingredient}</IngredientParagraph>)}
+              </>
+            ))}
             <SubHeader>Dough:</SubHeader>
             <IngredientParagraph>1 kg grated flour</IngredientParagraph>
             <IngredientParagraph>40 dkg butter or margarin</IngredientParagraph>
