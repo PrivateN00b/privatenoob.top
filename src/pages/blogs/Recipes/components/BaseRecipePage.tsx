@@ -54,7 +54,7 @@ export function BaseRecipePage({
             <LeftHeader>Ingredients</LeftHeader>
             {Object.entries(ingredients).map(([key, value]) => (
               <>
-                <SubHeader>{key}</SubHeader>
+                <SubHeader>{key.replace(/_/g, " ")}</SubHeader>
                 {Object.entries(value).map((ingredient) => (
                   <IngredientParagraph>{ingredient}</IngredientParagraph>
                 ))}
