@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { Meal } from "./utils/RecipesEnums";
 
 const Card = styled(NavLink)`
-  width: 100%;
   height: auto;
   max-width: 240px;
   text-decoration: none;
-  margin: 10px;
+  margin: 10px 0;
+  min-width: 180px;
 
   @media (max-width: 900px) {
     max-width: 250px;

@@ -11,15 +11,12 @@ import { FilterDict, RecipeDict } from "./utils/RecipesTypes";
 import { Cost, Meal } from "./utils/RecipesEnums";
 
 const RecipeList = styled.div`
-  display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
   padding-bottom: 40px;
-  margin: 0 20px;
-
-  @media (max-width: 1000px) {
-    flex-wrap: wrap;
-  }
+  margin: 0 30px;
+  flex-wrap: wrap;
 `;
 
 function Recipes() {
