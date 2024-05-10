@@ -25,18 +25,19 @@ const RecipeList = styled.div`
 function Recipes() {
   // Get the recipes from the server and from recipes.json
   const [recipes, setRecipes] = useState([] as RecipeDict[]);
+  const localRecipes: RecipeDict[] = JSON.parse(
+    JSON.stringify(recipesJSON)
+  ) as RecipeDict[];
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipe`)
       .then((res) => res.json())
       .then((res) => {
         // Combine the 2 datasets
-        const localRecipes: RecipeDict[] = JSON.parse(
-          JSON.stringify(recipesJSON)
-        ) as RecipeDict[];
         setRecipes([...(res as RecipeDict[]), ...localRecipes]);
-      });
-  }, []);
+      })
+      .catch(() => setRecipes(localRecipes));
+  }, [localRecipes]);
 
   // Set filter values
   const [filterValues, setFilterValues] = useState<FilterDict>({
