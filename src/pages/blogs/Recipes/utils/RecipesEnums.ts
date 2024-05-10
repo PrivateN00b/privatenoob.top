@@ -3,3 +3,10 @@ export enum Cost {
   Reasonable,
   Expensive,
 }
+
+export enum Meal {
+  Breakfast = 1,
+  Lunch,
+  Dinner,
+  Pastry,
+}

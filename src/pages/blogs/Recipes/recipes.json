@@ -2,7 +2,7 @@
   {
     "to": "Bejgli",
     "name": "Cinnamon & Coconut rolls",
-    "type": "Pastry",
+    "meal": 4,
     "cost": 3,
     "restriction": "Vegetarian",
     "difficulty": 2,
@@ -13,7 +13,7 @@
   {
     "to": "ScrambledEggs",
     "name": "Scrambled eggs",
-    "type": "Breakfast",
+    "meal": 1,
     "cost": 1,
     "restriction": "Vegetarian",
     "difficulty": 1,
@@ -24,7 +24,7 @@
   {
     "to": "Bukta",
     "name": "Jam Filled Yeast Pastry",
-    "type": "Pastry",
+    "meal": 4,
     "cost": 2,
     "restriction": "Vegetarian",
     "difficulty": 2,
@@ -35,7 +35,7 @@
   {
     "to": "ChickenLoMein",
     "name": "Chicken Lo Mein",
-    "type": "Lunch",
+    "meal": 2,
     "cost": 2,
     "restriction": "",
     "difficulty": 1,

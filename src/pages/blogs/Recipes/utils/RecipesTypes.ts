@@ -1,3 +1,5 @@
+import { Meal } from "./RecipesEnums";
+
 type FilterDict = {
   types: string[];
   restrictions: string[];
@@ -7,7 +9,7 @@ type FilterDict = {
 type RecipeDict = {
   to: string;
   name: string;
-  type: string;
+  meal: Meal;
   cost: number;
   restriction: string;
   difficulty: number;

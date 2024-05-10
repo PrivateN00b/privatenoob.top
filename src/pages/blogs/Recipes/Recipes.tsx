@@ -5,10 +5,10 @@ import { Recipe } from "./Recipe";
 import MainDiv from "../../../components/ui/MainDiv";
 import LeftSideDiv from "../../../components/ui/LeftSideDiv";
 import Filters from "../../../layouts/sublayouts/Filters";
-import recipes from "./recipes.json";
-import { useState } from "react";
+import recipesJSON from "./recipes.json";
+import { useEffect, useState } from "react";
 import { FilterDict, RecipeDict } from "./utils/RecipesTypes";
-import { Cost } from "./utils/RecipesEnums";
+import { Cost, Meal } from "./utils/RecipesEnums";
 
 const RecipeList = styled.div`
   display: flex;
@@ -23,6 +23,22 @@ const RecipeList = styled.div`
 `;
 
 function Recipes() {
+  // Get the recipes from the server and from recipes.json
+  const [recipes, setRecipes] = useState([] as RecipeDict[]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipe`)
+      .then((res) => res.json())
+      .then((res) => {
+        // Combine the 2 datasets
+        const localRecipes: RecipeDict[] = JSON.parse(
+          JSON.stringify(recipesJSON)
+        ) as RecipeDict[];
+        setRecipes([...(res as RecipeDict[]), ...localRecipes]);
+      });
+  }, []);
+
+  // Set filter values
   const [filterValues, setFilterValues] = useState<FilterDict>({
     types: [],
     restrictions: [],
@@ -60,26 +76,12 @@ function Recipes() {
   };
 
   const renderRecipes = () => {
-    // Get the recipes from recipes.json
-    let filteredRecipes: RecipeDict[] = JSON.parse(
-      JSON.stringify(recipes)
-    ) as RecipeDict[];
-
-    // Add the recipes from the server
-    const recipesServer = fetch(
-      `${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipe`
-    )
-      .then((res) => res.json())
-      .then((res) => res as RecipeDict[]);
-
-    recipesServer.then((res) =>
-      res.forEach((item) => filteredRecipes.push(item))
-    );
+    let filteredRecipes: RecipeDict[] = recipes;
 
     // Filter based on types
     if (filterValues.types.length != 0) {
       filteredRecipes = recipes.filter((recipe: RecipeDict) =>
-        filterValues.types.includes(recipe.type)
+        filterValues.types.includes(Meal[recipe.meal])
       ) as RecipeDict[];
     }
 
@@ -101,7 +103,7 @@ function Recipes() {
       <Recipe
         to={recipe.to}
         name={recipe.name}
-        type={recipe.type}
+        meal={recipe.meal}
         cost={recipe.cost}
         restriction={recipe.restriction}
         difficulty={recipe.difficulty}

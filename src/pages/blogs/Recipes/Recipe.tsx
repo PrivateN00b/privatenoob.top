@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { Meal } from "./utils/RecipesEnums";
 
 const Card = styled(NavLink)`
   width: 100%;
@@ -57,7 +58,7 @@ const Infos = styled.div`
 interface RecipeProps {
   to: string;
   name: string;
-  type: string;
+  meal: Meal;
   cost: number;
   restriction: string;
   difficulty: number;
@@ -113,7 +114,7 @@ export function Recipe(props: RecipeProps) {
       <CardTop>
         <Img src={props.imgSrc} alt={props.imgAlt} />
         <Infos>
-          <span style={{ fontWeight: "bold" }}>{props.type}</span>
+          <span style={{ fontWeight: "bold" }}>{Meal[props.meal]}</span>
           <h3>{props.name}</h3>
         </Infos>
       </CardTop>
