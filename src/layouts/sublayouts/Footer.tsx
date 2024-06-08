@@ -42,7 +42,7 @@ function Footer() {
     <FooterStyle>
       <div style={{ width: "30%" }}>
         <CenteredH2>Infos</CenteredH2>
-        <p>Last Update: 2023.11.30</p>
+        <p>Last Update: 2024</p>
         <p>Total Views: UNDER CONSTRUCTION </p>
       </div>
       <div style={{ width: "40%" }}>
