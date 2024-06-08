@@ -15,9 +15,9 @@ const socialLinks = {
     name: "PrivateNoob",
   },
   email: {
-    url: "mailto:toth00peter@gmail.com",
+    url: "mailto:petoth@proton.me",
     icon: "📨",
-    name: "toth00peter@gmail.com",
+    name: "petoth@proton.me",
   },
   github: {
     url: "https://github.com/NoobKozlegeny",
