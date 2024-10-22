@@ -34,7 +34,7 @@ function Recipes() {
         setRecipes([...(res as RecipeDict[]), ...localRecipes]);
       })
       .catch(() => setRecipes(localRecipes));
-  }, [localRecipes]);
+  }, []);
 
   // Set filter values
   const [filterValues, setFilterValues] = useState<FilterDict>({
