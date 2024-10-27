@@ -9,6 +9,7 @@ type FilterDict = {
 type RecipeDict = {
   to: string;
   name: string;
+  title: string;
   meal: Meal;
   cost: number;
   restriction: string;
@@ -16,6 +17,10 @@ type RecipeDict = {
   length: string;
   imgSrc: string;
   imgAlt: string;
+  infos: { [key: string]: string };
+  ingredients: { [key: string]: string[] };
+  steps: string[];
+  sources: { [key: string]: string }[]
 };
 
 export type { FilterDict, RecipeDict };

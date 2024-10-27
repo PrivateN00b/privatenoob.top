@@ -101,6 +101,7 @@ function Recipes() {
       <Recipe
         to={recipe.to}
         name={recipe.name}
+        title={recipe.title}
         meal={recipe.meal}
         cost={recipe.cost}
         restriction={recipe.restriction}
@@ -108,6 +109,10 @@ function Recipes() {
         length={recipe.length}
         imgSrc={recipe.imgSrc}
         imgAlt={recipe.imgAlt}
+        infos={recipe.infos}
+        ingredients={recipe.ingredients}
+        steps={recipe.steps}
+        sources={recipe.sources}
       />
     ));
   };

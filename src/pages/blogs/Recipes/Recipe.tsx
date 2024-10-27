@@ -58,6 +58,7 @@ const Infos = styled.div`
 interface RecipeProps {
   to: string;
   name: string;
+  title: string;
   meal: Meal;
   cost: number;
   restriction: string;
@@ -65,6 +66,10 @@ interface RecipeProps {
   length: string;
   imgSrc: string;
   imgAlt: string;
+  infos: { [key: string]: string };
+  ingredients: { [key: string]: string[] };
+  steps: string[];
+  sources: { [key: string]: string }[]
 }
 
 const RenderDifficulty = (difficulty: number) => {
@@ -110,7 +115,7 @@ const RenderRestriction = (restriction: string) => {
 
 export function Recipe(props: RecipeProps) {
   return (
-    <Card to={props.to}>
+    <Card to={props.to} state={props}>
       <CardTop>
         <Img src={props.imgSrc} alt={props.imgAlt} />
         <Infos>
