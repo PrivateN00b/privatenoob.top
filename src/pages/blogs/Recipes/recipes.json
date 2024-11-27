@@ -16,37 +16,46 @@
       "tools": "yes",
       "serves": "EVERYONE (4 rolls)"
     },
-    "ingredients": {
-      "Dough": [
-        "1 kg grated flour",
-        "40 dkg butter or margarin",
-        "2 egg yolk",
-        "2,5 dl milk",
-        "10 dkg powdered sugar",
-        "2 dkg yeast",
-        "1 coffee spoon of salt"
-      ],
-      "Walnut_filling_for_2_rolls": [
-        "3 dl milk",
-        "2-3 vanilla package",
-        "0.5 kg finely and crudely minced walnut (or just go finely mixed all the way)",
-        "2 pieces of lemon skin",
-        "1 piece of orange skin",
-        "1-2 tablespoon of cinnamon",
-        "20-30 dkg sugar"
-      ],
-      "Coconut_white_chocolate_filling_for_2_rolls": [
-        "3 dl milk",
-        "2 vanilla package",
-        "20 dkg grated coconut",
-        "2 dkg butter or margarin",
-        "1 pinch of salt",
-        "1 tablespoon of flour",
-        "100 g white chocolate",
-        "1 piece of lemon skin",
-        "1 piece of orange skin"
-      ]
-    },
+    "ingredients": [
+      {
+        "title": "Dough",
+        "content": [
+          "1 kg grated flour",
+          "40 dkg butter or margarin",
+          "2 egg yolk",
+          "2,5 dl milk",
+          "10 dkg powdered sugar",
+          "2 dkg yeast",
+          "1 coffee spoon of salt"
+        ]
+      },
+      {
+        "title": "Walnut filling for 2 rolls",
+        "content": [
+          "3 dl milk",
+          "2-3 vanilla package",
+          "0.5 kg finely and crudely minced walnut (or just go finely mixed all the way)",
+          "2 pieces of lemon skin",
+          "1 piece of orange skin",
+          "1-2 tablespoon of cinnamon",
+          "20-30 dkg sugar"
+        ]
+      },
+      {
+        "title": "Coconut white chocolate filling for 2 rolls",
+        "content": [
+          "3 dl milk",
+          "2 vanilla package",
+          "20 dkg grated coconut",
+          "2 dkg butter or margarin",
+          "1 pinch of salt",
+          "1 tablespoon of flour",
+          "100 g white chocolate",
+          "1 piece of lemon skin",
+          "1 piece of orange skin"
+        ]
+      }
+    ],
     "steps": [
       "Put the yeast and yolk into a room temperature milk and stir it a bit",
       "Put the powdered sugar and flour into a bowl and mix those a bit",

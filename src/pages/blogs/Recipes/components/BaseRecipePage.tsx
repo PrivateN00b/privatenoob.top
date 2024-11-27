@@ -12,10 +12,9 @@ import {
   Row,
   SubHeader,
 } from "../components/RecipeColumns";
-import { Dict } from "styled-components/dist/types";
 import { Meal } from "../utils/RecipesEnums";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import recipesJSON from "../recipes.json";
 
 const StyledUL = styled.ul`
@@ -26,6 +25,11 @@ const StyledOL = styled.ol`
   margin: 0 20px 0 20px;
   padding-left: 0;
 `;
+
+interface Ingredient {
+  title: string,
+  content: string[]
+}
 
 interface RecipeProps {
   to: string;
@@ -39,21 +43,45 @@ interface RecipeProps {
   imgSrc: string;
   imgAlt: string;
   infos: { [key: string]: string };
-  ingredients: { [key: string]: string[] };
+  ingredients: Ingredient[];
   steps: string[];
   sources: { [key: string]: string }[]
 }
 
 export function BaseRecipePage() {
-  const [recipe, setRecipe] = useState(() => {
-    const location = useLocation();
-    if (location.state != null) {
-      return location.state as RecipeProps;
+  const location = useLocation();
+  const { recipeId } = useParams();
+  const [recipe, setRecipe] = useState<RecipeProps | null>(null);
+
+  // Set the location.state to recipe (when BaseRecipePage is called from Recipes)
+  useEffect(() => {
+    console.log(`state is: ${location.state}`)
+    if (location.state) {
+      // Get the recipe data if we have clicked the site from the Recipes page
+      setRecipe(location.state as RecipeProps);
     }
     else {
-      return recipesJSON[0] as RecipeProps;
+      // Get the recipe data if we didn't click from the Recipes page (searching in local recipes.json)
+      const recipeMatches = (recipesJSON as RecipeProps[]).filter(recipe => recipe.to == recipeId);
+      if (recipeMatches.length >= 1) {
+        setRecipe(recipeMatches[0]);
+        console.log(recipeMatches)
+        console.log(recipe)
+      }
+      else {
+        // Get the recipe data if we didn't click from the Recipes page (searching on server's recipes.json)
+        console.log(recipeId)
+        fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipes/${recipeId}`)
+        .then((res) => res.json())
+        .then((res) => {setRecipe(res as RecipeProps); console.log(res)});
+      }
     }
-  })
+  }, [location.state]);
+
+  // Render a loading page till the recipe variable will be filled
+  if (!recipe) {
+    return <div>Loading recipe...</div>;
+  }
 
   return (
     <Container>
@@ -69,10 +97,10 @@ export function BaseRecipePage() {
         <Row>
           <LeftColumn>
             <LeftHeader>Ingredients</LeftHeader>
-            {Object.entries(recipe.ingredients).map(([key, value]) => (
+            {recipe.ingredients.map((ingObj) => (
               <>
-                <SubHeader>{key.replace(/_/g, " ")}</SubHeader>
-                {Object.entries(value).map((ingredient) => (
+                <SubHeader>{ingObj["title"]}</SubHeader>
+                {ingObj["content"].map((ingredient) => (
                   <IngredientParagraph>{ingredient}</IngredientParagraph>
                 ))}
               </>
