@@ -200,16 +200,5 @@
         "retrieved": "Retrieved 2024.03.02"
       }
     ]
-  },
-  {
-    "to": "ChickenLoMein",
-    "name": "Chicken Lo Mein",
-    "meal": 2,
-    "cost": 2,
-    "restriction": "",
-    "difficulty": 1,
-    "length": "30 min",
-    "imgSrc": "/chicken-lo-mein.jpg",
-    "imgAlt": "Chicken Lo Mein"
   }
 ]
