@@ -48,6 +48,29 @@ interface RecipeProps {
   sources: { [key: string]: string }[]
 }
 
+function RenderIngredients(props: RecipeProps ) {
+  if (props.ingredients[0]["title"] == "") {
+    // Render without SubHeader if the title is empty and there is only 1 object
+    return <>
+    {props.ingredients[0]["content"].map((ingredient) => (
+      <IngredientParagraph>{ingredient}</IngredientParagraph>
+    ))}
+    </> 
+  } 
+  else
+  {
+    // Render everything (when title isn't empty basically)
+    return props.ingredients.map((ingObj) => (
+      <>
+        <SubHeader>{ingObj["title"]}</SubHeader>
+        {ingObj["content"].map((ingredient) => (
+          <IngredientParagraph>{ingredient}</IngredientParagraph>
+        ))}
+      </>
+    ))
+  }
+}
+
 export function BaseRecipePage() {
   const location = useLocation();
   const { recipeId } = useParams();
@@ -94,14 +117,7 @@ export function BaseRecipePage() {
         <Row>
           <LeftColumn>
             <LeftHeader>Ingredients</LeftHeader>
-            {recipe.ingredients.map((ingObj) => (
-              <>
-                <SubHeader>{ingObj["title"]}</SubHeader>
-                {ingObj["content"].map((ingredient) => (
-                  <IngredientParagraph>{ingredient}</IngredientParagraph>
-                ))}
-              </>
-            ))}
+            {RenderIngredients(recipe)}
           </LeftColumn>
           <RightColumn>
             <RightHeader>Steps</RightHeader>
@@ -118,9 +134,14 @@ export function BaseRecipePage() {
         <CenteredH2>Sources</CenteredH2>
         <StyledUL style={{ marginBottom: "20px" }}>
           {recipe.sources.map((source) => (
+            source["url"] ?
             <li>
               <a href={source["url"]}>{source["title"]}</a> Retrieved{" "}
               {source["retrieved"]}
+            </li> 
+            :
+            <li>
+              <p>{source["title"]}</p>
             </li>
           ))}
         </StyledUL>
