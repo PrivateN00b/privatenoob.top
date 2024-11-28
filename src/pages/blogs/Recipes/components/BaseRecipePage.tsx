@@ -55,7 +55,6 @@ export function BaseRecipePage() {
 
   // Set the location.state to recipe (when BaseRecipePage is called from Recipes)
   useEffect(() => {
-    console.log(`state is: ${location.state}`)
     if (location.state) {
       // Get the recipe data if we have clicked the site from the Recipes page
       setRecipe(location.state as RecipeProps);
@@ -65,15 +64,13 @@ export function BaseRecipePage() {
       const recipeMatches = (recipesJSON as RecipeProps[]).filter(recipe => recipe.to == recipeId);
       if (recipeMatches.length >= 1) {
         setRecipe(recipeMatches[0]);
-        console.log(recipeMatches)
-        console.log(recipe)
       }
       else {
         // Get the recipe data if we didn't click from the Recipes page (searching on server's recipes.json)
         console.log(recipeId)
         fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipes/${recipeId}`)
         .then((res) => res.json())
-        .then((res) => {setRecipe(res as RecipeProps); console.log(res)});
+        .then((res) => {setRecipe(res as RecipeProps)});
       }
     }
   }, [location.state]);
