@@ -4,6 +4,7 @@ import Navbar from "./sublayouts/Navbar";
 import styled from "styled-components";
 import { rgba } from "polished";
 import Footer from "./sublayouts/Footer";
+import Emote from "./sublayouts/components/Emote";
 
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
@@ -18,17 +19,54 @@ const Main = styled.main`
   margin: 0 10px 20px 10px;
 `;
 
+const RootLayoutStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: -8px;
+`
+
+const LeftLayoutStyle = styled.div`
+  width: 100%;
+
+  @media (max-width: 1800px) {
+    display: none
+  }
+`
+
+const CenterLayoutStyle = styled.div`
+  width: 100%;
+  max-width: 1720px;
+  margin: 0 auto;
+`
+
+const RightLayoutStyle = styled.div`
+  position: relative;
+  width: 100%;
+
+  @media (max-width: 1800px) {
+    display: none
+  }
+`
+
 export default function RootLayout() {
   return (
-    <div>
-      <Header>
-        <Banner />
-        <Navbar />
-      </Header>
-      <Main>
-        <Outlet />
-      </Main>
-      <Footer />
-    </div>
+    <RootLayoutStyle>
+      <LeftLayoutStyle>
+        <Emote />
+      </LeftLayoutStyle>
+      <CenterLayoutStyle>
+        <Header>
+          <Banner />
+          <Navbar />
+        </Header>
+        <Main>
+          <Outlet />
+        </Main>
+        <Footer />
+      </CenterLayoutStyle>
+      <RightLayoutStyle>
+        <Emote />
+      </RightLayoutStyle>
+    </RootLayoutStyle>
   );
 }
