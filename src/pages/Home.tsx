@@ -6,6 +6,8 @@ import StyledItem from "../components/ui/StyledItem";
 import Container from "../components/ui/Container";
 import LeftSideDiv from "../components/ui/LeftSideDiv";
 import MainDiv from "../components/ui/MainDiv";
+import DeezerEmbed from "../layouts/sublayouts/DeezerEmbed";
+import BaseContentDiv from "../components/ui/BaseContentDiv";
 
 // const RightSideDiv = styled(BaseContentDiv)`
 //   width: 25%;
@@ -23,6 +25,7 @@ function Home() {
     <Container>
       <LeftSideDiv>
         <Bio />
+        <DeezerEmbed />
         <Socials isLast={true} />
         {/* <MusicPlayer /> */}
       </LeftSideDiv>
