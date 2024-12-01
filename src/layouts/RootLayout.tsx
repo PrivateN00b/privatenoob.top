@@ -37,7 +37,7 @@ const LeftLayoutStyle = styled.div`
 
 const CenterLayoutStyle = styled.div`
   width: 100%;
-  max-width: 1720px;
+  max-width: 1520px;
   margin: 0 auto;
 `
 
