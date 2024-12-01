@@ -26,6 +26,8 @@ const RootLayoutStyle = styled.div`
 `
 
 const LeftLayoutStyle = styled.div`
+  display: flex;
+  align-items: flex-end;
   width: 100%;
 
   @media (max-width: 1800px) {
@@ -52,7 +54,11 @@ export default function RootLayout() {
   return (
     <RootLayoutStyle>
       <LeftLayoutStyle>
-        <Emote />
+        <Emote 
+          imgPath="/angel-tv.gif" 
+          left="auto"
+          bottom="20px"
+          height={175}/>
       </LeftLayoutStyle>
       <CenterLayoutStyle>
         <Header>
