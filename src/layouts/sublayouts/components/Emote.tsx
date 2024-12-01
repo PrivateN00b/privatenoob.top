@@ -21,7 +21,7 @@ const useAudio = (url: string): [boolean, () => void] => {
     return [playing, toggle];
   };
 
-const EmoteStyle = styled.img<{ $left: string, $bottom: string, $height?: number, $width?: number }>`
+const EmoteStyle = styled.img<{ $left?: string, $bottom?: string, $height?: number, $width?: number }>`
     image-rendering: pixelated;
     margin-left: ${({ $left }) => $left};
     margin-bottom: ${({ $bottom }) => $bottom};
@@ -35,8 +35,8 @@ const EmoteStyle = styled.img<{ $left: string, $bottom: string, $height?: number
 `
 interface EmoteProps {
     imgPath: string;
-    left: string;
-    bottom: string;
+    left?: string;
+    bottom?: string;
     height?: number | undefined;
     width?: number | undefined;
 }
