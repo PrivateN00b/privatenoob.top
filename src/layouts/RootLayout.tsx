@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { rgba } from "polished";
 import Footer from "./sublayouts/Footer";
 import Emote from "./sublayouts/components/Emote";
+import MovingEmote from "./sublayouts/components/MovingEmote";
 
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
@@ -27,7 +28,6 @@ const RootLayoutStyle = styled.div`
 
 const LeftLayoutStyle = styled.div`
   display: flex;
-  align-items: flex-end;
   width: 100%;
 
   @media (max-width: 1800px) {
@@ -42,6 +42,8 @@ const CenterLayoutStyle = styled.div`
 `
 
 const RightLayoutStyle = styled.div`
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
 
@@ -56,9 +58,9 @@ export default function RootLayout() {
       <LeftLayoutStyle>
         <Emote 
           imgPath="/angel-tv.gif" 
-          left="auto"
-          bottom="20px"
-          height={175}/>
+          margin="auto 20px 20px auto"
+          height={175}
+          alignSelf="flex-end"/>
       </LeftLayoutStyle>
       <CenterLayoutStyle>
         <Header>
@@ -71,7 +73,17 @@ export default function RootLayout() {
         <Footer />
       </CenterLayoutStyle>
       <RightLayoutStyle>
-        <Emote />
+        {Array.from("012345".repeat(3)).map((value: string, index: number) => (
+          <MovingEmote 
+            key={index}
+            imgPath="/saikouka.png"
+            alignSelf="flex-start"
+            margin="0 0 50px auto"
+            translateX={100 + Math.floor(Math.random() * 10)}
+            translateY={Math.floor(Math.random() * 150)}
+            delay={Math.floor(Math.random() * 3)} 
+            />
+        ))}
       </RightLayoutStyle>
     </RootLayoutStyle>
   );
