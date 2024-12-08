@@ -6,6 +6,7 @@ import { rgba } from "polished";
 import Footer from "./sublayouts/Footer";
 import Emote from "./sublayouts/components/Emote";
 import MovingEmote from "./sublayouts/components/MovingEmote";
+import { useEffect, useRef, useState } from "react";
 
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
@@ -21,6 +22,7 @@ const Main = styled.main`
 `;
 
 const RootLayoutStyle = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
   margin-top: -8px;
@@ -42,15 +44,41 @@ const CenterLayoutStyle = styled.div`
 `
 
 const RightLayoutStyle = styled.div`
+  overflow: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   width: 100%;
 
   @media (max-width: 1800px) {
     display: none
   }
 `
+
+function RightLayout() {
+  const rightLayoutRef = useRef<HTMLDivElement | null>(null);
+  const [layoutWidth, setLayoutWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (rightLayoutRef.current) {
+      setLayoutWidth(rightLayoutRef.current.clientWidth);
+    }
+  }, []);
+
+  return <RightLayoutStyle ref={rightLayoutRef}>
+        {Array.from("012345".repeat(3)).map((value: string, index: number) => (
+          <MovingEmote
+            key={index}
+            top={Math.floor(Math.random() * 1900)} // RightLayout's clientHeight: 1980
+            left={layoutWidth} // RightLayout's clientWidth: 512
+            imgPath="/saikouka.png"
+            margin="50px 0 0 auto"
+            delay={Math.floor(Math.random() * 3)}
+            layoutRef={rightLayoutRef}
+            />
+        ))}
+  </RightLayoutStyle>
+}
 
 export default function RootLayout() {
   return (
@@ -72,19 +100,7 @@ export default function RootLayout() {
         </Main>
         <Footer />
       </CenterLayoutStyle>
-      <RightLayoutStyle>
-        {Array.from("012345".repeat(3)).map((value: string, index: number) => (
-          <MovingEmote 
-            key={index}
-            imgPath="/saikouka.png"
-            alignSelf="flex-start"
-            margin="0 0 50px auto"
-            translateX={100 + Math.floor(Math.random() * 10)}
-            translateY={Math.floor(Math.random() * 150)}
-            delay={Math.floor(Math.random() * 3)} 
-            />
-        ))}
-      </RightLayoutStyle>
+      <RightLayout />
     </RootLayoutStyle>
   );
 }

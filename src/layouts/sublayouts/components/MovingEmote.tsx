@@ -1,68 +1,72 @@
 import styled, { keyframes } from "styled-components"
 import { EmoteProps, MovingEmoteProps } from "../../../utils/interfaces"
 import Emote, { EmoteStyle } from "./Emote"
+import { useEffect, useRef } from "react";
 
-const MovingEmoteStyle = styled(EmoteStyle)<{ 
-  $margin?: string, 
-  $height?: number, 
-  $width?: number, 
-  $alignSelf: string, 
-  $transX: number, 
-  $transY: number, 
-  $delay: number 
+const MovingEmoteStyle = styled(EmoteStyle)<{
+  $top: number;
+  $left: number | null;
+  $margin?: string,
+  $height?: number,
+  $width?: number,
+  $delay: number
 }>`
+  position: absolute;
   image-rendering: pixelated;
+  top: ${({ $top }) => $top}px;
+  left: ${({ $left }) => $left}px;
   margin: ${({ $margin }) => $margin};
   height: ${({ $height }) => $height}px;
   width: ${({ $width }) => $width}px;
-  align-self: ${({ $alignSelf }) => $alignSelf};
   cursor: pointer;
-  
-  position: relative;
-  animation: ${({ $transX, $transY }) => keyframes`
-    0% {
-      left: 0;
-      top: 0;
-    }
-    25% {
-      left: ${$transX * 1}%;
-      top: ${$transY * 1}%;
-    }
-    50% {
-      left: ${-$transX * 1}%;
-      top: ${-$transY * 1}%;
-    }
-    75% {
-      left: ${$transX * 1}%;
-      top: ${-$transY * 1}%;
-    }
-    100% {
-      left: 0;
-      top: 0;
-    }
-  `} 10s linear infinite;
-  
-  animation-delay: ${({ $delay }) => $delay}s;
-  
+
   &:active {
     transform: scale(0.9);
   }
 `;
 
 export default function MovingEmote(props: MovingEmoteProps) {
-    console.log(`MovingEmoteStyle transY: ${props.translateY}`)
+  const emoteRef = useRef<HTMLImageElement | null>(null);
+  
+  useEffect(() => {
+    if (emoteRef.current && props.layoutRef.current && props.left != null) {
+      let elem: HTMLImageElement = emoteRef.current;
+      let id: NodeJS.Timeout = setInterval(frame, 10);
+      let msPassed: number = 0;
+      let topPos = props.top;
+      let leftPos = props.left;
 
-    return <MovingEmoteStyle
-        src={props.imgPath}
-        $margin={props.margin}
-        $height={props.height}
-        $width={props.width}
-        $alignSelf={props.alignSelf}
-        $transX={props.translateX}
-        $transY={props.translateY}
-        $delay={props.delay}
+      function frame() {
+        msPassed += 10;
+        if (msPassed >= 9000) {
+          clearInterval(id);
+        }
+        else if (topPos <= 0 || leftPos <= 0) {
+          clearInterval(id);
+        } 
+        else {
+          topPos -= 2;
+          leftPos -= 2;
+          elem.style.top = `${topPos}px`;
+          elem.style.left = `${leftPos}px`;
+        }
+      }
+    }
+  }, [props.top, props.layoutRef]);
 
-        onClick={() => {
-            // toggle()
-        }} />
+  return (
+    <MovingEmoteStyle
+      ref={emoteRef}
+      src={props.imgPath}
+      $top={props.top}
+      $left={props.left}
+      $margin={props.margin}
+      $height={props.height}
+      $width={props.width}
+      $delay={props.delay}
+      onClick={() => {
+        // toggle()
+      }} 
+    />
+  );
 }

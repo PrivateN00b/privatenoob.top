@@ -22,7 +22,7 @@ const useAudio = (url: string): [boolean, () => void] => {
     return [playing, toggle];
   };
 
-export const EmoteStyle = styled.img<{ $margin?: string, $height?: number, $width?: number, $alignSelf: string }>`
+export const EmoteStyle = styled.img<{ $margin?: string, $height?: number, $width?: number, $alignSelf?: string }>`
     image-rendering: pixelated;
     margin: ${({ $margin }) => $margin};
     height: ${({ $height }) => $height}px;
@@ -38,7 +38,7 @@ export const EmoteStyle = styled.img<{ $margin?: string, $height?: number, $widt
 export default function Emote(props: EmoteProps) {
     const [playing, toggle] = useAudio("/music/nso_stream.mp3");
 
-    return <EmoteStyle 
+    return <EmoteStyle
         src={props.imgPath}
         $margin={props.margin}
         $height={props.height}
