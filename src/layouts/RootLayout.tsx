@@ -7,6 +7,8 @@ import Footer from "./sublayouts/Footer";
 import Emote from "./sublayouts/components/Emote";
 import MovingEmote from "./sublayouts/components/MovingEmote";
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../utils/store";
 
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
@@ -55,9 +57,14 @@ const RightLayoutStyle = styled.div`
   }
 `
 
+const GenerateMovingEmotes = () => {
+  
+}
+
 function RightLayout() {
   const rightLayoutRef = useRef<HTMLDivElement | null>(null);
   const [layoutWidth, setLayoutWidth] = useState<number | null>(null);
+  const areMovingEmotesActivated = useSelector((state: RootState) => state.movingEmote.isActive);
 
   useEffect(() => {
     if (rightLayoutRef.current) {
@@ -65,8 +72,13 @@ function RightLayout() {
     }
   }, []);
 
+  useEffect(() => {
+    console.log(areMovingEmotesActivated)
+  }, [areMovingEmotesActivated]);
+
   return <RightLayoutStyle ref={rightLayoutRef}>
-        {Array.from("012345".repeat(3)).map((value: string, index: number) => (
+        {areMovingEmotesActivated ?
+        Array.from("012345".repeat(3)).map((value: string, index: number) => (
           <MovingEmote
             key={index}
             top={Math.floor(Math.random() * 1900)} // RightLayout's clientHeight: 1980
@@ -76,7 +88,7 @@ function RightLayout() {
             delay={Math.floor(Math.random() * 3)}
             layoutRef={rightLayoutRef}
             />
-        ))}
+        )) : <h2>FAAAAAAAASZ</h2>}
   </RightLayoutStyle>
 }
 

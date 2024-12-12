@@ -2,6 +2,8 @@ import styled, { keyframes } from "styled-components"
 import { EmoteProps, MovingEmoteProps } from "../../../utils/interfaces"
 import Emote, { EmoteStyle } from "./Emote"
 import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../utils/store";
 
 const MovingEmoteStyle = styled(EmoteStyle)<{
   $top: number;
@@ -27,8 +29,9 @@ const MovingEmoteStyle = styled(EmoteStyle)<{
 
 export default function MovingEmote(props: MovingEmoteProps) {
   const emoteRef = useRef<HTMLImageElement | null>(null);
-  
+
   useEffect(() => {
+
     if (emoteRef.current && props.layoutRef.current && props.left != null) {
       let elem: HTMLImageElement = emoteRef.current;
       let id: NodeJS.Timeout = setInterval(frame, 10);
@@ -52,7 +55,7 @@ export default function MovingEmote(props: MovingEmoteProps) {
         }
       }
     }
-  }, [props.top, props.layoutRef]);
+  }, []);
 
   return (
     <MovingEmoteStyle
