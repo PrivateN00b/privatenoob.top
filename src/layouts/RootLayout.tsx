@@ -85,7 +85,7 @@ function RightLayout() {
             delay={Math.floor(Math.random() * 3)}
             layoutRef={rightLayoutRef}
             />
-        )) : <h2>FAAAAAAAASZ</h2>}
+        ))}
   </RightLayoutStyle>
 }
 
