@@ -57,6 +57,32 @@ const RightLayoutStyle = styled.div`
   }
 `
 
+function LeftLayout() {
+  const leftLayoutRef = useRef<HTMLDivElement | null>(null);
+  const areMovingEmotesActivated = useSelector((state: RootState) => state.movingEmote.isActive);
+
+  return <LeftLayoutStyle ref={leftLayoutRef}>
+        {areMovingEmotesActivated &&    /* Renders a bunch of emotes for animation if the NSO audio have been started */
+        Array.from("01234567".repeat(3)).map((_: string, index: number) => (
+          <MovingEmote
+            key={index}
+            top={Math.floor(Math.random() * 1900)} // RightLayout's clientHeight: 1980
+            left={0} // RightLayout's clientWidth: 512
+            imgPath="/saikouka.png"
+            margin="50px 0 0 auto"
+            delay={Math.floor(Math.random())}
+            layoutRef={leftLayoutRef}
+            direction={1}
+            />
+        ))}
+        <Emote 
+          imgPath="/angel-tv.gif" 
+          margin="auto 20px 20px auto"
+          height={175}
+          alignSelf="flex-end"/>
+  </LeftLayoutStyle>
+}
+
 function RightLayout() {
   const rightLayoutRef = useRef<HTMLDivElement | null>(null);
   const [layoutWidth, setLayoutWidth] = useState<number | null>(null);
@@ -80,6 +106,7 @@ function RightLayout() {
             margin="50px 0 0 auto"
             delay={Math.floor(Math.random())}
             layoutRef={rightLayoutRef}
+            direction={1}
             />
         ))}
   </RightLayoutStyle>
@@ -88,13 +115,7 @@ function RightLayout() {
 export default function RootLayout() {
   return (
     <RootLayoutStyle>
-      <LeftLayoutStyle>
-        <Emote 
-          imgPath="/angel-tv.gif" 
-          margin="auto 20px 20px auto"
-          height={175}
-          alignSelf="flex-end"/>
-      </LeftLayoutStyle>
+      <LeftLayout />
       <CenterLayoutStyle>
         <Header>
           <Banner />

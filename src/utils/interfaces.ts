@@ -18,4 +18,5 @@ export interface MovingEmoteProps extends EmoteProps {
   left: number | null;
   delay: number;
   layoutRef: MutableRefObject<HTMLDivElement | null>;
+  direction: number;
 }

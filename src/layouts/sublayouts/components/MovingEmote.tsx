@@ -39,7 +39,7 @@ export default function MovingEmote(props: MovingEmoteProps) {
       let msPassed: number = 0;
       let topPos = props.top;
       let leftPos = props.left;
-      let dirX = 1;
+      let dirX = props.direction;
       let dirY = Math.cos(4 * Math.random() + Math.PI);
       let parentCont = props.layoutRef.current;
 
