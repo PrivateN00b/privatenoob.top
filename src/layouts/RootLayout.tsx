@@ -71,14 +71,14 @@ function RightLayout() {
 
   return <RightLayoutStyle ref={rightLayoutRef}>
         {areMovingEmotesActivated &&    /* Renders a bunch of emotes for animation if the NSO audio have been started */
-        Array.from("012345".repeat(3)).map((_: string, index: number) => (
+        Array.from("01234567".repeat(3)).map((_: string, index: number) => (
           <MovingEmote
             key={index}
             top={Math.floor(Math.random() * 1900)} // RightLayout's clientHeight: 1980
             left={layoutWidth} // RightLayout's clientWidth: 512
             imgPath="/saikouka.png"
             margin="50px 0 0 auto"
-            delay={Math.floor(Math.random() * 3)}
+            delay={Math.floor(Math.random())}
             layoutRef={rightLayoutRef}
             />
         ))}

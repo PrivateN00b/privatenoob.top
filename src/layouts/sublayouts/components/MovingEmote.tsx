@@ -35,15 +35,14 @@ export default function MovingEmote(props: MovingEmoteProps) {
 
     if (emoteRef.current && props.layoutRef.current && props.left != null) {
       let elem: HTMLImageElement = emoteRef.current;
-      let id: NodeJS.Timeout = setInterval(frame, 10);
+      let id: NodeJS.Timeout = setTimeout(() => setInterval(frame, 10), Math.random() * 1000);
       let msPassed: number = 0;
       let topPos = props.top;
       let leftPos = props.left;
-      // More consistent randomization
-      let dirY = Math.random() > 0.5 ? 1 : -1;
-      let dirX = Math.random() > 0.5 ? 1 : -1;
+      let dirX = 1;
+      let dirY = Math.cos(4 * Math.random() + Math.PI);
       let parentCont = props.layoutRef.current;
-      console.log(dirY, dirX)
+
       function frame() {
         msPassed += 10;
         // Check if the emote hit an edge
@@ -54,8 +53,8 @@ export default function MovingEmote(props: MovingEmoteProps) {
           clearInterval(id);
         }
         else {
-          topPos -= dirY * 2;
-          leftPos -= dirX * 2;
+          topPos -= dirY * 4;
+          leftPos -= dirX * 4;
           elem.style.top = `${topPos}px`;
           elem.style.left = `${leftPos}px`;
         }
