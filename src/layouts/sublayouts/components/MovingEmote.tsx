@@ -46,7 +46,7 @@ export default function MovingEmote(props: MovingEmoteProps) {
         msPassed += 10;
         // Check if the emote hit an edge
         topPos <= 0 || topPos >= parentCont.clientHeight - elem.clientHeight ? dirY = -dirY : ""; // Y
-        leftPos <= 0 || (msPassed >= 500 && leftPos >= parentCont.clientWidth - elem.clientWidth) ? dirX = -dirX : ""; // X
+        leftPos <= 0 || (msPassed >= 200 && leftPos >= parentCont.clientWidth - elem.clientWidth) ? dirX = -dirX : ""; // X
 
         // Do da movements
         topPos -= dirY * 4;
