@@ -32,7 +32,6 @@ export default function MovingEmote(props: MovingEmoteProps) {
   const emoteRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
-
     if (emoteRef.current && props.layoutRef.current && props.left != null) {
       let elem: HTMLImageElement = emoteRef.current;
       let id: NodeJS.Timeout = setTimeout(() => setInterval(frame, 10), Math.random() * 1000);
@@ -49,15 +48,11 @@ export default function MovingEmote(props: MovingEmoteProps) {
         topPos <= 0 || topPos >= parentCont.clientHeight - elem.clientHeight ? dirY = -dirY : ""; // Y
         leftPos <= 0 || (msPassed >= 500 && leftPos >= parentCont.clientWidth - elem.clientWidth) ? dirX = -dirX : ""; // X
 
-        if (msPassed >= 9000) {
-          clearInterval(id);
-        }
-        else {
-          topPos -= dirY * 4;
-          leftPos -= dirX * 4;
-          elem.style.top = `${topPos}px`;
-          elem.style.left = `${leftPos}px`;
-        }
+        // Do da movements
+        topPos -= dirY * 4;
+        leftPos -= dirX * 4;
+        elem.style.top = `${topPos}px`;
+        elem.style.left = `${leftPos}px`;
       }
 
       return () => {

@@ -88,7 +88,7 @@ function RightLayout() {
   const [layoutWidth, setLayoutWidth] = useState<number | null>(null);
   const areMovingEmotesActivated = useSelector((state: RootState) => state.movingEmote.isActive);
 
-  // Sets rightLayoutRef, which is used for not displaying the interactable emotes if the screen's width is too narrow
+  // layoutWidth is used to spawn the MovingEmote objects in the X dimension
   useEffect(() => {
     if (rightLayoutRef.current) {
       setLayoutWidth(rightLayoutRef.current.clientWidth);
