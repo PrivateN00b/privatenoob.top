@@ -39,21 +39,30 @@ export default function MovingEmote(props: MovingEmoteProps) {
       let msPassed: number = 0;
       let topPos = props.top;
       let leftPos = props.left;
-
+      // More consistent randomization
+      let dirY = Math.random() > 0.5 ? 1 : -1;
+      let dirX = Math.random() > 0.5 ? 1 : -1;
+      let parentCont = props.layoutRef.current;
+      console.log(dirY, dirX)
       function frame() {
         msPassed += 10;
+        // Check if the emote hit an edge
+        topPos <= 0 || topPos >= parentCont.clientHeight - elem.clientHeight ? dirY = -dirY : ""; // Y
+        leftPos <= 0 || (msPassed >= 500 && leftPos >= parentCont.clientWidth - elem.clientWidth) ? dirX = -dirX : ""; // X
+
         if (msPassed >= 9000) {
           clearInterval(id);
         }
-        else if (topPos <= 0 || leftPos <= 0) {
-          clearInterval(id);
-        } 
         else {
-          topPos -= 2;
-          leftPos -= 2;
+          topPos -= dirY * 2;
+          leftPos -= dirX * 2;
           elem.style.top = `${topPos}px`;
           elem.style.left = `${leftPos}px`;
         }
+      }
+
+      return () => {
+        clearInterval(id);
       }
     }
   }, []);
