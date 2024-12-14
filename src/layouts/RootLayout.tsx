@@ -69,12 +69,8 @@ function RightLayout() {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(areMovingEmotesActivated)
-  }, [areMovingEmotesActivated]);
-
   return <RightLayoutStyle ref={rightLayoutRef}>
-        {areMovingEmotesActivated ?    /* Renders a bunch of emotes for animation if the NSO audio have been started */
+        {areMovingEmotesActivated &&    /* Renders a bunch of emotes for animation if the NSO audio have been started */
         Array.from("012345".repeat(3)).map((_: string, index: number) => (
           <MovingEmote
             key={index}
