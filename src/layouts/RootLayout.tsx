@@ -6,7 +6,7 @@ import { rgba } from "polished";
 import Footer from "./sublayouts/Footer";
 import Emote from "./sublayouts/components/Emote";
 import MovingEmote from "./sublayouts/components/MovingEmote";
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../utils/store";
 
@@ -57,24 +57,37 @@ const RightLayoutStyle = styled.div`
   }
 `
 
+const GenerateEmotes = (layoutRef: MutableRefObject<HTMLDivElement | null>, layoutWidth: number | null) => {
+  const emoteNames: { [index: number]: string } = {
+    0: "bujishibou",
+    1: "gomen",
+    2: "love",
+    3: "ok",
+    4: "pien",
+    5: "saikouka",
+    6: "sorena",
+    7: "waritodoudemoii"
+  }  
+  
+  return Array.from("01234567".repeat(3)).map((_: string, index: number) => (
+    <MovingEmote
+      key={index}
+      top={Math.floor(Math.random() * 1900)} // Spawn somewhere in Y dimension
+      left={layoutWidth} // Spawn somewhere in X dimension
+      imgPath={`/emoji/${emoteNames[Math.floor(Math.random() * 7)]}.png`}
+      delay={Math.floor(Math.random())}
+      layoutRef={layoutRef}
+      direction={1}
+      />
+  ))
+}
+
 function LeftLayout() {
   const leftLayoutRef = useRef<HTMLDivElement | null>(null);
   const areMovingEmotesActivated = useSelector((state: RootState) => state.movingEmote.isActive);
 
   return <LeftLayoutStyle ref={leftLayoutRef}>
-        {areMovingEmotesActivated &&    /* Renders a bunch of emotes for animation if the NSO audio have been started */
-        Array.from("01234567".repeat(3)).map((_: string, index: number) => (
-          <MovingEmote
-            key={index}
-            top={Math.floor(Math.random() * 1900)} // RightLayout's clientHeight: 1980
-            left={0} // RightLayout's clientWidth: 512
-            imgPath="/saikouka.png"
-            margin="50px 0 0 auto"
-            delay={Math.floor(Math.random())}
-            layoutRef={leftLayoutRef}
-            direction={1}
-            />
-        ))}
+        {areMovingEmotesActivated && GenerateEmotes(leftLayoutRef, 0) /* Renders a bunch of emotes for animation if the NSO audio have been started */}
         <Emote 
           imgPath="/angel-tv.gif" 
           margin="auto 20px 20px auto"
@@ -96,19 +109,7 @@ function RightLayout() {
   }, []);
 
   return <RightLayoutStyle ref={rightLayoutRef}>
-        {areMovingEmotesActivated &&    /* Renders a bunch of emotes for animation if the NSO audio have been started */
-        Array.from("01234567".repeat(3)).map((_: string, index: number) => (
-          <MovingEmote
-            key={index}
-            top={Math.floor(Math.random() * 1900)} // RightLayout's clientHeight: 1980
-            left={layoutWidth} // RightLayout's clientWidth: 512
-            imgPath="/saikouka.png"
-            margin="50px 0 0 auto"
-            delay={Math.floor(Math.random())}
-            layoutRef={rightLayoutRef}
-            direction={1}
-            />
-        ))}
+        {areMovingEmotesActivated && GenerateEmotes(rightLayoutRef, layoutWidth)  /* Renders a bunch of emotes for animation if the NSO audio have been started */}
   </RightLayoutStyle>
 }
 
