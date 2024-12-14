@@ -1,9 +1,7 @@
-import styled, { keyframes } from "styled-components"
-import { EmoteProps, MovingEmoteProps } from "../../../utils/interfaces"
-import Emote, { EmoteStyle } from "./Emote"
+import styled from "styled-components"
+import { MovingEmoteProps } from "../../../utils/interfaces"
+import { EmoteStyle } from "./Emote"
 import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../utils/store";
 
 const MovingEmoteStyle = styled(EmoteStyle)<{
   $top: number;
@@ -70,9 +68,6 @@ export default function MovingEmote(props: MovingEmoteProps) {
       $height={props.height}
       $width={props.width}
       $delay={props.delay}
-      onClick={() => {
-        // toggle()
-      }} 
     />
   );
 }

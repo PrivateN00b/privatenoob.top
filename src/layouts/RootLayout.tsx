@@ -57,10 +57,6 @@ const RightLayoutStyle = styled.div`
   }
 `
 
-const GenerateMovingEmotes = () => {
-  
-}
-
 function RightLayout() {
   const rightLayoutRef = useRef<HTMLDivElement | null>(null);
   const [layoutWidth, setLayoutWidth] = useState<number | null>(null);
@@ -79,7 +75,7 @@ function RightLayout() {
 
   return <RightLayoutStyle ref={rightLayoutRef}>
         {areMovingEmotesActivated ?    /* Renders a bunch of emotes for animation if the NSO audio have been started */
-        Array.from("012345".repeat(3)).map((value: string, index: number) => (
+        Array.from("012345".repeat(3)).map((_: string, index: number) => (
           <MovingEmote
             key={index}
             top={Math.floor(Math.random() * 1900)} // RightLayout's clientHeight: 1980

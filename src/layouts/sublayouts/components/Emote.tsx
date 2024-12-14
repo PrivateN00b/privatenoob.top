@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components"
 import { EmoteProps } from "../../../utils/interfaces";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../utils/store";
+import { useDispatch } from "react-redux";
 import { changeActivation } from "../../../utils/slices/movingEmoteSlice";
 
 /**
@@ -56,8 +55,7 @@ export const EmoteStyle = styled.img<{ $margin?: string, $height?: number, $widt
 * An interactable/clickable image component. Used as a base for MovingEmote
 */
 export default function Emote(props: EmoteProps) {
-  const [playing, toggle, start] = useAudio("/music/nso_stream.mp3", changeActivation);
-  const areMovingEmotesActivated = useSelector((state: RootState) => state.movingEmote.isActive);
+  const [playing, _, start] = useAudio("/music/nso_stream.mp3", changeActivation);
   const dispatch = useDispatch();
 
     return <EmoteStyle

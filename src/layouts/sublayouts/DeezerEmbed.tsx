@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import BaseContentDiv from "../../components/ui/BaseContentDiv"
-import { rgba } from "polished"
 import CenteredH2 from "../../components/ui/CenteredH2"
 
 const DeezerIFrame = styled.iframe`
