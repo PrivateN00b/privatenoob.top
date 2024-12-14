@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
-import BaseProps from "../../utils/interfaces";
+import { BaseProps } from "../../utils/interfaces";
 import Icon from "../../components/ui/Icon";
 import socialLinks from "../../utils/socialLinks";
 

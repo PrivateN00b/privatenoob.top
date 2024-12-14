@@ -15,7 +15,7 @@ export default function DeezerEmbed() {
                     src="https://widget.deezer.com/widget/auto/playlist/13306681843" 
                     width="100%" 
                     height="300" 
-                    allowTransparency="true" 
+                    allowTransparency={true}
                     allow="encrypted-media; clipboard-write"></DeezerIFrame>
     </BaseContentDiv>
     

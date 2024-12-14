@@ -18,9 +18,6 @@ import PageNotFound from "./pages/PageNotFound";
 import About from "./pages/infos/About";
 import Recipes from "./pages/blogs/Recipes/Recipes";
 import Software from "./pages/blogs/Software/Software";
-import { ScrambledEggs } from "./pages/blogs/Recipes/pages/ScrambledEggs";
-import { Bukta } from "./pages/blogs/Recipes/pages/Bukta";
-import { ChickenLoMein } from "./pages/blogs/Recipes/pages/ChickenLoMein";
 import { BaseRecipePage } from "./pages/blogs/Recipes/components/BaseRecipePage";
 
 const router = createBrowserRouter(

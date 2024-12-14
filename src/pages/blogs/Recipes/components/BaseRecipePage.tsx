@@ -14,7 +14,7 @@ import {
 } from "../components/RecipeColumns";
 import { Meal } from "../utils/RecipesEnums";
 import { useLocation, useParams } from "react-router-dom";
-import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import recipesJSON from "../recipes.json";
 
 const StyledUL = styled.ul`

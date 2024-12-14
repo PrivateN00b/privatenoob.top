@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
-import BaseProps from "../../utils/interfaces";
+import { BaseProps } from "../../utils/interfaces";
 import { NavLink } from "react-router-dom";
 import socialLinks from "../../utils/socialLinks";
 import { rgba } from "polished";

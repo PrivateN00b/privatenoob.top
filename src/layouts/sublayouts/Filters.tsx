@@ -1,6 +1,6 @@
 import BaseContentDiv from "../../components/ui/BaseContentDiv";
 import CheckBox from "../../components/ui/Checkbox";
-import BaseProps from "../../utils/interfaces";
+import { BaseProps } from "../../utils/interfaces";
 
 interface FiltersProps extends BaseProps {
   onFilterChange: (
