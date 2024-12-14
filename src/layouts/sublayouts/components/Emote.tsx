@@ -5,18 +5,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../utils/store";
 import { changeActivation } from "../../../utils/slices/movingEmoteSlice";
 
+/**
+* A hook for playing audio. Features audio toggling and dispatching Redux events
+* @param url Path to audio
+* @param endedEvent Event to run when starting audio
+* @returns Returns playing state, toggle and audio starting function
+*/
 const useAudio = (url: string, endedEvent: () => { payload: any; type: string; }): [boolean, () => void, () => void] => {
     const [audio] = useState(new Audio(url));
     const [playing, setPlaying] = useState(false);
     const dispatch = useDispatch();
-    // const [playedPrev, setplayedPrev] = useState(false);
   
     const toggle = () => setPlaying(!playing);
     const start = () => setPlaying(true);
   
     useEffect(() => {
       playing ? audio.play() : audio.pause();
-      // setplayedPrev(true);
     }, [playing]);
   
     useEffect(() => {
@@ -48,6 +52,9 @@ export const EmoteStyle = styled.img<{ $margin?: string, $height?: number, $widt
     }
 `
 
+/**
+* An interactable/clickable image component. Used as a base for MovingEmote
+*/
 export default function Emote(props: EmoteProps) {
   const [playing, toggle, start] = useAudio("/music/nso_stream.mp3", changeActivation);
   const areMovingEmotesActivated = useSelector((state: RootState) => state.movingEmote.isActive);

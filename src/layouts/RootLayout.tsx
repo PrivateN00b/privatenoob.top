@@ -66,6 +66,7 @@ function RightLayout() {
   const [layoutWidth, setLayoutWidth] = useState<number | null>(null);
   const areMovingEmotesActivated = useSelector((state: RootState) => state.movingEmote.isActive);
 
+  // Sets rightLayoutRef, which is used for not displaying the interactable emotes if the screen's width is too narrow
   useEffect(() => {
     if (rightLayoutRef.current) {
       setLayoutWidth(rightLayoutRef.current.clientWidth);
@@ -77,7 +78,7 @@ function RightLayout() {
   }, [areMovingEmotesActivated]);
 
   return <RightLayoutStyle ref={rightLayoutRef}>
-        {areMovingEmotesActivated ?
+        {areMovingEmotesActivated ?    /* Renders a bunch of emotes for animation if the NSO audio have been started */
         Array.from("012345".repeat(3)).map((value: string, index: number) => (
           <MovingEmote
             key={index}

@@ -27,6 +27,9 @@ const MovingEmoteStyle = styled(EmoteStyle)<{
   }
 `;
 
+/**
+* An interactable/clickable image component with moving animation. Uses Emote as base
+*/
 export default function MovingEmote(props: MovingEmoteProps) {
   const emoteRef = useRef<HTMLImageElement | null>(null);
 
