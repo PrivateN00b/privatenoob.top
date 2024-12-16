@@ -16,6 +16,7 @@ const globalStyle = createGlobalStyle`
 
   :root {
   font-family: W95F, system-ui, Ubuntu, sans-serif;
+  text-align: center;
   line-height: 1.5;
   font-weight: 400;
   font-size: ${theme.fontSize.medium};
@@ -72,9 +73,9 @@ const globalStyle = createGlobalStyle`
 
 html {
   --s: 120px; /* control the size */
-  --c1: #620057 ;
+  --c1:rgb(73, 0, 65) ;
   --c2: #01000e;
-  --c3: #2f0060;
+  --c3:rgb(38, 0, 78);
   
   --_g: var(--c1) 10%,var(--c2) 10.5% 19%,#0000 19.5% 80.5%,var(--c2) 81% 89.5%,var(--c3) 90%;
   --_c: from -90deg at 37.5% 50%,#0000 75%;
