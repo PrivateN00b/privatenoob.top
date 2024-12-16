@@ -2,8 +2,20 @@ import { createGlobalStyle, withTheme } from "styled-components";
 import theme from "./theme";
 
 const globalStyle = createGlobalStyle`
+  @font-face {
+    font-family: "W95F";
+    src: url("/fonts/W95font.otf");
+    font-size: 10px;
+  }
+
+  @font-face {
+    font-family: "W95F";
+    src: url("/fonts/W95font-Bold.otf");
+    font-weight: bold;
+  }
+
   :root {
-  font-family: Ubuntu, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: W95F, system-ui, Ubuntu, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: ${theme.fontSize.medium};
