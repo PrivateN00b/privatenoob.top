@@ -18,11 +18,11 @@ import { useEffect, useState } from "react";
 import recipesJSON from "../recipes.json";
 
 const StyledUL = styled.ul`
-  margin: 0 20px 0 20px;
+  margin: 0 40px 0 40px;
 `;
 
 const StyledOL = styled.ol`
-  margin: 0 20px 0 20px;
+  margin: 0 40px 0 40px;
   padding-left: 0;
 `;
 
