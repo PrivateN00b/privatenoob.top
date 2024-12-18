@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { MovingEmoteProps } from "../../utils/interfaces"
 import { EmoteStyle } from "./Emote"
 import { useEffect, useRef } from "react";
+import { MovingEmoteProps } from "../utils/interfaces";
 
 const MovingEmoteStyle = styled(EmoteStyle)<{
   $top: number;

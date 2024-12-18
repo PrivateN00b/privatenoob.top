@@ -3,12 +3,12 @@ import Navbar from "./components/Navbar";
 import styled from "styled-components";
 import { rgba } from "polished";
 import Footer from "./components/Footer";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import Banner from "../../components/img/Banner";
-import Emote from "../emote/Emote";
-import MovingEmote from "../emote/MovingEmote";
 import { RootState } from "../../store/store";
+import Emote from "../emote/components/Emote";
+import { GenerateEmotes } from "../emote/components/GenerateEmotes";
 
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
@@ -56,31 +56,6 @@ const RightLayoutStyle = styled.div`
     display: none
   }
 `
-
-const GenerateEmotes = (layoutRef: MutableRefObject<HTMLDivElement | null>, layoutWidth: number | null) => {
-  const emoteNames: { [index: number]: string } = {
-    0: "bujishibou",
-    1: "gomen",
-    2: "love",
-    3: "ok",
-    4: "pien",
-    5: "saikouka",
-    6: "sorena",
-    7: "waritodoudemoii"
-  }  
-  
-  return Array.from("01234567".repeat(3)).map((_: string, index: number) => (
-    <MovingEmote
-      key={index}
-      top={Math.floor(Math.random() * 1900)} // Spawn somewhere in Y dimension
-      left={layoutWidth} // Spawn somewhere in X dimension
-      imgPath={`/emoji/${emoteNames[Math.floor(Math.random() * 7)]}.png`}
-      delay={Math.floor(Math.random())}
-      layoutRef={layoutRef}
-      direction={1}
-      />
-  ))
-}
 
 function LeftLayout() {
   const leftLayoutRef = useRef<HTMLDivElement | null>(null);

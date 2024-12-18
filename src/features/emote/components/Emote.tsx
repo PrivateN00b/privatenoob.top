@@ -1,8 +1,8 @@
 import styled from "styled-components"
-import { EmoteProps } from "../../utils/interfaces";
 import { useDispatch } from "react-redux";
-import { changeActivation } from "../../store/slices/movingEmoteSlice";
-import { useAudio } from "../../hooks/useAudio";
+import { useAudio } from "../../../hooks/useAudio";
+import { changeActivation } from "../../../store/slices/movingEmoteSlice";
+import { EmoteProps } from "../utils/interfaces";
 
 export const EmoteStyle = styled.img<{ $margin?: string, $height?: number, $width?: number, $alignSelf?: string }>`
     image-rendering: pixelated;
