@@ -2,23 +2,23 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 import "./App.css";
-import Home from "./pages/Home";
 import {
   createBrowserRouter,
   RouterProvider,
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import Projects from "./pages/infos/Projects";
-import RootLayout from "./layouts/RootLayout";
 import { ThemeProvider } from "styled-components";
+import Software from "./features/blogs/software/Software";
+import Home from "./features/core/Home";
+import { BaseRecipePage } from "./features/blogs/recipes/BaseRecipePage";
+import Recipes from "./features/blogs/recipes/Recipes";
+import PageNotFound from "./features/core/components/PageNotFound";
+import RootLayout from "./features/core/RootLayout";
+import About from "./features/infos/About";
+import Projects from "./features/infos/Projects";
 import theme from "./styles/theme";
-import GlobalStyle from "./styles/global";
-import PageNotFound from "./pages/PageNotFound";
-import About from "./pages/infos/About";
-import Recipes from "./pages/blogs/Recipes/Recipes";
-import Software from "./pages/blogs/Software/Software";
-import { BaseRecipePage } from "./pages/blogs/Recipes/components/BaseRecipePage";
+import GlobalStyle from "./styles/global"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
