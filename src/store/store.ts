@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import movingEmoteReducer from './slices/movingEmoteSlice';
+import mouseCoordsReducer from './slices/mouseCoordsSlice';
 
 export const store = configureStore({
   reducer: {
     movingEmote: movingEmoteReducer,
+    mouseCoords: mouseCoordsReducer
   },
 })
 
