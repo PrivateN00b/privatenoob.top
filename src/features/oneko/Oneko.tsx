@@ -20,28 +20,34 @@ export default function Oneko() {
     left: 0.8 * window.innerWidth,
   });
 
-  
+  // The Sprite's position changes on each frame, going towards the current mouse position
+  // The frame frequency matches the monitor's refresh rate (ex: function runs 60 times on a 60 Hz monitor)
   useEffect(() => {
-    let id = setInterval(frame, 1);
-    
+    let animFrameId: number;
+
     function frame() {
-      
       setPosition((currentPos) => {
         const speed = 1;
         const dx = coords.x - currentPos.left;
         const dy = coords.y - currentPos.top;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (Math.abs(dx) <= 4 || Math.abs(dy) <= 4) return currentPos;
-
+        const distance = Math.sqrt(dx * dx + dy * dy); // Distance between 2 objects.
+        
+        // Stop the sprite if it's close enough to the cursor
+        if (Math.abs(dx) <= 4 && Math.abs(dy) <= 4) return currentPos;
+        
         return {
           top: currentPos.top + speed * (dy / distance),
           left: currentPos.left + speed * (dx / distance),
         }
       });
+      
+      animFrameId = requestAnimationFrame(frame)
     }
 
-    return () => clearInterval(id);
+    animFrameId = requestAnimationFrame(frame)
+
+
+    return () => cancelAnimationFrame(animFrameId)
   }, [coords])
 
 
