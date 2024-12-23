@@ -92,16 +92,92 @@ const setSprite = (img: HTMLImageElement, name: string, frame: number) => {
 
 export default function Oneko() {
   const spriteRef = useRef<HTMLImageElement | null>(null);
-  const animFrameId = useRef<number>()
+  const animFrameId = useRef<number>();
+  const animId = useRef<number>();
   const coords = useMouseCoords();
-  const positionRef = useRef({ // Starting idx of the Sprite, but it's initial position is separately defined
+  const positionRef = useRef<{ top: number, left: number }>({ // Starting idx of the Sprite, but it's initial position is separately defined
     top: window.innerHeight,
     left: 0.8 * window.innerWidth,
   });
   const frameCountRef = useRef<number>(0);
   const lastFrameTimeRef = useRef<number>(0);
   const FRAME_INTERVAL: number = 150; // How often we want the sprite change animation happen
+  const idleAnimRef = useRef<string | null>(null);
+  const idleAnimFrameRef = useRef<number>(0);
+  
+  // Do idle animations
+  const idle = () => {
+    const resetIdleAnimation = () => {
+      idleAnimRef.current == "idle";
+      if (animId.current) {
+        cancelAnimationFrame(animId.current);
+        animId.current = undefined;
+        idleAnim();
+      }
+    }
+    
+    function idleAnim() {
+      if (!spriteRef.current) return;
+      console.log(idleAnimFrameRef.current)
+      
+      // every ~ 20 seconds
+      if (
+        idleAnimRef.current == "idle"
+      ) {
+        let availableIdleAnimations = ["sleeping", "scratchSelf"];
+        if (positionRef.current.left < 32) {
+          availableIdleAnimations.push("scratchWallW");
+        }
+        if (positionRef.current.top < 32) {
+          availableIdleAnimations.push("scratchWallN");
+        }
+        if (positionRef.current.left > window.innerWidth - 32) {
+          availableIdleAnimations.push("scratchWallE");
+        }
+        if (positionRef.current.top > window.innerHeight - 32) {
+          availableIdleAnimations.push("scratchWallS");
+        }
+        idleAnimRef.current =
+          availableIdleAnimations[
+            Math.floor(Math.random() * availableIdleAnimations.length)
+          ];
+      }
+  
+      switch (idleAnimRef.current) {
+        case "sleeping":
+          console.log(idleAnimFrameRef.current)
+          if (idleAnimFrameRef.current < 8) {
+            setSprite(spriteRef.current, "tired", 0);
+            break;
+          }
+          setSprite(spriteRef.current, "sleeping", Math.floor(idleAnimFrameRef.current / 4));
+          if (idleAnimFrameRef.current > 64) {
+            resetIdleAnimation();
+          }
+          break;
+        case "scratchWallN":
+        case "scratchWallS":
+        case "scratchWallE":
+        case "scratchWallW":
+        case "scratchSelf":
+          setSprite(spriteRef.current, idleAnimRef.current, idleAnimFrameRef.current);
+          if (idleAnimFrameRef.current > 9) {
+            resetIdleAnimation();
+          }
+          break;
+        default:
+          setSprite(spriteRef.current, "idle", 0);
+          return;
+      }
+      idleAnimFrameRef.current += 1;
 
+      setTimeout(() => animId.current = requestAnimationFrame(idleAnim), FRAME_INTERVAL * 4)
+    }
+
+    animId.current = requestAnimationFrame(idleAnim)
+  }
+
+  if (idleAnimRef.current == "idle") idle()
   // The Sprite's position changes on each frame, going towards the current mouse position
   // The frame frequency matches the monitor's refresh rate (ex: function runs 60 times on a 60 Hz monitor)
   useEffect(() => {
@@ -110,19 +186,21 @@ export default function Oneko() {
       const dx = coords.x - (positionRef.current.left + SPRITE_SIZE / 2);
       const dy = coords.y - (positionRef.current.top + SPRITE_SIZE / 2);
       const distance = Math.sqrt(dx * dx + dy * dy); // Distance between 2 objects.
-      
+
       // Frame throttling the sprite change frequency
       if (timestamp - lastFrameTimeRef.current >= FRAME_INTERVAL) {
         frameCountRef.current = (frameCountRef.current + 1) % 2; // Cycle between 0 and 1 for two-frame animations
         lastFrameTimeRef.current = timestamp;
       }
-      
       if (spriteRef.current) {
         if (distance < STOP_DISTANCE) { // Stop the sprite if it's close enough to the cursor
-          setSprite(spriteRef.current, "idle", frameCountRef.current)
+          idleAnimRef.current = "idle";
+          //setSprite(spriteRef.current, "idle", frameCountRef.current)
           return positionRef.current;
         }
         else { // Selecting sprite based on direction towards the cursor
+          idleAnimRef.current = null;
+
           let direction = "";
           if (Math.abs(dy / distance) > 0.5) direction += dy > 0 ? "S" : "N";
           if (Math.abs(dx / distance) > 0.5) direction += dx > 0 ? "E" : "W";
@@ -148,6 +226,10 @@ export default function Oneko() {
       if (animFrameId.current) {
         cancelAnimationFrame(animFrameId.current);
         animFrameId.current = undefined;
+      }
+      if (animId.current) {
+        cancelAnimationFrame(animId.current);
+        animId.current = undefined;
       }
     };
   }, [coords])
