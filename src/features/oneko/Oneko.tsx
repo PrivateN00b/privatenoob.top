@@ -71,7 +71,7 @@ const spriteSets: SpriteSets = {
 };
 
 const Sprite = styled.div<{ $top: number; $left: number }>`
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   top: ${({ $top }) => $top}px;
   left: ${({ $left }) => $left}px;
