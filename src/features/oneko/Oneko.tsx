@@ -3,6 +3,9 @@ import { useMouseCoords } from "./useMouseCoords";
 import styled from "styled-components";
 import spriteSheet from "/oneko.png";
 
+const SPRITE_SIZE = 32;
+const STOP_DISTANCE = 48;
+
 // This is how we can "index" the spritesheet
 const spriteSets: SpriteSets = {
   idle: [[-3, -3]],
@@ -73,8 +76,8 @@ const Sprite = styled.div<{ $top: number; $left: number }>`
   top: ${({ $top }) => $top}px;
   left: ${({ $left }) => $left}px;
   pointer-events: none;
-  width: 32px;
-  height: 32px;
+  width: ${() => SPRITE_SIZE}px;
+  height: ${() => SPRITE_SIZE}px;
 `;
 
 type SpriteSets = {
@@ -84,7 +87,7 @@ type SpriteSets = {
 const setSprite = (img: HTMLImageElement, name: string, frame: number) => {
   const sprite: number[] = spriteSets[name][frame % spriteSets[name].length];
   img.style.backgroundImage = `url(${spriteSheet})`;
-  img.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`; // Show the appropiate sprite, by cutting the image
+  img.style.backgroundPosition = `${sprite[0] * SPRITE_SIZE}px ${sprite[1] * SPRITE_SIZE}px`; // Show the appropiate sprite, by cutting the image
 }
 
 export default function Oneko() {
@@ -101,8 +104,8 @@ export default function Oneko() {
   useEffect(() => {
     function frame() {
       const speed = 1;
-      const dx = coords.x - positionRef.current.left;
-      const dy = coords.y - positionRef.current.top;
+      const dx = coords.x - (positionRef.current.left + SPRITE_SIZE / 2);
+      const dy = coords.y - (positionRef.current.top + SPRITE_SIZE / 2);
       const distance = Math.sqrt(dx * dx + dy * dy); // Distance between 2 objects.
     
       // Selecting sprite based on direction
@@ -114,7 +117,7 @@ export default function Oneko() {
       } 
 
       // Stop the sprite if it's close enough to the cursor
-      if (Math.abs(dx) <= 4 && Math.abs(dy) <= 4) return positionRef.current;
+      if (distance < STOP_DISTANCE) return positionRef.current;
       
       // Update positions
       positionRef.current = {
