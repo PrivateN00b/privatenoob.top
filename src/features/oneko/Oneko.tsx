@@ -98,37 +98,46 @@ export default function Oneko() {
     top: window.innerHeight,
     left: 0.8 * window.innerWidth,
   });
+  const frameCountRef = useRef<number>(0);
+  const lastFrameTimeRef = useRef<number>(0);
+  const FRAME_INTERVAL: number = 150; // How often we want the sprite change animation happen
 
   // The Sprite's position changes on each frame, going towards the current mouse position
   // The frame frequency matches the monitor's refresh rate (ex: function runs 60 times on a 60 Hz monitor)
   useEffect(() => {
-    function frame() {
+    function frame(timestamp: number) {
       const speed = 1;
       const dx = coords.x - (positionRef.current.left + SPRITE_SIZE / 2);
       const dy = coords.y - (positionRef.current.top + SPRITE_SIZE / 2);
       const distance = Math.sqrt(dx * dx + dy * dy); // Distance between 2 objects.
-    
-      // Selecting sprite based on direction
-      if (spriteRef.current) {
-        let direction = "";
-        if (Math.abs(dy / distance) > 0.5) direction += dy > 0 ? "S" : "N";
-        if (Math.abs(dx / distance) > 0.5) direction += dx > 0 ? "E" : "W";
-        setSprite(spriteRef.current, direction, 0)
-      } 
-
-      // Stop the sprite if it's close enough to the cursor
-      if (distance < STOP_DISTANCE) return positionRef.current;
       
-      // Update positions
-      positionRef.current = {
-        top: positionRef.current.top + speed * (dy / distance),
-        left: positionRef.current.left + speed * (dx / distance),
+      // Frame throttling the sprite change frequency
+      if (timestamp - lastFrameTimeRef.current >= FRAME_INTERVAL) {
+        frameCountRef.current = (frameCountRef.current + 1) % 2; // Cycle between 0 and 1 for two-frame animations
+        lastFrameTimeRef.current = timestamp;
       }
+      
       if (spriteRef.current) {
+        if (distance < STOP_DISTANCE) { // Stop the sprite if it's close enough to the cursor
+          setSprite(spriteRef.current, "idle", frameCountRef.current)
+          return positionRef.current;
+        }
+        else { // Selecting sprite based on direction towards the cursor
+          let direction = "";
+          if (Math.abs(dy / distance) > 0.5) direction += dy > 0 ? "S" : "N";
+          if (Math.abs(dx / distance) > 0.5) direction += dx > 0 ? "E" : "W";
+          setSprite(spriteRef.current, direction, frameCountRef.current)
+        } 
+
+        // Update positions
+        positionRef.current = {
+          top: positionRef.current.top + speed * (dy / distance),
+          left: positionRef.current.left + speed * (dx / distance),
+        }
         spriteRef.current.style.top = `${positionRef.current.top}px`
         spriteRef.current.style.left = `${positionRef.current.left}px`
-      } 
-      
+      }
+
       animFrameId.current = requestAnimationFrame(frame)
     }
 
