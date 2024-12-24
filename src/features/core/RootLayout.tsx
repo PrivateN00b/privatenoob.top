@@ -4,14 +4,11 @@ import styled from "styled-components";
 import { rgba } from "polished";
 import Footer from "./components/Footer";
 import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Banner from "../../components/img/Banner";
 import { RootState } from "../../store/store";
 import Emote from "../emote/components/Emote";
 import { GenerateEmotes } from "../emote/components/GenerateEmotes";
-import Oneko from "../oneko/Oneko";
-import { useMouseCoords } from "../oneko/useMouseCoords";
-import { changeCoords } from "../../store/slices/mouseCoordsSlice";
 
 const Header = styled.header`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
@@ -106,7 +103,6 @@ export default function RootLayout() {
         <Footer />
       </CenterLayoutStyle>
       <RightLayout />
-      <Oneko />
     </RootLayoutStyle>
   );
 }
