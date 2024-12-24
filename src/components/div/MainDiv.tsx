@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import BaseContentDiv from "../div/BaseContentDiv";
 
-const MainDiv = styled(BaseContentDiv)`
+const MainDiv = styled.div`
   width: 70%;
   margin: 0 0 0 20px;
 
