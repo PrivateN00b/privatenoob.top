@@ -21,40 +21,23 @@ function Home() {
         <CenteredH1>Introduction</CenteredH1>
         <StyledParagraph>
           Sup! This is your average personal website mostly, just as the other
-          ones over at <a href="https://neocities.org/browse">Neocities</a> to
+          ones over at <a href="https://neocities.org/browse">Neocities</a> or <a href="https://nekoweb.org/">Nekoweb</a> to
           resurrect the{" "}
           <a href="https://youtu.be/00qwzmMrtok?si=PZJxoE06oZcuAMDP">
             Indie Web / Early Internet
           </a>{" "}
           atmosphere, except this site has been made via React (sorry noJS and
-          static HTML chads, I have failed you :( )
-        </StyledParagraph>
-        <br />
-        <StyledParagraph>
-          This site will host EVERYTHING I find informative, funny or just
-          making unnecessary features, like login (I won't ever disturb you with
-          it via popups, don't worry ^^) because it seems fun. Yes, I use
-          Systemd, why do you ask? :3
+          static HTML chads, the temptation of the forbidden fruit was too great. )
         </StyledParagraph>
 
-        <CenteredH1>What will this site offer?</CenteredH1>
-        <StyledItem>List of my projects (yes it's a portfolio)</StyledItem>
-        <StyledItem>Some personal blogs (check out the types)</StyledItem>
+        <CenteredH1>What will the site offer?</CenteredH1>
+        <StyledItem>Infos about the webmaster (me! ^_^)</StyledItem>
+        <StyledItem>Blogs about recipes, tech and personal stuffs</StyledItem>
         <StyledItem>Links to webrings and other cool sites</StyledItem>
         <StyledItem>Guestbook!</StyledItem>
-        <StyledItem>Other stuffs which resemble the Indie Web vibe</StyledItem>
-        <StyledItem>Infos about me ^^</StyledItem>
-
-        <CenteredH1>To-do list</CenteredH1>
-        <ul>
-          <li>
-            Leftover pages: About, Projects, Blog posts, Links, Blinkies,
-            Questbook
-          </li>
-          <li>Song selector</li>
-          <li>Light and dark theme switcher</li>
-          <li>THERE'S TOO MANY STUFFS TO DO AAAAAHHHH</li>
-        </ul>
+        <StyledItem>Quirky interactable elements</StyledItem>
+        <StyledItem>Logging in for whatever reason</StyledItem>
+        <StyledItem>Chatting feature?</StyledItem>
       </MainDiv>
     </Container>
   );
