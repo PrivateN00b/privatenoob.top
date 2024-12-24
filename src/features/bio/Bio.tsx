@@ -20,12 +20,12 @@ const AvatarCard = styled.div`
   display: grid;
   max-width: 200px;
   margin: 10px auto 0px auto;
-  border-radius: 20% 20% 0% 0%;
+  border-radius: 10% 10% 0% 0%;
   border: double;
 
   &:hover {
     cursor: pointer;
-    animation: ${avatarAnimation} 0.4s forwards;
+    animation: ${avatarAnimation} 0.2s forwards;
   }
 
   @media (max-width: 1140px) {
@@ -53,10 +53,11 @@ const BioInfo = styled(NavLink)`
   max-width: 200px;
   margin: 5px auto 0px auto;
   border: double ${({ theme }) => theme.colors.primary};
-  border-radius: 0 0 50px 50px;
+  border-radius: 0 0 40px 40px;
   box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
   transition: all 0.2 ease;
   text-decoration: none;
+  line-height: 1;
 
   h4 {
     color: ${({ theme }) => theme.colors.text1};
@@ -95,6 +96,7 @@ const OnlineIndicator = styled.span`
 
 const BioList = styled.div`
   text-align: center;
+  line-height: 1;
 `;
 
 function Bio({ isLast = false }: BaseProps) {
@@ -103,10 +105,10 @@ function Bio({ isLast = false }: BaseProps) {
       <div>
         <AvatarCard>
           <AvatarImg
-            src="https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
+            src="shuba_duck.png"
             onClick={() =>
               window.open(
-                "https://i.pinimg.com/564x/37/88/17/3788172348dca4cda1a19d8d131e9167.jpg"
+                "shuba_duck.png"
               )
             }
             alt="Avatar"
@@ -121,7 +123,6 @@ function Bio({ isLast = false }: BaseProps) {
       <BioList>
         <h3>♂️ 23, he/him</h3>
         <h3>🇭🇺 Hungarian</h3>
-        <h3>Idunno</h3>
       </BioList>
     </BaseContentDiv>
   );
