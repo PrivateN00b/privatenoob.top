@@ -3,6 +3,7 @@ import BaseContentDiv from "../../components/div/BaseContentDiv";
 import { BaseProps } from "../../utils/interfaces";
 import Icon from "../../components/text/Icon";
 import socialLinks from "../../utils/socialLinks";
+import CenteredH2 from "../../components/text/CenteredH2";
 
 function Socials({ isLastBottom = false }: BaseProps) {
   return (
@@ -13,7 +14,7 @@ function Socials({ isLastBottom = false }: BaseProps) {
         paddingBottom: "20px",
       }}
     >
-      <h1>Socials</h1>
+      <CenteredH2>Socials</CenteredH2>
       <div>
         <Link to={socialLinks.discord.url}>
           <Icon
