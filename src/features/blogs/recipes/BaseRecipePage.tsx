@@ -105,7 +105,7 @@ export function BaseRecipePage() {
 
   return (
     <Container>
-      <BaseContentDiv>
+      <BaseContentDiv isLastBottom={true}>
         <CenteredH1>{recipe.title}</CenteredH1>
         <p style={{ textAlign: "center" }}>
           <strong>Recipe:</strong> {recipe.infos["prep"]}, <strong>Cooking:</strong>{" "}

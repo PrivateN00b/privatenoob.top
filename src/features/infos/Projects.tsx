@@ -10,7 +10,7 @@ import BlockTitle from "../../components/block-list/BlockTitle";
 function Projects() {
   return (
     <Container>
-      <BaseContentDiv isLast={true}>
+      <BaseContentDiv isLastBottom={true}>
         <CenteredH1>Some projects :3</CenteredH1>
         <div
           style={{

@@ -6,7 +6,7 @@ import StyledParagraph from "../../../components/text/StyledParagraph";
 export default function Software() {
   return (
     <Container>
-      <BaseContentDiv isLast={true}>
+      <BaseContentDiv isLastBottom={true}>
         <CenteredH1>Articles about Tech</CenteredH1>
         <StyledParagraph style={{ marginBottom: "20px" }}>
           Thoughts empty, mom's spaghetti

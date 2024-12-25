@@ -10,11 +10,11 @@ interface FiltersProps extends BaseProps {
 }
 
 export default function Filters({
-  isLast = false,
+  isLastBottom = false,
   onFilterChange,
 }: FiltersProps) {
   return (
-    <BaseContentDiv isLast={isLast}>
+    <BaseContentDiv isLastBottom={isLastBottom}>
       <div style={{ margin: "0 0 20px 20px" }}>
         <h2>Meals:</h2>
         <CheckBox name="Breakfast" onCheckBoxChange={onFilterChange} />

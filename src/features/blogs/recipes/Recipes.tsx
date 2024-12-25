@@ -9,6 +9,8 @@ import { FilterDict, RecipeDict } from "./utils/RecipesTypes";
 import { Cost, Meal } from "./utils/RecipesEnums";
 import LeftSideDiv from "../../../components/div/LeftSideDiv";
 import MainDiv from "../../../components/div/MainDiv";
+import BaseContentDiv from "../../../components/div/BaseContentDiv";
+import { FlexDiv } from "../../../components/div/FlexDivs";
 
 const RecipeList = styled.div`
   display: grid;
@@ -120,11 +122,13 @@ function Recipes() {
   return (
     <Container>
       <LeftSideDiv>
-        <Filters isLast={true} onFilterChange={handleFilterChange} />
+        <Filters isLastBottom={true} onFilterChange={handleFilterChange} />
       </LeftSideDiv>
-      <MainDiv isLast={true}>
-        <CenteredH1>Recipes</CenteredH1>
-        <RecipeList>{renderRecipes()}</RecipeList>
+      <MainDiv>
+        <BaseContentDiv isLastBottom={true}>
+          <CenteredH1>Recipes</CenteredH1>
+          <RecipeList>{renderRecipes()}</RecipeList>
+        </BaseContentDiv>
       </MainDiv>
     </Container>
   );

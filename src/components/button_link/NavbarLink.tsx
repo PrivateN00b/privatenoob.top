@@ -5,6 +5,7 @@ const BaseLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text1};
   text-decoration: none;
   font-weight: bold;
+  line-height: 1;
 `;
 
 const StyledLink = styled(BaseLink)`
