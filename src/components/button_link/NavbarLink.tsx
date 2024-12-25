@@ -5,7 +5,6 @@ const BaseLink = styled(Link)`
   color: ${({ theme }) => theme.colors.text1};
   text-decoration: none;
   font-weight: bold;
-  line-height: 1;
 `;
 
 const StyledLink = styled(BaseLink)`
@@ -15,6 +14,7 @@ const StyledLink = styled(BaseLink)`
   max-height: 22px;
   box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
   transition: all 0.2 ease;
+  line-height: 1;
 
   &:hover {
     box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
