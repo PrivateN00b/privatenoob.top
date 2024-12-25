@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import BaseContentDiv from "../../components/div/BaseContentDiv"
 import CenteredH2 from "../../components/text/CenteredH2"
+import { BaseProps } from "../../utils/interfaces"
 
 const DeezerIFrame = styled.iframe`
   border: 0;
@@ -8,8 +9,8 @@ const DeezerIFrame = styled.iframe`
   margin-bottom: -5px;
 `
 
-export default function DeezerEmbed() {
-    return  <BaseContentDiv>
+export default function DeezerEmbed({ isLast, display }: BaseProps) {
+    return  <BaseContentDiv isLast={isLast} display={display}>
         <CenteredH2>🎶 Fav J-songs 🎶</CenteredH2>
         <DeezerIFrame title="deezer-widget" 
                     src="https://widget.deezer.com/widget/auto/playlist/13306681843" 

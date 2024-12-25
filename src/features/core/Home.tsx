@@ -10,6 +10,7 @@ import Socials from "../socials/Socials";
 import BaseContentDiv from "../../components/div/BaseContentDiv";
 import SiteInfo from "../siteInfo/SiteInfo";
 import { FlexDiv } from "../../components/div/FlexDivs";
+import WebringsAndFriends from "../webringsAndFriends/WebringsAndFriends";
 
 function Home() {
   return (
@@ -45,6 +46,7 @@ function Home() {
           <br />
         </BaseContentDiv>
         <FlexDiv>
+          <WebringsAndFriends display="flex"/>
           <DeezerEmbed isLast={true} display="flex"/>
         </FlexDiv>
       </MainDiv>
