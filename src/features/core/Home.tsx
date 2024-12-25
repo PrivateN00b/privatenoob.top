@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Container from "../../components/div/Container";
 import LeftSideDiv from "../../components/div/LeftSideDiv";
 import MainDiv from "../../components/div/MainDiv";
@@ -9,13 +8,15 @@ import Bio from "../bio/Bio";
 import DeezerEmbed from "../deezerEmbed/DeezerEmbed";
 import Socials from "../socials/Socials";
 import BaseContentDiv from "../../components/div/BaseContentDiv";
+import SiteInfo from "../siteInfo/SiteInfo";
+import { FlexDiv } from "../../components/div/FlexDivs";
 
 function Home() {
   return (
     <Container>
       <LeftSideDiv>
         <Bio />
-        <DeezerEmbed />
+        <SiteInfo />
         <Socials isLast={true} />
         {/* <MusicPlayer /> */}
       </LeftSideDiv>
@@ -43,6 +44,9 @@ function Home() {
           <StyledItem>Chatting feature?</StyledItem>
           <br />
         </BaseContentDiv>
+        <FlexDiv>
+          <DeezerEmbed isLast={true} display="flex"/>
+        </FlexDiv>
       </MainDiv>
     </Container>
   );
