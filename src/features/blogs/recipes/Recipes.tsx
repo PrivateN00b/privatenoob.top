@@ -10,7 +10,6 @@ import { Cost, Meal } from "./utils/RecipesEnums";
 import LeftSideDiv from "../../../components/div/LeftSideDiv";
 import MainDiv from "../../../components/div/MainDiv";
 import BaseContentDiv from "../../../components/div/BaseContentDiv";
-import { FlexDiv } from "../../../components/div/FlexDivs";
 
 const RecipeList = styled.div`
   display: grid;
