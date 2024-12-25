@@ -12,7 +12,7 @@ const ClickableImg = styled.img`
     cursor: pointer;
 `;
 
-export default function SiteInfo({ isLast, display }: BaseProps) {
+export default function SiteInfo({ isLastBottom, isLastLeft }: BaseProps) {
     const carbonBadgeRef = useRef(null);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function SiteInfo({ isLast, display }: BaseProps) {
     }, []);
 
     return (
-        <SiteInfoStyle isLast={isLast} display={display}>
+        <SiteInfoStyle isLastBottom={isLastBottom} isLastLeft={isLastLeft}>
             <FlexDivWithPadding>
                 <ClickableImg src="/infos/Censor_PGb.gif" onClick={() => window.open("http://www.mabsland.com/Adoption.html")}/>
             </FlexDivWithPadding>

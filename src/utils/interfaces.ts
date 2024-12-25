@@ -1,4 +1,4 @@
 export interface BaseProps {
-  isLast?: boolean;
-  display?: string;
+  isLastBottom?: boolean;
+  isLastLeft?: boolean;
 }

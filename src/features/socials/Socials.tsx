@@ -4,10 +4,10 @@ import { BaseProps } from "../../utils/interfaces";
 import Icon from "../../components/text/Icon";
 import socialLinks from "../../utils/socialLinks";
 
-function Socials({ isLast = false }: BaseProps) {
+function Socials({ isLastBottom = false }: BaseProps) {
   return (
     <BaseContentDiv
-      isLast={isLast}
+      isLastBottom={isLastBottom}
       style={{
         textAlign: "center",
         paddingBottom: "20px",

@@ -99,9 +99,9 @@ const BioList = styled.div`
   line-height: 1;
 `;
 
-function Bio({ isLast = false }: BaseProps) {
+function Bio({ isLastBottom = false }: BaseProps) {
   return (
-    <BaseContentDiv isLast={isLast}>
+    <BaseContentDiv isLastBottom={isLastBottom}>
       <div>
         <AvatarCard>
           <AvatarImg

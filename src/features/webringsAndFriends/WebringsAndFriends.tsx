@@ -5,8 +5,8 @@ import CenteredH2 from "../../components/text/CenteredH2";
 import StyledParagraph from "../../components/text/StyledParagraph";
 import { BaseProps } from "../../utils/interfaces";
 
-export default function WebringsAndFriends({ display }: BaseProps) {
-    return <BaseContentDiv display={display}>
+export default function WebringsAndFriends({ isLastBottom }: BaseProps) {
+    return <BaseContentDiv isLastBottom={isLastBottom}>
         <CenteredH2>Webrings</CenteredH2>
         <StyledParagraph>UNDER CONSTRUCTION</StyledParagraph>
         <CenteredH2>Friendos! :3</CenteredH2>

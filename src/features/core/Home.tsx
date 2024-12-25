@@ -18,7 +18,7 @@ function Home() {
       <LeftSideDiv>
         <Bio />
         <SiteInfo />
-        <Socials isLast={true} />
+        <Socials isLastBottom={true} />
         {/* <MusicPlayer /> */}
       </LeftSideDiv>
       <MainDiv>
@@ -46,8 +46,8 @@ function Home() {
           <br />
         </BaseContentDiv>
         <FlexDiv>
-          <WebringsAndFriends display="flex"/>
-          <DeezerEmbed isLast={true} display="flex"/>
+          <WebringsAndFriends isLastBottom={true} />
+          <DeezerEmbed isLastBottom={true} isLastLeft={true} />
         </FlexDiv>
       </MainDiv>
     </Container>
