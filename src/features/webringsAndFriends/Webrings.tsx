@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components"
+import styled from "styled-components"
 const FediringLink = styled.a`
     cursor: pointer;
     padding: 10px;
@@ -23,8 +23,8 @@ const FediringLink = styled.a`
     
     background: linear-gradient(
         to bottom,
-        oklch(0.1 0.2 240 / 0.95),
-        oklch(0.1 0.2 240 / 0.95)
+        ${({ theme }) => theme.colors.quarteriary},
+        ${({ theme }) => theme.colors.quarteriary}
       ) padding-box, conic-gradient(
         from var(--bg-angle) in oklch longer hue,
         oklch(1 0.37 0) 0 0
@@ -40,9 +40,38 @@ const Letter = styled.span<{ $color: string }>`
     letter-spacing: 3px;
 `
 
+const LeftTriangle = styled.a`
+    --r:6px; /* border radius */
+
+    height: 180px;
+    aspect-ratio: cos(30deg);
+    mask:
+        linear-gradient(90deg,#0000 calc(3*var(--r)/2),#000 0),
+        radial-gradient(var(--r) at calc(2*var(--r)) 50%,#000 98%,#0000 101%);
+    clip-path: polygon(0 50%,100% 100%,100% 0);
+    background: #000285;
+    margin-right: 10px;
+    padding: 15px 20px 15px 20px;
+`
+
+const RightTriangle = styled.a`
+    --r:6px; /* border radius */
+
+    height: 180px;
+    aspect-ratio: cos(30deg);
+    mask:
+        linear-gradient(-90deg,#0000 calc(3*var(--r)/2),#000 0),
+        radial-gradient(var(--r) at calc(100% - 2*var(--r)) 50%,#000 98%,#0000 101%);
+    clip-path: polygon(100% 50%,0 100%,0 0);
+    background: #000285;
+    margin-left: 10px;
+    padding: 15px 20px 15px 20px;
+`
+
+
 export default function Webrings() {
     return <p>
-        <a href="https://fediring.net/previous?host=privatenoob.top">←</a>
+        <LeftTriangle href="https://fediring.net/previous?host=privatenoob.top" />
         <FediringLink href="https://fediring.net/">
             <Letter $color="#feca00">F</Letter>
             <Letter $color="#63fe00">ED</Letter>
@@ -50,6 +79,6 @@ export default function Webrings() {
             <Letter $color="#9500fe">IN</Letter>
             <Letter $color="#fe0000">G</Letter>
         </FediringLink>
-        <a href="https://fediring.net/next?host=privatenoob.top">→</a>
+        <RightTriangle href="https://fediring.net/next?host=privatenoob.top" />
     </p>
 }
