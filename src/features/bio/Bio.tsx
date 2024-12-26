@@ -99,7 +99,14 @@ const BioList = styled.div`
   line-height: 1;
 `;
 
+const CalculateAge = () : number => {
+  const now: number = (new Date()).getTime();
+  const birthday: number = Date.parse("2000.12.26");
+  return Math.floor((now - birthday) / (1000 * 3600 * 24 * 365));
+}
+
 function Bio({ isLastBottom = false }: BaseProps) {
+
   return (
     <BaseContentDiv isLastBottom={isLastBottom}>
       <div>
@@ -121,7 +128,7 @@ function Bio({ isLastBottom = false }: BaseProps) {
         </BioInfo>
       </div>
       <BioList>
-        <h3>♂️ 23, he/him</h3>
+        <h3>♂️ {CalculateAge()}, he/him</h3>
         <h3>🇭🇺 Hungarian</h3>
       </BioList>
     </BaseContentDiv>
