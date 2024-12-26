@@ -18,5 +18,6 @@ export default function WebringsAndFriends({ isLastBottom }: BaseProps) {
                 src="/infos/links/oddworld_nemin.png"
                 url="https://oddwords.hu/#" />
         </FlexDivWithPadding>
+        <br />
     </BaseContentDiv>
 }
