@@ -1,7 +1,7 @@
 import { rgba } from "polished";
 import styled from "styled-components";
 
-const BaseContentDiv = styled.div<{ isLastBottom?: boolean, isLastLeft?: boolean }>`
+const BaseContentDiv = styled.div<{ isLastBottom?: boolean, isLastLeft?: boolean, height?: number }>`
   background-color: ${({ theme }) =>
     rgba(theme.colors.bg, 0.9)}; // Apply 50% transparency
   border: double ${({ theme }) => theme.colors.primary};
@@ -10,6 +10,7 @@ const BaseContentDiv = styled.div<{ isLastBottom?: boolean, isLastLeft?: boolean
   margin-bottom: ${(props) => (props.isLastBottom ? 0 : 20)}px;
   margin-left: ${(props) => (props.isLastLeft ? 30 : 0)}px;
   width: 100%;
+  height: ${({ height }) => (height ? `calc(${height}% - 5px)`: "auto")};
 `;
 
 export default BaseContentDiv;
