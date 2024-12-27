@@ -204,7 +204,7 @@ function Navbar() {
 
           <DropDown>
             <DropDownLink>
-              <StyledFAIcon icon={faNewspaper} /> Blogs{" "}
+              <StyledFAIcon icon={faNewspaper} /> Posts{" "}
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
             <OuterDropDownMenuBlogs>
@@ -217,8 +217,8 @@ function Navbar() {
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <NavbarLink to="Software" component="dropdown">
-                    Software
+                  <NavbarLink to="Blogs" component="dropdown">
+                    Blogs
                   </NavbarLink>
                   <NavbarLink to="Recipes" component="dropdown">
                     Recipes

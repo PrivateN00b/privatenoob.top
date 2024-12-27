@@ -9,16 +9,16 @@ import {
   Route,
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Software from "./features/blogs/software/Software";
 import Home from "./features/core/Home";
-import { BaseRecipePage } from "./features/blogs/recipes/BaseRecipePage";
-import Recipes from "./features/blogs/recipes/Recipes";
 import PageNotFound from "./features/core/components/PageNotFound";
 import RootLayout from "./features/core/RootLayout";
 import About from "./features/infos/About";
 import Projects from "./features/infos/Projects";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/global"
+import Blogs from "./features/posts/blogs/Blogs";
+import Recipes from "./features/posts/recipes/Recipes";
+import { BaseRecipePage } from "./features/posts/recipes/BaseRecipePage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,7 +29,7 @@ const router = createBrowserRouter(
       <Route path="Projects" element={<Projects />} />
 
       {/* Blogs */}
-      <Route path="Software" element={<Software />} />
+      <Route path="Blogs" element={<Blogs />} />
       <Route path="Recipes" element={<Recipes />} />
       
       {/* Recipes (Dynamic Routing) */}
