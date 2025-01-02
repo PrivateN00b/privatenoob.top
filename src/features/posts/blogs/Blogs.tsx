@@ -6,7 +6,7 @@ import StyledParagraph from "../../../components/text/StyledParagraph";
 export default function Blogs() {
   return (
     <Container>
-      <BaseContentDiv isLastBottom={true}>
+      <BaseContentDiv $isLastBottom={true}>
         <CenteredH1>Articles about whatever</CenteredH1>
         <StyledParagraph style={{ marginBottom: "20px" }}>
           Thoughts empty, mom's spaghetti

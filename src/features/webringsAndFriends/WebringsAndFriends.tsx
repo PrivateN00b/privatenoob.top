@@ -6,7 +6,7 @@ import { BaseProps } from "../../utils/interfaces";
 import Webrings from "./Webrings";
 
 export default function WebringsAndFriends({ isLastBottom }: BaseProps) {
-    return <BaseContentDiv isLastBottom={isLastBottom}>
+    return <BaseContentDiv $isLastBottom={isLastBottom}>
         <CenteredH2>Webrings</CenteredH2>
         <Webrings />
         <CenteredH2>Friendos! :3</CenteredH2>

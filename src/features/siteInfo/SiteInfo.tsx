@@ -14,7 +14,7 @@ const ClickableImg = styled.img`
 
 export default function SiteInfo({ isLastBottom, isLastLeft }: BaseProps) {
     return (
-        <SiteInfoStyle isLastBottom={isLastBottom} isLastLeft={isLastLeft}>
+        <SiteInfoStyle $isLastBottom={isLastBottom} $isLastLeft={isLastLeft}>
             <FlexDivWithPadding>
                 <ClickableImg src="/infos/Censor_PGb.gif" onClick={() => window.open("http://www.mabsland.com/Adoption.html")}/>
             </FlexDivWithPadding>

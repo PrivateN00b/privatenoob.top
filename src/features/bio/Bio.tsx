@@ -108,7 +108,7 @@ const CalculateAge = () : number => {
 function Bio({ isLastBottom = false }: BaseProps) {
 
   return (
-    <BaseContentDiv isLastBottom={isLastBottom}>
+    <BaseContentDiv $isLastBottom={isLastBottom}>
       <div>
         <AvatarCard>
           <AvatarImg

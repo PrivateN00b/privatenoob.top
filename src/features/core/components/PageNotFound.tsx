@@ -5,7 +5,7 @@ import CenteredH1 from "../../../components/text/CenteredH1";
 export function PageNotFound() {
   return (
     <Container>
-      <BaseContentDiv isLastBottom={true}>
+      <BaseContentDiv $isLastBottom={true}>
         <CenteredH1>UNDER CONSTRUCTION</CenteredH1>
         <div
           style={{

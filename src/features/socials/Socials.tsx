@@ -8,7 +8,7 @@ import CenteredH2 from "../../components/text/CenteredH2";
 function Socials({ isLastBottom = false }: BaseProps) {
   return (
     <BaseContentDiv
-      isLastBottom={isLastBottom}
+      $isLastBottom={isLastBottom}
       style={{
         textAlign: "center",
         paddingBottom: "20px",

@@ -14,7 +14,7 @@ export default function Filters({
   onFilterChange,
 }: FiltersProps) {
   return (
-    <BaseContentDiv isLastBottom={isLastBottom}>
+    <BaseContentDiv $isLastBottom={isLastBottom}>
       <div style={{ margin: "0 0 20px 20px" }}>
         <h2>Meals:</h2>
         <CheckBox name="Breakfast" onCheckBoxChange={onFilterChange} />

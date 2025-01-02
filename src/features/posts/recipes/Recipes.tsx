@@ -124,7 +124,7 @@ function Recipes() {
         <Filters isLastBottom={true} onFilterChange={handleFilterChange} />
       </LeftSideDiv>
       <MainDiv>
-        <BaseContentDiv isLastBottom={true} height={100}>
+        <BaseContentDiv $isLastBottom={true} height={100}>
           <CenteredH1>Recipes</CenteredH1>
           <RecipeList>{renderRecipes()}</RecipeList>
         </BaseContentDiv>

@@ -10,7 +10,7 @@ const DeezerIFrame = styled.iframe`
 `
 
 export default function DeezerEmbed({ isLastBottom, isLastLeft }: BaseProps) {
-    return  <BaseContentDiv isLastBottom={isLastBottom} isLastLeft={isLastLeft}>
+    return  <BaseContentDiv $isLastBottom={isLastBottom} $isLastLeft={isLastLeft}>
         <CenteredH2>🎶 Fav J-songs 🎶</CenteredH2>
         <DeezerIFrame title="deezer-widget" 
                     src="https://widget.deezer.com/widget/auto/playlist/13306681843" 

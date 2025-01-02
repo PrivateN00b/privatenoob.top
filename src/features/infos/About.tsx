@@ -18,7 +18,7 @@ function About() {
         <Socials isLastBottom={true} />
       </LeftSideDiv>
       <MainDiv>
-        <BaseContentDiv isLastBottom={true}>
+        <BaseContentDiv $isLastBottom={true}>
           <CenteredH1>Introduction</CenteredH1>
           <StyledParagraph>
             Yooo! My username is PrivateNoob, but some people may know me as Kacsa
