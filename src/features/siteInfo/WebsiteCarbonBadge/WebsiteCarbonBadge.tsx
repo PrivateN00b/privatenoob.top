@@ -134,14 +134,14 @@ const WebsiteCarbonBadge = (props: WebsiteCarbonBadgeProps) => {
         }
 
         try {
-          const res = await fetch("https://api.websitecarbon.com/b?url=" + url)
+          const res = await fetch(`https://api.websitecarbon.com/site?url=https%3A%2F%2F${url}%2F`)
 
           if (!res.ok) throw Error(JSON.stringify(await res.json()))
           const data = await res.json()
 
           localStorage.setItem(`wcb_${url}`, JSON.stringify(data))
 
-          setData({ co2: data.c, percentage: data.p })
+          setData({ co2: data.co2.renewable.grams, percentage: data.cleanerThan })
         } catch (e) {
           console.error(e)
           localStorage.removeItem(`wcb_${url}`)
@@ -184,7 +184,7 @@ const WebsiteCarbonBadge = (props: WebsiteCarbonBadgeProps) => {
         {data.percentage
           ? parseInt(data.percentage) > 50
             ? `${ps.p3} ${data.percentage}% ${ps.p5}`
-            : `${ps.p4} ${data.percentage}% ${ps.p5}`
+            : `${ps.p4} ${100 - Number(data.percentage)}% ${ps.p5}`
           : ""}
       </Percentage>
     </Wrapper>
