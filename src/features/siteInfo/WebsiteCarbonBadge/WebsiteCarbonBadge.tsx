@@ -5,8 +5,12 @@ import { WebsiteCarbonBadgeProps } from "./WebsiteCarbonBadge.types"
 import styled, { css } from "styled-components"
 
 const Wrapper = styled.div<WebsiteCarbonBadgeProps>`
-  --b1: #0e11a8;
-  --b2: #00ffbc;
+  --b1: ${props => props.rightBg ? props.rightBg : '#0e11a8'};
+  --b2: ${props => props.leftBorderCol || '#00ffbc'};
+  --b3: ${props => props.leftBg || '#fff'};
+  --b4: ${props => props.leftCol || '#0e11a8'};
+  --b5: ${props => props.rightCol || '#fff'};
+  --b6: ${props => props.percentCol || '#0e11a8'};
   font-size: 15px;
   text-align: center;
   color: var(--b1);
@@ -26,7 +30,7 @@ const LinkCo2 = styled.a`
   padding: 0.3em 0.5em;
   border: 0.13em solid var(--b2);
   border-radius: 0.3em 0 0 0.3em;
-  background: #fff;
+  background: var(--b3);
   border-right: 0;
   min-width: 8.2em;
   color: var(--b1);
@@ -77,12 +81,21 @@ const Percentage = styled.span<WebsiteCarbonBadgeProps>`
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   text-decoration: none;
   margin: 0.2em 0;
+  color: var(--b6);
 
   ${props =>
     props.dark &&
     css`
       color: #fff;
     `}
+`
+
+const CoText = styled.span`
+  color: var(--b4);
+`
+
+const LinkText = styled.span`
+  color: var(--b5);
 `
 
 const dict = {
@@ -142,14 +155,21 @@ const WebsiteCarbonBadge = (props: WebsiteCarbonBadgeProps) => {
   let ps = props.lang == "fr" ? dict.fr : dict.en
 
   return (
-    <Wrapper className="carbonbadge">
-      <div>
+    <Wrapper 
+      className="carbonbadge"
+      leftBorderCol={props.leftBorderCol}
+      leftBg={props.leftBg}
+      leftCol={props.leftCol}
+      rightBg={props.rightBg}
+      rightCol={props.rightCol} 
+      percentCol={props.percentCol} >
+        <div>
         <LinkCo2
           target="_blank"
           rel="noopener noreferrer"
           href={`https://www.websitecarbon.com/website/${props.url}`}
         >
-          {data.co2 ? data.co2 : "-"}g {ps.p1} CO<Sub>2</Sub>/{ps.p2}
+          <CoText>{data.co2 ? data.co2 : "-"}g {ps.p1} CO<Sub>2</Sub>/{ps.p2}</CoText>
         </LinkCo2>
         <Link
           dark={props.dark}
@@ -157,7 +177,7 @@ const WebsiteCarbonBadge = (props: WebsiteCarbonBadgeProps) => {
           rel="noopener noreferrer"
           href="https://websitecarbon.com"
         >
-          Website Carbon
+          <LinkText>Website Carbon</LinkText>
         </Link>
       </div>
       <Percentage dark={props.dark}>
