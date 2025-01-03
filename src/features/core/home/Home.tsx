@@ -1,16 +1,17 @@
-import Container from "../../components/div/Container";
-import LeftSideDiv from "../../components/div/LeftSideDiv";
-import MainDiv from "../../components/div/MainDiv";
-import CenteredH1 from "../../components/text/CenteredH1";
-import StyledItem from "../../components/text/StyledItem";
-import StyledParagraph from "../../components/text/StyledParagraph";
-import Bio from "../bio/Bio";
-import DeezerEmbed from "../deezerEmbed/DeezerEmbed";
-import Socials from "../socials/Socials";
-import BaseContentDiv from "../../components/div/BaseContentDiv";
-import SiteInfo from "../siteInfo/SiteInfo";
-import { FlexDiv } from "../../components/div/FlexDivs";
-import WebringsAndFriends from "../webringsAndFriends/WebringsAndFriends";
+import Container from "../../../components/div/Container";
+import LeftSideDiv from "../../../components/div/LeftSideDiv";
+import MainDiv from "../../../components/div/MainDiv";
+import CenteredH1 from "../../../components/text/CenteredH1";
+import StyledItem from "../../../components/text/StyledItem";
+import StyledParagraph from "../../../components/text/StyledParagraph";
+import Bio from "../../bio/Bio";
+import DeezerEmbed from "../../deezerEmbed/DeezerEmbed";
+import Socials from "../../socials/Socials";
+import BaseContentDiv from "../../../components/div/BaseContentDiv";
+import SiteInfo from "../../siteInfo/SiteInfo";
+import { FlexDiv } from "../../../components/div/FlexDivs";
+import WebringsAndFriends from "../../webringsAndFriends/WebringsAndFriends";
+import Buttons from "./components/Buttons";
 
 function Home() {
   return (
@@ -45,6 +46,7 @@ function Home() {
           <StyledItem>Chatting feature?</StyledItem>
           <br />
         </BaseContentDiv>
+        <Buttons />
         <FlexDiv>
           <WebringsAndFriends isLastBottom={true} />
           <DeezerEmbed isLastBottom={true} isLastLeft={true} />

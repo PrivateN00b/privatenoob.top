@@ -9,7 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Home from "./features/core/Home";
+import Home from "./features/core/home/Home";
 import PageNotFound from "./features/core/components/PageNotFound";
 import RootLayout from "./features/core/RootLayout";
 import About from "./features/infos/About";
