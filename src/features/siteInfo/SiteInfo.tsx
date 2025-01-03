@@ -18,7 +18,7 @@ export default function SiteInfo({ isLastBottom, isLastLeft }: BaseProps) {
             <FlexDivWithPadding>
                 <ClickableImg src="/infos/Censor_PGb.gif" onClick={() => window.open("http://www.mabsland.com/Adoption.html")}/>
             </FlexDivWithPadding>
-            <WebsiteCarbonBadge url="www.privatenoob.top" />
+            <WebsiteCarbonBadge url="www.privatenoob.top" co2="0.8" percentage="32" percentCol="white"/>
         </SiteInfoStyle>
     );
 }

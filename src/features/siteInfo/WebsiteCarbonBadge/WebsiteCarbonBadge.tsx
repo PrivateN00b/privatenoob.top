@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { WebsiteCarbonBadgeProps } from "./WebsiteCarbonBadge.types"
 import styled, { css } from "styled-components"
 
