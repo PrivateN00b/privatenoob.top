@@ -123,6 +123,7 @@ const InnerDropDownMenu = styled(BaseContentDiv)`
 const DropDown = styled.div`
   margin: 10px 0 0 0;
   position: relative;
+  z-index: 5;
 
   &:hover ${OuterDropDownMenu} {
     z-index: 1;
