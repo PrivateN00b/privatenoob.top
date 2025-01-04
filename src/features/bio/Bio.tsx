@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import BaseContentDiv from "../../components/div/BaseContentDiv";
-import { BaseProps } from "../../utils/interfaces";
+import { BaseContentDivProps } from "../../utils/interfaces";
 import { NavLink } from "react-router-dom";
 import socialLinks from "../../utils/socialLinks";
 import { rgba } from "polished";
@@ -105,10 +105,10 @@ const CalculateAge = () : number => {
   return Math.floor((now - birthday) / (1000 * 3600 * 24 * 365));
 }
 
-function Bio({ isLastBottom = false }: BaseProps) {
+function Bio({ $isLastBottom = false }: BaseContentDivProps) {
 
   return (
-    <BaseContentDiv $isLastBottom={isLastBottom}>
+    <BaseContentDiv $isLastBottom={$isLastBottom}>
       <div>
         <AvatarCard>
           <AvatarImg

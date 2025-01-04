@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import BaseContentDiv from "../../components/div/BaseContentDiv";
-import { BaseProps } from "../../utils/interfaces";
+import { BaseContentDivProps } from "../../utils/interfaces";
 import Icon from "../../components/text/Icon";
 import socialLinks from "../../utils/socialLinks";
 import CenteredH2 from "../../components/text/CenteredH2";
 
-function Socials({ isLastBottom = false }: BaseProps) {
+function Socials({ isLastBottom = false }: BaseContentDivProps) {
   return (
     <BaseContentDiv
       $isLastBottom={isLastBottom}

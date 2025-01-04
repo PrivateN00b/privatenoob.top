@@ -1,4 +1,6 @@
-export interface BaseProps {
-  isLastBottom?: boolean;
-  isLastLeft?: boolean;
+export interface BaseContentDivProps {
+  $isLastBottom?: boolean;
+  $isLastLeft?: boolean;
+  $height?: number;
+  $bgTransparency?: number;
 }

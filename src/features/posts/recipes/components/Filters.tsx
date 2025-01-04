@@ -1,8 +1,8 @@
 import BaseContentDiv from "../../../../components/div/BaseContentDiv";
 import CheckBox from "../../../../components/checkbox/Checkbox";
-import { BaseProps } from "../../../../utils/interfaces";
+import { BaseContentDivProps } from "../../../../utils/interfaces";
 
-interface FiltersProps extends BaseProps {
+interface FiltersProps extends BaseContentDivProps {
   onFilterChange: (
     name: string,
     event: React.ChangeEvent<HTMLInputElement>

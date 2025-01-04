@@ -15,7 +15,7 @@ function About() {
     <Container>
       <LeftSideDiv>
         <Bio />
-        <Socials isLastBottom={true} />
+        <Socials $isLastBottom={true} />
       </LeftSideDiv>
       <MainDiv>
         <BaseContentDiv $isLastBottom={true}>

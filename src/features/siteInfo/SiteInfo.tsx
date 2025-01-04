@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import BaseContentDiv from "../../components/div/BaseContentDiv";
-import { BaseProps } from "../../utils/interfaces";
+import { BaseContentDivProps } from "../../utils/interfaces";
 import { FlexDivWithPadding } from "../../components/div/FlexDivs";
 import WebsiteCarbonBadge from "./WebsiteCarbonBadge/WebsiteCarbonBadge";
 
@@ -12,7 +12,7 @@ const ClickableImg = styled.img`
     cursor: pointer;
 `;
 
-export default function SiteInfo({ isLastBottom, isLastLeft }: BaseProps) {
+export default function SiteInfo({ isLastBottom, isLastLeft }: BaseContentDivProps) {
     return (
         <SiteInfoStyle $isLastBottom={isLastBottom} $isLastLeft={isLastLeft}>
             <FlexDivWithPadding>
