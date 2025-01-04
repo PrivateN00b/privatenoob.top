@@ -182,7 +182,7 @@ function Navbar() {
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
             <OuterDropDownMenuInfos>
-              <InnerDropDownMenu $isLastBottom={true}>
+              <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
                 <div>
                   <img
                     style={{ maxWidth: "80px" }}
@@ -208,7 +208,7 @@ function Navbar() {
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
             <OuterDropDownMenuBlogs>
-              <InnerDropDownMenu $isLastBottom={true}>
+              <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
                 <div>
                   <img
                     style={{ maxWidth: "100px" }}
@@ -237,7 +237,7 @@ function Navbar() {
               <FontAwesomeIcon icon={faAngleDown} />
             </DropDownLink>
             <OuterDropDownMenuOthers>
-              <InnerDropDownMenu $isLastBottom={true} style={{ paddingRight: "27px" }}>
+              <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1} style={{ paddingRight: "27px" }}>
                 <div>
                   <img style={{ maxWidth: "80px" }} src="/bocchi-rotate.gif" />
                 </div>{" "}
