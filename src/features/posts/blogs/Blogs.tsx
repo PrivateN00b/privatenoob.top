@@ -1,16 +1,33 @@
 import BaseContentDiv from "../../../components/div/BaseContentDiv";
-import CenteredH1 from "../../../components/text/CenteredH1";
 import Container from "../../../components/div/Container";
-import StyledParagraph from "../../../components/text/StyledParagraph";
+import Filters from "./components/Filters";
+import Blog from "./components/Blog";
+import blogsJSON from "./utils/blogs.json";
+import { useEffect, useState } from "react";
+import { BlogDict } from "./utils/BlogsTypes";
 
 export default function Blogs() {
+  const [blogs, setBlogs] = useState([] as BlogDict[]);
+  const localBlogs: BlogDict[] = JSON.parse(
+    JSON.stringify(blogsJSON)
+  ) as BlogDict[];
+
+  useEffect(() => {
+    // This shall be replaced when the backend will provide blogs as well, just as in Recipes.tsx
+    setBlogs(localBlogs)
+    console.log(blogs)
+  }, [])
+
+  const renderBlogs = () => {
+    return blogs.map((blog, i) => <Blog key={i} {...blog} />)
+  }
+
   return (
-    <Container>
+    <Container $flexDirection="column">
+      <Filters />
       <BaseContentDiv $isLastBottom={true}>
-        <CenteredH1>Articles about whatever</CenteredH1>
-        <StyledParagraph style={{ marginBottom: "20px" }}>
-          Thoughts empty, mom's spaghetti
-        </StyledParagraph>
+        <br />
+        {renderBlogs()}
       </BaseContentDiv>
     </Container>
   );
