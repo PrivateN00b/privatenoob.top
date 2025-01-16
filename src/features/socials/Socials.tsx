@@ -5,10 +5,10 @@ import Icon from "../../components/text/Icon";
 import socialLinks from "../../utils/socialLinks";
 import CenteredH2 from "../../components/text/CenteredH2";
 
-function Socials({ isLastBottom = false }: BaseContentDivProps) {
+function Socials({ $isLastBottom = false }: BaseContentDivProps) {
   return (
     <BaseContentDiv
-      $isLastBottom={isLastBottom}
+      $isLastBottom={$isLastBottom}
       style={{
         textAlign: "center",
         paddingBottom: "20px",

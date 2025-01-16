@@ -23,7 +23,7 @@ export default function Blogs() {
 
   return (
     <Container $flexDirection="column">
-      <Filters />
+      <Filters onFilterChange={() => {}}/>
       <BaseContentDiv $isLastBottom={true}>
         <br />
         {renderBlogs()}

@@ -12,9 +12,9 @@ const ClickableImg = styled.img`
     cursor: pointer;
 `;
 
-export default function SiteInfo({ isLastBottom, isLastLeft }: BaseContentDivProps) {
+export default function SiteInfo({ $isLastBottom, $isLastLeft }: BaseContentDivProps) {
     return (
-        <SiteInfoStyle $isLastBottom={isLastBottom} $isLastLeft={isLastLeft}>
+        <SiteInfoStyle $isLastBottom={$isLastBottom} $isLastLeft={$isLastLeft}>
             <FlexDivWithPadding>
                 <ClickableImg src="/infos/Censor_PGb.gif" onClick={() => window.open("http://www.mabsland.com/Adoption.html")}/>
             </FlexDivWithPadding>
