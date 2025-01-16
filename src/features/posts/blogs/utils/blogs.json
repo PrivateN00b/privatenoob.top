@@ -1,16 +1,91 @@
 [
-    {
-      "to": "SourdoughGuide",
-      "title": "Sourdough 101",
-      "intro": "I love sourdoughs! I love sourdoughs! I love sourdoughs! I love sourdoughs!",
-      "categories": [
-        2
-      ],
-      "date": "2025.01.01",
-      "content": [
-        "segs",
-        "AWOOO",
-        "HIHIUHHHHH"
-      ]
-    }
+  {
+    "to": "SourdoughGuide",
+    "title": "Guide: Important Things About Working With Sourdough",
+    "intro": "These are handy informations about anything related to sourdoughs",
+    "categories": [2],
+    "date": "2025.01.11",
+    "content": [
+      "/p;I've been thinking on creating an easily available info page about anything related to sourdoughs in one article, because searching multiple articles to get some forgotten infos can kinda can get under one's skin. But what is a sourdough though, and why should I need one?",
+      "/p;Well a sourdough starter is made up by combining water and flour into eachother. The magic starts when we expose this combination to air, which populates the starter with good bacteria and forming an entire ecosystem inside this dough. 2 of the most essential bacteria we always find in a starter are lactic acid bacteria (LAB) and wild yeasts, which break down carbohydrates and produces gas as a result, which is the primary reason our dough can rise.",
+      "/h2;Starter maintaining",
+      "/p;Your starter needs to be refed on certain occasions, because it won't be able to produce any rises or in the worst case scenario, the starter can even die out from malnourishment.",
+      "/p;There are 2 methods to store your starter which heavily alters the frequeny of the feeding sessions (Please choose the fridge option stg):",
+      "/ul",
+      "/s;Stored in fridge: ;Feed it every week. Can be saved if exactly 2 weeks have passed by feeding it once and another time tomorrow",
+      "/s;Stored in room temperature area: ;Feed it daily twice. You need be a psychopath to choose this option",
+      "//ul",
+      "/p;In all cases a starter is advised to be fed with greater amounts on fewer occasions, rather than with light amounts on many occasions. The reason is because you won't see an active enough starter if you don't feed it with enough flour and water.",
+      "/p;In terms of feeding ratios, most people usually go with a 1:1:1 ratio, which means for 1g of starter, 1g of flour and water will be added into the mix. You can go with a higher ratio as well, where the only difference is that the duration of the starter rising will be noticeably higher, although I would recommend going at max with a 1:4:4 ratio.",
+      "/p;But also do we really need to strictly stay with a 50% flour and 50% water combination? Well I've good news for you because you surely can! Straying away from the default 100% hydration (1g water for 1g flour) level changes the feeding frequency need, mixing difficulty and sourness taste. Personally speaking, I've only used 80% hydration starters and there was no issue with mixing the ingredients for me.",
+      "/ul",
+      "/s;Lower hydration (<100%): ;Can go longer without feedings, because the wild yeast and LAB can't consume as fast due to the water shortage. Harder to mix. Produces a more sour flavor because there will be more lactic acid generation happening in the starter.",
+      "/s;Higher hydration (>100%): ;Needs more feedings, because they feed quicker due to the higher amount of water. Easier to mix. Has a milder sour flavor.",
+      "//ul",
+      "/p;After you've succesfully selected the most comfy ratio and mixed them together, then you should leave the starter to rest on your counter exposed to open air for 2 hours, and after that just store it in a preferred place (pwease let it be fridge, pwetty pwease) with the lid completely sealed off for overnight.",
+      "/h2;Converting yeasted recipes to sourdough",
+      "/p;Often times bakers wish to use their favorite recipe or were only able to find a non-sourdough one. Luckily altering the recipe is possible with some basic maths.",
+      "/p;In a conversion scenario 100g starter equals with 7g of dried yeast, which means 1g yeast ~= 14g of starter",
+      "/p/s;The yeasted (yuckyyy) recipe:",
+      "/ul",
+      ";500g flour",
+      ";7g yeast",
+      ";350g water",
+      ";10g salt",
+      "//ul",
+      "/p/s;Converted with 100% hydration starter:",
+      "/ul",
+      ";500 - 100 = 400g flour",
+      ";350 - 100 = 250g water",
+      ";10g salt",
+      "//ul",
+      "/p/s;Converted with 80% hydration starter:",
+      "/ul",
+      ";500 - 100 * 1,2 = 380g flour",
+      ";350 - 100 * 0,8 = 270g water",
+      ";10g salt",
+      "//ul",
+      "/h2;General tips about using the starter in a recipe",
+      "/p;Whenever you're planning to work with a sourdough recipe, I would recommend in the first steps to mix the required starter amount with lukewarm water. It will only deconstruct itself into some smaller chunks, but that's perfectly enough. After this preliminary step, you can just continue with the required instructions found in the recipe.",
+      "/p;You can also change the amount of starter you wish to add, the deviations of which you can see here:",
+      "/ul",
+      "/s;Less starter: ;Slower fermentation (more waiting process). More sour flavored dough. Increased hydration level",
+      "/s;More starter: ;Faster fermentation (less waiting process). Milder sour flavored dough. Decreases hydration level",
+      "//ul",
+      "/p;Usually it's a common practice to knead the doughs until they have completely formed without stickiness in one go when we're using yeasted recipes, which isn't to say that kneading can't be done while working with a sourdough, but in a lot of cases using a no-knead method makes life noticeably more hassle-free.",
+      "/p;The steps go like this:",
+      "/ol",
+      ";Mix the dough ingredients until they have just formed into eachother. This usually takes 1-2 minutes",
+      ";Cover it with a blanket and let it rest for 15-30 minutes",
+      ";Sprinkle your hand with some water, because the dough will be really sticky. ;/a;https://www.youtube.com/watch?v=QYzxulQY1Gc;Fold it from 4 sides like in this video;", 
+      ";Rest it covered with your blanket for 20-30 mins",
+      ";Repeat step 3, until you have made 4 fold session in total",
+      "//ol",
+      "/p;This process is used for introducing some air into the dough, which will create air bubbled, and developing the gluten molecule network which will make the dough less sticky and more stretchable.",
+      "/p;Most of the time we usually do cold fermentation after the folding has been done, and possible other steps after that. Cold fermentation means that we put it in the fridge to rest and develop it's flavors + letting it rise. It's advisable to rest it for atleast overnight and possibly maximum 3 days, because we can overferment the dough as well.",
+      "/p;These are all the general tips I have in my mind which are good to know currently. This page will possibly be heavily edited."
+    ],
+    "sources": [
+      {
+        "url": "https://www.mydailysourdoughbread.com/sourdough-kneading-techniques/",
+        "title": "6 Basic Sourdough Kneading Techniques",
+        "retrieved": "2025.01.16"
+      },
+      {
+        "url": "https://www.busbysbakery.com/sourdough-fermentation/",
+        "title": "Sourdough Fermentation Process – How Does It All Work?",
+        "retrieved": "2025.01.14"
+      },
+      {
+        "url": "https://www.theperfectloaf.com/guides/sourdough-starter/",
+        "title": "The Ultimate Sourdough Starter Guide",
+        "retrieved": "2025.01.15"
+      },
+      {
+        "url": "https://receptneked.hu/cikkek/igy-szamold-at-az-elesztos-recepteket-kovaszosra/",
+        "title": "Így számold át az élesztős recepteket kovászosra",
+        "retrieved": "2025.01.15"
+      }
+    ]
+  }
 ]

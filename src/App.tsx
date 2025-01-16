@@ -19,6 +19,7 @@ import GlobalStyle from "./styles/global"
 import Blogs from "./features/posts/blogs/Blogs";
 import Recipes from "./features/posts/recipes/Recipes";
 import { BaseRecipePage } from "./features/posts/recipes/BaseRecipePage";
+import BlogPage from "./features/posts/blogs/components/BlogPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,7 +33,8 @@ const router = createBrowserRouter(
       <Route path="Blogs" element={<Blogs />} />
       <Route path="Recipes" element={<Recipes />} />
       
-      {/* Recipes (Dynamic Routing) */}
+      {/* Dynamic Routing */}
+      <Route path="Blogs/:blogId" element={<BlogPage />} />
       <Route path="Recipes/:recipeId" element={<BaseRecipePage />} />
 
       <Route path="404" element={<PageNotFound />} />

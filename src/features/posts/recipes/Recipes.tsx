@@ -5,7 +5,7 @@ import { Recipe } from "./components/Recipe";
 import Filters from "./components/Filters";
 import recipesJSON from "./utils/recipes.json";
 import { useEffect, useState } from "react";
-import { FilterDict, RecipeDict } from "./utils/RecipesTypes";
+import { FilterProps, RecipeDict } from "./utils/RecipesTypes";
 import { Cost, Meal } from "./utils/RecipesEnums";
 import LeftSideDiv from "../../../components/div/LeftSideDiv";
 import MainDiv from "../../../components/div/MainDiv";
@@ -38,14 +38,14 @@ function Recipes() {
   }, []);
 
   // Set filter values
-  const [filterValues, setFilterValues] = useState<FilterDict>({
+  const [filterValues, setFilterValues] = useState<FilterProps>({
     types: [],
     restrictions: [],
     costs: [],
   });
 
   const handleFilterValues = (
-    key: keyof FilterDict,
+    key: keyof FilterProps,
     name: string,
     e: React.ChangeEvent<HTMLInputElement>
   ) => {

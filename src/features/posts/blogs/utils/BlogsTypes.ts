@@ -1,16 +1,17 @@
-import { Category } from "./BlogsEnums";
+import { BlogCategory } from "./BlogsEnums";
 
-type FilterDict = {
+type FilterProps = {
   categories: string[];
 };
 
-type BlogDict = {
+type BlogProps = {
   to: string;
   title: string;
   intro: string;
-  categories: Category[];
+  categories: BlogCategory[];
   date: string;
-  content: string;
+  content: string[];
+  sources: { [key: string]: string }[]; 
 };
 
-export type { FilterDict, BlogDict };
+export type { FilterProps, BlogProps };

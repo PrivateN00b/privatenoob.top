@@ -1,6 +1,6 @@
 import { Meal } from "./RecipesEnums";
 
-type FilterDict = {
+type FilterProps = {
   types: string[];
   restrictions: string[];
   costs: string[];
@@ -23,4 +23,4 @@ type RecipeDict = {
   sources: { [key: string]: string }[]
 };
 
-export type { FilterDict, RecipeDict };
+export type { FilterProps, RecipeDict };
