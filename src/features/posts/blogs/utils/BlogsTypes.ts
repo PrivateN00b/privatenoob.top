@@ -1,7 +1,9 @@
 import { BlogCategory } from "./BlogsEnums";
 
 type FilterProps = {
-  categories: string[];
+  coding: boolean;
+  food: boolean;
+  gaming: boolean;
 };
 
 type BlogProps = {
