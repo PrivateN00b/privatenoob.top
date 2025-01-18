@@ -40,7 +40,7 @@ export default function Blog(props: BlogProps) {
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <div style={{ textAlign: "left" }}>
                         {props.categories.map((category) => (
-                            <Category>{BlogCategory[category]}</Category>
+                            <Category key={category}>{BlogCategory[category]}</Category>
                         ))}
                     </div>
                     <div style={{ textAlign: "right", marginRight: "5px" }}>

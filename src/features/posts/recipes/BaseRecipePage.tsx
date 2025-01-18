@@ -51,20 +51,22 @@ interface RecipeProps {
 function RenderIngredients(props: RecipeProps ) {
   if (props.ingredients[0]["title"] == "") {
     // Render without SubHeader if the title is empty and there is only 1 object
+    // Key can be index, because this page is read-only
     return <>
-    {props.ingredients[0]["content"].map((ingredient) => (
-      <IngredientParagraph>{ingredient}</IngredientParagraph>
+    {props.ingredients[0]["content"].map((ingredient, i) => (
+      <IngredientParagraph key={i}>{ingredient}</IngredientParagraph>
     ))}
     </> 
   } 
   else
   {
     // Render everything (when title isn't empty basically)
-    return props.ingredients.map((ingObj) => (
+    // Key can be index, because this page is read-only
+    return props.ingredients.map((ingObj, i) => (
       <>
-        <SubHeader>{ingObj["title"]}</SubHeader>
-        {ingObj["content"].map((ingredient) => (
-          <IngredientParagraph>{ingredient}</IngredientParagraph>
+        <SubHeader key={i}>{ingObj["title"]}</SubHeader>
+        {ingObj["content"].map((ingredient, j) => (
+          <IngredientParagraph key={j}>{ingredient}</IngredientParagraph>
         ))}
       </>
     ))
@@ -122,7 +124,7 @@ export function BaseRecipePage() {
           <RightColumn>
             <RightHeader>Steps</RightHeader>
             <StyledOL>
-              {recipe.steps.map((step) => (
+              {recipe.steps.map((step, i) => (
                 <li>
                   <p>{step}</p>
                 </li>

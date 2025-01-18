@@ -83,7 +83,7 @@ export default function BlogPage() {
             return blog.content.slice(i + 1, i + eofListId)
                     .map((valLi, j) => {
                         const splittedValLi = valLi.split(';');
-                        return <li style={{ textAlign: "left" }} key={j}>
+                        return <li style={{ textAlign: "left" }} key={blog.content.indexOf(valLi)}>
                             {ApplyElements(splittedValLi)}
                         </li>                                          
                     })
@@ -96,6 +96,7 @@ export default function BlogPage() {
                     // Check only the first escape value. Ex: /p/s => ['', 'p', 's']
                     switch (splittedVal[0].split('/')[1]) {
                         case "p":
+                            // Keys can be left with indexes because BlogPage is meant to be read, and not interacted with
                             return <BlogParagraph key={i}>{ApplyElements(splittedVal)}</BlogParagraph>;
                         case "h2":
                             return <CenteredH2 key={i}>{splittedVal[1]}</CenteredH2>;

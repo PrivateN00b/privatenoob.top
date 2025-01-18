@@ -13,9 +13,9 @@ export const GenerateEmotes = (layoutRef: MutableRefObject<HTMLDivElement | null
     7: "waritodoudemoii"
   }  
   
-  return Array.from("01234567".repeat(3)).map((_: string, index: number) => (
+  return Array.from("ABCDEFGHIJKLabcdefghijkl").map((key: string) => (
     <MovingEmote
-      key={index}
+      key={key}
       top={Math.floor(Math.random() * 1900)} // Spawn somewhere in Y dimension
       left={layoutWidth} // Spawn somewhere in X dimension
       imgPath={`/emoji/${emoteNames[Math.floor(Math.random() * 7)]}.png`}
