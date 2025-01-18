@@ -27,41 +27,46 @@ const ButtonsDiv = styled.div`
     }
 `;
 
+const Button = styled.img`
+    width: 88px;
+    height: 31px;
+`
+
 export default function Buttons() {
     return (
         <ButtonsDiv>
             <InnerButtons>
-                <img src="infos/buttons/tested-on-firefox.webp" />
-                <img src="infos/buttons/animegay.gif" />
-                <img src="infos/buttons/kde-now.gif" />
-                <img src="infos/buttons/endeavouros.jpg" />
-                <img src="infos/buttons/linux.webp" />
-                <img src="infos/buttons/blockads.gif" />
-                <img src="infos/buttons/miku3.gif" />
-                <img src="infos/buttons/neo-fedi.gif" />
-                <img src="infos/buttons/neocities_button.gif" />
-                <img src="infos/buttons/old-net.gif" />
-                <img src="infos/buttons/piracy.gif" />
-                <img src="infos/buttons/seed.gif" />
-                <img src="infos/buttons/steam.gif" />
+                <Button src="infos/buttons/tested-on-firefox.webp" />
+                <Button src="infos/buttons/animegay.gif" />
+                <Button src="infos/buttons/kde-now.gif" />
+                <Button src="infos/buttons/endeavouros.jpg" />
+                <Button src="infos/buttons/linux.webp" />
+                <Button src="infos/buttons/blockads.gif" />
+                <Button src="infos/buttons/miku3.gif" />
+                <Button src="infos/buttons/neo-fedi.gif" />
+                <Button src="infos/buttons/neocities_button.gif" />
+                <Button src="infos/buttons/old-net.gif" />
+                <Button src="infos/buttons/piracy.gif" />
+                <Button src="infos/buttons/seed.gif" />
+                <Button src="infos/buttons/steam.gif" />
             </InnerButtons>
 
             {/* Content is duplicated to make the infinite scroll feeling work
             I don't want to use JS to generate the doubled content */}
             <InnerButtons>
-                <img src="infos/buttons/tested-on-firefox.webp" />
-                <img src="infos/buttons/animegay.gif" />
-                <img src="infos/buttons/kde-now.gif" />
-                <img src="infos/buttons/endeavouros.jpg" />
-                <img src="infos/buttons/linux.webp" />
-                <img src="infos/buttons/blockads.gif" />
-                <img src="infos/buttons/miku3.gif" />
-                <img src="infos/buttons/neo-fedi.gif" />
-                <img src="infos/buttons/neocities_button.gif" />
-                <img src="infos/buttons/old-net.gif" />
-                <img src="infos/buttons/piracy.gif" />
-                <img src="infos/buttons/seed.gif" />
-                <img src="infos/buttons/steam.gif" />
+                <Button src="infos/buttons/tested-on-firefox.webp" />
+                <Button src="infos/buttons/animegay.gif" />
+                <Button src="infos/buttons/kde-now.gif" />
+                <Button src="infos/buttons/endeavouros.jpg" />
+                <Button src="infos/buttons/linux.webp" />
+                <Button src="infos/buttons/blockads.gif" />
+                <Button src="infos/buttons/miku3.gif" />
+                <Button src="infos/buttons/neo-fedi.gif" />
+                <Button src="infos/buttons/neocities_button.gif" />
+                <Button src="infos/buttons/old-net.gif" />
+                <Button src="infos/buttons/piracy.gif" />
+                <Button src="infos/buttons/seed.gif" />
+                <Button src="infos/buttons/steam.gif" />
             </InnerButtons>
         </ButtonsDiv>
     );

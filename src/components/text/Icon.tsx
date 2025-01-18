@@ -8,6 +8,7 @@ const IconStyle = styled.span`
 
   img {
     height: ${({ theme }) => theme.fontSize.medium};
+    width: 100%;
     padding-right: 5px;
   }
 `;

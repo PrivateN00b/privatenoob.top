@@ -41,7 +41,7 @@ const LeftLayoutStyle = styled.div`
 
 const CenterLayoutStyle = styled.div`
   width: 100%;
-  max-width: 1520px;
+  max-width: ${({ theme }) => theme.styles.contentMaxWidth};
   margin: 0 auto;
 `
 

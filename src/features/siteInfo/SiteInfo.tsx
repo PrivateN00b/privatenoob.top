@@ -9,6 +9,9 @@ const SiteInfoStyle = styled(BaseContentDiv)`
 `;
 
 const ClickableImg = styled.img`
+    width: 145px;
+    height: 98px;
+    aspect-ratio: auto 145 / 98;
     cursor: pointer;
 `;
 

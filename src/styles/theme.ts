@@ -15,6 +15,9 @@ const theme = {
     medium: "21px",
     large: "27px",
   },
+  styles: {
+    contentMaxWidth: "1520px"
+  }
 };
 
 export default theme;
