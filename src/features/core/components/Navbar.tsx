@@ -185,9 +185,10 @@ function Navbar() {
             <OuterDropDownMenuInfos>
               <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
                 <div>
-                  <img
+                  <video
+                    muted autoPlay loop
                     style={{ maxWidth: "80px" }}
-                    src="/dance-moves-monokuma.gif"
+                    src="/dance-moves-monokuma.webm"
                   />
                 </div>{" "}
                 <MenuBorder />
@@ -211,9 +212,10 @@ function Navbar() {
             <OuterDropDownMenuBlogs>
               <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
                 <div>
-                  <img
+                  <video
+                    muted autoPlay loop
                     style={{ maxWidth: "100px" }}
-                    src="/dakooters-dkooters.gif"
+                    src="/dakooters-dkooters.webm"
                   />
                 </div>{" "}
                 <MenuBorder />
@@ -240,7 +242,11 @@ function Navbar() {
             <OuterDropDownMenuOthers>
               <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1} style={{ paddingRight: "27px" }}>
                 <div>
-                  <img style={{ maxWidth: "80px" }} src="/bocchi-rotate.gif" />
+                  <video
+                    muted autoPlay loop
+                    style={{ maxWidth: "80px" }} 
+                    src="/bocchi-rotate.webm" 
+                  />
                 </div>{" "}
                 <MenuBorder />
                 <div style={{ display: "flex", flexDirection: "column" }}>
