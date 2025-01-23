@@ -17,7 +17,7 @@ function Banner() {
         borderRadius: "20px 20px 0 0",
       }}
     >
-      <BannerImg src="/banner-image-2.png" alt="Banner image" width={maxWidth} height={300}/>
+      <BannerImg src="/banner-image-2.webp" alt="Banner image" width={maxWidth} height={300}/>
     </div>
   );
 }

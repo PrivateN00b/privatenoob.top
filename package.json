@@ -18,9 +18,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
-    "react-timer-hook": "^3.0.8",
-    "styled-components": "^6.1.13",
-    "use-sound": "^4.0.3"
+    "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@types/node": "^22.10.3",
