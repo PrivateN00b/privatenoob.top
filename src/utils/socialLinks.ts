@@ -11,7 +11,7 @@ const socialLinks = {
   },
   vrchat: {
     url: "https://vrchat.com/home/user/usr_2202e075-9a9a-48f1-965c-9e2a79e22fdc",
-    icon: "https://asset.brandfetch.io/id_v0vCj-M/idgaEpCEOx.png",
+    icon: "/vrchat.webp",
     name: "PrivateNoob",
   },
   email: {
