@@ -64,7 +64,7 @@ function LeftLayout() {
   return <LeftLayoutStyle ref={leftLayoutRef}>
         {areMovingEmotesActivated && GenerateEmotes(leftLayoutRef, 0) /* Renders a bunch of emotes for animation if the NSO audio have been started */}
         <Emote 
-          imgPath="/angel-tv.gif" 
+          imgPath="/angel-tv.webm" 
           margin="auto 20px 20px auto"
           height={175}
           alignSelf="flex-end"/>
