@@ -81,7 +81,7 @@ export default function BlogPage() {
             .findIndex((valEOF) => valEOF === `//${listType}`)
 
             return blog.content.slice(i + 1, i + eofListId)
-                    .map((valLi, j) => {
+                    .map((valLi) => {
                         const splittedValLi = valLi.split(';');
                         return <li style={{ textAlign: "left" }} key={blog.content.indexOf(valLi)}>
                             {ApplyElements(splittedValLi)}

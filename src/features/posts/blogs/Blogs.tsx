@@ -56,7 +56,7 @@ export default function Blogs() {
   }
 
   const renderBlogs = () => {
-    return blogs.map((blog, i) => {
+    return blogs.map((blog) => {
       if (categories.some((cat) => blog.categories.includes(cat)) || categories.length == 0)
         return <Blog key={blog.to} {...blog} />
     }

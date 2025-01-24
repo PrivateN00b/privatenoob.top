@@ -124,7 +124,7 @@ export function BaseRecipePage() {
           <RightColumn>
             <RightHeader>Steps</RightHeader>
             <StyledOL>
-              {recipe.steps.map((step, i) => (
+              {recipe.steps.map((step) => (
                 <li>
                   <p>{step}</p>
                 </li>
