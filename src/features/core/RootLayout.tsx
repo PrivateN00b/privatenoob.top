@@ -26,7 +26,7 @@ const Main = styled.main`
 const RootLayoutStyle = styled.div`
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: -8px;
 `
 
@@ -46,10 +46,9 @@ const CenterLayoutStyle = styled.div`
 `
 
 const RightLayoutStyle = styled.div`
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   width: 100%;
 
   @media (max-width: 1800px) {
