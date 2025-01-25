@@ -125,7 +125,7 @@ export function BaseRecipePage() {
             <RightHeader>Steps</RightHeader>
             <StyledOL>
               {recipe.steps.map((step) => (
-                <li>
+                <li style={{ textAlign: "left" }}>
                   <p>{step}</p>
                 </li>
               ))}
@@ -137,12 +137,12 @@ export function BaseRecipePage() {
         <StyledUL style={{ marginBottom: "20px" }}>
           {recipe.sources.map((source) => (
             source["url"] ?
-            <li>
+            <li style={{ textAlign: "left" }}>
               <a href={source["url"]}>{source["title"]}</a> Retrieved{" "}
               {source["retrieved"]}
             </li> 
             :
-            <li>
+            <li style={{ textAlign: "left" }}>
               <p>{source["title"]}</p>
             </li>
           ))}
