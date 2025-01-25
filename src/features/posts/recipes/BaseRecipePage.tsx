@@ -4,12 +4,11 @@ import CenteredH1 from "../../../components/text/CenteredH1";
 import CenteredH2 from "../../../components/text/CenteredH2";
 import Container from "../../../components/div/Container";
 import {
+  IngredientDiv,
   IngredientParagraph,
-  LeftColumn,
-  LeftHeader,
-  RightColumn,
-  RightHeader,
-  Row,
+  IngredientsColumn,
+  Square,
+  StepsColumn,
   SubHeader,
 } from "./components/RecipeColumns";
 import { Meal } from "./utils/RecipesEnums";
@@ -54,7 +53,10 @@ function RenderIngredients(props: RecipeProps ) {
     // Key can be index, because this page is read-only
     return <>
     {props.ingredients[0]["content"].map((ingredient, i) => (
-      <IngredientParagraph key={i}>{ingredient}</IngredientParagraph>
+      <IngredientDiv>
+        <IngredientParagraph key={i}>{ingredient}</IngredientParagraph>
+        <Square />
+      </IngredientDiv>
     ))}
     </> 
   } 
@@ -66,7 +68,10 @@ function RenderIngredients(props: RecipeProps ) {
       <>
         <SubHeader key={i}>{ingObj["title"]}</SubHeader>
         {ingObj["content"].map((ingredient, j) => (
-          <IngredientParagraph key={j}>{ingredient}</IngredientParagraph>
+            <IngredientDiv>
+              <IngredientParagraph key={j}>{ingredient}</IngredientParagraph>
+              <Square />
+            </IngredientDiv>
         ))}
       </>
     ))
@@ -116,22 +121,22 @@ export function BaseRecipePage() {
         <p style={{ textAlign: "center" }}>
           <strong>Serves:</strong> {recipe.infos["serves"]}
         </p>
-        <Row>
-          <LeftColumn>
-            <LeftHeader>Ingredients</LeftHeader>
-            {RenderIngredients(recipe)}
-          </LeftColumn>
-          <RightColumn>
-            <RightHeader>Steps</RightHeader>
-            <StyledOL>
-              {recipe.steps.map((step) => (
-                <li style={{ textAlign: "left" }}>
-                  <p>{step}</p>
-                </li>
-              ))}
-            </StyledOL>
-          </RightColumn>
-        </Row>
+
+        <IngredientsColumn>
+          <CenteredH2>Ingredients</CenteredH2>
+          {RenderIngredients(recipe)}
+        </IngredientsColumn>
+
+        <StepsColumn>
+          <CenteredH2>Steps</CenteredH2>
+          <StyledOL>
+            {recipe.steps.map((step) => (
+              <li style={{ textAlign: "left" }}>
+                <p>{step}</p>
+              </li>
+            ))}
+          </StyledOL>
+        </StepsColumn>
 
         <CenteredH2>Sources</CenteredH2>
         <StyledUL style={{ marginBottom: "20px" }}>
