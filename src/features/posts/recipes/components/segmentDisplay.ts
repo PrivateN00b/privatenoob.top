@@ -4,21 +4,33 @@ var ctx: CanvasRenderingContext2D | null;
 export default function createSegmentDisplay() {
     const canvas: HTMLCanvasElement = document.getElementById("segmentDisplayCanvas") as HTMLCanvasElement;
     ctx = canvas.getContext("2d");
+    const canvasWidth: number = canvas.width;
     const gap: number = 3;
+    const gapBetweenNums: number = 3;
+    const height: number = 6;
+    const width: number = 18;
 
     // Display segments
-    createHexagon(180, 10, 24, 8, "horizontal")  // Segment A
-    createHexagon(212 + gap, 18 - gap, 24, 8, "vertical")  // Segment B
-    createHexagon(212 + gap, 50 + gap, 24, 8, "vertical")  // Segment C
-    createHexagon(180, 90, 24, 8, "horizontal")  // Segment D
-    createHexagon(180 - gap, 18 - gap, 24, 8, "vertical")  // Segment E
-    createHexagon(180 - gap, 50 + gap, 24, 8, "vertical")  // Segment F
-    createHexagon(180, 50, 24, 8, "horizontal")  // Segment G
+    createHexagon(2 * (width + height) - gapBetweenNums, 10, width, height, "horizontal")  // Segment A
+    createHexagon(2 * (width + height) - gapBetweenNums + width + height + gap, 10 + height - gap, width, height, "vertical")  // Segment B
+    createHexagon(2 * (width + height) - gapBetweenNums + width + height + gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment C
+    createHexagon(2 * (width + height) - gapBetweenNums, 10 + 10 * height, width, height, "horizontal")  // Segment D
+    createHexagon(2 * (width + height) - gapBetweenNums  - gap, 10 + height - gap, width, height, "vertical")  // Segment E
+    createHexagon(2 * (width + height) - gapBetweenNums  - gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment F
+    createHexagon(2 * (width + height) - gapBetweenNums, 10 + 5 * height, width, height, "horizontal")  // Segment G
+
+    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums, 10, width, height, "horizontal")  // Segment A
+    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums + width + height + gap, 10 + height - gap, width, height, "vertical")  // Segment B
+    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums + width + height + gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment C
+    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums, 10 + 10 * height, width, height, "horizontal")  // Segment D
+    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums  - gap, 10 + height - gap, width, height, "vertical")  // Segment E
+    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums  - gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment F
+    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums, 10 + 5 * height, width, height, "horizontal")  // Segment G
 }
 
 const createHexagon = (x: number, y: number, w: number, h: number, dir: string) => {
     if (ctx != null) {
-        ctx.fillStyle = "red"
+        ctx.fillStyle = "#fd5800"
         // Every lineTo call is called from the most recently called moveTo function
         // This means that the 2nd lineTo has to contain the movements of 1st lineTo as well etc. etc.
         if (dir === "horizontal") {

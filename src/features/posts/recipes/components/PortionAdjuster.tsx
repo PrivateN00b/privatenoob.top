@@ -9,7 +9,7 @@ const PortionDiv = styled.div`
 `;
 
 const SegmentDisplayStyle = styled.canvas`
-    background: lightgreen;
+    background: grey;
 `;
 
 function SegmentDisplay() {
@@ -17,7 +17,7 @@ function SegmentDisplay() {
         createSegmentDisplay();
     }, []);
 
-    return <SegmentDisplayStyle id="segmentDisplayCanvas" height={100} width={240}></SegmentDisplayStyle>;
+    return <SegmentDisplayStyle id="segmentDisplayCanvas" height={100} width={160}></SegmentDisplayStyle>;
 }
 
 export default function PortionAdjuster() {
