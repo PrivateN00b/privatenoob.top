@@ -4,10 +4,16 @@ var ctx: CanvasRenderingContext2D | null;
 export default function createSegmentDisplay() {
     const canvas: HTMLCanvasElement = document.getElementById("segmentDisplayCanvas") as HTMLCanvasElement;
     ctx = canvas.getContext("2d");
+    const gap: number = 3;
 
     // Display segments
-    createHexagon(200, 10, 20, 6, "horizontal")  // Segment A
-    createHexagon(200, 10, 20, 6, "vertical")  // Segment B
+    createHexagon(180, 10, 24, 8, "horizontal")  // Segment A
+    createHexagon(212 + gap, 18 - gap, 24, 8, "vertical")  // Segment B
+    createHexagon(212 + gap, 50 + gap, 24, 8, "vertical")  // Segment C
+    createHexagon(180, 90, 24, 8, "horizontal")  // Segment D
+    createHexagon(180 - gap, 18 - gap, 24, 8, "vertical")  // Segment E
+    createHexagon(180 - gap, 50 + gap, 24, 8, "vertical")  // Segment F
+    createHexagon(180, 50, 24, 8, "horizontal")  // Segment G
 }
 
 const createHexagon = (x: number, y: number, w: number, h: number, dir: string) => {

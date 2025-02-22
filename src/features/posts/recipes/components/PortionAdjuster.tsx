@@ -17,7 +17,7 @@ function SegmentDisplay() {
         createSegmentDisplay();
     }, []);
 
-    return <SegmentDisplayStyle id="segmentDisplayCanvas" height={60} width={240}></SegmentDisplayStyle>;
+    return <SegmentDisplayStyle id="segmentDisplayCanvas" height={100} width={240}></SegmentDisplayStyle>;
 }
 
 export default function PortionAdjuster() {
