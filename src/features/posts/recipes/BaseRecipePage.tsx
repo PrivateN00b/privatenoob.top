@@ -15,6 +15,7 @@ import { Meal } from "./utils/RecipesEnums";
 import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import recipesJSON from "./utils/recipes.json";
+import PortionAdjuster from "./components/PortionAdjuster";
 
 const StyledUL = styled.ul`
   margin: 0 40px 0 40px;
@@ -126,6 +127,8 @@ export function BaseRecipePage() {
 
         <IngredientsColumn>
           <CenteredH2>Ingredients</CenteredH2>
+          <PortionAdjuster />
+          <br />
           {RenderIngredients(recipe)}
         </IngredientsColumn>
 
