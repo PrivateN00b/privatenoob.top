@@ -4,28 +4,30 @@ var ctx: CanvasRenderingContext2D | null;
 export default function createSegmentDisplay() {
     const canvas: HTMLCanvasElement = document.getElementById("segmentDisplayCanvas") as HTMLCanvasElement;
     ctx = canvas.getContext("2d");
+    const canvasHeight: number = canvas.height;
     const canvasWidth: number = canvas.width;
     const gap: number = 1;
-    const gapBetweenNums: number = 3;
+    const gapBetweenNums: number = 10;
     const height: number = 6;
     const width: number = 18;
+    const hexWidth: number = (width + height);
 
     // Display segments
-    createHexagon(2 * (width + height) - gapBetweenNums, 16 - 2 * gap, width, height, "horizontal")  // Segment A
-    createHexagon(2 * (width + height) - gapBetweenNums + width + height + gap, 10 + height - gap, width, height, "vertical")  // Segment B
-    createHexagon(2 * (width + height) - gapBetweenNums + width + height + gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment C
-    createHexagon(2 * (width + height) - gapBetweenNums, 10 * height + 2 * gap + 4, width, height, "horizontal")  // Segment D
-    createHexagon(2 * (width + height) - gapBetweenNums  - gap, 10 + height - gap, width, height, "vertical")  // Segment E
-    createHexagon(2 * (width + height) - gapBetweenNums  - gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment F
-    createHexagon(2 * (width + height) - gapBetweenNums, 10 + 5 * height, width, height, "horizontal")  // Segment G
+    createHexagon(0.5 * canvasWidth - hexWidth - gapBetweenNums, 0.5 * canvasHeight - hexWidth - 2 * gap, width, height, "horizontal")  // Segment A
+    createHexagon(0.5 * canvasWidth - gapBetweenNums + gap, 0.5 * canvasHeight - hexWidth - gap, width, height, "vertical")  // Segment B
+    createHexagon(0.5 * canvasWidth - gapBetweenNums + gap, 0.5 * canvasHeight + gap, width, height, "vertical")  // Segment C
+    createHexagon(0.5 * canvasWidth - hexWidth - gapBetweenNums, 0.5 * canvasHeight + hexWidth + 2 * gap, width, height, "horizontal")  // Segment D
+    createHexagon(0.5 * canvasWidth - hexWidth - gapBetweenNums - gap, 0.5 * canvasHeight + gap, width, height, "vertical")  // Segment E
+    createHexagon(0.5 * canvasWidth - hexWidth - gapBetweenNums - gap, 0.5 * canvasHeight - hexWidth - gap, width, height, "vertical")  // Segment F
+    createHexagon(0.5 * canvasWidth - hexWidth - gapBetweenNums, 0.5 * canvasHeight, width, height, "horizontal")  // Segment G
 
-    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums, 16 - 2 * gap, width, height, "horizontal")  // Segment A
-    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums + width + height + gap, 10 + height - gap, width, height, "vertical")  // Segment B
-    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums + width + height + gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment C
-    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums, 10 * height + 2 * gap + 4, width, height, "horizontal")  // Segment D
-    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums  - gap, 10 + height - gap, width, height, "vertical")  // Segment E
-    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums  - gap, 10 + 5 * height + gap, width, height, "vertical")  // Segment F
-    createHexagon(canvasWidth - 3 * (width + height) + gapBetweenNums, 10 + 5 * height, width, height, "horizontal")  // Segment G
+    createHexagon(0.5 * canvasWidth + gapBetweenNums, 0.5 * canvasHeight - hexWidth - 2 * gap, width, height, "horizontal")  // Segment A
+    createHexagon(0.5 * canvasWidth + hexWidth + gapBetweenNums + gap, 0.5 * canvasHeight - hexWidth - gap, width, height, "vertical")  // Segment B
+    createHexagon(0.5 * canvasWidth + hexWidth + gapBetweenNums + gap, 0.5 * canvasHeight + gap, width, height, "vertical")  // Segment C
+    createHexagon(0.5 * canvasWidth + gapBetweenNums, 0.5 * canvasHeight + hexWidth + 2 * gap, width, height, "horizontal")  // Segment D
+    createHexagon(0.5 * canvasWidth + gapBetweenNums - gap, 0.5 * canvasHeight + gap, width, height, "vertical")  // Segment E
+    createHexagon(0.5 * canvasWidth + gapBetweenNums - gap, 0.5 * canvasHeight - hexWidth - gap, width, height, "vertical")  // Segment F
+    createHexagon(0.5 * canvasWidth + gapBetweenNums, 0.5 * canvasHeight, width, height, "horizontal")  // Segment G
 }
 
 const createHexagon = (x: number, y: number, w: number, h: number, dir: string) => {
