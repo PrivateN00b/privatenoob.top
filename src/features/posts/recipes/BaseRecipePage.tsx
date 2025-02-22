@@ -47,18 +47,20 @@ interface RecipeProps {
   sources: { [key: string]: string }[]
 }
 
-function RenderIngredients(props: RecipeProps ) {
+function RenderIngredients(props: RecipeProps) {
   if (props.ingredients[0]["title"] == "") {
     // Render without SubHeader if the title is empty and there is only 1 object
     // Key can be index, because this page is read-only
-    return <>
-    {props.ingredients[0]["content"].map((ingredient, i) => (
-      <IngredientDiv>
-        <IngredientParagraph key={i}>{ingredient}</IngredientParagraph>
-        <Square />
-      </IngredientDiv>
-    ))}
-    </> 
+    return (
+      <>
+        {props.ingredients[0]["content"].map((ingredient, i) => (
+          <IngredientDiv key={i} className="empty-title">
+            <IngredientParagraph>{ingredient}</IngredientParagraph>
+            <Square />
+          </IngredientDiv>
+        ))}
+      </>
+    );
   } 
   else
   {

@@ -17,14 +17,20 @@ const SubHeader = styled.h4`
   border-bottom: 3px solid ${({ theme }) => theme.colors.secondary};
 `;
 
-const IngredientDiv = styled.div`
+const IngredientDiv = styled.div.attrs(props => ({
+  className: props.className,
+}))`
   position: relative;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
   border-left: 1px solid ${({ theme }) => theme.colors.secondary};
   border-right: 1px solid ${({ theme }) => theme.colors.secondary};
-`
+
+  &.empty-title {
+    border-top: 1px solid ${({ theme }) => theme.colors.secondary};
+  }
+`;
 
 const IngredientParagraph = styled.p`
   margin: 0;
