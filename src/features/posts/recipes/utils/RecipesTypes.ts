@@ -23,4 +23,8 @@ type RecipeDict = {
   sources: { [key: string]: string }[]
 };
 
-export type { FilterProps, RecipeDict };
+type PortionProps = {
+  portion: number
+}
+
+export type { FilterProps, RecipeDict, PortionProps };

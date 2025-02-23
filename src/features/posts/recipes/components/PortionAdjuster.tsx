@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import createSegmentDisplay from "./segmentDisplay";
+import { PortionProps } from "../utils/RecipesTypes";
 
 const PortionDiv = styled.div`
     width: 280px;
@@ -73,25 +74,32 @@ const SegmentDisplayStyle = styled.canvas`
 	background: black;
 `;
 
-function SegmentDisplay() {
+function SegmentDisplay({ portion }: PortionProps) {
     useEffect(() => {
-        createSegmentDisplay();
-    }, []);
+        createSegmentDisplay(portion.toString());
+    }, [portion]);
 
     return <SegmentDisplayStyle id="segmentDisplayCanvas" height={70} width={100}></SegmentDisplayStyle>;
 }
 
 export default function PortionAdjuster() {
+    const [portion, setPortion] = useState(10)
+
+    const changePortion = (amount: number) => {
+        if ((portion + amount) >= 5 && (portion + amount) <= 95)
+            setPortion(portion + amount)
+    }
+
     return (
         <PortionDiv>
             {/* Display Part */}
-            <SegmentDisplay />
+            <SegmentDisplay portion={portion}/>
             <Label>PORTION SIZE</Label>
             <ButtonDiv>
-                <PortionButton>-1</PortionButton>
-                <PortionButton>-0.5</PortionButton>
-                <PortionButton>+0.5</PortionButton>
-                <PortionButton>+1</PortionButton>
+                <PortionButton onClick={() => changePortion(-10)}>-1</PortionButton>
+                <PortionButton onClick={() => changePortion(-5)}>-0.5</PortionButton>
+                <PortionButton onClick={() => changePortion(5)}>+0.5</PortionButton>
+                <PortionButton onClick={() => changePortion(10)}>+1</PortionButton>
             </ButtonDiv>
             {/* Increment/Decrement Part */}
         </PortionDiv>
