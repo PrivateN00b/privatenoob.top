@@ -3,10 +3,10 @@ import styled from "styled-components";
 import createSegmentDisplay from "./segmentDisplay";
 
 const PortionDiv = styled.div`
-    width: 160px;
+    width: 280px;
     border: 1px solid ${({ theme }) => theme.colors.secondary};
     display: inline-block;
-    padding-bottom: 50px;
+    margin-bottom: 30px;
 
     background: -webkit-radial-gradient(center, circle, rgba(255, 255, 255, 0.15), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 21%), -webkit-radial-gradient(center, circle, rgba(0,0,0,.2), rgba(0,0,0,0) 20%, rgba(0,0,0,0) 21%), -webkit-radial-gradient(center, circle farthest-corner, #c0c0c03d, #c0c0c026);
     background: -moz-radial-gradient(center, circle, rgba(255,255,255,0.15), rgba(255,255,255,0) 20%, rgba(255,255,255,0) 21%), -webkit-radial-gradient(center, circle, rgba(0,0,0,.2), rgba(0,0,0,0) 20%, rgba(0,0,0,0) 21%), -webkit-radial-gradient(center, circle farthest-corner, #c0c0c03d, #c0c0c026);
@@ -38,8 +38,38 @@ const Label = styled.label`
    background-size: calc(2*(var(--s) + var(--g))) calc(2*(var(--s) + var(--g)));
 `
 
+const ButtonDiv = styled.div`
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+`
+
+const PortionButton = styled.button`
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    box-shadow: 0 5px 0px #000450;
+    transition: all 0.2 ease;
+    cursor: pointer;
+    border: 2px solid #000450;
+    border-radius: 6px;
+    background: #000dbe;
+    font-size: ${({ theme }) => theme.fontSize.medium };
+    font-weight: bold;
+
+    &:hover {
+        box-shadow: 0 4px 0px #000450;
+        transform: translateY(1px);
+    }
+
+    &:active {
+        box-shadow: none;
+        transform: translateY(5px);
+    }
+`
+
 const SegmentDisplayStyle = styled.canvas`
-    margin-top: 10px;
+    margin: 10px 60px 0px;
 	background: black;
 `;
 
@@ -57,6 +87,12 @@ export default function PortionAdjuster() {
             {/* Display Part */}
             <SegmentDisplay />
             <Label>PORTION SIZE</Label>
+            <ButtonDiv>
+                <PortionButton>-1</PortionButton>
+                <PortionButton>-0.5</PortionButton>
+                <PortionButton>+0.5</PortionButton>
+                <PortionButton>+1</PortionButton>
+            </ButtonDiv>
             {/* Increment/Decrement Part */}
         </PortionDiv>
     );
