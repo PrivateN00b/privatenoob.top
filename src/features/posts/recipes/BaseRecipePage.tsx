@@ -48,7 +48,37 @@ interface RecipeProps {
   sources: { [key: string]: string }[]
 }
 
-function RenderIngredients(props: RecipeProps) {
+function RenderIngredients(props: RecipeProps, portion: number) {
+
+  const renderIngredient = (key: number, ingredient: string) => {
+    let ingSplit: string[] = ingredient.split(' ')  // Split the sentence to extract the portion
+
+    // Check if the first word is (optional), and if yes then it shall be added to the sentence later on
+    let optional: string = "";
+    if (ingSplit[0] === "(optional)") {
+      optional = ingSplit[0]
+      ingSplit = ingSplit.splice(1, ingSplit.length)
+      ingredient = ingredient.replace("(optional)", "")
+    }
+
+    if (ingSplit[0].includes('-')) {  // There are some instances where the portions are shown in ranges. Ex: "20-30 dl"
+      const portionSplit: string[] = ingSplit[0].split('-')  
+      return <IngredientParagraph key={key}>
+        {optional} {portion * Number.parseFloat(portionSplit[0])}-{portion * Number.parseFloat(portionSplit[1])} {ingredient.substring(ingSplit[0].length + 1,ingredient.length)}
+      </IngredientParagraph>       
+    } 
+    else if (Number.isInteger(Number.parseFloat(ingSplit[0]))){  // If the first word is just a number. Ex: "3 eggs" => 3 is the first word
+      return <IngredientParagraph key={key}>
+        {optional} {portion * Number.parseFloat(ingSplit[0])} {ingredient.substring(ingSplit[0].length + 1,ingredient.length)}
+      </IngredientParagraph>
+    }
+    else {  // If the first word isn't a number. Ex: "Black pepper"
+      return <IngredientParagraph key={key}>
+        {optional} {ingredient}
+      </IngredientParagraph>
+    }
+  }
+
   if (props.ingredients[0]["title"] == "") {
     // Render without SubHeader if the title is empty and there is only 1 object
     // Key can be index, because this page is read-only
@@ -56,7 +86,7 @@ function RenderIngredients(props: RecipeProps) {
       <>
         {props.ingredients[0]["content"].map((ingredient, i) => (
           <IngredientDiv key={i} className="empty-title">
-            <IngredientParagraph>{ingredient}</IngredientParagraph>
+            {renderIngredient(i, ingredient)}
             <Square />
           </IngredientDiv>
         ))}
@@ -72,7 +102,7 @@ function RenderIngredients(props: RecipeProps) {
         <SubHeader key={i}>{ingObj["title"]}</SubHeader>
         {ingObj["content"].map((ingredient, j) => (
             <IngredientDiv>
-              <IngredientParagraph key={j}>{ingredient}</IngredientParagraph>
+              {renderIngredient(j, ingredient)}
               <Square />
             </IngredientDiv>
         ))}
@@ -85,6 +115,7 @@ export function BaseRecipePage() {
   const location = useLocation();
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState<RecipeProps | null>(null);
+  const [portion, setPortion] = useState(2.0)
 
   // Set the location.state to recipe (when BaseRecipePage is called from Recipes)
   useEffect(() => {
@@ -127,9 +158,9 @@ export function BaseRecipePage() {
 
         <IngredientsColumn>
           <CenteredH2>Ingredients</CenteredH2>
-          <PortionAdjuster />
+          <PortionAdjuster portion={portion} setPortion={setPortion}/>
           <br />
-          {RenderIngredients(recipe)}
+          {RenderIngredients(recipe, portion)}
         </IngredientsColumn>
 
         <StepsColumn>

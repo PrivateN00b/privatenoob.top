@@ -82,11 +82,9 @@ function SegmentDisplay({ portion }: PortionProps) {
     return <SegmentDisplayStyle id="segmentDisplayCanvas" height={70} width={100}></SegmentDisplayStyle>;
 }
 
-export default function PortionAdjuster() {
-    const [portion, setPortion] = useState(10)
-
+export default function PortionAdjuster({ portion, setPortion }: PortionProps) {
     const changePortion = (amount: number) => {
-        if ((portion + amount) >= 5 && (portion + amount) <= 95)
+        if ((portion + amount) >= 5 && (portion + amount) <= 95 && setPortion)
             setPortion(portion + amount)
     }
 

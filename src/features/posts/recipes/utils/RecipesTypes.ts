@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { Meal } from "./RecipesEnums";
 
 type FilterProps = {
@@ -24,7 +25,8 @@ type RecipeDict = {
 };
 
 type PortionProps = {
-  portion: number
+  portion: number,
+  setPortion?: Dispatch<SetStateAction<number>>,
 }
 
 export type { FilterProps, RecipeDict, PortionProps };
