@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import createSegmentDisplay from "./segmentDisplay";
 import { PortionProps } from "../utils/RecipesTypes";
