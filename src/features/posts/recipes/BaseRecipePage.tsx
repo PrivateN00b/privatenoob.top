@@ -68,7 +68,7 @@ function RenderIngredients(props: RecipeProps, portion: number) {
         {optional} {portion * Number.parseFloat(portionSplit[0])}-{portion * Number.parseFloat(portionSplit[1])} {ingredient.substring(ingSplit[0].length + 1,ingredient.length)}
       </IngredientParagraph>       
     } 
-    else if (Number.isInteger(Number.parseFloat(ingSplit[0]))){  // If the first word is just a number. Ex: "3 eggs" => 3 is the first word
+    else if (Number.isFinite(Number.parseFloat(ingSplit[0]))){  // If the first word is just a number. Ex: "3 eggs" => 3 is the first word
       return <IngredientParagraph key={key}>
         {optional} {portion * Number.parseFloat(ingSplit[0])} {ingredient.substring(ingSplit[0].length + 1,ingredient.length)}
       </IngredientParagraph>
