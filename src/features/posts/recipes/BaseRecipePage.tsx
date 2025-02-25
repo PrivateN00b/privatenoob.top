@@ -49,6 +49,7 @@ interface RecipeProps {
 }
 
 function RenderIngredients(props: RecipeProps, portion: number) {
+  portion = portion / 10;  // Divide by 10, because the portion variable is displayed in 10x format
 
   const renderIngredient = (key: number, ingredient: string) => {
     let ingSplit: string[] = ingredient.split(' ')  // Split the sentence to extract the portion
@@ -115,7 +116,7 @@ export function BaseRecipePage() {
   const location = useLocation();
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState<RecipeProps | null>(null);
-  const [portion, setPortion] = useState(2.0)
+  const [portion, setPortion] = useState(10)  // 10 == 1 portion, to have an easier time displaying the portion
 
   // Set the location.state to recipe (when BaseRecipePage is called from Recipes)
   useEffect(() => {

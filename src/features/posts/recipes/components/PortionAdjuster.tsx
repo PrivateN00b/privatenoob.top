@@ -77,6 +77,7 @@ const SegmentDisplayStyle = styled.canvas`
 function SegmentDisplay({ portion }: PortionProps) {
     useEffect(() => {
         createSegmentDisplay(portion.toString());
+        console.log("portion:",portion)
     }, [portion]);
 
     return <SegmentDisplayStyle id="segmentDisplayCanvas" height={70} width={100}></SegmentDisplayStyle>;
