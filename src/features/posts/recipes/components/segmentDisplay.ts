@@ -1,6 +1,10 @@
+import { rgb } from "polished";
+
 var ctx: CanvasRenderingContext2D | null;
-const onCol: string = "#fd5800";
-const offCol: string = "#212121";
+const onCol: string = rgb(253, 88, 0);
+const offCol: string = rgb(32, 12, 0);
+const glowCol: string = rgb(180, 66, 0);
+const glowIntensity: number = 10;
 
 // This is how each segment lights up depending on the number
 const Numbers: {[key: number]: number[]} = {
@@ -29,6 +33,9 @@ export default function createSegmentDisplay(portion: string) {
     const hexWidth: number = (width + height);
     let tens: number = 0;
     let ones: number = 0;
+    
+    // Clearing the canvas if it's being redrawn
+    ctx?.clearRect(0, 0, canvasWidth, canvasHeight)
 
     // Handle if portion size goes under 1.0
     if (portion.length == 1) {
@@ -64,6 +71,16 @@ export default function createSegmentDisplay(portion: string) {
 const createHexagon = (x: number, y: number, w: number, h: number, dir: string, isOn: number) => {
     if (ctx != null) {
         ctx.fillStyle = isOn == 1 ? onCol : offCol;
+   
+        // Create the sick ass glow effect
+        if (isOn) {
+            ctx.shadowBlur = glowIntensity;
+            ctx.shadowColor = glowCol;
+        } else {
+            ctx.shadowBlur = 0;
+            ctx.shadowColor = "transparent";
+        }
+
         // Every lineTo call is called from the most recently called moveTo function
         // This means that the 2nd lineTo has to contain the movements of 1st lineTo as well etc. etc.
         if (dir === "horizontal") {
@@ -95,6 +112,10 @@ const createHexagon = (x: number, y: number, w: number, h: number, dir: string, 
 
 const createDot = (x: number, y: number, r: number) => {
     if (ctx != null) {
+        // Create the sick ass glow effect
+        ctx.shadowBlur = glowIntensity;
+        ctx.shadowColor = glowCol;
+
         ctx.fillStyle = onCol;
         // Every lineTo call is called from the most recently called moveTo function
         // This means that the 2nd lineTo has to contain the movements of 1st lineTo as well etc. etc.

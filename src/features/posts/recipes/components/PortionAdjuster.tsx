@@ -71,7 +71,7 @@ const PortionButton = styled.button`
 
 const SegmentDisplayStyle = styled.canvas`
     margin: 10px 60px 0px;
-	background: black;
+	background: #110600;
 `;
 
 function SegmentDisplay({ portion }: PortionProps) {
