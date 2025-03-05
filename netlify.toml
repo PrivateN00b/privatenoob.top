@@ -1,0 +1,4 @@
+[[redirects]] # This should fix the "Page Not Found" issue when opening a page except home instantly
+from = "/*"
+to = "/index.html"
+status = 200
