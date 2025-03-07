@@ -1,15 +1,8 @@
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSkull,
-  faHouseChimney,
-  faNewspaper,
-  faAngleDown,
-  faAddressCard,
-  faPaperclip,
-} from "@fortawesome/free-solid-svg-icons";
 import NavbarLink from "../../../components/button_link/NavbarLink";
 import BaseContentDiv from "../../../components/div/BaseContentDiv";
+import theme from "../../../styles/theme";
+import { FontIcon } from "../../../components/img/Icon";
 
 const Nav = styled.div`
   display: flex;
@@ -158,12 +151,6 @@ const MenuBorder = styled.div`
   margin: 0 15px 0 15px;
 `;
 
-const StyledFAIcon = styled(FontAwesomeIcon)`
-  @media (max-width: 420px) {
-    display: none;
-  }
-`;
-
 function Navbar() {
   return (
     <>
@@ -174,13 +161,14 @@ function Navbar() {
         </LeftDiv> */}
         <CenterDiv>
           <NavbarLink to="/" component="normal">
-            <StyledFAIcon icon={faHouseChimney} /> Home
+            <FontIcon src="/fonts/home.svg" height={theme.fontSize.large} style={{ marginRight: "3px" }} />
+            <p>Home</p>
           </NavbarLink>
 
           <DropDown>
             <DropDownLink>
-              <StyledFAIcon icon={faAddressCard} /> Infos{" "}
-              <FontAwesomeIcon icon={faAngleDown} />
+              <FontIcon src="/fonts/info.svg" height={theme.fontSize.medium} /> Infos{" "}
+              <FontIcon src="/fonts/angle-down.svg" height={theme.fontSize.medium} />
             </DropDownLink>
             <OuterDropDownMenuInfos>
               <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
@@ -206,8 +194,8 @@ function Navbar() {
 
           <DropDown>
             <DropDownLink>
-              <StyledFAIcon icon={faNewspaper} /> Posts{" "}
-              <FontAwesomeIcon icon={faAngleDown} />
+              <FontIcon src="/fonts/newspaper.svg" height={theme.fontSize.medium} /> Posts{" "}
+              <FontIcon src="/fonts/angle-down.svg" height={theme.fontSize.medium} />
             </DropDownLink>
             <OuterDropDownMenuBlogs>
               <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
@@ -236,8 +224,8 @@ function Navbar() {
 
           <DropDown>
             <DropDownLink>
-              <StyledFAIcon icon={faPaperclip} /> Others{" "}
-              <FontAwesomeIcon icon={faAngleDown} />
+              <FontIcon src="/fonts/paperclip.svg" height={theme.fontSize.medium} /> Others{" "}
+              <FontIcon src="/fonts/angle-down.svg" height={theme.fontSize.medium} />
             </DropDownLink>
             <OuterDropDownMenuOthers>
               <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1} style={{ paddingRight: "27px" }}>
@@ -262,7 +250,8 @@ function Navbar() {
           </DropDown>
 
           <NavbarLink to="404" component="normal">
-            <StyledFAIcon icon={faSkull} /> Login
+            <FontIcon src="/fonts/skull.svg" height={theme.fontSize.medium} style={{ marginRight: "5px" }} />
+            <p>Login</p>
           </NavbarLink>
         </CenterDiv>
       </Nav>

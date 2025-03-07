@@ -1,7 +1,6 @@
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
+import theme from "../../styles/theme";
 
 const StyledLabel = styled.label<{ $checked: boolean }>`
   display: inline-block;
@@ -73,7 +72,8 @@ export default function CheckBox({ name, onCheckBoxChange }: CheckBoxProps) {
         {name}
       </span>
       <span className="checkmark">
-        <FontAwesomeIcon icon={faCheck} />
+      <img
+        src="/fonts/check-solid.svg" height={theme.fontSize.medium} />
       </span>
     </StyledLabel>
   );

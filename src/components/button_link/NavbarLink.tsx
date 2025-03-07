@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const BaseLink = styled(Link)`
+  display: flex;
+  align-items: center;
   color: ${({ theme }) => theme.colors.text1};
   text-decoration: none;
   font-weight: bold;
+  justify-content: center;
 `;
 
 const StyledLink = styled(BaseLink)`

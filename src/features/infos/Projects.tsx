@@ -2,10 +2,10 @@ import BlockList from "../../components/block-list/BlockList";
 import BlockListDiv from "../../components/block-list/BlockListDiv";
 import CenteredH1 from "../../components/text/CenteredH1";
 import Container from "../../components/div/Container";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import BaseContentDiv from "../../components/div/BaseContentDiv";
 import BlockTitle from "../../components/block-list/BlockTitle";
+import theme from "../../styles/theme";
+import { FontIcon } from "../../components/img/Icon";
 
 function Projects() {
   return (
@@ -33,7 +33,7 @@ function Projects() {
               <li>Made with a team of 3 in uni</li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/G1WRGM_SOF_2022231">
-                  I'm on Github! <FontAwesomeIcon icon={faGithub} />
+                  I'm on Github! <FontIcon src="/fonts/github.svg" height={theme.fontSize.medium} />
                 </a>
               </li>
             </BlockList>
@@ -49,7 +49,7 @@ function Projects() {
               <li>Made with a partner in uni</li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/GUI_20212202_G1WRGM">
-                  I'm on Github! <FontAwesomeIcon icon={faGithub} />
+                  I'm on Github! <FontIcon src="/fonts/github.svg" height={theme.fontSize.medium} />
                 </a>
               </li>
             </BlockList>
@@ -68,12 +68,12 @@ function Projects() {
               <li>This is my thesis 📄</li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/SensorCollector">
-                  The App! <FontAwesomeIcon icon={faGithub} />
+                  The App! <FontIcon src="/fonts/github.svg" height={theme.fontSize.medium} />
                 </a>
               </li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/my-deeplearning-models/blob/main/Szakdoga.ipynb">
-                  The AI model! <FontAwesomeIcon icon={faGithub} />
+                  The AI model! <FontIcon src="/fonts/github.svg" height={theme.fontSize.medium} />
                 </a>{" "}
                 (this one won't take your job :3)
               </li>
@@ -89,7 +89,7 @@ function Projects() {
               </li>
               <li>
                 <a href="https://github.com/NoobKozlegeny/privatenoob.top">
-                  I'm on Github! <FontAwesomeIcon icon={faGithub} />
+                  I'm on Github! <FontIcon src="/fonts/github.svg" height={theme.fontSize.medium} />
                 </a>
               </li>
             </BlockList>
