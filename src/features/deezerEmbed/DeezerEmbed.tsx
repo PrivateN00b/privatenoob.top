@@ -17,8 +17,7 @@ export default function DeezerEmbed({ $isLastBottom, $isLastLeft }: BaseContentD
                     width="100%" 
                     height="400" 
                     allowTransparency={true}
-                    allow="encrypted-media; clipboard-write"
-                    rel="preconnect"></DeezerIFrame>
+                    allow="encrypted-media; clipboard-write"></DeezerIFrame>
     </BaseContentDiv>
     
     

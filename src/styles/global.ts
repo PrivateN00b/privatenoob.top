@@ -6,6 +6,7 @@ const globalStyle = createGlobalStyle`
     font-family: "W95F";
     src: url("/fonts/W95font.otf");
     font-size: 10px;
+    font-display: fallback;
   }
 
   @font-face {
