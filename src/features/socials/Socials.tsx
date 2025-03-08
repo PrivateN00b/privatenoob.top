@@ -20,27 +20,44 @@ function Socials({ $isLastBottom = false }: BaseContentDivProps) {
           <Icon
             src={socialLinks.discord.icon}
             text={socialLinks.discord.name}
+            alt=""
           />
         </Link>
       </div>
       <div>
         <Link to={socialLinks.lemmy.url}>
-          <Icon src={socialLinks.lemmy.icon} text={socialLinks.lemmy.name} />
+          <Icon 
+            src={socialLinks.lemmy.icon}
+            text={socialLinks.lemmy.name} 
+            alt=""
+            />
         </Link>
       </div>
       <div>
         <Link to={socialLinks.vrchat.url}>
-          <Icon src={socialLinks.vrchat.icon} text={socialLinks.vrchat.name} />
+          <Icon 
+            src={socialLinks.vrchat.icon}
+            text={socialLinks.vrchat.name}
+            alt=""
+            />
         </Link>
       </div>
       <div>
         <Link to={socialLinks.email.url}>
-          <Icon src={socialLinks.email.icon} text={socialLinks.email.name} />
+          <Icon
+            src={socialLinks.email.icon}
+            text={socialLinks.email.name}
+            alt=""
+            />
         </Link>
       </div>
       <div>
         <Link to={socialLinks.github.url}>
-          <Icon src={socialLinks.github.icon} text={socialLinks.github.name} />
+          <Icon
+            src={socialLinks.github.icon}
+            text={socialLinks.github.name}
+            alt=""
+            />
         </Link>
       </div>
       <div>
@@ -48,6 +65,7 @@ function Socials({ $isLastBottom = false }: BaseContentDivProps) {
           <Icon
             src={socialLinks.linkedin.icon}
             text={socialLinks.linkedin.name}
+            alt=""
           />
         </Link>
       </div>

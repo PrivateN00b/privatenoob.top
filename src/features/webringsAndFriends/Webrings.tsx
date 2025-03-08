@@ -99,7 +99,7 @@ export default function Webrings() {
     <>
       {/* Fediring */}
       <p>
-        <LeftTriangle href="https://fediring.net/previous?host=privatenoob.top" />
+        <LeftTriangle href="https://fediring.net/previous?host=privatenoob.top" aria-label="Visit left-hand neighbouring website" />
         <FediringLink href="https://fediring.net/">
           <Letter $color="#feca00">F</Letter>
           <Letter $color="#63fe00">ED</Letter>
@@ -107,7 +107,7 @@ export default function Webrings() {
           <Letter $color="#9500fe">IN</Letter>
           <Letter $color="#fe0000">G</Letter>
         </FediringLink>
-        <RightTriangle href="https://fediring.net/next?host=privatenoob.top" />
+        <RightTriangle href="https://fediring.net/next?host=privatenoob.top" ria-label="Visit right-hand neighbouring website" />
       </p>
       {/* Silly City */}
       <iframe

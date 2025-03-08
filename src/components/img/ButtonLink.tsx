@@ -9,11 +9,13 @@ const ButtonLinkStyle = styled.img`
 
 interface ButtonLinkProps {
     src: string;
-    url: string
+    url: string;
+    alt?: string;
 }
 
-export default function ButtonLink({ src, url }: ButtonLinkProps) {
+export default function ButtonLink({ src, url, alt }: ButtonLinkProps) {
     return <ButtonLinkStyle 
             src={src}
-            onClick={() => window.open(url)} />
+            onClick={() => window.open(url)}
+            alt={alt} />
 }

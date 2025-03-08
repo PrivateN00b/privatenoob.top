@@ -13,10 +13,12 @@ export default function WebringsAndFriends({ $isLastBottom }: BaseContentDivProp
         <FlexDivWithPadding>
             <ButtonLink 
                 src="/infos/links/lunarArchiveButtonV2.2.gif"
-                url="https://lunararchive.neocities.org/" />
+                url="https://lunararchive.neocities.org/"
+                alt="My friend's cool desktop emulating website with some lore going on there :3" />
             <ButtonLink 
                 src="/infos/links/oddworld_nemin.png"
-                url="https://oddwords.hu/#" />
+                url="https://oddwords.hu/#"
+                alt="My friend's website which talks about OddWorlds" />
         </FlexDivWithPadding>
         <br />
     </BaseContentDiv>

@@ -19,7 +19,10 @@ export default function SiteInfo({ $isLastBottom, $isLastLeft }: BaseContentDivP
     return (
         <SiteInfoStyle $isLastBottom={$isLastBottom} $isLastLeft={$isLastLeft}>
             <FlexDivWithPadding>
-                <ClickableImg src="/infos/Censor_PGb.gif" onClick={() => window.open("http://www.mabsland.com/Adoption.html")}/>
+                <ClickableImg 
+                    src="/infos/Censor_PGb.gif" 
+                    onClick={() => window.open("http://www.mabsland.com/Adoption.html")}
+                    alt="This website is PG rated" />
             </FlexDivWithPadding>
             <WebsiteCarbonBadge url="www.privatenoob.top" co2="0.8" percentage="32" percentCol="white"/>
         </SiteInfoStyle>

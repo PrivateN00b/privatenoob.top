@@ -13,10 +13,10 @@ const IconStyle = styled.span`
   }
 `;
 
-function Icon(props: PropsWithChildren<{ src: string; text: string }>) {
+function Icon(props: PropsWithChildren<{ src: string; text: string, alt?: string }>) {
   let imgOrEmoji = null;
   if (props.src.length > 2) {
-    imgOrEmoji = <img src={props.src} />;
+    imgOrEmoji = <img src={props.src} alt={props.alt}/>;
   } else {
     imgOrEmoji = props.src;
   }
