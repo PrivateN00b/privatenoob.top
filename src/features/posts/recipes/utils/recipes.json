@@ -253,5 +253,71 @@
         "title": "The unmeasurable power of my grandma and her village's ingenuity :3"
       }
     ]
+  },
+  {
+    "to": "focaccia",
+    "name": "Sourdough Focaccia",
+    "title": "Sourdough Focaccia",
+    "meal": 4,
+    "cost": 2,
+    "restriction": "Vegan",
+    "difficulty": 2,
+    "length": "1-2 days",
+    "imgSrc": "",
+    "imgAlt": "Sourdough Focaccia",
+    "infos": {
+      "prep": "12-18 hours",
+      "cooking": "30-40 minutes",
+      "tools": "Tray, big bowl",
+      "serves": "4-6 people?"
+    },
+    "ingredients": [
+      {
+        "title": "For a 46 x 34 cm tray",
+        "content": [
+          "750g water",
+          "900g bread/pizza flour or a combination of them",
+          "A ton of oil (ideally olive oil 😭💸)",
+          "160g sourdough starter (if warm climate -> less starter, if same day dough -> 1.5x-2x more starter)",
+          "22g salt",
+          "2 tablespoons of honey",
+          "Dried or fresh rosemary",
+          "(optional) small sweet tomatoes",
+          "(optional) 1 sweet onion"
+        ]
+      }
+    ],
+    "steps": [
+      "Before you even start, check out your tray's surface area and adjust the ingredient size to it (Mine is adjusted to a 46 x 34 cm tray)",
+      "Warm up your water to a comfortablé level. The reason for this is that the yeast loves a warm temperature, which accelerates the fermentation process",
+      "Pour the water, 2 tablespoons of oil, honey and the starter into a big bowl and try to split up the starter into some pieces",
+      "Add the flour into the mix and also include the salt into the mix after combining the flour for some seconds into the water",
+      "Continue to stir the combination until all the flour and water united together. This should take no more than 1-2 minutes at the very max",
+      "Cover the bowl with a kitchen towel, cutting board or something similar and wait for 20-30 minutes",
+      "Wet your hands with some water and stretch + fold the dough on 4 sides. Example: https://www.youtube.com/watch?v=QYzxulQY1Gc",
+      "Repeat the above step 3 more times. As you have realized, each strech and fold was noticeably easier than the last iteration. This is because we have strengthened the gluten structure and incorporated air into the dough",
+      "CHOOSE FOR SAME DAY FOCACCIA: Let the dough rest for atleast 6-8 hours in room temperature with it's top covered with towel or something",
+      "CHOOSE FOR 2-DAY FOCACCIA: Let the dough rest in the fridge for overnight with it's top covered with towel or something",
+      "Bring out your tray, cover it with parchment paper, pour some oil onto it, and spread the oil evenly across the entire surface",
+      "Gently transfer the dough onto the tray and let it rest for 1 hours atleast",
+      "Put A GENEROUS amount of oil onto the dough and \"pimple & dimple\" it. This means creating a bunch of holes in the dough by gently pressing all of your fingers into the mass and jiggle it a bit. If your dough isn't covering your entire tray then you can solve this by stretching the dough outwards while your fingers are inside",
+      "As a check be sure that the dough has a LOT of holes with a generous amount of oil covering them. Take out a brush or your hands and spread oil on every parts of the dough's surface. This approach should prevent the crumb being crunchy too fast which would take away precious time from the inner structure being baked properly",
+      "Sprinkle rosemary and potentionally other ingredients you wish to add (for tomatoes: Press out some liquid of them beforehand, and deeply press them into the dough, so that they will sit at the bottom)",
+      "Bake for 30-40 minutes",
+      "Potentionally sprinkle some additional salt if you want",
+      "ENJOOOOOOOOOOOOY!!!!!!"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=O1WQTKuWWfM",
+        "title": "Big Bubble, NO-Knead Focaccia Bread | SOFT & EASY Focaccia!",
+        "retrieved": "2025.03.29"
+      },
+      {
+        "url": "https://alexandracooks.com/2019/03/22/simple-sourdough-focaccia-a-beginners-guide/",
+        "title": "Simple Sourdough Focaccia: A Beginner’s Guide",
+        "retrieved": "2025.03.29"
+      }
+    ]
   }
 ]
