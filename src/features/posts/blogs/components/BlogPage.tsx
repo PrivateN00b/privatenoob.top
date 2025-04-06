@@ -67,7 +67,7 @@ export default function BlogPage() {
                 return <>{splittedVal[1]}<Link to={splittedVal[3]}>{splittedVal[4]}</Link></>
             } else {
                 return splittedVal[0].includes("/s") ? 
-                    <><strong>{splittedVal[1]}</strong>{splittedVal[1]}</> : 
+                    <><strong>{splittedVal[1]}</strong>{splittedVal[2]}</> : 
                     <>{splittedVal[1]}{splittedVal[2]}</>
             }
         }
@@ -76,7 +76,7 @@ export default function BlogPage() {
          * Render the list items (li) at once by iterating from the index of /ul until the idx of //ul
          */
         const RenderListItems = (i: number, listType: string) => {      
-            // Find the idx where the closing list escape character is located.
+            // Finds out how many iteration it is needed to reach the escape character, like //ul
             const eofListId: number = blog.content.slice(i, blog.content.length)
             .findIndex((valEOF) => valEOF === `//${listType}`)
 
