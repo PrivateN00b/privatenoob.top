@@ -7,7 +7,7 @@ const Card = styled(NavLink)`
   max-width: 240px;
   text-decoration: none;
   margin: 10px 0;
-  min-width: 180px;
+  min-width: 200px;
 
   @media (max-width: 900px) {
     max-width: 250px;
@@ -34,8 +34,8 @@ const CardTop = styled(BaseCard)`
 
 const CardBottom = styled(BaseCard)`
   display: block;
-  padding: 5px 10px;
-  border-radius: 0 0 10px 10px;
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
 `;
 
 const StatsRow = styled.div`
@@ -52,7 +52,7 @@ const Img = styled.img`
 `;
 
 const Infos = styled.div`
-  padding: 5px 10px 1px 10px;
+  padding: 5px 10px 0px 10px;
 `;
 
 interface RecipeProps {

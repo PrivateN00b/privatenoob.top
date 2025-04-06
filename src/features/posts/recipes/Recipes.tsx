@@ -14,9 +14,9 @@ import BaseContentDiv from "../../../components/div/BaseContentDiv";
 const RecipeList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
-  padding-bottom: 40px;
-  margin: 0 30px;
+  column-gap: 40px;
+  padding-bottom: 20px;
+  margin: 20px 20px;
   flex-wrap: wrap;
 `;
 
