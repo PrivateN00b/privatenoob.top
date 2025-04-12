@@ -3,7 +3,7 @@ import BaseContentDiv from "../../components/div/BaseContentDiv";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import Icon from "../../components/text/Icon";
 import socialLinks from "../../utils/socialLinks";
-import CenteredH2 from "../../components/text/CenteredH2";
+import { CenteredH2 } from "../../components/text/CenteredHeaders";
 
 function Socials({ $isLastBottom = false }: BaseContentDivProps) {
   return (

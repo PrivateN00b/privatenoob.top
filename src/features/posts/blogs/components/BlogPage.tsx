@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom"
 import { BlogProps } from "../utils/BlogsTypes";
 import BaseContentDiv from "../../../../components/div/BaseContentDiv";
-import CenteredH1 from "../../../../components/text/CenteredH1";
+import { CenteredH1, CenteredH2 } from "../../../../components/text/CenteredHeaders";
 import styled from "styled-components";
 import StyledParagraph from "../../../../components/text/StyledParagraph";
 import { BlogCategory } from "../utils/BlogsEnums";
-import CenteredH2 from "../../../../components/text/CenteredH2";
 
 const BlogParagraph = styled.p`
     text-align: left;

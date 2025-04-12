@@ -1,7 +1,7 @@
 import { rgba } from "polished";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import CenteredH2 from "../../../components/text/CenteredH2";
+import { CenteredH2 } from "../../../components/text/CenteredHeaders";
 
 const FooterStyle = styled.footer`
   background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import BaseContentDiv from "../../../components/div/BaseContentDiv";
-import CenteredH1 from "../../../components/text/CenteredH1";
-import CenteredH2 from "../../../components/text/CenteredH2";
+import { CenteredH1 } from "../../../components/text/CenteredHeaders";
+import { CenteredH2 } from "../../../components/text/CenteredHeaders";
 import Container from "../../../components/div/Container";
 import {
   IngredientDiv,

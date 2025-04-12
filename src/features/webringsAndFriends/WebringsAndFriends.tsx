@@ -1,7 +1,7 @@
 import BaseContentDiv from "../../components/div/BaseContentDiv";
 import { FlexDivWithPadding } from "../../components/div/FlexDivs";
 import ButtonLink from "../../components/img/ButtonLink";
-import CenteredH2 from "../../components/text/CenteredH2";
+import { CenteredH2 } from "../../components/text/CenteredHeaders";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import Webrings from "./Webrings";
 

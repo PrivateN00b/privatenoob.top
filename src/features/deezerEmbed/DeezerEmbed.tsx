@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import BaseContentDiv from "../../components/div/BaseContentDiv"
-import CenteredH2 from "../../components/text/CenteredH2"
+import { CenteredH2 } from "../../components/text/CenteredHeaders";
 import { BaseContentDivProps } from "../../utils/interfaces"
 
 const DeezerIFrame = styled.iframe`

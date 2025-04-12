@@ -1,6 +1,6 @@
 import BaseContentDiv from "../../../components/div/BaseContentDiv";
 import Container from "../../../components/div/Container";
-import CenteredH1 from "../../../components/text/CenteredH1";
+import { CenteredH1 } from "../../../components/text/CenteredHeaders";
 
 export function PageNotFound() {
   return (

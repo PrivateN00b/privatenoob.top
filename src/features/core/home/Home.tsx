@@ -1,7 +1,7 @@
 import Container from "../../../components/div/Container";
 import LeftSideDiv from "../../../components/div/LeftSideDiv";
 import MainDiv from "../../../components/div/MainDiv";
-import CenteredH1 from "../../../components/text/CenteredH1";
+import { CenteredH1 } from "../../../components/text/CenteredHeaders";
 import StyledItem from "../../../components/text/StyledItem";
 import StyledParagraph from "../../../components/text/StyledParagraph";
 import Bio from "../../bio/Bio";
