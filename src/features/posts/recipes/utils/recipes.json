@@ -324,5 +324,84 @@
         "retrieved": "2025.04.06"
       }
     ]
+  },
+  {
+    "to": "spinach-cheese-rolls",
+    "name": "Sourdough Spinach Cheese Rolls",
+    "title": "Sourdough Spinach Cheese Rolls",
+    "meal": 4,
+    "cost": 2,
+    "restriction": "",
+    "difficulty": 2,
+    "length": "10-12 hours",
+    "imgSrc": "",
+    "imgAlt": "Sourdough Spinach Cheese Rolls",
+    "infos": {
+      "prep": "6-8 hours",
+      "cooking": "20-25 minutes",
+      "tools": "Tray, 2 big bowls, pan",
+      "serves": "6 people (3 pieces per person)"
+    },
+    "ingredients": [
+      {
+        "title": "Dough",
+        "content": [
+          "500g all-purpose flour",
+          "125 ml milk",
+          "1 tablespoon of honey",
+          "1 egg yolk",
+          "200-250g sourdough starter",
+          "150g margarin or butter",
+          "1 mocha spoon of salt"
+        ]
+      },
+      {
+        "title": "Filling",
+        "content": [
+          "Any type of cooking oil",
+          "250g spinach or/and lamb's lettuce",
+          "250g feta or salad cheese",
+          "100g or more trapist cheese or any hard-ish cheese",
+          "100g or any amounts of sliced meat (I have used turkey breast slices)",
+          "2 eggs",
+          "Pepper to taste",
+          "(optional) Oregano to taste",
+          "(optional) Thyme to taste",
+          "(optional) 1 tablespoon of parsley"
+        ]
+      }
+    ],
+    "steps": [
+      "Put the starter, milk, honey and egg yolk into a bowl and mix them together for a bit",
+      "Include the flour to the mix and mostly combine the ingredients together (only takes 1-2 mins)",
+      "Include the salt and margarin, and finish the hand or dough mixer mixing until the dough holds it's shape without any stickyness",
+      "Shape it into a ball and let it rest/ferment by covering it with a kitchen towel for atleast 6-8 hours. It should double in size, but honestly mine have only reached a 1.5x volume increase in 6 hours",
+      "While the fermentation is doing it's job, cut your spinach up into smaller pieces and cook them on a pan with some oil on a low heat. This stage only takes up some minutes, since the main approach is to reach the mallard reaction by reducing the leaves's size",
+      "Be sure to remove all or most of the oil used in the cooking process of the spinach",
+      "Mix together all the filling ingredients together in a bowl (spinach, cheese, eggs, spices, herbs)",
+      "Bring out the dough and flat & stretch it out into a rectangular shape. You can preemptively divide the dough into 2 pieces if you lack some space",
+      "Spread the filling onto the dough and roll them up into a cylinder from down to up. If you like, you can close off both openings of the cylinder",
+      "Cut them up into rolls (I aim for a 1.5-2 finger thickness) and put them onto a tray",
+      "Glaze them with some beaten up eggs and wait for 20 minutes",
+      "Bake these bad bois up between 160-180 celsius until they get a nice mouthwatering golden color (20-25 minutes probably)",
+      "ENJOOOOOOOOOOOOY!!!!!!"
+    ],
+    "sources": [
+      {
+        "url": "https://www.allrecipes.com/recipe/261162/spinach-rolls-with-puff-pastry/",
+        "title": "Spinach Rolls with Puff Pastry",
+        "retrieved": "2025.04.15"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=oBIXk2HLems",
+        "title": "Puff Pastry With Spinach and Cheese | Puff Pastry Rolls | Taste Assured",
+        "retrieved": "2025.04.15"
+      },
+      {
+        "url": "https://www.kovasztunder.hu/kovaszos-bejgli",
+        "title": "Kovászos bejgli - KovászTündér",
+        "retrieved": "2025.04.15"
+      }
+    ]
   }
 ]
