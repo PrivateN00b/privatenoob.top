@@ -13,6 +13,7 @@ const BaseContentDiv = styled.div<BaseContentDivProps>`
   margin-left: ${({ $isLastLeft }) => ($isLastLeft ? 30 : 0)}px;
   width: 100%;
   height: ${({ $height }) => ($height ? `calc(${$height}% - 5px)`: "auto")};
+  box-sizing: border-box;
 `;
 
 export default BaseContentDiv;

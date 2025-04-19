@@ -62,8 +62,7 @@ const OuterDropDownMenu = styled.div`
 
 const OuterDropDownMenuInfos = styled(OuterDropDownMenu)`
   border-radius: 250px 50px 50px 50px / 80px 25px 25px 25px;
-  height: 140px;
-  width: 260px;
+  height: 145px;
   padding: 50px 20px 15px 20px;
 
   @media (max-width: 420px) {
@@ -77,8 +76,7 @@ const OuterDropDownMenuInfos = styled(OuterDropDownMenu)`
 
 const OuterDropDownMenuBlogs = styled(OuterDropDownMenu)`
   border-radius: 250px 50px 50px 50px / 70px 25px 25px 25px;
-  height: 190px;
-  width: 280px;
+  height: 195px;
   padding: 50px 25px 15px 25px;
 
   @media (max-width: 420px) {
@@ -93,9 +91,7 @@ const OuterDropDownMenuBlogs = styled(OuterDropDownMenu)`
 const OuterDropDownMenuOthers = styled(OuterDropDownMenu)`
   border-radius: 250px 50px 50px 50px / 80px 25px 25px 25px;
   height: 140px;
-  width: 260px;
-  left: -90%;
-  padding: 50px 30px 15px 30px;
+  padding: 50px 30px 15px 10px;
 
   @media (max-width: 420px) {
     left: -${window.innerWidth / 2}px;
