@@ -1,5 +1,5 @@
 import { createGlobalStyle, withTheme } from "styled-components";
-import theme from "./theme";
+import { colors, fontSize } from "./tokens.stylex.ts"
 
 const globalStyle = createGlobalStyle`
   @font-face {
@@ -20,14 +20,14 @@ const globalStyle = createGlobalStyle`
   text-align: center;
   line-height: 1.5;
   font-weight: 400;
-  font-size: ${theme.fontSize.medium};
+  font-size: ${fontSize.medium};
 
   @media (max-width: 800px) {
-    font-size: ${theme.fontSize.small};
+    font-size: ${fontSize.small};
   }
 
   color-scheme: dark;
-  color: ${theme.colors.text1};
+  color: ${colors.text1};
   background-color: #121212;
   /* opacity: 0.8;
   background: linear-gradient(135deg, #2f92d755 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #2f92d7 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, #2f92d755 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #2f92d7 25%, #000000 25%) 0px 0/ 20px 20px; */
@@ -39,7 +39,7 @@ const globalStyle = createGlobalStyle`
 
     h1,
   h2 {
-    /* color: ${({ theme }) => theme.colors.primary}; */
+    /* color: ${({ }) => colors.primary}; */
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -47,7 +47,7 @@ const globalStyle = createGlobalStyle`
       45deg,
       aqua,
       magenta,
-      ${({ theme }) => theme.colors.primary}
+      ${({ }) => colors.primary}
     );
     animation: animate 5s linear infinite;
     background-size: 400%;
