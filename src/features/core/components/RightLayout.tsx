@@ -2,18 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { GenerateEmotes } from "../../emote/components/GenerateEmotes";
-import styled from "styled-components";
+import * as stylex from '@stylexjs/stylex';
 
-const RightLayoutStyle = styled.div`
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  width: 100%;
+const NON_DESKTOP = "@media (max-width: 1800px)"
 
-  @media (max-width: 1800px) {
-    display: none
+const styles = stylex.create({
+  base: {
+    position: "relative",
+    overflow: "hidden",
+    width: "100%",
+    display: {
+      default: "flex",
+      [NON_DESKTOP]: "none"
+    }
   }
-`
+})
 
 export default function RightLayout() {
     const rightLayoutRef = useRef<HTMLDivElement | null>(null);
@@ -27,7 +30,7 @@ export default function RightLayout() {
       }
     }, []);
   
-    return <RightLayoutStyle ref={rightLayoutRef}>
+    return <div {...stylex.props(styles.base)} ref={rightLayoutRef}>
           {areMovingEmotesActivated && GenerateEmotes(rightLayoutRef, layoutWidth)  /* Renders a bunch of emotes for animation if the NSO audio have been started */}
-    </RightLayoutStyle>
+    </div>
   }
