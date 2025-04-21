@@ -6,6 +6,8 @@ import { CenteredH1, CenteredH2 } from "../../../../components/text/CenteredHead
 import styled from "styled-components";
 import StyledParagraph from "../../../../components/text/StyledParagraph";
 import { BlogCategory } from "../utils/BlogsEnums";
+import Code from "./Code";
+import hljs from "../utils/highlightConfig"; // Import the configured highlight.js
 
 const BlogParagraph = styled.p`
     text-align: left;
@@ -41,6 +43,7 @@ export default function BlogPage() {
     const [blog, setBlog] = useState<BlogProps | null>(null)
     
     useEffect(() => {
+        hljs.highlightAll();  // Apply highlighting support
         setBlog(location.state as BlogProps)
     }, [])
     
@@ -103,6 +106,10 @@ export default function BlogPage() {
                             return <ul key={i}>{RenderListItems(i, "ul")}</ul>;
                         case "ol":                            
                             return <ol key={i}>{RenderListItems(i, "ol")}</ol>;
+                        case "c":
+                            return  <Code key={i}>{splittedVal[1]}</Code>;
+                        case "b64":
+                            return <img style={{ width: "70%" }} src={splittedVal[1] + ';' + splittedVal[2]} />
                         default:
                             return null;
                     }

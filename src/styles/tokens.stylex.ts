@@ -10,6 +10,9 @@ export const colors = stylex.defineVars({
     text2: "#26e2de",
     link: " #27deff  ",
     linkVisited: "#a5e2ee ",
+    displayBg: "#110600",
+    displayOnCol: "#fd5800",
+    displayOffCol: "#200c00"
 });
 
 export const colorsA = stylex.defineVars({

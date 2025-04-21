@@ -1,8 +1,9 @@
 import { rgb } from "polished";
+import { colors } from "../../../../styles/tokens.stylex";
 
 var ctx: CanvasRenderingContext2D | null;
-const onCol: string = rgb(253, 88, 0);
-const offCol: string = rgb(32, 12, 0);
+const onCol: string = colors.displayOnCol;
+const offCol: string = colors.displayOffCol;
 const glowCol: string = rgb(180, 66, 0);
 const glowIntensity: number = 10;
 

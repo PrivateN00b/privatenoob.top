@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import createSegmentDisplay from "./segmentDisplay";
 import { PortionProps } from "../utils/RecipesTypes";
+import * as stylex from '@stylexjs/stylex';
+import { colors } from "../../../../styles/tokens.stylex";
 
 const PortionDiv = styled.div`
     width: 280px;
@@ -69,10 +71,12 @@ const PortionButton = styled.button`
     }
 `
 
-const SegmentDisplayStyle = styled.canvas`
-    margin: 10px 60px 0px;
-	background: #110600;
-`;
+const styles = stylex.create({
+    segmentDisplay: {
+        margin: "10px 60px 0px",
+        background: colors.displayBg
+    }
+})
 
 function SegmentDisplay({ portion }: PortionProps) {
     useEffect(() => {
@@ -80,7 +84,7 @@ function SegmentDisplay({ portion }: PortionProps) {
         console.log("portion:",portion)
     }, [portion]);
 
-    return <SegmentDisplayStyle id="segmentDisplayCanvas" height={70} width={100}></SegmentDisplayStyle>;
+    return <canvas {...stylex.props(styles.segmentDisplay)} id="segmentDisplayCanvas" height={70} width={100}></canvas>;
 }
 
 export default function PortionAdjuster({ portion, setPortion }: PortionProps) {
