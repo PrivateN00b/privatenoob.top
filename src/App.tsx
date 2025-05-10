@@ -1,6 +1,3 @@
-// import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
 import "./App.css";
 import {
   createBrowserRouter,
@@ -10,16 +7,19 @@ import {
 } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Home from "./features/core/home/Home";
-import PageNotFound from "./features/core/components/PageNotFound";
 import RootLayout from "./features/core/RootLayout";
-import About from "./features/infos/About";
-import Projects from "./features/infos/Projects";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/global"
-import Blogs from "./features/posts/blogs/Blogs";
-import Recipes from "./features/posts/recipes/Recipes";
-import { BaseRecipePage } from "./features/posts/recipes/BaseRecipePage";
-import BlogPage from "./features/posts/blogs/components/BlogPage";
+import { lazy } from "react";
+
+// Lazy load certain pages to improve initial load times
+const About = lazy(() => import("./features/infos/About"))
+const Projects = lazy(() => import("./features/infos/Projects"))
+const Blogs = lazy(() => import("./features/posts/blogs/Blogs"))
+const Recipes = lazy(() => import("./features/posts/recipes/Recipes"))
+const BlogPage = lazy(() => import("./features/posts/blogs/components/BlogPage"))
+const BaseRecipePage = lazy(() => import("./features/posts/recipes/BaseRecipePage"))
+const PageNotFound = lazy(() => import("./features/core/components/PageNotFound"))
 
 const router = createBrowserRouter(
   createRoutesFromElements(

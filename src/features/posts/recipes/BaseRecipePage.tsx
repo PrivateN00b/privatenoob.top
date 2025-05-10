@@ -112,7 +112,7 @@ function RenderIngredients(props: RecipeProps, portion: number) {
   }
 }
 
-export function BaseRecipePage() {
+export default function BaseRecipePage() {
   const location = useLocation();
   const { recipeId } = useParams();
   const [recipe, setRecipe] = useState<RecipeProps | null>(null);

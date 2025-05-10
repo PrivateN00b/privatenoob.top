@@ -4,6 +4,7 @@ import * as stylex from '@stylexjs/stylex';
 import { colors, colorsA, otherStyles } from "../../../styles/tokens.stylex";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
+import { Suspense } from "react";
 
 const styles = stylex.create({
     layout: {
@@ -31,7 +32,9 @@ export default function CenterLayout() {
             <Navbar />
         </header>
         <main {...stylex.props(styles.main)}>
-            <Outlet />
+            <Suspense fallback={<h1>Loading...</h1>}>
+                <Outlet />
+            </Suspense>
         </main>
         <Footer />
     </div>
