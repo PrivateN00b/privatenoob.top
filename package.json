@@ -41,10 +41,5 @@
     "react-router-dom": "^7.1.1",
     "typescript": "^5.7.2",
     "vite": "^6.0.6"
-  },
-  "overrides": {
-    "vite-plugin-stylex": {
-      "@stylexjs/babel-plugin": "0.4.1"
-    }
   }
 }
