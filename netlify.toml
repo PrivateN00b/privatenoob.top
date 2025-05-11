@@ -1,4 +1,9 @@
 [[redirects]] # This should fix the "Page Not Found" issue when opening a page except home instantly
-from = "/*"
-to = "/index.html"
-status = 200
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]] # Set cache policy to cache static assets, such as gifs and images
+  for = "/public/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, must-revalidate"
