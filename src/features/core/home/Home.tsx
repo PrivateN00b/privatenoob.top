@@ -11,7 +11,9 @@ import BaseContentDiv from "../../../components/div/BaseContentDiv";
 import SiteInfo from "../../siteInfo/SiteInfo";
 import { FlexDiv } from "../../../components/div/FlexDivs";
 import WebringsAndFriends from "../../webringsAndFriends/WebringsAndFriends";
-import Buttons from "./components/Buttons";
+import { lazy } from "react";
+
+const Buttons = lazy(() => import("./components/Buttons"))
 
 function Home() {
   return (
