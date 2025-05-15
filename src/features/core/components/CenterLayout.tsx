@@ -3,8 +3,9 @@ import Navbar from "./Navbar";
 import * as stylex from '@stylexjs/stylex';
 import { colors, colorsA, otherStyles } from "../../../styles/tokens.stylex";
 import { Outlet } from "react-router-dom";
-import Footer from "./Footer";
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
+
+const Footer = lazy(() => import("./Footer"))
 
 const styles = stylex.create({
     layout: {
@@ -32,10 +33,10 @@ export default function CenterLayout() {
             <Navbar />
         </header>
         <main {...stylex.props(styles.main)}>
-            <Suspense fallback={<h1>Loading...</h1>}>
-                <Outlet />
-            </Suspense>
+            <Outlet />
         </main>
-        <Footer />
+        <Suspense fallback={<h1>Loading...</h1>}>
+            <Footer />
+        </Suspense>
     </div>
 }
