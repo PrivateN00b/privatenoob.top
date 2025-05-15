@@ -1,11 +1,13 @@
-import styled from "styled-components";
+import * as stylex from '@stylexjs/stylex';
 
-const ButtonLinkStyle = styled.img`
-    cursor: pointer;
-    margin: 0 5px 0 5px;
-    width: 88px;
-    height: 31px;
-`
+const styles = stylex.create({
+    base: {
+        cursor: "pointer",
+        margin: "0 5px 0 5px",
+        width: "88px",
+        height: "31px"
+    }
+})
 
 interface ButtonLinkProps {
     src: string;
@@ -14,7 +16,7 @@ interface ButtonLinkProps {
 }
 
 export default function ButtonLink({ src, url, alt }: ButtonLinkProps) {
-    return <ButtonLinkStyle 
+    return <img {...stylex.props(styles.base)} 
             src={src}
             onClick={() => window.open(url)}
             alt={alt} />
