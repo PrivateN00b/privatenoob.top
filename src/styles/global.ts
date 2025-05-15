@@ -21,7 +21,8 @@ const globalStyle = createGlobalStyle`
   line-height: 1.5;
   font-weight: 400;
   font-size: ${fontSize.medium};
-
+  font-display: fallback;
+  
   @media (max-width: 800px) {
     font-size: ${fontSize.small};
   }
