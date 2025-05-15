@@ -5,15 +5,15 @@ import { CenteredH1 } from "../../../components/text/CenteredHeaders";
 import StyledItem from "../../../components/text/StyledItem";
 import StyledParagraph from "../../../components/text/StyledParagraph";
 import Bio from "../../bio/Bio";
-import DeezerEmbed from "../../deezerEmbed/DeezerEmbed";
 import Socials from "../../socials/Socials";
 import BaseContentDiv from "../../../components/div/BaseContentDiv";
 import SiteInfo from "../../siteInfo/SiteInfo";
 import { FlexDiv } from "../../../components/div/FlexDivs";
-import WebringsAndFriends from "../../webringsAndFriends/WebringsAndFriends";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 
 const Buttons = lazy(() => import("./components/Buttons"))
+const WebringsAndFriends = lazy(() => import("../../webringsAndFriends/WebringsAndFriends"))
+const DeezerEmbed = lazy(() => import("../../deezerEmbed/DeezerEmbed"))
 
 function Home() {
   return (
@@ -22,7 +22,6 @@ function Home() {
         <Bio />
         <SiteInfo />
         <Socials $isLastBottom={true} />
-        {/* <MusicPlayer /> */}
       </LeftSideDiv>
       <MainDiv>
         <BaseContentDiv>
@@ -48,11 +47,15 @@ function Home() {
           <StyledItem>Chatting feature?</StyledItem>
           <br />
         </BaseContentDiv>
-        <Buttons />
-        <FlexDiv>
-          <WebringsAndFriends $isLastBottom={true} />
-          <DeezerEmbed $isLastBottom={true} $isLastLeft={true} />
-        </FlexDiv>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Buttons />
+        </Suspense>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <FlexDiv>
+            <WebringsAndFriends $isLastBottom={true} />
+            <DeezerEmbed $isLastBottom={true} $isLastLeft={true} />
+          </FlexDiv>
+        </Suspense>
       </MainDiv>
     </Container>
   );
