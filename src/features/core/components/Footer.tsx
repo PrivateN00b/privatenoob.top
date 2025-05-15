@@ -1,45 +1,42 @@
-import { rgba } from "polished";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { colors, colorsA } from "../../../styles/tokens.stylex";
 import { CenteredH2 } from "../../../components/text/CenteredHeaders";
+import * as stylex from '@stylexjs/stylex';
+import { Link } from "react-router-dom";
 
-const FooterStyle = styled.footer`
-  background-color: ${({ theme }) => rgba(theme.colors.bg, 0.9)};
-  border: double;
-  margin: 20px 10px 20px 10px;
-  border-color: ${({ theme }) => theme.colors.primary};
-  border-radius: 20px;
-  box-shadow: 5px 5px 10px 2px ${({ theme }) => rgba(theme.colors.primary, 0.8)};
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
-
-  a:link {
-    color: ${({ theme }) => theme.colors.link};
+const styles = stylex.create({
+  footer: {
+    backgroundColor: colorsA.bg,
+    border: "double",
+    margin: "20px 10px 20px 10px",
+    borderColor: colors.primary,
+    borderRadius: "20px",
+    boxShadow: `5px 5px 10px 2px ${colors.primary, 0.8}`,
+    display: "flex",
+    textAlign: "center",
+    justifyContent: "space-between"
+  },
+  styledLink: {
+    paddingBottom: "10px",
+    ":link": {
+      color: colors.link
+    },
+    ":visited": {
+      color: colors.linkVisited
+    }
+  },
+  linkDiv: {
+    display: "flex",
+    flexDirection: "column",
+    ["@media (min-width: 1300px)"]: {
+      flexDirection: "row",
+      justifyContent: "space-evenly"
+    }
   }
-
-  a:visited {
-    color: ${({ theme }) => theme.colors.linkVisited};
-  }
-`;
-
-const StyledLink = styled(Link)`
-  padding-bottom: 10px;
-`;
-
-const LinkDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: 1300px) {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-`;
+})
 
 function Footer() {
   return (
-    <FooterStyle>
+    <footer {...stylex.props(styles.footer)}>
       <div style={{ width: "30%" }}>
         <CenteredH2>Infos</CenteredH2>
         <p>Last Update: 2024</p>
@@ -51,14 +48,14 @@ function Footer() {
       </div>
       <div style={{ width: "30%", display: "flex", flexDirection: "column" }}>
         <CenteredH2>Links</CenteredH2>
-        <LinkDiv>
-          <StyledLink to="404">Sitemap</StyledLink>
-          <StyledLink to="404">Accessibility</StyledLink>
-          <StyledLink to="404">Credits</StyledLink>
-          <StyledLink to="404">Back to Top</StyledLink>
-        </LinkDiv>
+        <div {...stylex.props(styles.linkDiv)}>
+          <Link {...stylex.props(styles.styledLink)} to="404">Sitemap</Link>
+          <Link {...stylex.props(styles.styledLink)} to="404">Accessibility</Link>
+          <Link {...stylex.props(styles.styledLink)} to="404">Credits</Link>
+          <Link {...stylex.props(styles.styledLink)} to="404">Back to Top</Link>
+        </div>
       </div>
-    </FooterStyle>
+    </footer>
   );
 }
 
