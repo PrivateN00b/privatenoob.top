@@ -1,7 +1,17 @@
 import * as stylex from '@stylexjs/stylex';
-import LeftLayout from "./components/LeftLayout";
-import RightLayout from "./components/RightLayout";
 import CenterLayout from "./components/CenterLayout";
+import { lazy } from 'react';
+
+// Lazy load LeftLayout and RightLayout if the user is on mobile
+let LeftLayout: any = {};
+let RightLayout: any = {};
+if (navigator.maxTouchPoints > 1) {
+  LeftLayout = lazy(() => import("./components/LeftLayout"));
+  RightLayout = lazy(() => import("./components/RightLayout"));
+} else {
+  LeftLayout = await import("./components/LeftLayout").then(module => module.default);
+  RightLayout = await import("./components/RightLayout").then(module => module.default);
+}
 
 const styles = stylex.create({
   base: {
@@ -11,8 +21,6 @@ const styles = stylex.create({
     marginTop: "-8px",
   }
 })
-
-
 
 export default function RootLayout() {
   return (
