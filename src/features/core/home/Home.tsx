@@ -1,7 +1,7 @@
 import Container from "../../../components/div/Container";
 import LeftSideDiv from "../../../components/div/LeftSideDiv";
 import MainDiv from "../../../components/div/MainDiv";
-import { CenteredH1 } from "../../../components/text/CenteredHeaders";
+import { CenteredH1, CenteredH2 } from "../../../components/text/CenteredHeaders";
 import StyledItem from "../../../components/text/StyledItem";
 import StyledParagraph from "../../../components/text/StyledParagraph";
 import Bio from "../../bio/Bio";
@@ -12,7 +12,8 @@ import { FlexDiv } from "../../../components/div/FlexDivs";
 import { lazy, Suspense } from "react";
 
 const Buttons = lazy(() => import("./components/Buttons"))
-const WebringsAndFriends = lazy(() => import("../../webringsAndFriends/WebringsAndFriends"))
+const Webrings = lazy(() => import("../../webringsAndFriends/Webrings"))
+const WebFriends = lazy(() => import("../../webringsAndFriends/WebFriends"))
 const DeezerEmbed = lazy(() => import("../../deezerEmbed/DeezerEmbed"))
 
 function Home() {
@@ -52,7 +53,13 @@ function Home() {
         </Suspense>
         <Suspense fallback={<h1>Loading...</h1>}>
           <FlexDiv>
-            <WebringsAndFriends $isLastBottom={true} />
+            <BaseContentDiv $isLastBottom={true}>
+              <CenteredH2>Webrings</CenteredH2>
+              <Webrings />
+              <CenteredH2>Friendos! :3</CenteredH2>
+              <WebFriends />
+              <br />
+            </BaseContentDiv>
             <DeezerEmbed $isLastBottom={true} $isLastLeft={true} />
           </FlexDiv>
         </Suspense>
