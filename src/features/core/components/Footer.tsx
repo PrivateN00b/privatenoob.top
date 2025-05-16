@@ -10,7 +10,7 @@ const styles = stylex.create({
     margin: "20px 10px 20px 10px",
     borderColor: colors.primary,
     borderRadius: "20px",
-    boxShadow: `5px 5px 10px 2px ${colors.primary, 0.8}`,
+    boxShadow: `5px 5px 10px 2px ${colorsA.primary}`,
     display: "flex",
     textAlign: "center",
     justifyContent: "space-between"
