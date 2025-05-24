@@ -11,8 +11,8 @@ export const colors = stylex.defineVars({
     link: " #27deff  ",
     linkVisited: "#a5e2ee ",
     displayBg: "#110600",
-    displayOnCol: "#fd5800",
-    displayOffCol: "#200c00"
+    // displayOnCol: "#fd5800",
+    // displayOffCol: "#200c00"
 });
 
 export const colorsA = stylex.defineVars({

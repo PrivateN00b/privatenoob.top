@@ -1,12 +1,11 @@
 import { rgb } from "polished";
-import { colors } from "../../../../styles/tokens.stylex";
 
 var ctx: CanvasRenderingContext2D | null;
-const onCol: string = colors.displayOnCol;
-const offCol: string = colors.displayOffCol;
+const onCol: string = "#fd5800";
+const offCol: string = "#200c00";
 const glowCol: string = rgb(180, 66, 0);
 const glowIntensity: number = 10;
-
+console.log(onCol, offCol)
 // This is how each segment lights up depending on the number
 const Numbers: {[key: number]: number[]} = {
     //  A  B  C  D  E  F  G
