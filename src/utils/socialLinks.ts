@@ -6,7 +6,7 @@ const socialLinks = {
   },
   lemmy: {
     url: "https://sopuli.xyz/u/PrivateNoob",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/5/52/Lemmy_logo.svg",
+    icon: "/Lemmy_logo.svg",
     name: "@PrivateNoob@sopuli.xyz",
   },
   vrchat: {
@@ -26,7 +26,7 @@ const socialLinks = {
   },
   linkedin: {
     url: "https://www.linkedin.com/in/p%C3%A9ter-t%C3%B3th-5072b7243/",
-    icon: "https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg",
+    icon: "/LinkedIn_icon.svg",
     name: "LinkedIn",
   },
 };

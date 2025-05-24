@@ -36,19 +36,19 @@ export default function Buttons() {
     return (
         <ButtonsDiv>
             <InnerButtons>
-                <Button src="infos/buttons/tested-on-firefox.webp" alt=""/>
-                <Button src="infos/buttons/animegay.gif" alt=""/>
-                <Button src="infos/buttons/kde-now.gif" alt=""/>
-                <Button src="infos/buttons/endeavouros.jpg" alt=""/>
-                <Button src="infos/buttons/linux.webp" alt=""/>
-                <Button src="infos/buttons/blockads.gif" alt=""/>
-                <Button src="infos/buttons/miku3.gif" alt=""/>
-                <Button src="infos/buttons/neo-fedi.gif" alt=""/>
-                <Button src="infos/buttons/neocities_button.gif" alt=""/>
-                <Button src="infos/buttons/old-net.gif" alt=""/>
-                <Button src="infos/buttons/piracy.gif" alt=""/>
-                <Button src="infos/buttons/seed.gif" alt=""/>
-                <Button src="infos/buttons/steam.gif" alt=""/>
+                <Button src="infos/buttons/tested-on-firefox.webp" alt="" loading="lazy"/>
+                <Button src="infos/buttons/animegay.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/kde-now.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/endeavouros.jpg" alt="" loading="lazy"/>
+                <Button src="infos/buttons/linux.webp" alt="" loading="lazy"/>
+                <Button src="infos/buttons/blockads.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/miku3.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/neo-fedi.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/neocities_button.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/old-net.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/piracy.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/seed.gif" alt="" loading="lazy"/>
+                <Button src="infos/buttons/steam.gif" alt="" loading="lazy"/>
             </InnerButtons>
 
             {/* Content is duplicated to make the infinite scroll feeling work
