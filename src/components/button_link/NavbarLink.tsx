@@ -18,6 +18,7 @@ const StyledLink = styled(BaseLink)`
   box-shadow: 0 5px 0 ${(props) => props.theme.colors.text1};
   transition: all 0.2 ease;
   line-height: 1;
+  margin: 20px 30px 20px 20px;  // Increase navbar height by 40px
 
   &:hover {
     box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
