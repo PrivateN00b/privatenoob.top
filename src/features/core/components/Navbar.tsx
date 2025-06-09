@@ -1,10 +1,9 @@
 import * as stylex from '@stylexjs/stylex';
 import NavbarLink from "../../../components/button_link/NavbarLink";
-import BaseContentDiv from "../../../components/div/BaseContentDiv";
-import { colors, colorsA, otherStyles } from "../../../styles/tokens.stylex";
+import { colors } from "../../../styles/tokens.stylex";
 import { FontIcon } from "../../../components/img/Icon";
-import styled from 'styled-components';
 import theme from '../../../styles/theme';
+import { bContD } from '../../../components/div/BaseContentDiv';
 
 const styles = stylex.create({
   nav: {
@@ -34,7 +33,7 @@ const styles = stylex.create({
     }
   },
   outerDropDown: {
-    display: "flex",  // For some reason this gives an uniform distance between the buttons and the border
+    // display: "flex",  // For some reason this gives an uniform distance between the buttons and the border
     marginTop: "10px",
     position: "absolute",  // This is needed for the outerDropDown to not take any space
     top: "calc(100% - 40px)",  // Set the position on the Y axis
@@ -45,12 +44,12 @@ const styles = stylex.create({
     cursor: "default"
   },
   outerDropDownInfos: {
-    borderRadius: "250px 50px 50px 50px / 80px 25px 25px 25px",  // Set the area where the dropdown won't disappear yet
-    height: "145px",
-    padding: "50px 10px 10px 10px",
+    borderRadius: "200px 50px 50px 50px / 80px 25px 25px 25px",  // Set the area where the dropdown won't disappear yet
+    height: "150px",
+    padding: "50px 5px 10px 5px",
     
     left: {  // Set the position on the X axis
-      default: "-80%",
+      default: "-75%",
       ["@media (max-width: 420px)"]: `-200%`
     }
   },
@@ -60,57 +59,53 @@ const styles = stylex.create({
       ["@media (max-width: 420px)"]: "50px 250px 50px 50px / 90px 70px 25px 25px",  // Mostly invert the position of the outer selection area
       ["@media (min-width: 420px) and (max-width: 654px)"]: "100px 100px 25px 25px"  // Mostly invert the position of the outer selection area
     },
-    height: "195px",
-    padding: "50px 10px 10px 10px",
+    height: "210px",
+    padding: "50px 5px 0px 5px",
   
     left: {  // Set the position on the X axis
-      default: "-90%",
+      default: "-85%",
       ["@media (max-width: 654px)"]: `-50%`
     }
   },
   outerDropDownOthers: {
-    borderRadius: "250px 50px 50px 50px / 80px 25px 25px 25px",
-    height: "140px",
-    padding: "50px 10px 10px 10px",
+    borderRadius: "200px 50px 50px 50px / 80px 25px 25px 25px",
+    height: "155px",
+    padding: "50px 5px 5px 5px",
   
     left: {  // Set the position on the X axis
-      default: "-80%",
+      default: "-75%",
       ["@media (max-width: 420px)"]: `-200%`
     }
+  },
+  innerDropDown: {
+    display: "flex",
+    maxHeight: "inherit",
+    maxWidth: "inherit",
+    padding: "15px 20px 25px 10px",  // This padding decides the free space between the elements (ex: buttons) and the border in the dropdown
+  },
+  dropDownLink: {
+    color: colors.text1,
+    padding: {  // Size of the dropDownLink
+      default: "10px 30px 10px 30px",
+      ["@media (max-width: 420px)"]: "10px 20px 10px 20px"  // Under this width, the icon isn't shown anymore, so the link doesn't need to be as long either
+    },
+    borderRadius: "20px",
+    textDecoration: "none",
+    fontWeight: "bold",
+    outlineStyle: "inset",
+    outlineColor: colors.primary,
+  
+    ":hover": {
+      boxShadow: `0 3px 0 ${colors.text1}`,
+      transform: "translateY(2px)",
+    }
+  },
+  menuBorder: {
+    borderLeft: `3px solid ${colors.primary}`,
+    maxHeight: "200px",
+    margin: "0 15px 0 15px"
   }
 })
-
-const InnerDropDownMenu = styled(BaseContentDiv)`
-  display: flex;
-  max-height: inherit;
-  max-width: inherit;
-  padding: 15px 20px 10px 10px;
-`;
-
-const DropDownLink = styled.a`
-  color: ${(props) => props.theme.colors.text1};
-  padding: 10px 30px 10px 30px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  outline-style: inset;
-  outline-color: ${(props) => props.theme.colors.primary};
-
-  &:hover {
-    box-shadow: 0 3px 0 ${(props) => props.theme.colors.text1};
-    transform: translateY(2px);
-  }
-
-  @media (max-width: 420px) {
-    padding: 10px 20px 10px 20px;
-  }
-`;
-
-const MenuBorder = styled.div`
-  border-left: 3px solid ${({ theme }) => theme.colors.primary};
-  max-height: 200px;
-  margin: 0 15px 0 15px;
-`;
 
 function Navbar() {
   return (
@@ -122,12 +117,12 @@ function Navbar() {
           </NavbarLink>
 
           <div {...stylex.props(styles.dropDown)}>
-            <DropDownLink>
+            <a {...stylex.props(styles.dropDownLink)}>
               <FontIcon src="/fonts/info.svg" height={theme.fontSize.medium} /> Infos{" "}
               <FontIcon src="/fonts/angle-down.svg" height={theme.fontSize.medium} />
-            </DropDownLink>
+            </a>
             <div {...stylex.props(styles.outerDropDown, styles.outerDropDownInfos)}>
-              <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
+              <div {...stylex.props(styles.innerDropDown, bContD.base, bContD.lastBottom, bContD.backgroundColorNonT)}>
                 <div>
                   <video
                     muted autoPlay loop
@@ -135,7 +130,7 @@ function Navbar() {
                     src="/dance-moves-monokuma.webm"
                   />
                 </div>{" "}
-                <MenuBorder />
+                <div {...stylex.props(styles.menuBorder)} />
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <NavbarLink to="About" component="dropdown">
                     About
@@ -144,17 +139,17 @@ function Navbar() {
                     Projects
                   </NavbarLink>
                 </div>
-              </InnerDropDownMenu>
+              </div>
             </div>
           </div>
 
           <div {...stylex.props(styles.dropDown)}>
-            <DropDownLink>
+            <a {...stylex.props(styles.dropDownLink)}>
               <FontIcon src="/fonts/newspaper.svg" height={theme.fontSize.medium} /> Posts{" "}
               <FontIcon src="/fonts/angle-down.svg" height={theme.fontSize.medium} />
-            </DropDownLink>
+            </a>
             <div {...stylex.props(styles.outerDropDown, styles.outerDropDownPosts)}>
-              <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1}>
+              <div {...stylex.props(styles.innerDropDown, bContD.base, bContD.lastBottom, bContD.backgroundColorNonT)}>
                 <div>
                   <video
                     muted autoPlay loop
@@ -162,7 +157,7 @@ function Navbar() {
                     src="/dakooters-dkooters.webm"
                   />
                 </div>{" "}
-                <MenuBorder />
+                <div {...stylex.props(styles.menuBorder)} />
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <NavbarLink to="Blogs" component="dropdown">
                     Blogs
@@ -174,17 +169,17 @@ function Navbar() {
                     Personal
                   </NavbarLink>
                 </div>
-              </InnerDropDownMenu>
+              </div>
             </div>
           </div>
 
           <div {...stylex.props(styles.dropDown)}>
-            <DropDownLink>
+            <a {...stylex.props(styles.dropDownLink)}>
               <FontIcon src="/fonts/paperclip.svg" height={theme.fontSize.medium} /> Others{" "}
               <FontIcon src="/fonts/angle-down.svg" height={theme.fontSize.medium} />
-            </DropDownLink>
+            </a>
             <div {...stylex.props(styles.outerDropDown, styles.outerDropDownOthers)}>
-              <InnerDropDownMenu $isLastBottom={true} $bgTransparency={1} style={{ paddingRight: "27px" }}>
+              <div {...stylex.props(styles.innerDropDown, bContD.base, bContD.lastBottom, bContD.backgroundColorNonT)}>
                 <div>
                   <video
                     muted autoPlay loop
@@ -192,7 +187,7 @@ function Navbar() {
                     src="/bocchi-rotate.webm" 
                   />
                 </div>{" "}
-                <MenuBorder />
+                <div {...stylex.props(styles.menuBorder)} />
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <NavbarLink to="404" component="dropdown">
                     Links
@@ -201,7 +196,7 @@ function Navbar() {
                     Guestbook
                   </NavbarLink>
                 </div>
-              </InnerDropDownMenu>
+              </div>
             </div>
           </div>
       </div>
