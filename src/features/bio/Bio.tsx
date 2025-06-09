@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import BaseContentDiv from "../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import { NavLink } from "react-router-dom";
 import socialLinks from "../../utils/socialLinks";

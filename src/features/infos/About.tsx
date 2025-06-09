@@ -8,7 +8,7 @@ import Bio from "../../features/bio/Bio";
 import Socials from "../../features/socials/Socials";
 import LeftSideDiv from "../../components/div/LeftSideDiv";
 import MainDiv from "../../components/div/MainDiv";
-import BaseContentDiv from "../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 
 function About() {
   return (

@@ -9,7 +9,7 @@ import { FilterProps, RecipeDict } from "./utils/RecipesTypes";
 import { Cost, Meal } from "./utils/RecipesEnums";
 import LeftSideDiv from "../../../components/div/LeftSideDiv";
 import MainDiv from "../../../components/div/MainDiv";
-import BaseContentDiv from "../../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../../components/div/BaseContentDiv";
 
 const RecipeList = styled.div`
   display: grid;

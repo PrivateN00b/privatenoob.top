@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BaseContentDiv from "../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import { FlexDivWithPadding } from "../../components/div/FlexDivs";
 import WebsiteCarbonBadge from "./WebsiteCarbonBadge/WebsiteCarbonBadge";

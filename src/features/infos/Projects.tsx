@@ -2,7 +2,7 @@ import BlockList from "../../components/block-list/BlockList";
 import BlockListDiv from "../../components/block-list/BlockListDiv";
 import { CenteredH1 } from "../../components/text/CenteredHeaders";
 import Container from "../../components/div/Container";
-import BaseContentDiv from "../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import BlockTitle from "../../components/block-list/BlockTitle";
 import theme from "../../styles/theme";
 import { FontIcon } from "../../components/img/Icon";

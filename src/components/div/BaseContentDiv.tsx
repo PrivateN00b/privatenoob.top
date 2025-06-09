@@ -1,8 +1,10 @@
 import { rgba } from "polished";
 import styled from "styled-components";
 import { BaseContentDivProps } from "../../utils/interfaces";
+import * as stylex from '@stylexjs/stylex';
+import { colors, colorsA } from "../../styles/tokens.stylex";
 
-const BaseContentDiv = styled.div<BaseContentDivProps>`
+export const BaseContentDiv = styled.div<BaseContentDivProps>`
   background-color: ${({ theme, $bgTransparency }) => $bgTransparency 
     ? rgba(theme.colors.bg, $bgTransparency)
     : rgba(theme.colors.bg, 0.9)};
@@ -16,4 +18,25 @@ const BaseContentDiv = styled.div<BaseContentDivProps>`
   box-sizing: border-box;
 `;
 
-export default BaseContentDiv;
+export const bContD = stylex.create({
+  base: {
+    backgroundColor: colorsA.bg,
+    border: `double ${colors.primary}`,
+    borderRadius: "20px",
+    boxShadow: `5px 5px 10px 2px ${colorsA.primary}`,
+    marginBottom: "20px",
+    marginLeft: "0px",
+    width: "100%",
+    height: "auto",
+    boxSizing: "border-box"
+  },
+  backgroundColorNonT: {
+    backgroundColor: colors.bg
+  },
+  lastBottom: {
+    marginBottom: "0px"
+  },
+  lastLeft: {
+    marginLeft: "30px"
+  }
+})

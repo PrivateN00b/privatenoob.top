@@ -1,4 +1,4 @@
-import BaseContentDiv from "../../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../../components/div/BaseContentDiv";
 import Container from "../../../components/div/Container";
 import Filters from "./components/Filters";
 import Blog from "./components/Blog";

@@ -6,7 +6,7 @@ import StyledItem from "../../../components/text/StyledItem";
 import StyledParagraph from "../../../components/text/StyledParagraph";
 import Bio from "../../bio/Bio";
 import Socials from "../../socials/Socials";
-import BaseContentDiv from "../../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../../components/div/BaseContentDiv";
 import SiteInfo from "../../siteInfo/SiteInfo";
 import { FlexDiv } from "../../../components/div/FlexDivs";
 import { lazy, Suspense } from "react";

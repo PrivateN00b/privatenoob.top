@@ -1,4 +1,4 @@
-import BaseContentDiv from "../../../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../../../components/div/BaseContentDiv";
 import CheckBox from "../../../../components/checkbox/Checkbox";
 import { BaseContentDivProps } from "../../../../utils/interfaces";
 

@@ -1,4 +1,4 @@
-import BaseContentDiv from "../../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../../components/div/BaseContentDiv";
 import Container from "../../../components/div/Container";
 import { CenteredH1 } from "../../../components/text/CenteredHeaders";
 

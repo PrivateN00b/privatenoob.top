@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import BaseContentDiv from "../../components/div/BaseContentDiv";
+import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import Icon from "../../components/text/Icon";
 import socialLinks from "../../utils/socialLinks";

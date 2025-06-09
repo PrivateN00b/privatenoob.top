@@ -1,4 +1,4 @@
-import BaseContentDiv from "../../components/div/BaseContentDiv"
+import { BaseContentDiv } from "../../components/div/BaseContentDiv"
 import { CenteredH2 } from "../../components/text/CenteredHeaders";
 import { BaseContentDivProps } from "../../utils/interfaces"
 import * as stylex from '@stylexjs/stylex';
