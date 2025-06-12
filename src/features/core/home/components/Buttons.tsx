@@ -21,7 +21,10 @@ const styles = stylex.create({
         display: "flex",
         overflow: "hidden", /* Hide overflow */
         flexShrink: "0",
-        marginBottom: "20px",
+        marginBottom: {
+            default: "20px",
+            ["@media (max-width: 420px)"]: "10px"
+        },
         gap: gap,
         height: "31px",
         

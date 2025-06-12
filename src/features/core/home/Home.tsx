@@ -58,9 +58,8 @@ function Home() {
               <Webrings />
               <CenteredH2>Friendos! :3</CenteredH2>
               <WebFriends />
-              <br />
             </BaseContentDiv>
-            <DeezerEmbed $isLastBottom={true} $isLastLeft={true} />
+            <DeezerEmbed $isLastBottom={true} />
           </FlexDiv>
         </Suspense>
       </MainDiv>

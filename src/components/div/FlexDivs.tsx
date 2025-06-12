@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const FlexDiv = styled.div`
   display: flex;
+
+  @media (max-width: 420px) {
+    flex-wrap: wrap;
+  }
 `
 
 export const FlexDivWithPadding = styled(FlexDiv)`

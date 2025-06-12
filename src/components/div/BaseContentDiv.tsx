@@ -16,6 +16,10 @@ export const BaseContentDiv = styled.div<BaseContentDivProps>`
   width: 100%;
   height: ${({ $height }) => ($height ? `calc(${$height}% - 5px)`: "auto")};
   box-sizing: border-box;
+
+  @media (max-width: 420px) {
+    margin-bottom: 10px
+  }
 `;
 
 export const bContD = stylex.create({
@@ -24,7 +28,10 @@ export const bContD = stylex.create({
     border: `double ${colors.primary}`,
     borderRadius: "20px",
     boxShadow: `5px 5px 10px 2px ${colorsA.primary}`,
-    marginBottom: "20px",
+    marginBottom: {
+      default: "20px",
+      ["@media (max-width: 420px)"]: "10px"
+    },
     marginLeft: "0px",
     width: "100%",
     height: "auto",

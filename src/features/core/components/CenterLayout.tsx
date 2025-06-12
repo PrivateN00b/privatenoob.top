@@ -11,18 +11,23 @@ const styles = stylex.create({
     layout: {
         width: "100%",
         maxWidth: otherStyles.contentMaxWidth,
-        margin: "0 auto"
     },
     header: {
         backgroundColor: colorsA.bg,
         border: "double",
-        margin: "20px 10px 20px 10px",
+        margin: {
+            default: "20px 10px 20px 10px",
+            ["@media (max-width: 420px)"]: "10px 0 10px 0"
+        },
         borderColor: colors.primary,
         borderRadius: "20px",
         boxShadow: `5px 5px 10px 2px ${colorsA.primary}`  
     },
     main: {
-        margin: "0 10px 20px 10px"
+        margin: {
+            default: "0 10px 20px 10px",
+            ["@media (max-width: 420px)"]: "10px 0 10px 0"
+        }
     }
 })
 
