@@ -20,9 +20,9 @@ const socialLinks = {
     name: "petoth@proton.me",
   },
   github: {
-    url: "https://github.com/NoobKozlegeny",
+    url: "https://github.com/PrivateN00b",
     icon: "/github-mark-white.svg",
-    name: "NoobKozlegeny",
+    name: "PrivateN00b",
   },
   linkedin: {
     url: "https://www.linkedin.com/in/p%C3%A9ter-t%C3%B3th-5072b7243/",
