@@ -11,5 +11,9 @@ export default function WebFriends() {
             src="/infos/links/oddworld_nemin.png"
             url="https://oddwords.hu/#"
             alt="My friend's website which talks about OddWorlds" />
+        <ButtonLink 
+            src="/infos/links/DOGES_PAGE.png"
+            url="https://dogethedudezpage.neocities.org/"
+            alt="Epic Deltarune friendo from a Neocities chatbox :3" />
     </FlexDivWithPadding>
 }
