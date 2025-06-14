@@ -24,7 +24,7 @@ export default function SiteInfo({ $isLastBottom, $isLastLeft }: BaseContentDivP
                     onClick={() => window.open("http://www.mabsland.com/Adoption.html")}
                     alt="This website is PG rated" />
             </FlexDivWithPadding>
-            <WebsiteCarbonBadge url="www.privatenoob.top" co2="0.8" percentage="32" percentCol="white"/>
+            <WebsiteCarbonBadge url="www.privatenoob.top" co2="0.36" percentage="61" percentCol="white"/>
         </SiteInfoStyle>
     );
 }

@@ -18,7 +18,7 @@ const styles = stylex.create({
   isLaftLeftHack: { 
     marginLeft: {
       default: "20px",
-      ["@media (max-width: 420px)"]: "0px"
+      ["@media (max-width: 564px)"]: "0px"
     }
   },
   playlistSwitchDiv: {

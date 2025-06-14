@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FlexDiv = styled.div`
   display: flex;
 
-  @media (max-width: 420px) {
+  @media (max-width: 564px) {
     flex-wrap: wrap;
   }
 `
