@@ -1,71 +1,23 @@
 import { useEffect, useRef } from "react";
-import styled from "styled-components";
+import * as stylex from '@stylexjs/stylex';
+import { colors } from "../../styles/tokens.stylex";
 
-const FediringLink = styled.a`
-  cursor: pointer;
-  padding: 10px;
-  text-decoration: none;
-  @property --bg-angle {
-    inherits: false;
-    initial-value: 0deg;
-    syntax: '<angle>';
+const styles = stylex.create({
+  fediArrowRight: {
+    height: "0px",
+    width: "0px",
+    border: "15px solid",
+    borderColor: `${colors.secondary} ${colors.secondary} transparent transparent`,
+    transform: "rotate(45deg)"
+  },
+  fediArrowLeft: {
+    height: "0px",
+    width: "0px",
+    border: "15px solid",
+    borderColor: `transparent transparent ${colors.secondary} ${colors.secondary}`,
+    transform: "rotate(45deg)"
   }
-
-  @keyframes spin {
-    0% {
-      --bg-angle: 0deg;
-    }
-    100% {
-      --bg-angle: 360deg;
-    }
-  }
-
-  background: linear-gradient(
-      to bottom,
-      ${({ theme }) => theme.colors.quarteriary},
-      ${({ theme }) => theme.colors.quarteriary}
-    ) padding-box, conic-gradient(
-      from var(--bg-angle) in oklch longer hue,
-      oklch(1 0.37 0) 0 0
-    ) border-box;
-
-  animation: spin 3s linear infinite running;
-  border: 5px solid transparent;
-`;
-
-const Letter = styled.span<{ $color: string }>`
-  font-weight: bold;
-  color: ${({ $color }) => $color};
-  letter-spacing: 3px;
-`;
-
-const LeftTriangle = styled.a`
-  --r: 6px; /* border radius */
-
-  height: 180px;
-  aspect-ratio: cos(30deg);
-  mask:
-    linear-gradient(90deg, #0000 calc(3 * var(--r) / 2), #000 0),
-    radial-gradient(var(--r) at calc(2 * var(--r)) 50%, #000 98%, #0000 101%);
-  clip-path: polygon(0 50%, 100% 100%, 100% 0);
-  background: #000285;
-  margin-right: 10px;
-  padding: 15px 20px 15px 20px;
-`;
-
-const RightTriangle = styled.a`
-  --r: 6px; /* border radius */
-
-  height: 180px;
-  aspect-ratio: cos(30deg);
-  mask:
-    linear-gradient(-90deg, #0000 calc(3 * var(--r) / 2), #000 0),
-    radial-gradient(var(--r) at calc(100% - 2 * var(--r)) 50%, #000 98%, #0000 101%);
-  clip-path: polygon(100% 50%, 0 100%, 0 0);
-  background: #000285;
-  margin-left: 10px;
-  padding: 15px 20px 15px 20px;
-`;
+})
 
 export default function Webrings() {
   const nixRingRef = useRef<HTMLDivElement>(null);
@@ -99,15 +51,16 @@ export default function Webrings() {
     <>
       {/* Fediring */}
       <p>
-        <LeftTriangle href="https://fediring.net/previous?host=privatenoob.top" aria-label="Visit left-hand neighbouring website" />
-        <FediringLink href="https://fediring.net/">
-          <Letter $color="#feca00">F</Letter>
-          <Letter $color="#63fe00">ED</Letter>
-          <Letter $color="#00a3fe">IR</Letter>
-          <Letter $color="#9500fe">IN</Letter>
-          <Letter $color="#fe0000">G</Letter>
-        </FediringLink>
-        <RightTriangle href="https://fediring.net/next?host=privatenoob.top" ria-label="Visit right-hand neighbouring website" />
+        <a href="https://fediring.net/previous?host=privatenoob.top" ria-label="Visit left-hand neighbouring website">
+          <img src="/menu-right.svg" {...stylex.props(styles.fediArrowLeft)}/>
+        </a>
+        <a href="https://fediring.net/">
+          <img src="/infos/links/fediring.gif" alt="Link to Fediring"/>
+        </a>
+        <a href="https://fediring.net/next?host=privatenoob.top" ria-label="Visit right-hand neighbouring website">
+          <img src="/menu-right.svg" {...stylex.props(styles.fediArrowRight)}/>
+        </a>
+        {/* <RightTriangle href="https://fediring.net/next?host=privatenoob.top" ria-label="Visit right-hand neighbouring website" /> */}
       </p>
       {/* Silly City */}
       <iframe
