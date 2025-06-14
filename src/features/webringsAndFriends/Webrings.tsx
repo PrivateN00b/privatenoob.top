@@ -1,23 +1,5 @@
 import { useEffect, useRef } from "react";
-import * as stylex from '@stylexjs/stylex';
-import { colors } from "../../styles/tokens.stylex";
-
-const styles = stylex.create({
-  fediArrowRight: {
-    height: "0px",
-    width: "0px",
-    border: "15px solid",
-    borderColor: `${colors.secondary} ${colors.secondary} transparent transparent`,
-    transform: "rotate(45deg)"
-  },
-  fediArrowLeft: {
-    height: "0px",
-    width: "0px",
-    border: "15px solid",
-    borderColor: `transparent transparent ${colors.secondary} ${colors.secondary}`,
-    transform: "rotate(45deg)"
-  }
-})
+import { Arrow } from "../../components/img/Arrow";
 
 export default function Webrings() {
   const nixRingRef = useRef<HTMLDivElement>(null);
@@ -51,15 +33,17 @@ export default function Webrings() {
     <>
       {/* Fediring */}
       <p>
-        <a href="https://fediring.net/previous?host=privatenoob.top" ria-label="Visit left-hand neighbouring website">
-          <img src="/menu-right.svg" {...stylex.props(styles.fediArrowLeft)}/>
-        </a>
+        <Arrow href="https://fediring.net/previous?host=privatenoob.top"
+            height={15} 
+            riaLabel="Visit left-hand neighbouring website"
+            direction="left" />
         <a href="https://fediring.net/">
           <img src="/infos/links/fediring.gif" alt="Link to Fediring"/>
         </a>
-        <a href="https://fediring.net/next?host=privatenoob.top" ria-label="Visit right-hand neighbouring website">
-          <img src="/menu-right.svg" {...stylex.props(styles.fediArrowRight)}/>
-        </a>
+        <Arrow href="https://fediring.net/next?host=privatenoob.top" 
+            height={15} 
+            riaLabel="Visit right-hand neighbouring website" 
+            direction="right" />
         {/* <RightTriangle href="https://fediring.net/next?host=privatenoob.top" ria-label="Visit right-hand neighbouring website" /> */}
       </p>
       {/* Silly City */}
