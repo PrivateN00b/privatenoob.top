@@ -38,7 +38,7 @@ export default function Webrings() {
             riaLabel="Visit left-hand neighbouring website"
             direction="left" />
         <a href="https://fediring.net/">
-          <img src="/infos/links/fediring.gif" alt="Link to Fediring" width={88} height={31}/>
+          <img src="/infos/buttons/neo-fedi.gif" alt="Link to Fediring" width={88} height={31}/>
         </a>
         <Arrow href="https://fediring.net/next?host=privatenoob.top" 
             height={15} 
