@@ -9,13 +9,19 @@ const styles = stylex.create({
     display: "block",
     marginLeft: "50%",
     transform: "translateX(-50%)",
+    height: "265px",
+    width: "1520px"
   }
 });
 
 function Banner() {
   return (
     <div {...stylex.props(styles.div)}>
-      <img {...stylex.props(styles.img)} src="/banner.avif" alt="Banner image" rel="preload" fetchPriority="high"/>
+      <img {...stylex.props(styles.img)} 
+        src="/banner.avif"
+        alt="Banner image"
+        rel="preload"
+        fetchPriority="high"/>
     </div>
   );
 }
