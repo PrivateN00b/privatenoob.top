@@ -57,13 +57,13 @@ export default function DeezerEmbed({ $isLastBottom }: BaseContentDivProps) {
         <div {...stylex.props(styles.playlistSwitchDiv)}>
           <ArrowButton
               height={15} 
-              riaLabel="Visit left-hand neighbouring website"
+              ariaLabel="Load previous playlist"
               direction="left"
               onClick={() => prevPlaylist()} />
           <CenteredH2 style={{ marginLeft: "-10px", marginRight: "-10px" }}>🎶 Fav {playlists[idx].name} 🎶</CenteredH2>
           <ArrowButton
               height={15} 
-              riaLabel="Visit left-hand neighbouring website"
+              ariaLabel="Load next playlist"
               direction="right"
               onClick={() => nextPlaylist()} />
         </div>

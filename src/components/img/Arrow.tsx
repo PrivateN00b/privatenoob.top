@@ -26,24 +26,27 @@ const styles = stylex.create({
 
 interface ArrowProps {
     href?: string,
-    riaLabel?: string,
+    ariaLabel?: string,
     height?: number,
     direction?: string,
     onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>
 }
 
-export function Arrow({ href = "", riaLabel = "", height = 15, direction = "left", onClick }: ArrowProps) {
+export function Arrow({ href = "", ariaLabel = "", height = 15, direction = "left", onClick }: ArrowProps) {
     if (["left", "l"].includes(direction.toLowerCase())) {  // Check if direction is left or right
-        return <a href={href} ria-label={riaLabel} onClick={onClick}>
-            <img src="/menu-right.svg" {...stylex.props(styles.fediArrowRight)} 
+        return <a href={href} aria-label={ariaLabel} onClick={onClick}>
+            <img src="/menu-right.svg" 
+                alt={ariaLabel}
+                {...stylex.props(styles.fediArrowRight)} 
                 style={{ 
                     border: `${height}px solid`, 
                     borderColor: `transparent transparent ${colors.secondary} ${colors.secondary}`
                     }}/>
         </a>
     } else {
-        return <a href={href} ria-label={riaLabel} onClick={onClick}>
+        return <a href={href} aria-label={ariaLabel} onClick={onClick}>
             <img src="/menu-right.svg" 
+                alt={ariaLabel}
                 {...stylex.props(styles.fediArrowRight)} 
                 style={{ 
                     border: `${height}px solid`, 
@@ -53,18 +56,21 @@ export function Arrow({ href = "", riaLabel = "", height = 15, direction = "left
     }
 }
 
-export function ArrowButton({ height = 15, direction = "left", onClick }: ArrowProps) {
+export function ArrowButton({ height = 15, ariaLabel = "", direction = "left", onClick }: ArrowProps) {
     if (["left", "l"].includes(direction.toLowerCase())) {  // Check if direction is left or right
-        return <button {...stylex.props(styles.buttonNoStyle)} onClick={onClick}>
-            <img src="/menu-right.svg" {...stylex.props(styles.fediArrowRight)} 
+        return <button aria-label={ariaLabel} {...stylex.props(styles.buttonNoStyle)} onClick={onClick}>
+            <img src="/menu-right.svg" 
+                alt={ariaLabel}
+                {...stylex.props(styles.fediArrowRight)} 
                 style={{ 
                     border: `${height}px solid`, 
                     borderColor: `transparent transparent ${colors.secondary} ${colors.secondary}`
                     }}/>
         </button>
     } else {
-        return <button {...stylex.props(styles.buttonNoStyle)} onClick={onClick}>
+        return <button aria-label={ariaLabel} {...stylex.props(styles.buttonNoStyle)} onClick={onClick}>
             <img src="/menu-right.svg" 
+                alt={ariaLabel}
                 {...stylex.props(styles.fediArrowRight)} 
                 style={{ 
                     border: `${height}px solid`, 

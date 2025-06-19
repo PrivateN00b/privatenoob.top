@@ -35,14 +35,14 @@ export default function Webrings() {
       <p>
         <Arrow href="https://fediring.net/previous?host=privatenoob.top"
             height={15} 
-            riaLabel="Visit left-hand neighbouring website"
+            ariaLabel="Visit left-hand neighbouring website"
             direction="left" />
         <a href="https://fediring.net/">
           <img src="/infos/buttons/neo-fedi.gif" alt="Link to Fediring" width={88} height={31}/>
         </a>
         <Arrow href="https://fediring.net/next?host=privatenoob.top" 
             height={15} 
-            riaLabel="Visit right-hand neighbouring website" 
+            ariaLabel="Visit right-hand neighbouring website" 
             direction="right" />
         {/* <RightTriangle href="https://fediring.net/next?host=privatenoob.top" ria-label="Visit right-hand neighbouring website" /> */}
       </p>
