@@ -1,5 +1,5 @@
 import Banner from "../../../components/img/Banner";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./Navbar";
 import * as stylex from '@stylexjs/stylex';
 import { colors, colorsA, otherStyles } from "../../../styles/tokens.stylex";
 import { Outlet } from "react-router-dom";
