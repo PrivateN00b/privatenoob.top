@@ -10,7 +10,8 @@ import { FontIcon } from "../../components/img/Icon";
 function Projects() {
   return (
     <Container>
-      <BaseContentDiv $isLastBottom={true}>
+        <meta name="description" content="List of projects by author" />
+        <meta name="keywords" content="React, CSS, HTML, C#, projects, resume, WPF, Entity Framework, AI, Tensorflow, Classification, Python" /><BaseContentDiv $isLastBottom={true}>
         <CenteredH1>Some projects :3</CenteredH1>
         <div
           style={{

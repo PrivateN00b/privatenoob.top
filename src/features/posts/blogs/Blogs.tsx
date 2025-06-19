@@ -65,6 +65,8 @@ export default function Blogs() {
 
   return (
     <Container $flexDirection="column">
+      <meta name="description" content="Blogs made by privatenoob.top author" />
+      <meta name="keywords" content="blogs, code, recipe, programming, personal, gaming" />
       <Filters onFilterChange={handleFilterChange}/>
       <BaseContentDiv $isLastBottom={true}>
         <br />

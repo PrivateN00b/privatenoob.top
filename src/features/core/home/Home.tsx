@@ -19,6 +19,8 @@ const DeezerEmbed = lazy(() => import("../../deezerEmbed/DeezerEmbed"))
 function Home() {
   return (
     <Container>
+      <meta name="description" content="Home page of privatenoob.top" />
+      <meta name="keywords" content="home, main, Indieweb, Neocities, vaporwave, aesthetic, personal, Fediverse" />
       <LeftSideDiv>
         <Bio />
         <SiteInfo />

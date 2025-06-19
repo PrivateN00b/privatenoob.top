@@ -13,6 +13,8 @@ import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 function About() {
   return (
     <Container>
+      <meta name="description" content="Introduction of the privatenoob.top author" />
+      <meta name="keywords" content="about, introduction, hobby" />
       <LeftSideDiv>
         <Bio />
         <Socials $isLastBottom={true} />

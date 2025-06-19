@@ -119,6 +119,8 @@ function Recipes() {
 
   return (
     <Container>
+      <meta name="description" content="List of recipes made by the privatenoob.top author" />
+      <meta name="keywords" content="recipe, recipes, baking, cooking" />
       <LeftSideDiv>
         <Filters $isLastBottom={true} onFilterChange={handleFilterChange} />
       </LeftSideDiv>

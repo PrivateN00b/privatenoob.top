@@ -146,6 +146,8 @@ export default function BaseRecipePage() {
 
   return (
     <Container>
+      <meta name="description" content={recipe.title} />
+      <meta name="keywords" content="recipe, recipes, baking, cooking" />
       <BaseContentDiv $isLastBottom={true}>
         <CenteredH1>{recipe.title}</CenteredH1>
         <p style={{ textAlign: "center" }}>
