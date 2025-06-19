@@ -5,7 +5,7 @@ const onCol: string = "#fd5800";
 const offCol: string = "#200c00";
 const glowCol: string = rgb(180, 66, 0);
 const glowIntensity: number = 10;
-console.log(onCol, offCol)
+
 // This is how each segment lights up depending on the number
 const Numbers: {[key: number]: number[]} = {
     //  A  B  C  D  E  F  G

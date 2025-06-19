@@ -10,7 +10,7 @@ const Wrapper = styled.div<WebsiteCarbonBadgeProps>`
   --b3: ${props => props.leftBg || '#fff'};
   --b4: ${props => props.leftCol || '#0e11a8'};
   --b5: ${props => props.rightCol || '#fff'};
-  --b6: ${props => props.percentCol || '#0e11a8'};
+  --b6: #fff;
   font-size: 15px;
   text-align: center;
   color: var(--b1);
@@ -161,8 +161,7 @@ const WebsiteCarbonBadge = (props: WebsiteCarbonBadgeProps) => {
       leftBg={props.leftBg}
       leftCol={props.leftCol}
       rightBg={props.rightBg}
-      rightCol={props.rightCol} 
-      percentCol={props.percentCol} >
+      rightCol={props.rightCol} >
         <div>
         <LinkCo2
           target="_blank"

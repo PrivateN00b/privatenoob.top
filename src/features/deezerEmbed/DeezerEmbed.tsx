@@ -74,7 +74,6 @@ export default function DeezerEmbed({ $isLastBottom }: BaseContentDivProps) {
                     width="100%" 
                     height="400" 
                     allowTransparency={true}
-                    allow="encrypted-media; clipboard-write"
                     loading="lazy"></iframe>
     </BaseContentDiv>
 }

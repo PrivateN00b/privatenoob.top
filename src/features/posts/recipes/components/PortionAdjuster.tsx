@@ -81,7 +81,6 @@ const styles = stylex.create({
 function SegmentDisplay({ portion }: PortionProps) {
     useEffect(() => {
         createSegmentDisplay(portion.toString());
-        console.log("portion:",portion)
     }, [portion]);
 
     return <canvas {...stylex.props(styles.segmentDisplay)} id="segmentDisplayCanvas" height={70} width={100}></canvas>;

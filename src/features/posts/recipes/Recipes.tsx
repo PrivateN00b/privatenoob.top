@@ -58,7 +58,6 @@ function Recipes() {
           ...filterValues,
           [key]: filterValues[key].filter((value) => value !== name),
         });
-    console.log("UwU");
   };
 
   const handleFilterChange = (

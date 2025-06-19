@@ -8,6 +8,5 @@ export interface WebsiteCarbonBadgeProps {
   leftBg?: string;
   leftCol?: string;
   rightBg?: string;
-  rightCol?: string;
-  percentCol?: string
+  rightCol?: string
 }

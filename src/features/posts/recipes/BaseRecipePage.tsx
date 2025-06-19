@@ -132,7 +132,6 @@ export default function BaseRecipePage() {
       }
       else {
         // Get the recipe data if we didn't click from the Recipes page (searching on server's recipes.json)
-        console.log(recipeId)
         fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipes/${recipeId}`)
         .then((res) => res.json())
         .then((res) => {setRecipe(res as RecipeProps)});
