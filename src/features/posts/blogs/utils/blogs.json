@@ -149,10 +149,70 @@
       "/c;apiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: jellyfin-config-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 1Gi  # What should be the size of the volume\n  volumeName: jellyfin-config-pv  # Which volume we want to claim\n---\napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: movies-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteMany\n  resources:\n    requests:\n      storage: 1T\n  volumeName: movies-pv\n---\napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: tvseries-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteMany\n  resources:\n    requests:\n      storage: 1T\n  volumeName: tvseries-pv\n",
       "/h2;Configuring Jellyfin",
       "/p;I would usually recommend following the official guide (https://jellyfin.org/docs/general/post-install/setup-wizard) or watching a video about it, however there are some recommended extra configurations as well",
-      "/p;/s;Using hardware acceleration: I haven't done this step myself, but this is where you should look (https://jellyfin.org/docs/general/post-install/transcoding/hardware-acceleration/)",
-      "/p;/s;Creating new users: You can set new users in the Dashboard -> Users page",
-      "/p;/s;Adding plugins: You can add some extra features in Dashboard -> Plugins -> Catalog, but I mostly add new metadata plugins such as AniSearch, which can be ticked in the previously created media libraries to have a better hit chance on grabbing infos from a said series / movie.",
+      "/p/s;Using hardware acceleration: I haven't done this step myself, but this is where you should look (https://jellyfin.org/docs/general/post-install/transcoding/hardware-acceleration/)",
+      "/p/s;Creating new users: You can set new users in the Dashboard -> Users page",
+      "/p/s;Adding plugins: You can add some extra features in Dashboard -> Plugins -> Catalog, but I mostly add new metadata plugins such as AniSearch, which can be ticked in the previously created media libraries to have a better hit chance on grabbing infos from a said series / movie.",
       "/p;Good luck on your journey, fellow traveler. I hope my humble guide helps you out on your adventure ^^"
+    ],
+    "sources": [
+      {
+        "url": "https://kubernetes.io/docs/home/",
+        "title": "Kubernetes Documentation",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.slingacademy.com/article/understanding-storage-classes-and-dynamic-provisioning-in-kubernetes",
+        "title": "Understanding Storage Classes and Dynamic Provisioning in Kubernetes",
+        "retrieved": "2025.04.29"
+      },      
+      {
+        "url": "https://medium.com/@kadimasam/kubernetes-storage-pv-pvc-and-storage-class-c107eba9c232",
+        "title": "Kubernetes Storage: PV, PVC and Storage Class",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.youtube.com/@TechWorldwithNana",
+        "title": "TechWorld with Nana",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.youtube.com/@DevOpsToolkit",
+        "title": "DevOps Toolkit",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.baeldung.com/ops/kubernetes-persistent-volume-pv-claim-pvc",
+        "title": "Kubernetes Persistent Volume (PV) and Persistent Volume Claim (PVC)",
+        "retrieved": "2025.04.29"
+      }
+    ]
+  },
+  {
+    "to": "radarr",
+    "title": "Setting up Radarr + Sonarr on k3s in Rocky Linux",
+    "intro": "This is part 2 of the *arr stack guide",
+    "categories": [1],
+    "date": "2025.06.15",
+    "content": [
+      "/p;PART 1 OF THIS GUIDE IS MANDATORY",
+      "/p;This is the continuation of my quest in building a full *arr stack (Jellyfin, Jellyseerr, Radarr, Sonarr, Prowlarr, Qbittorrent) with k3s (for funsies) in order for my parents not renting out movies from goddamn Telekom.",
+      "/p;If you wish to gain some basic understandement on what each of these files are for, then check out the part 1, aka the 'Setting up Jellyfin on k3s in Rocky Linux' article.",
+      "/h2;Radarr and Sonarr setup",
+      "/p;Since I will show both Radarr and Sonarr, you will see 2 deployment, service and other files in each code segments. Mostly speaking you won't see that much of a difference compared to the part 1 of my article. The main difference is that we are downloading either Radarr or Sonarr.",
+      "/p;These are the deployment configuration, which will assemble the pod. The main notable difference compared to Jellyfin is that these deployments require a 'downloads' volume. This is where the requested media will be downloaded into.",
+      "/c;apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: radarr-deployment\n  labels:   # Define labels to refer to this exact deployment\n    app: radarr\nspec:\n  replicas: 1   # Amount of pods to be present\n  selector:\n    matchLabels:    # Define which labelled pods to manage\n      app: radarr\n  template:\n    metadata:\n      labels:   # Apply labels to deployed pods\n        app: radarr\n    spec:\n      containers:\n      - name: radarr\n        image: linuxserver/radarr:5.21.1\n        env:\n          - name: TZ\n            value: \"Etc/UTC\"\n          - name: PUID\n            value: \"1000\"   # PUID and PGID are needed for permission issues\n          - name: GUID\n            value: \"1000\"\n        ports:\n        - containerPort: 7878\n        volumeMounts:       # Path to folders inside the container\n          - name: config\n            mountPath: /config\n          - name: movies\n            mountPath: /movies\n          - name: downloads\n            mountPath: /downloads\n      volumes:              # Select the volume claims and attach it to their corresponding path\n        - name: config\n          persistentVolumeClaim:\n            claimName: radarr-config-pvc\n        - name: movies\n          persistentVolumeClaim:\n            claimName: movies-pvc\n        - name: downloads\n          persistentVolumeClaim:\n            claimName: downloads-pvc\n---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: sonarr-deployment\n  labels:\n    app: sonarr\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: sonarr\n  template:\n    metadata:\n      labels:\n        app: sonarr\n    spec:\n      containers:\n      - name: sonarr\n        image: linuxserver/sonarr:4.0.14\n        env:\n          - name: TZ\n            value: \"Etc/UTC\"\n          - name: PUID\n            value: \"1000\"\n          - name: GUID\n            value: \"1000\"\n        ports:\n        - containerPort: 8989\n        volumeMounts:\n          - name: config\n            mountPath: /config\n          - name: tvseries\n            mountPath: /tvseries\n          - name: downloads\n            mountPath: /downloads\n      volumes:\n        - name: config\n          persistentVolumeClaim:\n            claimName: sonarr-config-pvc\n        - name: tvseries\n          persistentVolumeClaim:\n            claimName: tvseries-pvc\n        - name: downloads\n          persistentVolumeClaim:\n            claimName: downloads-pvc",
+      "/p;And these are the service configurations, needed for reaching the deployments, AKA the Radarr and Sonarr pods.",
+      "/c;apiVersion: v1\nkind: Service\nmetadata:\n  name: radarr-service\nspec:\n  selector:\n    app: radarr\n  ports:\n    - protocol: TCP\n      port: 7878\n      targetPort: 7878\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: sonarr-service\nspec:\n  selector:\n    app: sonarr\n  ports:\n    - protocol: TCP\n      port: 8989\n      targetPort: 8989",
+      "/p;Here are the volumes which are needed to make Sonarr and Radarr work. Do note that a 'movies' volume already has been created in the part 1 of this guide, so we only need to create a Radarr and Sonarr specific config volume and a 'downloads' volume where the movies and series will be downloaded.",
+      "/c;apiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: radarr-config-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 1Gi\n  volumeName: radarr-config-pv\n---\napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: sonarr-config-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 1Gi\n  volumeName: sonarr-config-pv\n---\napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: downloads-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteMany\n  resources:\n    requests:\n      storage: 500Gi\n  volumeName: downloads-pv",
+      "/c;apiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: radarr-config-pv\nspec:\n  storageClassName: local-storage\n  capacity:\n    storage: 1Gi\n  accessModes:\n    - ReadWriteOnce\n  hostPath:\n    path: /pool/filesystem/radarr/data\n---\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: sonarr-config-pv\nspec:\n  storageClassName: local-storage\n  capacity:\n    storage: 1Gi\n  accessModes:\n    - ReadWriteOnce\n  hostPath:\n    path: /pool/filesystem/sonarr/data\n---\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: downloads-pv\nspec:\n  storageClassName: local-storage\n  capacity:\n    storage: 500Gi\n  accessModes:\n    - ReadWriteMany\n  hostPath:\n    path: /pool/filesystem/downloads",
+      "/p;The ingress configuration was just appended with 2 new domains, which forward to the Radarr and Sonarr deployments.",
+      "/c;---\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: ingress\n  annotations:\n    traefik.ingress.kubernetes.io/router.middlewares: default-content-type-options@kubernetescrd\nspec:\n  rules:\n    - host: jellyfin.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: jellyfin-service\n                port:\n                  number: 8096\n    - host: radarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: radarr-service\n                port:\n                  number: 7878\n    - host: sonarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: sonarr-service\n                port:\n                  number: 8989",
+      "/p;Good luck with configuring Radarr and Sonarr up. They can be finnicky sometimes :D",
+      "/h2;Useful fixes for configuration issues",
+      "/ul",
+      "/s;Nyaa.si results don't show up when searching on Radarr: ;This is a compatiblity issue with nyaa.si, which can be resolved if you had setup the indexers with Prowlarr. In Prowlarr, edit the nyaa.si indexer, and in it's settings turn on 'Improve Radarr compatibility by removing year information from keywords and adding it to Release Titles' option.",
+      "//ul"
     ],
     "sources": [
       {
