@@ -7,7 +7,7 @@ import styled from "styled-components";
 import StyledParagraph from "../../../../components/text/StyledParagraph";
 import { BlogCategory } from "../utils/BlogsEnums";
 import Code from "./Code";
-import hljs from "../utils/highlightConfig"; // Import the configured highlight.js
+import blogsJSON from "../utils/blogs.json";
 
 const BlogParagraph = styled.p`
     text-align: left;
@@ -43,8 +43,18 @@ export default function BlogPage() {
     const [blog, setBlog] = useState<BlogProps | null>(null)
     
     useEffect(() => {
-        hljs.highlightAll();  // Apply highlighting support
-        setBlog(location.state as BlogProps)
+        if (location.state != null) {
+            setBlog(location.state as BlogProps)
+        } 
+        else {
+            const localBlogs: BlogProps[] = JSON.parse(
+                JSON.stringify(blogsJSON)
+            ) as BlogProps[];
+            const currentBlog: BlogProps = localBlogs.find((blog) => 
+                location.pathname == `/Blogs/${blog.to}`
+            ) as BlogProps;
+            setBlog(currentBlog)
+        }
     }, [])
     
     if (!blog) {

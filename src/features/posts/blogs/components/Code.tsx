@@ -1,6 +1,6 @@
 import * as stylex from '@stylexjs/stylex';
 import { fontSize } from '../../../../styles/tokens.stylex';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import hljs from "../utils/highlightConfig.ts";
 
 interface CodeProps {
@@ -16,11 +16,21 @@ const styles = stylex.create({
 })
 
 export default function Code({ children }: CodeProps) {
+    const codeRef = useRef<HTMLPreElement>(null);
+
     useEffect(() => {
-        hljs.highlightAll();  // Apply highlighting support
+        if (codeRef.current) {
+            // Find the <code> element inside the <pre> element
+            const codeElement = codeRef.current.querySelector('code');
+
+            // Highlight the code segment if it hasn't been highlighted before
+            if (codeElement && !codeElement?.dataset.highlighted) {
+              hljs.highlightElement(codeElement);
+            }
+          }
     }, [])
 
-    return <pre {...stylex.props(styles.base)}>
+    return <pre {...stylex.props(styles.base)} ref={codeRef}>
         <code>{children}</code>
     </pre>
 }
