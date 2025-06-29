@@ -132,10 +132,10 @@ function Navbar() {
                 </div>{" "}
                 <div {...stylex.props(styles.menuBorder)} />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <NavbarLink to="About" component="dropdown">
+                  <NavbarLink to="about" component="dropdown">
                     About
                   </NavbarLink>
-                  <NavbarLink to="Projects" component="dropdown">
+                  <NavbarLink to="projects" component="dropdown">
                     Projects
                   </NavbarLink>
                 </div>
@@ -159,10 +159,10 @@ function Navbar() {
                 </div>{" "}
                 <div {...stylex.props(styles.menuBorder)} />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <NavbarLink to="Blogs" component="dropdown">
+                  <NavbarLink to="blogs" component="dropdown">
                     Blogs
                   </NavbarLink>
-                  <NavbarLink to="Recipes" component="dropdown">
+                  <NavbarLink to="recipes" component="dropdown">
                     Recipes
                   </NavbarLink>
                   <NavbarLink to="404" component="dropdown">
@@ -189,7 +189,7 @@ function Navbar() {
                 </div>{" "}
                 <div {...stylex.props(styles.menuBorder)} />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <NavbarLink to="404" component="dropdown">
+                  <NavbarLink to="links" component="dropdown">
                     Links
                   </NavbarLink>
                   <NavbarLink to="404" component="dropdown">

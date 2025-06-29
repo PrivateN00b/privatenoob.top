@@ -19,6 +19,7 @@ const Blogs = lazy(() => import("./features/posts/blogs/Blogs"))
 const Recipes = lazy(() => import("./features/posts/recipes/Recipes"))
 const BlogPage = lazy(() => import("./features/posts/blogs/components/BlogPage"))
 const BaseRecipePage = lazy(() => import("./features/posts/recipes/BaseRecipePage"))
+const Links = lazy(() => import("./features/others/Links"))
 const PageNotFound = lazy(() => import("./features/core/components/PageNotFound"))
 
 const router = createBrowserRouter(
@@ -26,16 +27,20 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
 
-      <Route path="About" element={<About />} />
-      <Route path="Projects" element={<Projects />} />
+      {/* Infos */}
+      <Route path="about" element={<About />} />
+      <Route path="projects" element={<Projects />} />
 
-      {/* Blogs */}
-      <Route path="Blogs" element={<Blogs />} />
-      <Route path="Recipes" element={<Recipes />} />
+      {/* Posts */}
+      <Route path="blogs" element={<Blogs />} />
+      <Route path="recipes" element={<Recipes />} />
       
       {/* Dynamic Routing */}
-      <Route path="Blogs/:blogId" element={<BlogPage />} />
-      <Route path="Recipes/:recipeId" element={<BaseRecipePage />} />
+      <Route path="blogs/:blogId" element={<BlogPage />} />
+      <Route path="recipes/:recipeId" element={<BaseRecipePage />} />
+
+      {/* Others */}
+      <Route path="links" element={<Links />} />
 
       <Route path="404" element={<PageNotFound />} />
     </Route>
