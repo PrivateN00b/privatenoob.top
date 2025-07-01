@@ -246,5 +246,63 @@
         "retrieved": "2025.04.29"
       }
     ]
+  },
+    {
+    "to": "prowlarr",
+    "title": "Setting up Prowlarr on k3s in Rocky Linux",
+    "intro": "This is part 3 of the *arr stack guide",
+    "categories": [1],
+    "date": "2025.07.03",
+    "content": [
+      "/p;PART 1,2 OF THIS GUIDE IS MANDATORY",
+      "/p;This is the continuation of my quest in building a full *arr stack (Jellyfin, Jellyseerr, Radarr, Sonarr, Prowlarr, Qbittorrent) with k3s (for funsies) in order for my parents not renting out movies from goddamn Telekom.",
+      "/p;If you wish to gain some basic understandement on what each of these files are for, then check out the part 1, aka the 'Setting up Jellyfin on k3s in Rocky Linux' article.",
+      "/h2;Prowlarr setup",
+      "/p;Since Prowlarr's aim is to simplify or managament of indexers in different types of media handling programs such as Sonarr (series), Radarr (movies), Readarr (books), Lidarr (music) etc., it only really needs a config volume as a storage, otherwise it looks similar to the previous deployment files.",
+      "/c;apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: prowlarr-deployment\n  labels:\n    app: prowlarr\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: prowlarr\n  template:\n    metadata:\n      labels:\n        app: prowlarr\n    spec:\n      containers:\n      - name: radarr\n        image: linuxserver/prowlarr:1.35.1\n        env:\n          - name: TZ\n            value: \"Etc/UTC\"\n        ports:\n        - containerPort: 9696\n        volumeMounts:\n          - name: config\n            mountPath: /config\n      volumes:\n        - name: config\n          persistentVolumeClaim:\n            claimName: prowlarr-config-pvc",
+      "/p;Here is the service configuration.",
+      "/c;apiVersion: v1\nkind: Service\nmetadata:\n  name: prowlarr-service\nspec:\n  selector:\n    app: prowlarr\n  ports:\n    - protocol: TCP\n      port: 9696\n      targetPort: 9696",
+      "/p;This is the volume claim and the volume configuration as well in one place.",
+      "/c;apiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: prowlarr-config-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 1Gi\n  volumeName: prowlarr-config-pv\n---\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: prowlarr-config-pv\nspec:\n  storageClassName: local-storage\n  capacity:\n    storage: 1Gi\n  accessModes:\n    - ReadWriteOnce\n  hostPath:\n    path: /pool/filesystem/prowlarr/data",
+      "/p;And the current ingress setup will look like this with Prowlarr as the new neighbor.",
+      "/c;apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: ingress\n  annotations:\n    traefik.ingress.kubernetes.io/router.middlewares: default-content-type-options@kubernetescrd\nspec:\n  rules:\n    - host: jellyfin.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: jellyfin-service\n                port:\n                  number: 8096\n    - host: radarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: radarr-service\n                port:\n                  number: 7878\n    - host: sonarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: sonarr-service\n                port:\n                  number: 8989\n    - host: prowlarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: prowlarr-service\n                port:\n                  number: 9696",
+      "/p;Good luck with configuring Prowlarr up. ^^",
+      "/h2;Useful fixes for configuration issues",
+      "/ul",
+      "/s;Nyaa.si results don't show up when searching on Radarr: ;This is a compatiblity issue with nyaa.si, which can be resolved if you had setup the indexers with Prowlarr. In Prowlarr, edit the nyaa.si indexer, and in it's settings turn on 'Improve Radarr compatibility by removing year information from keywords and adding it to Release Titles' option.",
+      "//ul"
+    ],
+    "sources": [
+      {
+        "url": "https://kubernetes.io/docs/home/",
+        "title": "Kubernetes Documentation",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.slingacademy.com/article/understanding-storage-classes-and-dynamic-provisioning-in-kubernetes",
+        "title": "Understanding Storage Classes and Dynamic Provisioning in Kubernetes",
+        "retrieved": "2025.04.29"
+      },      
+      {
+        "url": "https://medium.com/@kadimasam/kubernetes-storage-pv-pvc-and-storage-class-c107eba9c232",
+        "title": "Kubernetes Storage: PV, PVC and Storage Class",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.youtube.com/@TechWorldwithNana",
+        "title": "TechWorld with Nana",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.youtube.com/@DevOpsToolkit",
+        "title": "DevOps Toolkit",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.baeldung.com/ops/kubernetes-persistent-volume-pv-claim-pvc",
+        "title": "Kubernetes Persistent Volume (PV) and Persistent Volume Claim (PVC)",
+        "retrieved": "2025.04.29"
+      }
+    ]
   }
 ]
