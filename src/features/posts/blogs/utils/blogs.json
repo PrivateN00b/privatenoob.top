@@ -304,5 +304,60 @@
         "retrieved": "2025.04.29"
       }
     ]
+  },
+      {
+    "to": "qbittorrent",
+    "title": "Setting up Qbittorrent on k3s in Rocky Linux",
+    "intro": "This is part 4 of the *arr stack guide",
+    "categories": [1],
+    "date": "2025.07.09",
+    "content": [
+      "/p;PART 1,2,3 OF THIS GUIDE IS MANDATORY",
+      "/p;This is the continuation of my quest in building a full *arr stack (Jellyfin, Jellyseerr, Radarr, Sonarr, Prowlarr, Qbittorrent) with k3s (for funsies) in order for my parents not renting out movies from goddamn Telekom.",
+      "/p;If you wish to gain some basic understandement on what each of these files are for, then check out the part 1, aka the 'Setting up Jellyfin on k3s in Rocky Linux' article.",
+      "/h2;Qbittorrent setup",
+      "/p;Qbittorrent's purpose is to actually download the required content via the torrent protocol, which seems pretty important to ig.",
+      "/p;In Qbittorrent's case it actually communicates on 2 different ports. Whereas on the 8080 port we can actually observe how the downloads are progressing and configure how Qbittorrent works, the 6881 is the port used for actually downloading and seeding back said content from the interwebz. Other than the config volume, it will logically need a volume to download the files into.",
+      "/c;---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: qbittorrent-deployment\n  labels:\n    app: qbittorrent\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: qbittorrent\n  template:\n    metadata:\n      labels:\n        app: qbittorrent\n    spec:\n      containers:\n        - name: qbittorrent\n          image: linuxserver/qbittorrent:5.1.0\n          env:\n            - name: TZ\n              value: Etc/UTC\n            - name: WEBUI_PORT  # This is where we can access qbittorrent, observe the download process and configure it\n              value: \"8080\"\n            - name: TORRENTING_PORT  # This is where the torrent download process goes\n              value: \"6881\"\n          ports:\n            - containerPort: 8080\n              protocol: TCP\n            - containerPort: 6881\n              protocol: UDP\n          volumeMounts:\n            - name: config\n              mountPath: /config\n            - name: downloads\n              mountPath: /downloads\n      volumes:\n        - name: config\n          persistentVolumeClaim:\n            claimName: qbittorrent-config-pvc\n        - name: downloads\n          persistentVolumeClaim:\n            claimName: downloads-pvc",
+      "/p;Here is the service configuration, which looks a tiny bit different, cause the ports are named (ex: the 8080 port is regarded as webui). It's not strictily necessary to name these, but where a pod uses more than 1 port, it can be more readable if these ports are named in some way or form.",
+      "/c;apiVersion: v1\nkind: Service\nmetadata:\n  name: qbittorrent-service\nspec:\n  selector:\n    app: qbittorrent\n  ports:\n    - name: webui\n      protocol: TCP\n      port: 8080\n      targetPort: 8080\n    - name: torrenting\n      protocol: UDP\n      port: 6881\n      targetPort: 6881\n  type: LoadBalancer",
+      "/p;Here are the volume claims and the volumes",
+      "/c;apiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: qbittorrent-config-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 1Gi\n  volumeName: qbittorrent-config-pv\n---\napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: qbittorrent-config-pvc\nspec:\n  storageClassName: local-storage\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 1Gi\n  volumeName: qbittorrent-config-pv",
+      "/p;And also we can't leave out the current ingress configuration.",
+      "/c;---\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: ingress\n  annotations:\n    traefik.ingress.kubernetes.io/router.middlewares: default-content-type-options@kubernetescrd\nspec:\n  rules:\n    - host: media.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: jellyfin-service\n                port:\n                  number: 8096\n    - host: radarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: radarr-service\n                port:\n                  number: 7878\n    - host: sonarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: sonarr-service\n                port:\n                  number: 8989\n    - host: prowlarr.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: prowlarr-service\n                port:\n                  number: 9696\n    - host: qbit.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: qbittorrent-service\n                port:\n                  number: 8080\n    - host: qbitudp.domain.xyz\n      http:\n        paths:\n          - pathType: Prefix\n            path: /\n            backend:\n              service:\n                name: qbittorrent-service\n                port:\n                  number: 6881",
+      "/p;Aaaand now you're finally done with starting all the necessary pods to make this *arr ecosystem work. I highly encourage you try also include Jellyseer into the roster, which helps to netflixify this entire process, where you can just request a movie or series, and also see some recommendations."
+    ],
+    "sources": [
+      {
+        "url": "https://kubernetes.io/docs/home/",
+        "title": "Kubernetes Documentation",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.slingacademy.com/article/understanding-storage-classes-and-dynamic-provisioning-in-kubernetes",
+        "title": "Understanding Storage Classes and Dynamic Provisioning in Kubernetes",
+        "retrieved": "2025.04.29"
+      },      
+      {
+        "url": "https://medium.com/@kadimasam/kubernetes-storage-pv-pvc-and-storage-class-c107eba9c232",
+        "title": "Kubernetes Storage: PV, PVC and Storage Class",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.youtube.com/@TechWorldwithNana",
+        "title": "TechWorld with Nana",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.youtube.com/@DevOpsToolkit",
+        "title": "DevOps Toolkit",
+        "retrieved": "2025.04.29"
+      },
+      {
+        "url": "https://www.baeldung.com/ops/kubernetes-persistent-volume-pv-claim-pvc",
+        "title": "Kubernetes Persistent Volume (PV) and Persistent Volume Claim (PVC)",
+        "retrieved": "2025.04.29"
+      }
+    ]
   }
 ]
