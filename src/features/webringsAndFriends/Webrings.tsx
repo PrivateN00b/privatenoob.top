@@ -5,29 +5,42 @@ export default function Webrings() {
   const nixRingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (nixRingRef.current) {
-        const stylesheet = document.createElement("link");
-        stylesheet.rel = "stylesheet";
-        stylesheet.href = "https://teethinvitro.neocities.org/webring/linuxring/script/onionring.css";
-        document.head.appendChild(stylesheet);
+    if (!nixRingRef.current) return;
 
-        const scriptWidget = document.createElement("script");
-        scriptWidget.src = "https://teethinvitro.neocities.org/webring/linuxring/script/onionring-widget.js";
-        scriptWidget.async = true;
-        document.body.appendChild(scriptWidget);
+    // Load a selected script
+    const loadScript = (src: string) => {
+      return new Promise<void>((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error(`Script load error for ${src}`));
+        document.body.appendChild(script);
+      });
+    };
 
-        const scriptVariables = document.createElement("script");
-        scriptVariables.src = "https://teethinvitro.neocities.org/webring/linuxring/script/onionring-variables.js";
-        scriptVariables.async = true;
-        document.body.appendChild(scriptVariables);
+    const scriptVariablesSrc = "https://teethinvitro.neocities.org/webring/linuxring/script/onionring-variables.js";
+    const scriptWidgetSrc = "https://teethinvitro.neocities.org/webring/linuxring/script/onionring-widget.js";
 
-      return () => {
-        document.head.removeChild(stylesheet);
-        document.body.removeChild(scriptWidget);
-        document.body.removeChild(scriptVariables);
-      };
-    }
-  });
+    // Load the stylesheet
+    const stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = "https://teethinvitro.neocities.org/webring/linuxring/script/onionring.css";
+    document.head.appendChild(stylesheet);
+    
+    // Load the scripts
+    loadScript(scriptVariablesSrc)
+      .then(() => loadScript(scriptWidgetSrc))
+      .catch((error) => console.error(error));
+
+    return () => {
+      // Cleanup the *nixRing scripts
+      document.body.querySelectorAll(`script[src="${scriptVariablesSrc}"], script[src="${scriptWidgetSrc}"]`).forEach((script) => {
+        console.log(script);
+      });
+      document.head.removeChild(stylesheet);
+    };
+  }, []);
 
   return (
     <>
