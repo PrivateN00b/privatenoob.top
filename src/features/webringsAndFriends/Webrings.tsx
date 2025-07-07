@@ -27,7 +27,7 @@ export default function Webrings() {
         document.body.removeChild(scriptVariables);
       };
     }
-  }, [nixRingRef]);
+  });
 
   return (
     <>
