@@ -54,7 +54,7 @@ export default function BlogPage() {
                 JSON.stringify(blogsJSON)
             ) as BlogProps[];
             const currentBlog: BlogProps = localBlogs.find((blog) => 
-                location.pathname == `/${pathNames.blogs}/${blog.to}`
+                window.location.pathname == `/${pathNames.blogs}/${blog.to}`
             ) as BlogProps;
             setBlog(currentBlog)
             console.log(`setBlog when location.state == null: ${currentBlog}`)
