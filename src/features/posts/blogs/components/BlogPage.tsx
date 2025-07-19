@@ -53,6 +53,8 @@ export default function BlogPage() {
             const localBlogs: BlogProps[] = JSON.parse(
                 JSON.stringify(blogsJSON)
             ) as BlogProps[];
+            console.log(localBlogs)
+            console.log(`window.location.pathname: ${window.location.pathname} match something like to /${pathNames.blogs}/${localBlogs[0].to}`)
             const currentBlog: BlogProps = localBlogs.find((blog) => 
                 window.location.pathname == `/${pathNames.blogs}/${blog.to}`
             ) as BlogProps;
