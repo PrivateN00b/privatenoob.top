@@ -43,8 +43,10 @@ export default function BlogPage() {
     const [blog, setBlog] = useState<BlogProps | null>(null)
     
     useEffect(() => {
+        console.log(`location: ${location}`)
         if (location.state != null) {
             setBlog(location.state as BlogProps)
+            console.log(`setBlog when location.state != null: ${location.state as BlogProps}`)
         } 
         else {
             const localBlogs: BlogProps[] = JSON.parse(
@@ -54,6 +56,7 @@ export default function BlogPage() {
                 location.pathname == `/Blogs/${blog.to}`
             ) as BlogProps;
             setBlog(currentBlog)
+            console.log(`setBlog when location.state == null: ${currentBlog}`)
         }
     }, [])
     
