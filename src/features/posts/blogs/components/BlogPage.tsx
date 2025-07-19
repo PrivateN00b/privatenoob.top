@@ -8,6 +8,7 @@ import StyledParagraph from "../../../../components/text/StyledParagraph";
 import { BlogCategory } from "../utils/BlogsEnums";
 import Code from "./Code";
 import blogsJSON from "../utils/blogs.json";
+import pathNames from "../../../../utils/pathNames";
 
 const BlogParagraph = styled.p`
     text-align: left;
@@ -53,7 +54,7 @@ export default function BlogPage() {
                 JSON.stringify(blogsJSON)
             ) as BlogProps[];
             const currentBlog: BlogProps = localBlogs.find((blog) => 
-                location.pathname == `/Blogs/${blog.to}`
+                location.pathname == `/${pathNames.blogs}/${blog.to}`
             ) as BlogProps;
             setBlog(currentBlog)
             console.log(`setBlog when location.state == null: ${currentBlog}`)

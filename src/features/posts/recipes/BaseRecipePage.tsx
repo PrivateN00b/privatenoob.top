@@ -16,6 +16,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import recipesJSON from "./utils/recipes.json";
 import PortionAdjuster from "./components/PortionAdjuster";
+import pathNames from "../../../utils/pathNames";
 
 const StyledUL = styled.ul`
   margin: 0 40px 0 40px;
@@ -132,7 +133,7 @@ export default function BaseRecipePage() {
       }
       else {
         // Get the recipe data if we didn't click from the Recipes page (searching on server's recipes.json)
-        fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipes/${recipeId}`)
+        fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/${pathNames.recipes}/${recipeId}`)
         .then((res) => res.json())
         .then((res) => {setRecipe(res as RecipeProps)});
       }

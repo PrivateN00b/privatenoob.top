@@ -11,6 +11,7 @@ import RootLayout from "./features/core/RootLayout";
 import theme from "./styles/theme";
 import GlobalStyle from "./styles/global"
 import { lazy } from "react";
+import pathNames from "./utils/pathNames";
 
 // Lazy load certain pages to improve initial load times
 const About = lazy(() => import("./features/infos/About"))
@@ -28,21 +29,21 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
 
       {/* Infos */}
-      <Route path="about" element={<About />} />
-      <Route path="projects" element={<Projects />} />
+      <Route path={pathNames.about} element={<About />} />
+      <Route path={pathNames.projects} element={<Projects />} />
 
       {/* Posts */}
-      <Route path="blogs" element={<Blogs />} />
-      <Route path="recipes" element={<Recipes />} />
+      <Route path={pathNames.blogs} element={<Blogs />} />
+      <Route path={pathNames.recipes} element={<Recipes />} />
       
       {/* Dynamic Routing */}
-      <Route path="blogs/:blogId" element={<BlogPage />} />
-      <Route path="recipes/:recipeId" element={<BaseRecipePage />} />
+      <Route path={`${pathNames.blogs}/:blogId`} element={<BlogPage />} />
+      <Route path={`${pathNames.recipes}/:recipeId`} element={<BaseRecipePage />} />
 
       {/* Others */}
-      <Route path="links" element={<Links />} />
+      <Route path={pathNames.links} element={<Links />} />
 
-      <Route path="404" element={<PageNotFound />} />
+      <Route path={pathNames.pageNotFound} element={<PageNotFound />} />
     </Route>
   )
 );
