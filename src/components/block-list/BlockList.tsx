@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 const BlockList = styled.ul`
   background-color: ${({ theme }) => theme.colors.secondary};

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import createSegmentDisplay from "./segmentDisplay";
 import { PortionProps } from "../utils/RecipesTypes";
 import * as stylex from '@stylexjs/stylex';

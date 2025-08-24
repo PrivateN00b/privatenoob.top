@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import { FlexDivWithPadding } from "../../components/div/FlexDivs";

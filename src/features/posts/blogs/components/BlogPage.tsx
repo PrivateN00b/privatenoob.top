@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 import { BlogProps } from "../utils/BlogsTypes";
 import { BaseContentDiv } from "../../../../components/div/BaseContentDiv";
 import { CenteredH1, CenteredH2 } from "../../../../components/text/CenteredHeaders";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import StyledParagraph from "../../../../components/text/StyledParagraph";
 import { BlogCategory } from "../utils/BlogsEnums";
 import Code from "./Code";

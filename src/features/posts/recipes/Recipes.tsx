@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { CenteredH1 } from "../../../components/text/CenteredHeaders";
 import Container from "../../../components/div/Container";
 import { Recipe } from "./components/Recipe";

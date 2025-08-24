@@ -40,14 +40,14 @@ export default defineConfig(({ mode }) => {
         // Apply patch to root import:
         //   import someImport from 'some-package'
         "react-router-dom",
-        "styled-components",
+        // "styled-components",
  
         // Apply patch to all sub imports:
         //   import someImport from 'some-package/path'
         //   import someImport from 'some-package/sub/path'
         //   ...
         "react-router-dom/**",
-        "styled-components/**"
+        // "styled-components/**"
       ]
     })
     ],
@@ -65,9 +65,9 @@ export default defineConfig(({ mode }) => {
       port: 3000,
     },
     publicDir: "public",
-    ssr: {
-    // Add problematic npm package here:
-    noExternal: ['styled-components']
-    }
+    // ssr: {
+    // // Add problematic npm package here:
+    // noExternal: ['styled-components']
+    // }
   };
 });

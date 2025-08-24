@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "styled-components";
 import theme from "../../../../styles/theme.ts";
 import { BlogProps } from "../utils/BlogsTypes.ts";
 import { BlogCategory } from "../utils/BlogsEnums.ts";

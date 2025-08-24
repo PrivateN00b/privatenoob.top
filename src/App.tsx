@@ -8,7 +8,7 @@ import {
 import { ThemeProvider } from "styled-components";
 import Home from "./features/core/home/Home";
 import RootLayout from "./features/core/RootLayout";
-import theme from "./styles/theme";
+import { theme } from "./styles/theme";
 import GlobalStyle from "./styles/global"
 import { lazy } from "react";
 import pathNames from "./utils/pathNames";

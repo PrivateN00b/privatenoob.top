@@ -1,5 +1,5 @@
 import { rgba } from "polished";
-import styled from "styled-components";
+import { styled } from "styled-components";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import * as stylex from '@stylexjs/stylex';
 import { colors, colorsA } from "../../styles/tokens.stylex";
