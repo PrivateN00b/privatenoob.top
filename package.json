@@ -4,23 +4,28 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "vike dev",
+    "build": "tsc && vike build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vike preview"
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.11.6",
     "@reduxjs/toolkit": "^2.5.0",
     "@stylexjs/stylex": "^0.13.1",
     "highlight.js": "^11.11.1",
+    "hono": "^4.9.2",
     "polished": "^4.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "vike-react": "^0.6.5",
+    "vike-server": "^1.0.23",
+    "vite-plugin-cjs-interop": "^2.2.0"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^2.1.4",
     "@babel/core": "^7.27.1",
     "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.27.1",

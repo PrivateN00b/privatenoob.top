@@ -55,9 +55,11 @@ export default function NavbarLink({
   children,
 }: NavbarLinkProps) {
   {
+    console.log("IN NAVBARLINK")
     if (component.toLowerCase() == "dropdown")
       return <DropDownLink to={to}>{children}</DropDownLink>;
     else if (component.toLowerCase() == "normal")
       return <StyledLink to={to}>{children}</StyledLink>;
+    // return <Link to={to}>NAVBAR</Link>
   }
 }
