@@ -4,5 +4,5 @@ import vikeReactStyledComponents from "vike-react-styled-components/config"
 
 export default {
   stream: true,
-  extends: [vikeReact, vikeReactStyledComponents]
+  extends: [vikeReact, vikeReactStyledComponents],
 } satisfies Config

@@ -6,6 +6,8 @@ import RightLayout from "./components/RightLayout";
 import CenterLayout from "./components/CenterLayout";
 import React, { useId } from 'react'
 import { Config } from 'vike-react/Config'
+import { theme } from "../../styles/theme";
+import { ThemeProvider } from 'styled-components';
 
 const styles = stylex.create({
   base: {
@@ -25,10 +27,12 @@ function Page() {
   console.log(id)
 
   return (
-    <div {...stylex.props(styles.base)}>
-      {/* <LeftLayout /> */}
-      <CenterLayout />
-      {/* <RightLayout /> */}
-    </div>
+    <ThemeProvider theme={theme}>
+      <div {...stylex.props(styles.base)}>
+        {/* <LeftLayout /> */}
+        <CenterLayout />
+        {/* <RightLayout /> */}
+      </div>
+    </ThemeProvider>
   )
 }
