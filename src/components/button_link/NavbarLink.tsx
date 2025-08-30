@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { styled } from "styled-components";
+import { Link } from "../Link";
 
 const BaseLink = styled(Link)`
   display: flex;
@@ -57,8 +57,8 @@ export default function NavbarLink({
   {
     console.log("IN NAVBARLINK")
     if (component.toLowerCase() == "dropdown")
-      return <DropDownLink to={to}>{children}</DropDownLink>;
+      return <DropDownLink href={to}>NAVBARLINK</DropDownLink>;
     else if (component.toLowerCase() == "normal")
-      return <StyledLink to={to}>{children}</StyledLink>;
+      return <StyledLink href={to}>NAVBARLINK</StyledLink>;
   }
 }

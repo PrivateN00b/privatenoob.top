@@ -15,11 +15,13 @@ const styles = stylex.create({
 
 
 export default function RootLayout() {
+  console.log("IN ROOTLAYOUT")
+
   return (
     <div {...stylex.props(styles.base)}>
-      <LeftLayout />
+      {/* <LeftLayout /> */}
       <CenterLayout />
-      <RightLayout />
+      {/* <RightLayout /> */}
     </div>
   );
 }
