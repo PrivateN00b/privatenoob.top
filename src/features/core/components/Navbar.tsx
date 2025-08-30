@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import NavbarLink from "../../../components/button_link/NavbarLink";
+import NavbarLink from "../../../components/link/NavbarLink";
 import { colors } from "../../../styles/tokens.stylex";
 import { FontIcon } from "../../../components/img/Icon";
 import theme from '../../../styles/theme';

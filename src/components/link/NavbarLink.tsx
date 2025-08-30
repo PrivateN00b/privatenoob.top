@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Link } from "../Link";
+import { Link } from "./Link";
 
 const BaseLink = styled(Link)`
   display: flex;
@@ -46,7 +46,7 @@ const DropDownLink = styled(BaseLink)`
 interface NavbarLinkProps {
   to: string;
   component: string;
-  children?: React.ReactNode;
+  children: string;
 }
 
 export default function NavbarLink({
@@ -57,8 +57,8 @@ export default function NavbarLink({
   {
     console.log("IN NAVBARLINK")
     if (component.toLowerCase() == "dropdown")
-      return <DropDownLink href={to}>NAVBARLINK</DropDownLink>;
+      return <DropDownLink href={to}>{children}</DropDownLink>;
     else if (component.toLowerCase() == "normal")
-      return <StyledLink href={to}>NAVBARLINK</StyledLink>;
+      return <StyledLink href={to}>{children}</StyledLink>;
   }
 }

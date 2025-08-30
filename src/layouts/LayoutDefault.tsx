@@ -2,7 +2,7 @@ import React from "react";
 import { styled, ThemeProvider } from "styled-components";
 import { theme } from "../styles/theme";
 import GlobalStyle from "../styles/global"
-import { Link } from "../components/Link";
+import { Link } from "../components/link/Link";
 
 export default function LayoutDefault({ children }: { children: React.ReactNode }) {
   console.log("IN LAYOUTDEFAULT")
