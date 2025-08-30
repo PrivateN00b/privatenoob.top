@@ -34,8 +34,8 @@ const styles = stylex.create({
 export default function CenterLayout() {
     return <div {...stylex.props(styles.layout)}>
         <header {...stylex.props(styles.header)}>
-            {/* <Banner /> */}
-            {/* <Navbar /> */}
+            <Banner />
+            <Navbar />
         </header>
         <main {...stylex.props(styles.main)}>
             <Outlet />
