@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
-import { GenerateEmotes } from "../../emote/components/GenerateEmotes";
-import Emote from "../../emote/components/Emote";
+import { RootState } from "../../store/store";
 import * as stylex from '@stylexjs/stylex';
+import { GenerateEmotes } from "../../(features)/emote/components/GenerateEmotes";
+import Emote from "../../(features)/emote/components/Emote";
 
 const NON_DESKTOP = "@media (max-width: 1800px)"
 

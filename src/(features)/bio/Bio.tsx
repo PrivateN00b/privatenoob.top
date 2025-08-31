@@ -1,9 +1,9 @@
-import styled, { keyframes } from "styled-components";
+import { styled, keyframes } from "styled-components";
 import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import { BaseContentDivProps } from "../../utils/interfaces";
-import { NavLink } from "react-router-dom";
 import socialLinks from "../../utils/socialLinks";
 import { rgba } from "polished";
+import { Link } from "../../components/link/Link";
 
 const avatarAnimation = keyframes`   
   from {
@@ -44,7 +44,7 @@ const AvatarImg = styled.img`
   object-fit: cover;
 `;
 
-const BioInfo = styled(NavLink)`
+const BioInfo = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@ function Bio({ $isLastBottom = false }: BaseContentDivProps) {
           />
           {/* <OnlineIndicator /> */}
         </AvatarCard>
-        <BioInfo to={socialLinks.discord.url}>
+        <BioInfo href={socialLinks.discord.url}>
           <OnlineIndicator />
           <h4>PrivateNoob</h4>
         </BioInfo>

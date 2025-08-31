@@ -1,7 +1,7 @@
-import Banner from "../../../components/img/Banner";
+import Banner from "../../components/img/Banner";
 import Navbar from "./Navbar";
 import * as stylex from '@stylexjs/stylex';
-import { colors, colorsA, otherStyles } from "../../../styles/tokens.stylex";
+import { colors, colorsA, otherStyles } from "../../styles/tokens.stylex";
 import { Outlet } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
@@ -31,14 +31,14 @@ const styles = stylex.create({
     }
 })
 
-export default function CenterLayout() {
+export default function CenterLayout({ children }: { children: React.ReactNode }) {
     return <div {...stylex.props(styles.layout)}>
         <header {...stylex.props(styles.header)}>
             <Banner />
             <Navbar />
         </header>
         <main {...stylex.props(styles.main)}>
-            <Outlet />
+            {children}
         </main>
         <Suspense fallback={<h1>Loading...</h1>}>
             {/* <Footer /> */}

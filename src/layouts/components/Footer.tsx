@@ -1,5 +1,5 @@
-import { colors, colorsA } from "../../../styles/tokens.stylex";
-import { CenteredH2 } from "../../../components/text/CenteredHeaders";
+import { colors, colorsA } from "../../styles/tokens.stylex";
+import { CenteredH2 } from "../../components/text/CenteredHeaders";
 import * as stylex from '@stylexjs/stylex';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";

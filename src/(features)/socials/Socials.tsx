@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import { BaseContentDivProps } from "../../utils/interfaces";
 import Icon from "../../components/text/Icon";
@@ -16,58 +15,58 @@ function Socials({ $isLastBottom = false }: BaseContentDivProps) {
     >
       <CenteredH2>Socials</CenteredH2>
       <div>
-        <Link to={socialLinks.discord.url}>
+        <a href={socialLinks.discord.url}>
           <Icon
             src={socialLinks.discord.icon}
             text={socialLinks.discord.name}
             alt=""
           />
-        </Link>
+        </a>
       </div>
       <div>
-        <Link to={socialLinks.lemmy.url}>
+        <a href={socialLinks.lemmy.url}>
           <Icon 
             src={socialLinks.lemmy.icon}
             text={socialLinks.lemmy.name} 
             alt=""
             />
-        </Link>
+        </a>
       </div>
       <div>
-        <Link to={socialLinks.vrchat.url}>
+        <a href={socialLinks.vrchat.url}>
           <Icon 
             src={socialLinks.vrchat.icon}
             text={socialLinks.vrchat.name}
             alt=""
             />
-        </Link>
+        </a>
       </div>
       <div>
-        <Link to={socialLinks.email.url}>
+        <a href={socialLinks.email.url}>
           <Icon
             src={socialLinks.email.icon}
             text={socialLinks.email.name}
             alt=""
             />
-        </Link>
+        </a>
       </div>
       <div>
-        <Link to={socialLinks.github.url}>
+        <a href={socialLinks.github.url}>
           <Icon
             src={socialLinks.github.icon}
             text={socialLinks.github.name}
             alt=""
             />
-        </Link>
+        </a>
       </div>
       <div>
-        <Link to={socialLinks.linkedin.url}>
+        <a href={socialLinks.linkedin.url}>
           <Icon
             src={socialLinks.linkedin.icon}
             text={socialLinks.linkedin.name}
             alt=""
           />
-        </Link>
+        </a>
       </div>
     </BaseContentDiv>
   );

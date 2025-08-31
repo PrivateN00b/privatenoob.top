@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { WebsiteCarbonBadgeProps } from "./WebsiteCarbonBadge.types"
-import styled, { css } from "styled-components"
+import { styled, css } from "styled-components"
 
 const Wrapper = styled.div<WebsiteCarbonBadgeProps>`
   --b1: ${props => props.rightBg ? props.rightBg : '#0e11a8'};

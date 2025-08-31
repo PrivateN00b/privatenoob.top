@@ -1,9 +1,9 @@
 import * as stylex from '@stylexjs/stylex';
-import NavbarLink from "../../../components/link/NavbarLink";
-import { colors } from "../../../styles/tokens.stylex";
-import { FontIcon } from "../../../components/img/Icon";
-import theme from '../../../styles/theme';
-import { bContD } from '../../../components/div/BaseContentDiv';
+import NavbarLink from "../../components/link/NavbarLink";
+import { colors } from "../../styles/tokens.stylex";
+import { FontIcon } from "../../components/img/Icon";
+import theme from '../../styles/theme';
+import { bContD } from '../../components/div/BaseContentDiv';
 
 const styles = stylex.create({
   nav: {
