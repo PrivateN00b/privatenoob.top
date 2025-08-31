@@ -7,6 +7,8 @@ import * as stylex from '@stylexjs/stylex';
 import LeftLayout from "./components/LeftLayout";
 import RightLayout from "./components/RightLayout";
 import CenterLayout from "./components/CenterLayout";
+import { Provider } from "react-redux";
+import { store } from "../store/store";
 
 const styles = stylex.create({
   base: {
@@ -21,10 +23,12 @@ export default function LayoutDefault({ children }: { children: React.ReactNode 
   console.log("IN LAYOUTDEFAULT")
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Content>{children}</Content>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Content>{children}</Content>
+      </ThemeProvider>    
+    </Provider>
   );
 }
 
@@ -33,7 +37,7 @@ function Content({ children }: { children: React.ReactNode }) {
   
   return (
     <div {...stylex.props(styles.base)}>
-      {/* <LeftLayout /> */}
+      <LeftLayout />
       <CenterLayout children={children}/>
       {/* <RightLayout /> */}
     </div>

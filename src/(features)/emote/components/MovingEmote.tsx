@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import { styled } from "styled-components"
 import { EmoteStyle } from "./Emote"
 import { useEffect, useRef } from "react";
 import { MovingEmoteProps } from "../utils/interfaces";

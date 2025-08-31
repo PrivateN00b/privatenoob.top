@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import { styled } from "styled-components"
 import { useDispatch } from "react-redux";
 import { useAudio } from "../../../hooks/useAudio";
 import { changeActivation } from "../../../store/slices/movingEmoteSlice";
