@@ -1,4 +1,3 @@
-import { styled } from "styled-components";
 import { Link } from "./Link";
 import * as stylex from '@stylexjs/stylex';
 import { colors } from "../../styles/tokens.stylex";
@@ -48,7 +47,7 @@ const styles = stylex.create({
 interface NavbarLinkProps {
   to: string;
   component: string;
-  children: string;
+  children: React.ReactNode;
 }
 
 export default function NavbarLink({
@@ -58,8 +57,8 @@ export default function NavbarLink({
 }: NavbarLinkProps) {
   {
     if (component.toLowerCase() == "dropdown")  // Render DropDownLink
-      return <Link {...stylex.props(styles.base, styles.dropDownLink)} href={to}>{children}</Link>;
+      return <Link style={[styles.base, styles.dropDownLink]} href={to}>{children}</Link>;
     else if (component.toLowerCase() == "normal")  // Render StyledLink
-      return <Link {...stylex.props(styles.base, styles.styledLink)} href={to}>{children}</Link>;
+      return <Link style={[styles.base, styles.styledLink]} href={to}>{children}</Link>;
   }
 }

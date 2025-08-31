@@ -1,12 +1,12 @@
-import React from "react";
-import { usePageContext } from "vike-react/usePageContext";
+import * as stylex from '@stylexjs/stylex';
 
-export function Link({ href, children }: { href: string; children: string }) {
-  const pageContext = usePageContext();
-  const { urlPathname } = pageContext;
-  const isActive = href === "/" ? urlPathname === href : urlPathname.startsWith(href);
+export function Link({ style, href, children }: { style: Readonly<{}>[], href: string; children: React.ReactNode }) {
+  // const pageContext = usePageContext();
+  // const { urlPathname } = pageContext;
+  // const isActive = href === "/" ? urlPathname === href : urlPathname.startsWith(href);
+
   return (
-    <a href={href} className={isActive ? "is-active" : undefined}>
+    <a {...stylex.props(style)} href={href}>
       {children}
     </a>
   );

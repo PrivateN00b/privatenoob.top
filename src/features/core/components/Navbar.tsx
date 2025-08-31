@@ -113,7 +113,7 @@ function Navbar() {
       <div {...stylex.props(styles.nav)}>
           <NavbarLink to="/" component="normal">
             <FontIcon src="/fonts/home.svg" height={theme.fontSize.large} style={{ marginRight: "3px" }} />
-            <p>Home</p>
+            Home
           </NavbarLink>
 
           <div {...stylex.props(styles.dropDown)}>
