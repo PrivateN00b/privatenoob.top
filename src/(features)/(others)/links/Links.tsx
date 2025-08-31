@@ -1,7 +1,7 @@
-import Container from '../../components/div/Container';
-import { BaseContentDiv } from '../../components/div/BaseContentDiv';
-import { CenteredH1, CenteredH2 } from '../../components/text/CenteredHeaders';
-import StyledParagraph from '../../components/text/StyledParagraph';
+import Container from '../../../components/div/Container';
+import { BaseContentDiv } from '../../../components/div/BaseContentDiv';
+import { CenteredH1, CenteredH2 } from '../../../components/text/CenteredHeaders';
+import StyledParagraph from '../../../components/text/StyledParagraph';
 import { Link } from 'react-router-dom';
 
 export default function Links() {

@@ -10,7 +10,6 @@ export default function LayoutDefault({ children }: { children: React.ReactNode 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Link href="/">Welcome</Link>
       <Content>{children}</Content>
     </ThemeProvider>
   );

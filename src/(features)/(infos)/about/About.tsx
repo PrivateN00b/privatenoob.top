@@ -1,14 +1,14 @@
-import BlockList from "../../components/block-list/BlockList";
-import BlockListDiv from "../../components/block-list/BlockListDiv";
-import BlockTitle from "../../components/block-list/BlockTitle";
-import { CenteredH1 } from "../../components/text/CenteredHeaders";
-import Container from "../../components/div/Container";
-import StyledParagraph from "../../components/text/StyledParagraph";
-import Bio from "../../features/bio/Bio";
-import Socials from "../../features/socials/Socials";
-import LeftSideDiv from "../../components/div/LeftSideDiv";
-import MainDiv from "../../components/div/MainDiv";
-import { BaseContentDiv } from "../../components/div/BaseContentDiv";
+import BlockList from "../../../components/block-list/BlockList";
+import BlockListDiv from "../../../components/block-list/BlockListDiv";
+import BlockTitle from "../../../components/block-list/BlockTitle";
+import { CenteredH1 } from "../../../components/text/CenteredHeaders";
+import Container from "../../../components/div/Container";
+import StyledParagraph from "../../../components/text/StyledParagraph";
+import Bio from "../../bio/Bio";
+import Socials from "../../socials/Socials";
+import LeftSideDiv from "../../../components/div/LeftSideDiv";
+import MainDiv from "../../../components/div/MainDiv";
+import { BaseContentDiv } from "../../../components/div/BaseContentDiv";
 
 function About() {
   return (

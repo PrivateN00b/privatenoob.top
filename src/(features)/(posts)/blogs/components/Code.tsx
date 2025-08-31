@@ -1,7 +1,7 @@
 import * as stylex from '@stylexjs/stylex';
 import { fontSize } from '../../../../styles/tokens.stylex';
 import { useEffect, useRef } from 'react';
-import hljs from "../utils/highlightConfig.ts";
+import hljs from "../utils/highlightConfig";
 
 interface CodeProps {
     children: string

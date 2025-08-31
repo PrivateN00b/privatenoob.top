@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
-import theme from "../../../../styles/theme.ts";
-import { BlogProps } from "../utils/BlogsTypes.ts";
-import { BlogCategory } from "../utils/BlogsEnums.ts";
+import theme from "../../../../styles/theme.js";
+import { BlogProps } from "../utils/BlogsTypes.js";
+import { BlogCategory } from "../utils/BlogsEnums.js";
 import { NavLink } from "react-router-dom";
 
 const BlogDiv = styled.div`
