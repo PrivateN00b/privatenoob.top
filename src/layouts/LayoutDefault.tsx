@@ -39,7 +39,7 @@ function Content({ children }: { children: React.ReactNode }) {
     <div {...stylex.props(styles.base)}>
       <LeftLayout />
       <CenterLayout children={children}/>
-      {/* <RightLayout /> */}
+      <RightLayout />
     </div>
   );
 }
