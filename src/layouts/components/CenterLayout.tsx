@@ -41,7 +41,7 @@ export default function CenterLayout({ children }: { children: React.ReactNode }
             {children}
         </main>
         <Suspense fallback={<h1>Loading...</h1>}>
-            {/* <Footer /> */}
+            <Footer />
         </Suspense>
     </div>
 }

@@ -1,8 +1,8 @@
 import { colors, colorsA } from "../../styles/tokens.stylex";
 import { CenteredH2 } from "../../components/text/CenteredHeaders";
 import * as stylex from '@stylexjs/stylex';
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "../../components/link/Link";
 
 const styles = stylex.create({
   footer: {
@@ -68,10 +68,10 @@ function Footer() {
       <div style={{ width: "30%", display: "flex", flexDirection: "column" }}>
         <CenteredH2>Links</CenteredH2>
         <div {...stylex.props(styles.linkDiv)}>
-          <Link {...stylex.props(styles.styledLink)} to="404">Sitemap</Link>
-          <Link {...stylex.props(styles.styledLink)} to="404">Accessibility</Link>
-          <Link {...stylex.props(styles.styledLink)} to="404">Credits</Link>
-          <Link {...stylex.props(styles.styledLink)} to="404">Back to Top</Link>
+          <Link style={[styles.styledLink]} href="404">Sitemap</Link>
+          <Link style={[styles.styledLink]} href="404">Accessibility</Link>
+          <Link style={[styles.styledLink]} href="404">Credits</Link>
+          <Link style={[styles.styledLink]} href="404">Back to Top</Link>
         </div>
       </div>
     </footer>
