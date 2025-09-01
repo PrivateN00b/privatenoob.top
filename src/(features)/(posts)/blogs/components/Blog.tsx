@@ -1,52 +1,53 @@
 import { styled } from "styled-components";
-import theme from "../../../../styles/theme.js";
 import { BlogProps } from "../utils/BlogsTypes.js";
 import { BlogCategory } from "../utils/BlogsEnums.js";
+import * as stylex from '@stylexjs/stylex';
+import { colors, fontSize } from "../../../../styles/tokens.stylex.js";
 
-const BlogDiv = styled.div`
-    text-align: center;
-    border-radius: 20px;
-    margin: 0 40px 20px 40px;
-    padding: 10px 15px 10px 15px;
-    outline-style: outset;
-    outline-color: ${({ theme }) => theme.colors.tertiary};
-    background-color:  ${({ theme }) => theme.colors.quarteriary};
-`
-
-const Title = styled.h2`
-    margin: 0;
-    text-align: left;
-`
-
-const Intro = styled.p`
-    margin: 0 0 5px 0;
-    text-align: left;
-    color: white;
-`
-
-const Category = styled.span`
-    margin-right: 10px;
-    color: ${({ theme }) => theme.colors.primary};
-    font-size: ${({ theme }) => theme.fontSize.small};
-`
+const styles = stylex.create({
+    blogDiv: {
+        textAlign: 'center',
+        borderRadius: '20px',
+        margin: '0 40px 20px 40px',
+        padding: '10px 15px 10px 15px',
+        outlineStyle: 'outset',
+        outlineColor: colors.tertiary,
+        backgroundColor: colors.quarteriary,
+    },
+    title: {
+        margin: '0',
+        textAlign: 'left',
+        color: 'white'
+    },
+    intro: {
+        margin: '0 0 5px 0',
+        textAlign: 'left',
+        color: 'white',
+    },
+    category: {
+        marginRight: '10px',
+        color: colors.primary,
+        fontSize: fontSize.small,
+    },
+});
 
 export default function Blog(props: BlogProps) {
     return (
-        <a style={{ textDecoration: "none" }} to={props.to} state={props}>
-            <BlogDiv>
-                <Title style={{ color: "white" }}>{props.title}</Title>
-                <Intro>{props.intro}</Intro>
+        <a style={{ textDecoration: "none" }} href={props.to}>
+            <div {...stylex.props(styles.blogDiv)}>
+                <h2 {...stylex.props(styles.title)}>{props.title}</h2>
+                <p {...stylex.props(styles.intro)}>{props.intro}</p>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <div style={{ textAlign: "left" }}>
                         {props.categories.map((category) => (
-                            <Category key={category}>{BlogCategory[category]}</Category>
+                            <span {...stylex.props(styles.category)} key={category}>{BlogCategory[category]}</span>
                         ))}
                     </div>
                     <div style={{ textAlign: "right", marginRight: "5px" }}>
-                        <span style={{ fontSize: `${theme.fontSize.small}` }}>{props.date}</span>
+                        <span style={{ fontSize: `${fontSize.small}` }}>{props.date}</span>
                     </div>
                 </div>
-            </BlogDiv>
+            </div>
         </a>
     );
 }
