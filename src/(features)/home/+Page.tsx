@@ -19,9 +19,6 @@ const WebFriends = lazy(() => import("../webringsAndFriends/WebFriends"))
 const DeezerEmbed = lazy(() => import("../deezerEmbed/DeezerEmbed"))
 
 function Page() {
-  // Will be printed on the server and in the browser:
-  console.log('Rendering the HOME page')
-
   return (
       <Container>
         <meta name="description" content="Home page of privatenoob.top" />

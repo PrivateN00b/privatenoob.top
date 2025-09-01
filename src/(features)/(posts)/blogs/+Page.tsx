@@ -1,35 +1,82 @@
 export default Page
 
 import * as stylex from '@stylexjs/stylex';
-import React, { useId } from 'react'
-import { Config } from 'vike-react/Config'
-import { theme } from "../../../styles/theme";
-import { ThemeProvider } from 'styled-components';
-
-const styles = stylex.create({
-  base: {
-    position: "relative",
-    display: "flex",
-    justifyContent: "space-between",
-    marginTop: "-8px",
-  }
-})
-
+import React from 'react'
+import { BaseContentDiv } from "../../../components/div/BaseContentDiv";
+import Container from "../../../components/div/Container";
+import Filters from "./components/Filters";
+import Blog from "./components/Blog";
+import blogsJSON from "./utils/blogs.json";
+import { useEffect, useState } from "react";
+import { BlogProps } from "./utils/BlogsTypes";
+import { BlogCategory } from "./utils/BlogsEnums";
 
 function Page() {
-  // Will be printed on the server and in the browser:
-  console.log('Rendering the landing page')
+  const [categories, setCategories] = useState([] as BlogCategory[])
+  const [blogs, setBlogs] = useState([] as BlogProps[]);
+  const localBlogs: BlogProps[] = JSON.parse(
+    JSON.stringify(blogsJSON)
+  ) as BlogProps[];
 
-  const id = useId()
-  console.log(id)
+  useEffect(() => {
+    // This shall be replaced when the backend will provide blogs as well, just as in Recipes.tsx
+    setBlogs(localBlogs)
+    console.log("localBlogs: ", localBlogs)
+  }, [])
+
+  const toBlogCategory = (name: string) => {
+    switch (name) {
+      case "Coding":
+        return BlogCategory.Coding
+      case "Food":
+        return BlogCategory.Food
+      case "Gaming":
+        return BlogCategory.Gaming
+      default:
+        break
+    }
+  }
+
+  /**
+   * Changes the categories state's content which is used for filtering blogs
+   * @param name Name of the Category (ex: Coding)
+   * @param e Event property of said Checkbox
+   */
+  const handleFilterChange = (
+    name: string,
+    _: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const key: BlogCategory | undefined = toBlogCategory(name);
+    if (typeof key !== "undefined") {
+      if (categories.includes(key)) {
+        // Remove category, because it is already in categories
+        setCategories((prevCategories) => prevCategories.filter((cat) => cat !== key))
+      } else {
+        // Add category
+        setCategories((prevCategories) => [...prevCategories, key])
+      }
+    } else {
+      throw new Error("Key value in Blogs handleFilterChange is undefined!")
+    }
+  }
+
+  const renderBlogs = () => {
+    return blogs.map((blog) => {
+      if (categories.some((cat) => blog.categories.includes(cat)) || categories.length == 0)
+        return <Blog key={blog.to} {...blog} />
+    }
+    )
+  }
 
   return (
-    <ThemeProvider theme={theme}>
-      <div {...stylex.props(styles.base)}>
-        {/* <LeftLayout /> */}
-        <h1>BLOGS</h1>
-        {/* <RightLayout /> */}
-      </div>
-    </ThemeProvider>
-  )
+    <Container $flexDirection="column">
+      <meta name="description" content="Blogs made by privatenoob.top author" />
+      <meta name="keywords" content="blogs, code, recipe, programming, personal, gaming" />
+      <Filters onFilterChange={handleFilterChange}/>
+      <BaseContentDiv $isLastBottom={true}>
+        <br />
+        {renderBlogs()}
+      </BaseContentDiv>
+    </Container>
+  );
 }

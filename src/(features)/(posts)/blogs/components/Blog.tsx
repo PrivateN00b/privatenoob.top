@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 import theme from "../../../../styles/theme.js";
 import { BlogProps } from "../utils/BlogsTypes.js";
 import { BlogCategory } from "../utils/BlogsEnums.js";
-import { NavLink } from "react-router-dom";
 
 const BlogDiv = styled.div`
     text-align: center;
@@ -33,7 +32,7 @@ const Category = styled.span`
 
 export default function Blog(props: BlogProps) {
     return (
-        <NavLink style={{ textDecoration: "none" }} to={props.to} state={props}>
+        <a style={{ textDecoration: "none" }} to={props.to} state={props}>
             <BlogDiv>
                 <Title style={{ color: "white" }}>{props.title}</Title>
                 <Intro>{props.intro}</Intro>
@@ -48,6 +47,6 @@ export default function Blog(props: BlogProps) {
                     </div>
                 </div>
             </BlogDiv>
-        </NavLink>
+        </a>
     );
 }

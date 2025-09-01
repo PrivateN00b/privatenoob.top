@@ -17,12 +17,6 @@ const styles = stylex.create({
 
 
 function Page() {
-  // Will be printed on the server and in the browser:
-  console.log('Rendering the landing page')
-
-  const id = useId()
-  console.log(id)
-
   return (
     <ThemeProvider theme={theme}>
       <div {...stylex.props(styles.base)}>

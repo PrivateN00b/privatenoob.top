@@ -21,8 +21,6 @@ const styles = stylex.create({
 })
 
 export default function LayoutDefault({ children }: { children: React.ReactNode }) {
-  console.log("IN LAYOUTDEFAULT")
-
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
@@ -35,8 +33,6 @@ export default function LayoutDefault({ children }: { children: React.ReactNode 
 }
 
 function Content({ children }: { children: React.ReactNode }) {
-  console.log(children)
-  
   return (
     <div {...stylex.props(styles.base)}>
       <LeftLayout />
