@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom"
 import { BlogProps } from "../utils/BlogsTypes";
 import { BaseContentDiv } from "../../../../components/div/BaseContentDiv";
 import { CenteredH1, CenteredH2 } from "../../../../components/text/CenteredHeaders";
@@ -9,6 +8,7 @@ import { BlogCategory } from "../utils/BlogsEnums";
 import Code from "./Code";
 import blogsJSON from "../utils/blogs.json";
 import pathNames from "../../../../utils/pathNames";
+import { usePageContext } from "vike-react/usePageContext";
 
 const BlogParagraph = styled.p`
     text-align: left;
@@ -40,16 +40,16 @@ const RightColumn = styled.div`
 
 
 export default function BlogPage() {
-    const location = useLocation();
+    const pageContext = usePageContext();
     const [blog, setBlog] = useState<BlogProps | null>(null)
     
     useEffect(() => {
-        console.log(`location: ${location}`)
-        if (location.state != null) {
-            setBlog(location.state as BlogProps)
-            console.log(`setBlog when location.state != null: ${location.state as BlogProps}`)
-        } 
-        else {
+        console.log(`pageContext: ${pageContext}`)
+        // if (location.state != null) {
+        //     setBlog(location.state as BlogProps)
+        //     console.log(`setBlog when location.state != null: ${location.state as BlogProps}`)
+        // } 
+        // else {
             const localBlogs: BlogProps[] = JSON.parse(
                 JSON.stringify(blogsJSON)
             ) as BlogProps[];
@@ -60,7 +60,7 @@ export default function BlogPage() {
             ) as BlogProps;
             setBlog(currentBlog)
             console.log(`setBlog when location.state == null: ${currentBlog}`)
-        }
+        // }
     }, [])
     
     if (!blog) {
@@ -82,7 +82,7 @@ export default function BlogPage() {
          */
         const ApplyElements = (splittedVal: string[]) => {
             if (splittedVal.length >= 4) {
-                return <>{splittedVal[1]}<Link to={splittedVal[3]}>{splittedVal[4]}</Link></>
+                return <>{splittedVal[1]}<a href={splittedVal[3]}>{splittedVal[4]}</a></>
             } else {
                 return splittedVal[0].includes("/s") ? 
                     <><strong>{splittedVal[1]}</strong>{splittedVal[2]}</> : 

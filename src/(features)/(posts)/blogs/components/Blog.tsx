@@ -1,8 +1,8 @@
-import { styled } from "styled-components";
-import { BlogProps } from "../utils/BlogsTypes.js";
-import { BlogCategory } from "../utils/BlogsEnums.js";
+import { BlogProps } from "../utils/BlogsTypes";
+import { BlogCategory } from "../utils/BlogsEnums";
 import * as stylex from '@stylexjs/stylex';
-import { colors, fontSize } from "../../../../styles/tokens.stylex.js";
+import { colors, fontSize } from "../../../../styles/tokens.stylex";
+import { Link } from "../../../../components/link/Link";
 
 const styles = stylex.create({
     blogDiv: {
@@ -15,7 +15,7 @@ const styles = stylex.create({
         backgroundColor: colors.quarteriary,
     },
     title: {
-        margin: '0',
+        margin: 0,
         textAlign: 'left',
         color: 'white'
     },
@@ -29,11 +29,16 @@ const styles = stylex.create({
         color: colors.primary,
         fontSize: fontSize.small,
     },
-});
+    link: {
+        textDecoration: 'none'
+    }
+})
 
 export default function Blog(props: BlogProps) {
+    console.log("IN BLOG")
+    console.log("BLOG PROPS: ", props)
     return (
-        <a style={{ textDecoration: "none" }} href={props.to}>
+        <Link style={[styles.link]} href={"blogs/" + props.to}>
             <div {...stylex.props(styles.blogDiv)}>
                 <h2 {...stylex.props(styles.title)}>{props.title}</h2>
                 <p {...stylex.props(styles.intro)}>{props.intro}</p>
@@ -48,6 +53,6 @@ export default function Blog(props: BlogProps) {
                     </div>
                 </div>
             </div>
-        </a>
+        </Link>
     );
 }
