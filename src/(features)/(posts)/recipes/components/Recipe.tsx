@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 import { Meal } from "../utils/RecipesEnums";
+import { Link } from "../../../../components/link/Link";
 
-const Card = styled(NavLink)`
+const Card = styled(Link)`
   height: auto;
   max-width: 240px;
   text-decoration: none;
