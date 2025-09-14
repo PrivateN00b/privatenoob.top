@@ -1,18 +1,20 @@
+import * as stylex from '@stylexjs/stylex';
 import { styled } from "styled-components";
 import { Meal } from "../utils/RecipesEnums";
 import { Link } from "../../../../components/link/Link";
 
-const Card = styled(Link)`
-  height: auto;
-  max-width: 240px;
-  text-decoration: none;
-  margin: 10px 0;
-  min-width: 200px;
+const styles = stylex.create({
+  card: {
+    height: 'auto',
+    textDecoration: 'none',
+    margin: '10px 0',
+    minWidth: '200px',
 
-  @media (max-width: 900px) {
-    max-width: 250px;
-  }
-`;
+    maxWidth: {
+      ["@media (max-width: 900px)"]: '250px'
+    },
+  },
+});
 
 const BaseCard = styled.div`
   background-color: ${({ theme }) => theme.colors.quarteriary};
@@ -114,8 +116,9 @@ const RenderRestriction = (restriction: string) => {
 };
 
 export function Recipe(props: RecipeProps) {
+  console.log("CARD PROPS: ", props)
   return (
-    <Card to={props.to} state={props}>
+    <Link style={[styles.card]} href={"recipes/" + props.to}>
       <CardTop>
         <Img src={props.imgSrc} alt={props.imgAlt} />
         <Infos>
@@ -133,6 +136,6 @@ export function Recipe(props: RecipeProps) {
           <span>{props.length}</span>
         </StatsRow>
       </CardBottom>
-    </Card>
+    </Link>
   );
 }
