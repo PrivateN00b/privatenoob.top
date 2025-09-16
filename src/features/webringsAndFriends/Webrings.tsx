@@ -61,7 +61,7 @@ export default function Webrings() {
       </p>
       {/* Silly City */}
       <iframe
-        src="https://silly.city/embed.html?user=your-username"
+        src="https://silly.city/embed.html?user=PrivateNoob"
         title="silly.city webring"
         frameBorder="no"
         height={60}
