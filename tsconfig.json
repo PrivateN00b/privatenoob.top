@@ -26,7 +26,5 @@
   },
   "exclude": [
     "dist"
-  ],
-  "include": ["src", "pages/index/+Page.tsx"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  ]
 }
