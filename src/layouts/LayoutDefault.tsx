@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { styled, ThemeProvider } from "styled-components";
 import { theme } from "../styles/theme";
 import GlobalStyle from "../styles/global"
@@ -9,7 +9,6 @@ import RightLayout from "./components/RightLayout";
 import CenterLayout from "./components/CenterLayout";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
-import Oneko from "../(features)/oneko/Oneko";
 
 const styles = stylex.create({
   base: {
@@ -24,7 +23,6 @@ export default function LayoutDefault({ children }: { children: React.ReactNode 
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Oneko />
         <GlobalStyle />
         <Content>{children}</Content>
       </ThemeProvider>    
