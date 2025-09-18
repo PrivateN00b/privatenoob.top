@@ -43,8 +43,6 @@
     "typescript": "^5.7.2",
     "eslint": "^9.35.0",
     "@eslint/js": "^9.35.0",
-    "typescript-eslint": "^8.42.0",
-    "globals": "^16.3.0",
     "eslint-plugin-react": "^7.37.5",
     "vite": "^6.0.6"
   }

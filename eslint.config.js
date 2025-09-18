@@ -1,10 +1,7 @@
-import eslint from "@eslint/js";
-import react from "eslint-plugin-react";
-import globals from "globals";
-import tseslint, { type ConfigArray } from "typescript-eslint";
+// eslint.config.js
+import { defineConfig } from "eslint/config";
 
-export default tseslint.config(
-  {
+export default defineConfig(  {
     ignores: [
       "dist/*",
       // Temporary compiled files
@@ -29,13 +26,9 @@ export default tseslint.config(
   },
   {
     rules: {
-      "@typescript-eslint/no-unused-vars": [
-        1,
-        {
-          argsIgnorePattern: "^_",
-        },
-      ],
-      "@typescript-eslint/no-namespace": 0
+      "no-unused-vars": ["warn"],
+      "no-unused-imports": ["error"],
+      "no-namespace": 0
     },
   },
 
@@ -55,7 +48,4 @@ export default tseslint.config(
         version: "detect",
       },
     },
-  } as ConfigArray[number],
-
-  react.configs.flat["jsx-runtime"] as ConfigArray[number],
-);
+  });
