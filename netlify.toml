@@ -3,6 +3,15 @@
   to = "/index.html"
   status = 200
 
+[functions]
+  directory = "/functions/"
+
+[build]
+  command = "yarn build"
+  functions = "functions"
+  publish = "dist"
+  targetPort = "3000"
+
 [[headers]] # Set cache policy to cache static assets, such as gifs and images
   for = "/public/*"
   [headers.values]
@@ -10,4 +19,3 @@
 
 [dev]
   targetPort = 3000
-  port = 8888
