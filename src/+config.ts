@@ -8,4 +8,6 @@ export default {
   
   stream: true,
   extends: [vikeReact, vikeReactStyledComponents],
+  prerender: true,
+  includeAssetsImportedByServer: true
 } satisfies Config

@@ -54,9 +54,7 @@ export default defineConfig(({ mode }) => {
     css: {
       postcss: path.resolve(path.resolve(), "postcss.config.js"),
     },
-    // optimizeDeps: {
-    //   exclude: ["@open-props"],
-    // },
+    optimizeDeps: { include: ["react/jsx-runtime"] },
     build: {
       sourcemap: true,
       target: "esnext",

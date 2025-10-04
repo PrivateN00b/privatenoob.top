@@ -3,14 +3,9 @@
   to = "/index.html"
   status = 200
 
-[functions]
-  directory = "/functions/"
-
 [build]
   command = "yarn build"
-  functions = "functions"
-  publish = "dist"
-  targetPort = "3000"
+  publish = "dist/client/"
 
 [[headers]] # Set cache policy to cache static assets, such as gifs and images
   for = "/public/*"
