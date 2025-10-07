@@ -3,10 +3,6 @@
   to = "/index.html"
   status = 200
 
-[build]
-  command = "yarn build"
-  publish = "dist/client/"
-
 [[headers]] # Set cache policy to cache static assets, such as gifs and images
   for = "/public/*"
   [headers.values]
