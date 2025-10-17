@@ -3,6 +3,7 @@ export { Wrapper }
 import React from 'react';
 import { StyleSheetManager } from 'styled-components';
 import { usePageContext } from 'vike-react/usePageContext';
+import '../../../src/stylex.css'
 
 function Wrapper({ children }: { children: React.ReactNode }) {
     const pageContext = usePageContext()

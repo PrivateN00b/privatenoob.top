@@ -12,6 +12,7 @@ import { BaseContentDiv } from "../../components/div/BaseContentDiv";
 import SiteInfo from "../siteInfo/SiteInfo";
 import { FlexDiv } from "../../components/div/FlexDivs";
 import { lazy, Suspense } from "react";
+import '../../../src/stylex.css'
 
 const Buttons = lazy(() => import("./components/Buttons"))
 const Webrings = lazy(() => import("../webringsAndFriends/Webrings"))

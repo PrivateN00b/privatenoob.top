@@ -9,6 +9,7 @@ import RightLayout from "./components/RightLayout";
 import CenterLayout from "./components/CenterLayout";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
+import './stylex.css'
 
 const styles = stylex.create({
   base: {
