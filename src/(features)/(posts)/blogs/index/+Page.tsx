@@ -2,21 +2,20 @@ export default Page
 
 import * as stylex from '@stylexjs/stylex';
 import React from 'react'
-import { BaseContentDiv } from "../../../components/div/BaseContentDiv";
-import Container from "../../../components/div/Container";
-import Filters from "./components/Filters";
-import Blog from "./components/Blog";
-import blogsJSON from "./utils/blogs.json";
+import { BaseContentDiv } from "../../../../components/div/BaseContentDiv";
+import Container from "../../../../components/div/Container";
+import Filters from "../components/Filters";
+import Blog from "../components/Blog";
+import blogsJSON from "../utils/blogs.json";
 import { useEffect, useState } from "react";
-import { BlogProps } from "./utils/BlogsTypes";
-import { BlogCategory } from "./utils/BlogsEnums";
+import { BlogProps } from "../utils/BlogsTypes";
+import { BlogCategory } from "../utils/BlogsEnums";
+import { useData } from 'vike-react/useData';
 
 function Page() {
   const [categories, setCategories] = useState([] as BlogCategory[])
   const [blogs, setBlogs] = useState([] as BlogProps[]);
-  const localBlogs: BlogProps[] = JSON.parse(
-    JSON.stringify(blogsJSON)
-  ) as BlogProps[];
+  const localBlogs: BlogProps[] = useData<BlogProps[]>();
 
   useEffect(() => {
     // This shall be replaced when the backend will provide blogs as well, just as in Recipes.tsx

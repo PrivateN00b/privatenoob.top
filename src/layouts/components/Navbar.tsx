@@ -159,13 +159,13 @@ function Navbar() {
                 </div>{" "}
                 <div {...stylex.props(styles.menuBorder)} />
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <NavbarLink to="blogs" component="dropdown">
+                  <NavbarLink to="/blogs" component="dropdown">
                     Blogs
                   </NavbarLink>
-                  <NavbarLink to="recipes" component="dropdown">
+                  <NavbarLink to="/recipes" component="dropdown">
                     Recipes
                   </NavbarLink>
-                  <NavbarLink to="404" component="dropdown">
+                  <NavbarLink to="/404" component="dropdown">
                     Personal
                   </NavbarLink>
                 </div>
