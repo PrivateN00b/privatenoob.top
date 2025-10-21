@@ -6,21 +6,19 @@ import { BaseContentDiv } from "../../../../components/div/BaseContentDiv";
 import Container from "../../../../components/div/Container";
 import Filters from "../components/Filters";
 import Blog from "../components/Blog";
-import blogsJSON from "../utils/blogs.json";
 import { useEffect, useState } from "react";
-import { BlogProps } from "../utils/BlogsTypes";
+import { BlogData, BlogProps } from "../utils/BlogsTypes";
 import { BlogCategory } from "../utils/BlogsEnums";
 import { useData } from 'vike-react/useData';
 
 function Page() {
   const [categories, setCategories] = useState([] as BlogCategory[])
   const [blogs, setBlogs] = useState([] as BlogProps[]);
-  const localBlogs: BlogProps[] = useData<BlogProps[]>();
-
+  const data: BlogData = useData<BlogData>();
+  
   useEffect(() => {
-    // This shall be replaced when the backend will provide blogs as well, just as in Recipes.tsx
-    setBlogs(localBlogs)
-    console.log("localBlogs: ", localBlogs)
+    // Get blogs from +data.ts
+    setBlogs(data.blogs)
   }, [])
 
   const toBlogCategory = (name: string) => {

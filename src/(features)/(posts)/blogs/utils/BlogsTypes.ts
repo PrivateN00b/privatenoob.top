@@ -16,4 +16,8 @@ type BlogProps = {
   sources: { [key: string]: string }[]; 
 };
 
-export type { FilterProps, BlogProps };
+type BlogData = {
+  blogs: BlogProps[]
+};
+
+export type { FilterProps, BlogProps, BlogData };
