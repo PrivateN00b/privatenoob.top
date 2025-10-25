@@ -3,16 +3,16 @@ export default Page
 import * as stylex from '@stylexjs/stylex';
 import React, { useEffect, useId, useState } from 'react'
 import { styled } from 'styled-components';
-import { FilterProps, RecipeDict } from './utils/RecipesTypes';
+import { FilterProps, RecipeData, RecipeDict } from '../utils/RecipesTypes';
 import { useData } from 'vike-react/useData';
-import { Cost, Meal } from './utils/RecipesEnums';
-import Container from '../../../components/div/Container';
-import LeftSideDiv from '../../../components/div/LeftSideDiv';
-import Filters from './components/Filters';
-import MainDiv from '../../../components/div/MainDiv';
-import { BaseContentDiv } from '../../../components/div/BaseContentDiv';
-import { CenteredH1 } from '../../../components/text/CenteredHeaders';
-import { Recipe } from './components/Recipe';
+import { Cost, Meal } from '../utils/RecipesEnums';
+import Container from '../../../../components/div/Container';
+import LeftSideDiv from '../../../../components/div/LeftSideDiv';
+import Filters from '../components/Filters';
+import MainDiv from '../../../../components/div/MainDiv';
+import { BaseContentDiv } from '../../../../components/div/BaseContentDiv';
+import { CenteredH1 } from '../../../../components/text/CenteredHeaders';
+import { Recipe } from '../components/Recipe';
 
 const RecipeList = styled.div`
   display: grid;
@@ -27,16 +27,10 @@ function Page() {
 
   // Get the recipes from the server and from recipes.json
   const [recipes, setRecipes] = useState([] as RecipeDict[]);
-  const localRecipes = useData<RecipeDict[]>()
+  const recipesData: RecipeData = useData<RecipeData>()
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_REACT_APP_SERVER_URL}/Recipe`)
-      .then((res) => res.json())
-      .then((res) => {
-        // Combine the 2 datasets
-        setRecipes([...(res as RecipeDict[]), ...localRecipes]);
-      })
-      .catch(() => setRecipes(localRecipes));
+    setRecipes(recipesData.recipes)
   }, []);
 
   // Set filter values
@@ -99,6 +93,7 @@ function Page() {
       ) as RecipeDict[];
     }
 
+    console.log("filteredRecipes: ", recipes)
     return filteredRecipes.map((recipe: RecipeDict) => (
       <Recipe
         to={recipe.to}

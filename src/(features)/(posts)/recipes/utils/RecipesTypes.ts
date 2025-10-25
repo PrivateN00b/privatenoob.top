@@ -29,4 +29,8 @@ type PortionProps = {
   setPortion?: Dispatch<SetStateAction<number>>,
 }
 
-export type { FilterProps, RecipeDict, PortionProps };
+type RecipeData = {
+  recipes: RecipeDict[]
+}
+
+export type { FilterProps, RecipeDict, PortionProps, RecipeData };

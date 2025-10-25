@@ -113,13 +113,13 @@ function Page() {
     const [portion, setPortion] = useState(10)  // 10 == 1 portion, to have an easier time displaying the portion
 
     useEffect(() => {
-      console.log(recipe)
+      console.log("RECIPE: ",recipe)
     }, [])
 
-    // // Render a loading page till the recipe variable will be filled
-    // if (!recipe) {
-    //     return <div>Loading recipe...</div>;
-    // }
+    // Render a loading page till the recipe variable will be filled
+    if (!recipe) {
+        return <div>Loading recipe...</div>;
+    }
 
     return (
         <Container>

@@ -1,6 +1,6 @@
 import type { PageContextServer } from "vike/types";
-import { RecipeDict } from "./utils/RecipesTypes";
-import recipesJSON from "./utils/recipes.json";
+import { RecipeDict } from "../utils/RecipesTypes";
+import recipesJSON from "../utils/recipes.json";
 
 export const data = async (pageContext: PageContextServer) => {
 
