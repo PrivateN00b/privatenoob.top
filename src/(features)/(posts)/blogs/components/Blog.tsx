@@ -35,8 +35,6 @@ const styles = stylex.create({
 })
 
 export default function Blog(props: BlogProps) {
-    console.log("IN BLOG")
-    console.log("BLOG PROPS: ", props)
     return (
         <Link style={[styles.link]} href={"blogs/" + props.to}>
             <div {...stylex.props(styles.blogDiv)}>
