@@ -1,5 +1,5 @@
 import { createGlobalStyle, withTheme } from "styled-components";
-import { colors, fontSize } from "./tokens.stylex.ts"
+import { colors, fontSize } from "./tokens.stylex"
 
 const globalStyle = createGlobalStyle`
   @font-face {

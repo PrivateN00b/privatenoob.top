@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
 /**
@@ -8,7 +8,10 @@ import { useDispatch } from "react-redux";
 * @returns Returns playing state, toggle and audio starting function
 */
 export const useAudio = (url: string, endedEvent: () => { payload: any; type: string; }): [boolean, () => void, () => void] => {
-    const [audio] = useState(new Audio(url));
+    // Audio doesn't exist server side, since this is a client sided feature. Find some workaround please  
+    const audio = useRef<HTMLAudioElement | undefined>(
+      typeof Audio !== "undefined" ? new Audio(url) : undefined
+    );
     const [playing, setPlaying] = useState(false);
     const dispatch = useDispatch();
   
@@ -16,16 +19,16 @@ export const useAudio = (url: string, endedEvent: () => { payload: any; type: st
     const start = () => setPlaying(true);
   
     useEffect(() => {
-      playing ? audio.play() : audio.pause();
+      playing ? audio.current?.play() : audio.current?.pause();
     }, [playing]);
   
     useEffect(() => {
-      audio.addEventListener("ended", () => {
+      audio.current?.addEventListener("ended", () => {
         setPlaying(false);
         dispatch(endedEvent());
       });
       return () => {
-        audio.removeEventListener("ended", () => {
+        audio.current?.removeEventListener("ended", () => {
           setPlaying(false);
           dispatch(endedEvent());
         });
